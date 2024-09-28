@@ -67,6 +67,13 @@ module.exports = {
           DEFAULT: "hsl(var(--info))",
           foreground: "hsl(var(--info-foreground))",
         },
+        grassGreen: "hsl(var(--grass-green))",
+        corporateBlue: "hsl(var(--corporate-blue))",
+        coolBlueGrey: "hsl(var(--cool-blue-grey))",
+        terracotaEarth: "hsl(var(--terracota-earth))",
+        neutralEarth: "hsl(var(--neutral-earth))",
+        cloudyMist: "hsl(var(--cloudy-mist))",
+        nightGrey: "hsl(var(--night-grey))",
       },
       borderRadius: {
         lg: "var(--radius)",

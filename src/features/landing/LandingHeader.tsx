@@ -59,8 +59,12 @@ export function LandingHeader() {
       className="fixed inset-x-0 z-50 flex h-20 w-screen shadow backdrop-blur-md"
     >
       <div className="mx-auto flex w-full max-w-3xl items-center justify-between px-4 lg:px-8">
-        <div className="flex items-center gap-1">
-          <LogoSvg size={24} />
+        <div className="flex items-center gap-2">
+          <LogoSvg
+            size={40}
+            color="#E3DDD2"
+            className="rounded-full bg-corporateBlue"
+          />
           <motion.p
             style={{
               scale: useTransform(

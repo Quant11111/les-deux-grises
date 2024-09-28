@@ -5,7 +5,7 @@ import type { Session } from "next-auth";
 import NextAuth from "next-auth";
 import { env } from "../env";
 import { prisma } from "../prisma";
-import { setupResendCustomer, setupStripeCustomer } from "./auth-config-setup";
+import { setupResendCustomer } from "./auth-config-setup";
 import { getNextAuthConfigProviders } from "./getNextAuthConfigProviders";
 
 export const { handlers, auth: baseAuth } = NextAuth((req) => ({
@@ -49,7 +49,6 @@ export const { handlers, auth: baseAuth } = NextAuth((req) => ({
         return;
       }
 
-      const stripeCustomerId = await setupStripeCustomer(user);
       const resendContactId = await setupResendCustomer(user);
 
       await prisma.user.update({
@@ -57,7 +56,6 @@ export const { handlers, auth: baseAuth } = NextAuth((req) => ({
           id: user.id,
         },
         data: {
-          stripeCustomerId,
           resendContactId,
         },
       });

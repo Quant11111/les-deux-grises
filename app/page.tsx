@@ -19,10 +19,17 @@ import Image from "next/image";
 
 export default function HomePage() {
   return (
-    <div className="relative flex h-fit flex-col bg-background text-foreground">
-      <div className="mt-16"></div>
-
+    <div className="relative flex h-fit w-full flex-col bg-background text-foreground">
       <LandingHeader />
+      {/* <div className="absolute top-0 h-screen w-full">
+        <Image
+          src="/images/blackhorse.gif"
+          alt="Hero images"
+          layout="fill"
+          objectFit="cover"
+          className="z-0"
+        />
+      </div> */}
 
       <Hero />
 

@@ -59,10 +59,6 @@ model User {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
-  // Payment
-  stripeCustomerId String?
-  plan             UserPlan @default(FREE)
-
   // Resend email
   resendContactId String?
 
@@ -86,7 +82,3 @@ model Feedback {
   updatedAt DateTime @updatedAt
 }
 
-enum UserPlan {
-  FREE
-  PREMIUM
-}

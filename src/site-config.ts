@@ -1,7 +1,7 @@
 export const SiteConfig = {
-  title: "PADELU",
+  title: "Les Deux Grises",
   description: "Funny app for League conspiracy theorist",
-  prodUrl: "https://orbweavers.app",  // TODO: update domain name when deploying
+  prodUrl: "https://orbweavers.app", // TODO: update domain name when deploying
   domain: "padelu.app",
   appIcon: "/images/icon.png",
   company: {
@@ -16,7 +16,8 @@ export const SiteConfig = {
     contact: "constact@padelu.app",
   },
   maker: {
-    image: "https://quentin-lamagnere.netlify.app/static/media/homepic.cbca523726a2c9d25021.jpg",
+    image:
+      "https://quentin-lamagnere.netlify.app/static/media/homepic.cbca523726a2c9d25021.jpg",
     website: "https://quentin-lamagnere.netlify.app",
     twitter: "https://x.com/Quant11111",
     name: "Quant11111",
