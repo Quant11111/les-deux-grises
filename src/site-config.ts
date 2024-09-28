@@ -1,19 +1,19 @@
 export const SiteConfig = {
   title: "Les Deux Grises",
   description: "Funny app for League conspiracy theorist",
-  prodUrl: "https://orbweavers.app", // TODO: update domain name when deploying
-  domain: "padelu.app",
+  prodUrl: "https://lesdeuxgrises.com", // TODO: update domain name when deploying
+  domain: "lesdeuxgrises.com",
   appIcon: "/images/icon.png",
   company: {
-    name: "padelu",
-    address: "79 rue du Ranelagh",
+    name: "LES DEUX GRISES",
+    address: "19 PLACE DE LA MADELEINE, 75008 PARIS",
   },
   brand: {
     primary: "#007291",
   },
   email: {
-    from: "padelu <padelu@resend.dev>", // Replace this with your domaine email
-    contact: "constact@padelu.app",
+    from: "lesdeuxgrises <lesdeuxgrises@resend.dev>", // Replace this with your domaine email
+    contact: "ldg@lesdeuxgrises.com",
   },
   maker: {
     image:
