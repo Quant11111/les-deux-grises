@@ -2,7 +2,6 @@
 
 import {
   setupResendCustomer,
-  setupStripeCustomer,
 } from "@/lib/auth/auth-config-setup";
 import {
   hashStringWithSalt,
@@ -29,13 +28,11 @@ export const signUpAction = action
         name,
       };
 
-      const stripeCustomerId = await setupStripeCustomer(userData);
       const resendContactId = await setupResendCustomer(userData);
 
       const user = await prisma.user.create({
         data: {
           ...userData,
-          stripeCustomerId,
           resendContactId,
         },
       });

@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardFooter, CardHeader } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Typography } from "@/components/ui/typography";
-import { BuyButton } from "@/features/stripe/BuyButton";
 import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
 
@@ -71,12 +70,8 @@ export const PricingCard = (props: PricingCardProps) => {
         </ul>
       </CardHeader>
       <CardFooter className="flex flex-col items-stretch gap-2">
-        <BuyButton
-          variant={props.isPopular ? "default" : "outline"}
-          priceId={props.priceId}
-        >
+
           {props.cta}
-        </BuyButton>
         <Typography variant="muted">{props.ctaSubtitle}</Typography>
       </CardFooter>
     </Card>

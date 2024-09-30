@@ -21,15 +21,6 @@ export default function HomePage() {
   return (
     <div className="relative flex h-fit w-full flex-col bg-background text-foreground">
       <LandingHeader />
-      {/* <div className="absolute top-0 h-screen w-full">
-        <Image
-          src="/images/blackhorse.gif"
-          alt="Hero images"
-          layout="fill"
-          objectFit="cover"
-          className="z-0"
-        />
-      </div> */}
 
       <Hero />
 
