@@ -33,7 +33,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
       - name: Install dependencies
-        run: rm -rf node_modules && pnpm install
+        run: rm -rf node_modules pnpm-lock.yaml && pnpm install
       - name: Generate .env file
         run: |
           echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
@@ -52,5 +52,5 @@ jobs:
           rm -rf .next
           pnpm exec prisma migrate deploy
           pnpm run build
-      - name: restart pm2 nextjs instance
-        run: pm2 restart nextjs
+      - name: restart pm2 lesdeuxgrises instance
+        run: pm2 restart lesdeuxgrises
