@@ -1,5 +1,5 @@
 services:
-  postgres:
+  postgres_ldg:
     image: postgres:15
     environment:
       - POSTGRES_USER=johndoe
@@ -8,6 +8,7 @@ services:
     volumes:
       - postgres:/var/lib/postgresql/data
     ports:
-      - "5433:5433"
+      - "5433:5432"
 volumes:
-  postgres:
+  postgres_volume_ldg:
+    name: postgres_volume_ldg
