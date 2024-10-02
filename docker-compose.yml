@@ -10,6 +10,7 @@ services:
       - postgres-data_ldg:/var/lib/postgresql/data
     ports:
       - '5433:5432'
+    restart: always
 volumes:
   postgres-data_ldg:
       
