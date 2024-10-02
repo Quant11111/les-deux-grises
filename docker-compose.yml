@@ -1,14 +1,15 @@
+version: '3.8'
 services:
-  postgres_ldg:
+  db_ldg:
     image: postgres:15
     environment:
       - POSTGRES_USER=johndoe
       - POSTGRES_PASSWORD=randompassword
       - POSTGRES_DB=postgres
     volumes:
-      - postgres_volume_ldg:/var/lib/postgresql/data
+      - postgres-data_ldg:/var/lib/postgresql/data
     ports:
-      - "5433:5432"
+      - '5433:5432'
 volumes:
-  postgres_volume_ldg:
-    name: postgres_volume_ldg
+  postgres-data_padelu:
+      
