@@ -21,7 +21,6 @@ jobs:
       STRIPE_SECRET_KEY: ${{secrets.STRIPE_SECRET_KEY}}
       STRIPE_WEBHOOK_SECRET: ${{secrets.STRIPE_WEBHOOK_SECRET}}
       NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}}
-      RIOT_API_KEY: ${{secrets.RIOT_API_KEY}}
 
     steps:
       - uses: actions/checkout@v4
