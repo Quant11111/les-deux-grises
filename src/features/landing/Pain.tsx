@@ -6,7 +6,7 @@ import { SectionLayout } from "./SectionLayout";
 export const PainSection = () => {
   return (
     <SectionLayout
-      variant="card"
+      variant="default"
       size="base"
       className="flex flex-col items-center justify-center gap-4"
     >

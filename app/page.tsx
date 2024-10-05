@@ -19,7 +19,7 @@ import Image from "next/image";
 
 export default function HomePage() {
   return (
-    <div className="relative flex h-fit w-full flex-col bg-background text-foreground">
+    <div className="relative flex h-fit w-full flex-col gap-10 bg-background text-foreground">
       <LandingHeader />
 
       <Hero />

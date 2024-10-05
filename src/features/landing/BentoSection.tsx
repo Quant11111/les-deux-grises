@@ -19,7 +19,7 @@ import { SectionLayout } from "./SectionLayout";
 
 export function BentoGridSection() {
   return (
-    <SectionLayout>
+    <SectionLayout className="rounded-xl bg-cloudyMist">
       <BentoGrid className="mx-auto max-w-4xl md:auto-rows-[20rem]">
         {items.map((item, i) => (
           <BentoGridItem
