@@ -7,3 +7,7 @@ Please follow the [NOW.TS Course](https://codeline.app/courses/clqn8pmte0001lr54
 ## Contributions
 
 Feel free to create a pull request with any changes you think valuable.
+
+## pm2 command 
+
+pm2 start npm --name "lesdeuxgrises" --watch --watch-delay 1000 --ignore-watch="node_modules .next" -- start -- -p 3001 
