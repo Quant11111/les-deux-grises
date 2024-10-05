@@ -1,12 +1,12 @@
 export const SiteConfig = {
   title: "Les Deux Grises",
-  description: "Funny app for League conspiracy theorist",
+  description: "Horses bred with passion and love",
   prodUrl: "https://lesdeuxgrises.com", // TODO: update domain name when deploying
   domain: "lesdeuxgrises.com",
   appIcon: "/images/icon.png",
   company: {
     name: "LES DEUX GRISES",
-    address: "19 PLACE DE LA MADELEINE, 75008 PARIS",
+    address: "634 Chemin de Montrognon, 95660 Champagne-sur-Oise FRANCE",
   },
   brand: {
     primary: "#007291",
@@ -23,6 +23,6 @@ export const SiteConfig = {
     name: "Quant11111",
   },
   auth: {
-    password: false as boolean,
+    password: true as boolean,
   },
 };

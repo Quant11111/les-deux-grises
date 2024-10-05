@@ -5,7 +5,6 @@ import { SiteConfig } from "@/site-config";
 import { motion, useMotionValue, useScroll, useTransform } from "framer-motion";
 import { useEffect } from "react";
 import { AuthButtonClient } from "../auth/AuthButtonClient";
-import { ThemeToggle } from "../theme/ThemeToggle";
 
 function useBoundedScroll(threshold: number) {
   const { scrollY } = useScroll();
@@ -88,11 +87,9 @@ export function LandingHeader() {
           }}
           className="flex items-center gap-4 text-sm font-medium text-muted-foreground"
         >
-          <a href="#features">Features</a>
-          <a href="#pricing">Pricing</a>
-          <a href="/posts">Blog</a>
+          <a href="/posts">Stories</a>
+          <a href="#features">Horses</a>
           <AuthButtonClient />
-          <ThemeToggle />
         </motion.nav>
       </div>
     </motion.header>
