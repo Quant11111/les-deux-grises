@@ -13,16 +13,17 @@ export const EmailFormSection = () => {
           variant="small"
           className="font-extrabold uppercase text-primary"
         >
-          Be the first to use Threader
+          Be the first to know
         </Typography>
         <Typography variant="h2" className="text-center text-4xl lg:text-5xl">
-          Join the waiting list of{" "}
+          Get news from our facility{" "}
           <span className="text-gradient bg-gradient-to-r from-orange-600 via-red-400 to-yellow-400 font-mono font-extrabold uppercase">
-            Threader
+            LES DEUX GRISES
           </span>
         </Typography>
         <Typography variant="h3">
-          Get early access, exclusive content and more.
+          We love to share how we treat our family members to grow them
+          properly.
         </Typography>
         <div className="mx-auto mt-6 w-full max-w-md">
           <EmailForm

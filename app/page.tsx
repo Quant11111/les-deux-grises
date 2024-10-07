@@ -179,37 +179,37 @@ export default function HomePage() {
       <FAQSection
         faq={[
           {
-            question: "What is Threader?",
+            question: "What does mean Les Deux Grises?",
             answer:
               "Threader is an innovative platform designed to help you write, schedule, and publish content to your account with the assistance of AI, enhancing your business's online presence.",
           },
           {
-            question: "How does AI Content Generation work?",
+            question: "What kind of horse do we breed?",
             answer:
               "Our AI Content Generation feature leverages the power of artificial intelligence to create unique and engaging content for your Threads, making content creation easier and more efficient.",
           },
           {
-            question: "Can I schedule my threads in advance?",
+            question: "Can i visit the facility?",
             answer:
               "Yes, with Threader, you can schedule your threads for a specific time, allowing you to maintain a consistent online presence without the need to manually post every day.",
           },
           {
-            question: "What is the Now.TS project?",
+            question: "Where does our passion come from?",
             answer:
               "Now.TS is a new project announced on our platform that enables users to create professional Next.js applications in days, streamlining the development process.",
           },
           {
-            question: "How can I get more followers?",
+            question: "Are you giving breeding advises?",
             answer:
               "To gain more followers, focus on creating content related to Next.js, as our analysis shows it's highly engaging. Utilize our research tools to understand trends and improve your content strategy.",
           },
           {
-            question: "What are the benefits of posting with Threader?",
+            question: "Are you working with other facilities?",
             answer:
               "Posting with Threader allows you to schedule posts, avoid daily manual postings, track your scheduled content easily, and maintain consistency in your online activity.",
           },
           {
-            question: "What pricing plans does Threader offer?",
+            question: "What is the pricing range?",
             answer:
               "Threader offers two pricing plans: THREADER FREE, perfect for tiny creators, allowing you to schedule 1 post in advance; and THREADER PREMIUM, ideal for content creators, offering unlimited scheduling, post previews, and auto-reposting features.",
           },
