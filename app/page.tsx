@@ -6,6 +6,7 @@ import { Hero } from "@/features/landing/Hero";
 import { LandingHeader } from "@/features/landing/LandingHeader";
 import { PainSection } from "@/features/landing/Pain";
 import { SectionDivider } from "@/features/landing/SectionDivider";
+import { SectionLayout } from "@/features/landing/SectionLayout";
 import { StatsSection } from "@/features/landing/StatsSection";
 import { CTASectionCard } from "@/features/landing/cta/CTACardSection";
 import { CTAImageSection } from "@/features/landing/cta/CTAImageSection";
@@ -27,6 +28,19 @@ export default function HomePage() {
       <StatsSection />
 
       <BentoGridSection />
+
+      <SectionLayout className="bg-terracotaEarth">
+        <div className="flex flex-col items-center justify-center gap-4">
+          <h2 className="text-center text-4xl font-bold text-secondary-foreground">
+            The best way to manage your social media
+          </h2>
+          <p className="text-center text-lg text-secondary-foreground">
+            Threader is an innovative platform designed to help you write,
+            schedule, and publish content to your account with the assistance of
+            AI, enhancing your business's online presence.
+          </p>
+        </div>
+      </SectionLayout>
 
       <PainSection />
 

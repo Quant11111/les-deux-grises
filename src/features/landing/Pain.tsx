@@ -11,31 +11,29 @@ export const PainSection = () => {
       className="flex flex-col items-center justify-center gap-4"
     >
       <div className="flex w-full flex-col items-center gap-3 lg:gap-4 xl:gap-6">
-        <Typography variant="h1">I love posting on Threads...</Typography>
-        <Typography variant="large">
-          But I loose my time going and publishing each days
-        </Typography>
+        <Typography variant="h1">Our Horses, Our Family!</Typography>
+        <Typography variant="large">Why is love so important ?</Typography>
         <div className="flex items-start gap-4 max-lg:flex-col">
           <div className="flex-1 rounded-lg bg-red-500/20 p-4 lg:p-6">
             <Typography variant="h3" className="text-red-500">
-              😞 Posting without Threader
+              😞 Breed with knowledge
             </Typography>
             <ul className="ml-4 mt-4 flex list-disc flex-col gap-2 text-lg text-foreground/80">
-              <li>Going on Thread every day to post</li>
-              <li>Be distracted when I go on the app</li>
-              <li>Losing track of my post</li>
-              <li>Incosistent</li>
+              <li>I guess they eat well</li>
+              <li>Low willpower during growth</li>
+              <li>Less confidence</li>
+              <li>More tempered</li>
             </ul>
           </div>
           <div className="flex-1 rounded-lg bg-green-500/20 p-4 lg:p-6">
             <Typography variant="h3" className="text-green-500">
-              😎 Posting WITH Threader
+              😎 Knowledge, love, dedication
             </Typography>
             <ul className="ml-4 mt-4 flex list-disc flex-col gap-2 text-lg text-foreground/80">
-              <li>Schedule your post on the Threader UI</li>
-              <li>Avoiding opening the app every day</li>
-              <li>See excatly what you have scheduled</li>
-              <li>Be consistent</li>
+              <li>Horse used to connect with humans</li>
+              <li>Trust and vitality enhanced</li>
+              <li>More resistant to common deseases</li>
+              <li>They still eat well !</li>
             </ul>
           </div>
         </div>
