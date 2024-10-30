@@ -11,16 +11,16 @@ jobs:
     strategy:
       matrix:
         node-version: [20.17.0]
-    # env:
-    #   DATABASE_URL: ${{secrets.DATABASE_URL}}
-    #   GOOGLE_ID: ${{secrets.GOOGLE_ID}}
-    #   GOOGLE_SECRET: ${{secrets.GOOGLE_SECRET}}
-    #   NEXTAUTH_SECRET: ${{secrets.NEXTAUTH_SECRET}}
-    #   RESEND_API_KEY: ${{secrets.RESEND_API_KEY}}
-    #   RESEND_AUDIENCE_ID: ${{secrets.RESEND_AUDIENCE_ID}}
-    #   STRIPE_SECRET_KEY: ${{secrets.STRIPE_SECRET_KEY}}
-    #   STRIPE_WEBHOOK_SECRET: ${{secrets.STRIPE_WEBHOOK_SECRET}}
-    #   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}}
+    env:
+      DATABASE_URL: ${{secrets.DATABASE_URL}}
+      GOOGLE_ID: ${{secrets.GOOGLE_ID}}
+      GOOGLE_SECRET: ${{secrets.GOOGLE_SECRET}}
+      NEXTAUTH_SECRET: ${{secrets.NEXTAUTH_SECRET}}
+      RESEND_API_KEY: ${{secrets.RESEND_API_KEY}}
+      RESEND_AUDIENCE_ID: ${{secrets.RESEND_AUDIENCE_ID}}
+      STRIPE_SECRET_KEY: ${{secrets.STRIPE_SECRET_KEY}}
+      STRIPE_WEBHOOK_SECRET: ${{secrets.STRIPE_WEBHOOK_SECRET}}
+      NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}}
 
     steps:
       - uses: actions/checkout@v4
@@ -31,25 +31,21 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 9.1.4 # Spécifiez la version de pnpm ici
       - name: Install dependencies
         run: rm -rf node_modules pnpm-lock.yaml && pnpm install
-      # - name: Generate .env file
-      #   run: |
-      #     echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
-      #     echo "GOOGLE_ID=${{ secrets.GOOGLE_ID }}" >> .env
-      #     echo "GOOGLE_SECRET=${{ secrets.GOOGLE_SECRET }}" >> .env
-      #     echo "NEXTAUTH_URL=${{ secrets.NEXTAUTH_URL }}" >> .env
-      #     echo "NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }}" >> .env
-      #     echo "RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}" >> .env
-      #     echo "RESEND_AUDIENCE_ID=${{ secrets.RESEND_AUDIENCE_ID }}" >> .env
-      #     echo "STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }}" >> .env
-      #     echo "STRIPE_WEBHOOK_SECRET=${{ secrets.STRIPE_WEBHOOK_SECRET }}" >> .env
-      #     echo "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }}" >> .env
-      #     echo "PROJECT_ENV=${{ secrets.PROJECT_ENV }}" >> .env
+      - name: Generate .env file
+        run: |
+          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
+          echo "GOOGLE_ID=${{ secrets.GOOGLE_ID }}" >> .env
+          echo "GOOGLE_SECRET=${{ secrets.GOOGLE_SECRET }}" >> .env
+          echo "NEXTAUTH_URL=${{ secrets.NEXTAUTH_URL }}" >> .env
+          echo "NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }}" >> .env
+          echo "RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}" >> .env
+          echo "RESEND_AUDIENCE_ID=${{ secrets.RESEND_AUDIENCE_ID }}" >> .env
+          echo "STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }}" >> .env
+          echo "STRIPE_WEBHOOK_SECRET=${{ secrets.STRIPE_WEBHOOK_SECRET }}" >> .env
+          echo "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }}" >> .env
+          echo "PROJECT_ENV=${{ secrets.PROJECT_ENV }}" >> .env
       - name: Build and Migrate
         run: |
           rm -rf .next
