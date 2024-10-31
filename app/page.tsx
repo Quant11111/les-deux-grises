@@ -87,6 +87,8 @@ export default function Home() {
             borderTopLeftRadius: "calc(50% + 2000px)",
             borderTopRightRadius: "calc(50% + 2000px)",
             boxShadow: `0 0 30px 10px ${themeVariables.nightGrey}`,
+            borderBottom: `6px solid ${themeVariables.cloudyMist}`,
+            borderLeft: `6px solid ${themeVariables.cloudyMist}`,
           }}
         />
 
