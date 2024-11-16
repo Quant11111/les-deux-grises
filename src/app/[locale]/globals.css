@@ -76,4 +76,8 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+    text-shadow: currentColor 0 0 1px;
+  }
 }

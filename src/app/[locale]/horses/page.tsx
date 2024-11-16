@@ -2,10 +2,10 @@ import Hero from "@/ui/components/Hero";
 import Navbar from "@/ui/Navbar";
 import { useLocale, useTranslations } from "next-intl";
 
-export default function Home() {
-  const nt = useTranslations("Navbar");
-  const t = useTranslations("HomePage");
+export default function Horses() {
   const locale = useLocale();
+  const t = useTranslations("HorsesPage");
+  const nt = useTranslations("Navbar");
   return (
     <main
       style={{
@@ -16,7 +16,7 @@ export default function Home() {
         height: "100vh",
       }}
     >
-      <Navbar active="home" locale={locale} t={nt} />
+      <Navbar active="horses" locale={locale} t={nt} />
 
       <Hero t={t} />
     </main>

@@ -19,12 +19,13 @@ export default function Navbar({
         zIndex: 100,
         width: "100%",
         padding: "2rem",
+        height: "5rem",
       }}
     >
       <nav
         style={{
           display: "flex",
-          gap: "2rem",
+          gap: "6rem",
           justifyContent: "right",
         }}
       >
@@ -76,7 +77,7 @@ export default function Navbar({
           href={`/${locale}/contact`}
           style={{
             color:
-              active === "constact"
+              active === "contact"
                 ? themeVariables.neutralEarth
                 : themeVariables.cloudyMist,
           }}
