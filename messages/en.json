@@ -1,0 +1,18 @@
+{
+  "Metadata": {
+    "title": "LesDeuxGrises",
+    "description": "A website for the two grises",
+    "keywords": "Les deux grises, les deux grises, LesDeuxGrises, lesdeuxgrises, breeding, horses"
+  },
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "horses": "Horses",
+    "news": "News",
+    "contact": "Contact"
+  },
+  "HomePage": {
+    "title": "Excellence",
+    "description": "A promise to deliver a high caliber of horses and jumping mares with outstanding genetic profile(s)."
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "Metadata": {
+    "title": "LesDeuxGrises",
+    "description": "Elevage de chevaux d'élite. Génétique de pointe et jumpers aguéris, voilà les fruits de la passion que portent les naisseurs de notre famille depuis des générations.",
+    "keywords": "chevaux, élevage, génétique, jumpers, passion, famille, naisseurs"
+  },
+  "Navbar": {
+    "home": "Accueil",
+    "about": "A propos",
+    "horses": "Chevaux",
+    "news": "Nouvelles",
+    "contact": "Contact"
+  },
+  "HomePage": {
+    "title": "Bonjour le monde!",
+    "about": "Aller à la page à propos"
+  }
+}
