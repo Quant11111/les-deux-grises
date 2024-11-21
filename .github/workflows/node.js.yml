@@ -51,7 +51,7 @@ jobs:
       - name: Build and Migrate
         run: |
           rm -rf .next
-          pnpm exec migrate dev
+          pnpm exec migrate dev reset --force
           pnpm run build
       - name: restart pm2 lesdeuxgrises instance
         run: pm2 restart lesdeuxgrises
