@@ -91,7 +91,7 @@ export default function News({ locale }: { locale: string }) {
           top: "6rem",
         }}
       >
-        News
+        {locale === "en" ? "News" : "Articles"}
       </h1>
       {articles.map((article) => (
         <div

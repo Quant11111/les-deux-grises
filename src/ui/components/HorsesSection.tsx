@@ -95,7 +95,7 @@ export default function Horses({ locale }: { locale: string }) {
           top: "6rem",
         }}
       >
-        Horses
+        {locale === "en" ? "Horses" : "Chevaux"}
       </h1>
       {horses.map((horse) => (
         <div
