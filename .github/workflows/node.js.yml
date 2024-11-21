@@ -48,10 +48,12 @@ jobs:
           echo "STRIPE_WEBHOOK_SECRET=${{ secrets.STRIPE_WEBHOOK_SECRET }}" >> .env
           echo "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }}" >> .env
           echo "PROJECT_ENV=${{ secrets.PROJECT_ENV }}" >> .env
+          echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env
+          echo "ADMIN_PASSWORD=${{ secrets.ADMIN_PASSWORD }}" >> .env
       - name: Build and Migrate
         run: |
           rm -rf .next
-          pnpm exec migrate dev reset --force
+          pnpm exec migrate dev 
           pnpm run build
       - name: restart pm2 lesdeuxgrises instance
         run: pm2 restart lesdeuxgrises
