@@ -79,13 +79,10 @@ export default function ArticlePageContent({
         </>
       )}
       <Card>
-        <h1>{horse?.name}</h1>
-        {locale === "en" ? (
-          <p>{horse?.englishDescription}</p>
-        ) : (
-          <p>{horse?.frenchDescription}</p>
-        )}
-        {}
+        <h1>{article?.title}</h1>
+        <h2>{article?.language}</h2>
+
+        <p>{article?.content}</p>
       </Card>
     </main>
   );
