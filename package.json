@@ -13,10 +13,12 @@
     "@emotion/styled": "^11.13.0",
     "@mui/material": "^6.1.5",
     "@prisma/client": "5.22.0",
+    "lucide-react": "^0.460.0",
     "next": "14.2.5",
     "next-intl": "^3.25.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sonner": "^1.7.0"
   },
   "devDependencies": {
     "@types/node": "^20",

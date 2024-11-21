@@ -1,4 +1,4 @@
-import Hero from "@/ui/components/Hero";
+import HorsesSection from "@/ui/components/HorsesSection";
 import Navbar from "@/ui/Navbar";
 import { useLocale, useTranslations } from "next-intl";
 
@@ -18,7 +18,7 @@ export default function Horses() {
     >
       <Navbar active="horses" locale={locale} t={nt} />
 
-      <Hero t={t} />
+      <HorsesSection locale={locale} />
     </main>
   );
 }

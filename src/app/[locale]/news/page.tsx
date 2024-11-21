@@ -1,4 +1,4 @@
-import Hero from "@/ui/components/Hero";
+import NewsSection from "@/ui/components/NewsSection";
 import Navbar from "@/ui/Navbar";
 import { useLocale, useTranslations } from "next-intl";
 
@@ -6,6 +6,7 @@ export default function News() {
   const locale = useLocale();
   const t = useTranslations("NewsPage");
   const nt = useTranslations("Navbar");
+
   return (
     <main
       style={{
@@ -18,7 +19,7 @@ export default function News() {
     >
       <Navbar active="news" locale={locale} t={nt} />
 
-      <Hero t={t} />
+      <NewsSection locale={locale} />
     </main>
   );
 }

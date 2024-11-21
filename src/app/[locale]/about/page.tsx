@@ -1,6 +1,6 @@
-import Hero from "@/ui/components/Hero";
 import Navbar from "@/ui/Navbar";
 import { useLocale, useTranslations } from "next-intl";
+import AboutContent from "./AboutContent";
 
 export default function About() {
   const locale = useLocale();
@@ -18,7 +18,12 @@ export default function About() {
     >
       <Navbar active="about" locale={locale} t={nt} />
 
-      <Hero t={t} />
+      <AboutContent
+        title1={t("whoTitle")}
+        content1={t("whoContent")}
+        title2={t("whatTitle")}
+        content2={t("whatContent")}
+      />
     </main>
   );
 }

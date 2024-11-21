@@ -15,17 +15,38 @@ datasource db {
 
 model Horse {
   id        String   @id @default(cuid())
-  name      String
+  name      String  @unique
+  birthday DateTime
+
+  frenchDescription String
+  englishDescription String
+
+  articleIds String[] @default([])
+
+  images    String[] @default([])
+  keywords  String[] @default([])
+  links     String[] @default([])
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  deletedAt DateTime?
 }
 
-model News {
+model Article {
   id        String   @id @default(cuid())
-  title     String
+  language  String   @default("en")
+  title     String  @unique
   content   String
+
+  horseIds  String[] @default([])
+
+  links     String[] @default([])
+  keywords  String[] @default([])
+  images    String[] @default([])
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  deletedAt DateTime?
 }
 
 model Registration {
