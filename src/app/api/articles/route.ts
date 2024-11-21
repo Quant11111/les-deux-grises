@@ -110,11 +110,15 @@ export async function GET(request: Request) {
       try {
         const articles = await prisma.article.findMany({
           where: {
-            language: language ? language : "en",
-            OR: [
-              { title: { contains: queryParam } },
-              { content: { contains: queryParam } },
-              { keywords: { has: queryParam } },
+            AND: [
+              { language: language ? language : "en" },
+              {
+                OR: [
+                  { title: { contains: queryParam } },
+                  { content: { contains: queryParam } },
+                  { keywords: { has: queryParam } },
+                ],
+              },
             ],
           },
           orderBy: { createdAt: "desc" },
@@ -130,6 +134,7 @@ export async function GET(request: Request) {
     } else {
       try {
         const articles = await prisma.article.findMany({
+          where: { language: language ? language : "en" },
           orderBy: { createdAt: "desc" },
           take: take ? parseInt(take) : 5,
         });
