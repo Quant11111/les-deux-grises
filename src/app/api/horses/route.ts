@@ -43,7 +43,7 @@ export async function POST(request: Request) {
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const horseName = searchParams.get("name");
-  const horseId = searchParams.get("id");
+  const horseId = searchParams.get("horseId");
   const take = searchParams.get("take");
   const searchParam = searchParams.get("searchParam");
 

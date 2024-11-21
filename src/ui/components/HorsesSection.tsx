@@ -3,6 +3,8 @@
 import themeVariables from "@/utils/themeVariables";
 import { Horse } from "@prisma/client";
 import { LoaderCircle } from "lucide-react";
+import { useRouter } from "next/navigation";
+
 import { useEffect, useState } from "react";
 
 export default function Horses({ locale }: { locale: string }) {
@@ -11,6 +13,8 @@ export default function Horses({ locale }: { locale: string }) {
   const [error, setError] = useState("");
   const [searchParam, setSearchParam] = useState("");
   const [take, setTake] = useState(10);
+
+  const router = useRouter();
 
   useEffect(() => {
     setLoading(true);
@@ -95,7 +99,9 @@ export default function Horses({ locale }: { locale: string }) {
       </h1>
       {horses.map((horse) => (
         <div
+          className="card"
           style={{
+            cursor: "pointer",
             display: "flex",
             flexDirection: "column",
             padding: "1rem",
@@ -105,8 +111,12 @@ export default function Horses({ locale }: { locale: string }) {
             width: "20rem",
             height: "10rem",
             overflow: "hidden",
+            transition: "ease-in-out 2s",
           }}
           key={horse.id}
+          onClick={() => {
+            router.push(`/${locale}/horses/${horse.id}`);
+          }}
         >
           <h2>{horse.name}</h2>
           {locale === "en" ? (
