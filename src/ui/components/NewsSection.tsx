@@ -3,6 +3,7 @@
 import themeVariables from "@/utils/themeVariables";
 import { Article } from "@prisma/client";
 import { LoaderCircle } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function News({ locale }: { locale: string }) {
@@ -11,6 +12,8 @@ export default function News({ locale }: { locale: string }) {
   const [error, setError] = useState("");
   const [searchParam, setSearchParam] = useState("");
   const [take, setTake] = useState(10);
+
+  const router = useRouter();
 
   useEffect(() => {
     setLoading(true);
@@ -95,7 +98,9 @@ export default function News({ locale }: { locale: string }) {
       </h1>
       {articles.map((article) => (
         <div
+          className="card"
           style={{
+            cursor: "pointer",
             display: "flex",
             flexDirection: "column",
             padding: "1rem",
@@ -105,8 +110,12 @@ export default function News({ locale }: { locale: string }) {
             width: "20rem",
             height: "10rem",
             overflow: "hidden",
+            transition: "ease-in-out 2s",
           }}
           key={article.id}
+          onClick={() => {
+            router.push(`/${locale}/articles/${article.id}`);
+          }}
         >
           <div
             style={{
