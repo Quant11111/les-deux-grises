@@ -51,7 +51,7 @@ export default function ArticlePageContent({
   }, [id]);
 
   return (
-    <main
+    <div
       style={{
         display: "flex",
         justifyContent: "center",
@@ -84,6 +84,6 @@ export default function ArticlePageContent({
 
         <p>{article?.content}</p>
       </Card>
-    </main>
+    </div>
   );
 }

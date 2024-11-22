@@ -51,7 +51,7 @@ export default function HorsePageContent({
   }, [id]);
 
   return (
-    <main
+    <div
       style={{
         display: "flex",
         justifyContent: "center",
@@ -87,6 +87,6 @@ export default function HorsePageContent({
         )}
         {}
       </Card>
-    </main>
+    </div>
   );
 }
