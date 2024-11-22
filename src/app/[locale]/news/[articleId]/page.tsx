@@ -6,7 +6,12 @@ export default function Article({ params }: { params: { articleId: string } }) {
   const locale = useLocale();
   const nt = useTranslations("Navbar");
   return (
-    <main>
+    <main
+      style={{
+        height: "100vh",
+        width: "100vw",
+      }}
+    >
       <Navbar active="news" locale={locale} t={nt} />
       <ArticlePageContent locale={locale} id={params.articleId} />
     </main>

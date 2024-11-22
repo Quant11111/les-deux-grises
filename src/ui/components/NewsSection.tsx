@@ -114,7 +114,7 @@ export default function News({ locale }: { locale: string }) {
           }}
           key={article.id}
           onClick={() => {
-            router.push(`/${locale}/articles/${article.id}`);
+            router.push(`/${locale}/news/${article.id}`);
           }}
         >
           <div
