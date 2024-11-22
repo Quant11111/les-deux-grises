@@ -1,14 +1,14 @@
 import Navbar from "@/ui/Navbar";
 import { useLocale, useTranslations } from "next-intl";
+import ArticlePageContent from "./ArticlePageContent";
 
-export default function Article() {
+export default function Article({ params }: { params: { articleId: string } }) {
   const locale = useLocale();
   const nt = useTranslations("Navbar");
   return (
     <main>
       <Navbar active="news" locale={locale} t={nt} />
-      <h1>{nt("title")}</h1>
-      <p>{nt("description")}</p>
+      <ArticlePageContent locale={locale} id={params.articleId} />
     </main>
   );
 }
