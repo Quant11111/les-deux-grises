@@ -76,7 +76,7 @@ export default function Hero({
     }
   }, []);
 
-  const imgZoom = windowHeight / 2500;
+  const imgzoom = windowHeight / 2500;
   return (
     <div
       style={{
@@ -120,7 +120,7 @@ export default function Hero({
             height: "85%",
             aspectRatio: "1/1.52",
             backgroundImage: "url(/images/twohorses.jpg)",
-            zoom: imgZoom,
+            zoom: imgzoom,
             transform: "scaleX(-1)",
             backgroundPosition: "center left 30%",
             borderTopLeftRadius: "5000000000rem",
@@ -129,9 +129,9 @@ export default function Hero({
           }}
         />
 
-        <HeroTitle imgZoom={imgZoom}>{title}</HeroTitle>
+        <HeroTitle imgZoom={imgzoom}>{title}</HeroTitle>
 
-        <HeroDescription className={rawengulk.className} imgZoom={imgZoom}>
+        <HeroDescription className={rawengulk.className} imgZoom={imgzoom}>
           {description}
         </HeroDescription>
       </div>
