@@ -16,7 +16,15 @@ export default function Horses() {
         height: "100vh",
       }}
     >
-      <Navbar active="horses" locale={locale} t={nt} />
+      <Navbar
+        active="horses"
+        locale={locale}
+        home={nt("home")}
+        about={nt("about")}
+        horses={nt("horses")}
+        news={nt("news")}
+        contact={nt("contact")}
+      />
 
       <HorsesSection locale={locale} />
     </main>

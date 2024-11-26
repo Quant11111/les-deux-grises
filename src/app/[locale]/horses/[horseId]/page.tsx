@@ -13,7 +13,15 @@ export default function HorsePage({ params }: { params: { horseId: string } }) {
         width: "100vw",
       }}
     >
-      <Navbar active={"horses"} locale={locale} t={nt} />
+      <Navbar
+        active={"horses"}
+        locale={locale}
+        home={nt("home")}
+        about={nt("about")}
+        horses={nt("horses")}
+        news={nt("news")}
+        contact={nt("contact")}
+      />
       <HorsePageContent locale={locale} id={params.horseId} />
     </main>
   );

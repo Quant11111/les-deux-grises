@@ -16,7 +16,15 @@ export default function About() {
         height: "100vh",
       }}
     >
-      <Navbar active="about" locale={locale} t={nt} />
+      <Navbar
+        active="about"
+        locale={locale}
+        home={nt("home")}
+        about={nt("about")}
+        horses={nt("horses")}
+        news={nt("news")}
+        contact={nt("contact")}
+      />
 
       <AboutContent
         title1={t("whoTitle")}

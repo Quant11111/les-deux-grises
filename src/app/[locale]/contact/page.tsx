@@ -16,7 +16,15 @@ export default function Contact() {
         height: "100vh",
       }}
     >
-      <Navbar active="contact" locale={locale} t={nt} />
+      <Navbar
+        active="contact"
+        locale={locale}
+        home={nt("home")}
+        about={nt("about")}
+        horses={nt("horses")}
+        news={nt("news")}
+        contact={nt("contact")}
+      />
 
       <Hero title={t("title")} description={t("description")} />
     </main>

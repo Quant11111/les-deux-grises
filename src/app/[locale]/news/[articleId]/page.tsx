@@ -12,7 +12,15 @@ export default function Article({ params }: { params: { articleId: string } }) {
         width: "100vw",
       }}
     >
-      <Navbar active="news" locale={locale} t={nt} />
+      <Navbar
+        active="news"
+        locale={locale}
+        home={nt("home")}
+        about={nt("about")}
+        horses={nt("horses")}
+        news={nt("news")}
+        contact={nt("contact")}
+      />
       <ArticlePageContent locale={locale} id={params.articleId} />
     </main>
   );

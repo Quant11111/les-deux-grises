@@ -1,16 +1,32 @@
+"use client";
+
 import themeVariables from "@/utils/themeVariables";
 import Link from "next/link";
+import { useState } from "react";
 import LanguageSelector from "./LanguageSelector";
 
 export default function Navbar({
   active,
   locale,
-  t,
+  home,
+  about,
+  horses,
+  news,
+  contact,
 }: {
   active: string;
   locale: string;
-  t: any;
+  home: string;
+  about: string;
+  horses: string;
+  news: string;
+  contact: string;
 }) {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
   return (
     <div
       style={{
@@ -24,6 +40,24 @@ export default function Navbar({
         fontWeight: "lighter",
       }}
     >
+      {" "}
+      <button
+        className="menu-button"
+        onClick={toggleSidebar}
+        style={{
+          position: "absolute",
+          top: "2rem",
+          right: "2rem",
+          display: "none",
+          background: "transparent",
+          border: "none",
+          color: themeVariables.cloudyMist,
+          fontSize: "1.5rem",
+          cursor: "pointer",
+        }}
+      >
+        MENU
+      </button>
       <nav
         style={{
           display: "flex",
@@ -40,7 +74,7 @@ export default function Navbar({
                 : themeVariables.cloudyMist,
           }}
         >
-          {t("home")}
+          {home}
         </Link>
         <Link
           href={`/${locale}/about`}
@@ -51,7 +85,7 @@ export default function Navbar({
                 : themeVariables.cloudyMist,
           }}
         >
-          {t("about")}
+          {about}
         </Link>
         <Link
           href={`/${locale}/horses`}
@@ -62,7 +96,7 @@ export default function Navbar({
                 : themeVariables.cloudyMist,
           }}
         >
-          {t("horses")}
+          {horses}
         </Link>
         <Link
           href={`/${locale}/news`}
@@ -73,7 +107,7 @@ export default function Navbar({
                 : themeVariables.cloudyMist,
           }}
         >
-          {t("news")}
+          {news}
         </Link>
         <Link
           href={`/${locale}/contact`}
@@ -84,10 +118,34 @@ export default function Navbar({
                 : themeVariables.cloudyMist,
           }}
         >
-          {t("contact")}
+          {contact}
         </Link>
         <LanguageSelector locale={locale} />
       </nav>
+      <style jsx>{`
+        @media (max-width: 1100px) {
+          nav {
+            display: "flex";
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            position: absolute;
+            gap: 1rem !important;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100vh;
+            background-color: white;
+            padding: 2rem;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            transform: ${isSidebarOpen ? "translateX(0)" : "translateX(-100%)"};
+            transition: transform 0.3s ease-in-out;
+          }
+          .menu-button {
+            display: flex !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

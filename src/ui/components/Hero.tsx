@@ -16,6 +16,19 @@ const HeroTitle = styled.h1<{ imgZoom: number }>`
   left: 50%;
   bottom: 27%;
   z-index: 1;
+  @media (max-width: 1100px) {
+    left: 50%;
+    transform: translate(-50%, 60%);
+    letter-spacing: ${({ imgZoom }) => imgZoom * 2.7 * 16}px;
+    text-align: center;
+  }
+  @media (max-width: 800px) {
+    left: 50%;
+    font-size: 2rem;
+    transform: translate(-50%, 60%);
+    letter-spacing: ${({ imgZoom }) => imgZoom * 2.7 * 16}px;
+    text-align: center;
+  }
 `;
 
 const HeroDescription = styled.p<{ imgZoom: number }>`
@@ -28,6 +41,12 @@ const HeroDescription = styled.p<{ imgZoom: number }>`
   top: 73%;
   left: calc(50% + ${({ imgZoom }) => imgZoom * 660}px);
   z-index: 1;
+  @media (max-width: 1100px) {
+    left: 50%;
+
+    transform: translate(-50%, 60%);
+    text-align: center;
+  }
 `;
 
 export default function Hero({
@@ -103,6 +122,7 @@ export default function Hero({
             backgroundPosition: "center left 30%",
             borderTopLeftRadius: "5000000000rem",
             borderTopRightRadius: "5000000000rem",
+            maxWidth: "88%",
           }}
         />
 

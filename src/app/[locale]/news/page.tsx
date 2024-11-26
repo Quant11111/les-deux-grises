@@ -17,7 +17,15 @@ export default function News() {
         height: "100vh",
       }}
     >
-      <Navbar active="news" locale={locale} t={nt} />
+      <Navbar
+        active="news"
+        locale={locale}
+        home={nt("home")}
+        about={nt("about")}
+        horses={nt("horses")}
+        news={nt("news")}
+        contact={nt("contact")}
+      />
 
       <NewsSection locale={locale} />
     </main>
