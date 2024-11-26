@@ -18,7 +18,7 @@ export default function Contact() {
     >
       <Navbar active="contact" locale={locale} t={nt} />
 
-      <Hero t={t} />
+      <Hero title={t("title")} description={t("description")} />
     </main>
   );
 }
