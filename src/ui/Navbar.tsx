@@ -28,100 +28,103 @@ export default function Navbar({
     setIsSidebarOpen(!isSidebarOpen);
   };
   return (
-    <div
-      style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 100,
-        width: "100%",
-        padding: "2rem",
-        height: "5rem",
-        fontSize: "0.7rem",
-        fontWeight: "lighter",
-      }}
-    >
-      {" "}
-      <button
-        className="menu-button"
-        onClick={toggleSidebar}
+    <>
+      <div
+        className="navbar"
         style={{
-          position: "absolute",
-          top: "2rem",
-          right: "2rem",
-          display: "none",
-          background: "transparent",
-          border: "none",
-          color: themeVariables.cloudyMist,
-          fontSize: "1.5rem",
-          cursor: "pointer",
+          position: "sticky",
+          top: 0,
+          zIndex: 100,
+          width: "100%",
+          padding: "2rem",
+          height: "5rem",
+          fontSize: "0.7rem",
+          fontWeight: "lighter",
         }}
       >
-        MENU
-      </button>
-      <nav
-        style={{
-          display: "flex",
-          gap: "6rem",
-          justifyContent: "right",
-        }}
-      >
-        <Link
-          href={`/${locale}/`}
+        {" "}
+        <button
+          className="menu-button"
+          onClick={toggleSidebar}
           style={{
-            color:
-              active === "home"
-                ? themeVariables.neutralEarth
-                : themeVariables.cloudyMist,
+            position: "absolute",
+            top: "2rem",
+            right: "2rem",
+            display: "none",
+            background: "transparent",
+            border: "none",
+            color: themeVariables.cloudyMist,
+            fontSize: "1.5rem",
+            cursor: "pointer",
           }}
         >
-          {home}
-        </Link>
-        <Link
-          href={`/${locale}/about`}
+          MENU
+        </button>
+        <nav
           style={{
-            color:
-              active === "about"
-                ? themeVariables.neutralEarth
-                : themeVariables.cloudyMist,
+            display: "flex",
+            gap: "6rem",
+            justifyContent: "right",
           }}
         >
-          {about}
-        </Link>
-        <Link
-          href={`/${locale}/horses`}
-          style={{
-            color:
-              active === "horses"
-                ? themeVariables.neutralEarth
-                : themeVariables.cloudyMist,
-          }}
-        >
-          {horses}
-        </Link>
-        <Link
-          href={`/${locale}/news`}
-          style={{
-            color:
-              active === "news"
-                ? themeVariables.neutralEarth
-                : themeVariables.cloudyMist,
-          }}
-        >
-          {news}
-        </Link>
-        <Link
-          href={`/${locale}/contact`}
-          style={{
-            color:
-              active === "contact"
-                ? themeVariables.neutralEarth
-                : themeVariables.cloudyMist,
-          }}
-        >
-          {contact}
-        </Link>
-        <LanguageSelector locale={locale} />
-      </nav>
+          <Link
+            href={`/${locale}/`}
+            style={{
+              color:
+                active === "home"
+                  ? themeVariables.neutralEarth
+                  : themeVariables.cloudyMist,
+            }}
+          >
+            {home}
+          </Link>
+          <Link
+            href={`/${locale}/about`}
+            style={{
+              color:
+                active === "about"
+                  ? themeVariables.neutralEarth
+                  : themeVariables.cloudyMist,
+            }}
+          >
+            {about}
+          </Link>
+          <Link
+            href={`/${locale}/horses`}
+            style={{
+              color:
+                active === "horses"
+                  ? themeVariables.neutralEarth
+                  : themeVariables.cloudyMist,
+            }}
+          >
+            {horses}
+          </Link>
+          <Link
+            href={`/${locale}/news`}
+            style={{
+              color:
+                active === "news"
+                  ? themeVariables.neutralEarth
+                  : themeVariables.cloudyMist,
+            }}
+          >
+            {news}
+          </Link>
+          <Link
+            href={`/${locale}/contact`}
+            style={{
+              color:
+                active === "contact"
+                  ? themeVariables.neutralEarth
+                  : themeVariables.cloudyMist,
+            }}
+          >
+            {contact}
+          </Link>
+          <LanguageSelector locale={locale} />
+        </nav>
+      </div>
       <style jsx>{`
         @media (max-width: 1100px) {
           nav {
@@ -144,8 +147,11 @@ export default function Navbar({
           .menu-button {
             display: flex !important;
           }
+          .navbar {
+            height: 0 !important;
+          }
         }
       `}</style>
-    </div>
+    </>
   );
 }
