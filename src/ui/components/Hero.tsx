@@ -81,7 +81,7 @@ export default function Hero({
     <div
       style={{
         position: "relative",
-        height: "calc(100vh - 5rem)",
+        height: "calc(100vh - 80px)",
         width: "100%",
         overflow: "hidden",
       }}
