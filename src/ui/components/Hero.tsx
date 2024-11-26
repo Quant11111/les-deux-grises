@@ -96,8 +96,7 @@ export default function Hero({
       <div
         style={{
           position: "relative",
-          height: "calc(100vh - 80px)",
-          width: "100%",
+          flex: 1,
           overflow: "hidden",
         }}
       >
