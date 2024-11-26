@@ -18,7 +18,7 @@ export default function Home() {
     >
       <Navbar active="home" locale={locale} t={nt} />
 
-      <Hero t={t} />
+      <Hero title={t("title")} description={t("description")} />
     </main>
   );
 }

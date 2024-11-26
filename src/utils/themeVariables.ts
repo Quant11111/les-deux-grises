@@ -39,6 +39,13 @@ const themeVariables = {
   cardRgb: "180, 185, 188",
   cardBorderRgb: "131, 134, 135",
   warning: /* warm lightg red */ "#FF8C94",
+
+  breakpoints: {
+    sm: "640px",
+    md: "768px",
+    lg: "1024px",
+    xl: "1280px",
+  },
 };
 
 export default themeVariables;

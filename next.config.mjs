@@ -7,6 +7,9 @@ const nextConfig = {
   images: {
     domains: ["giphy.gif", "unsplash.com"],
   },
+  compiler: {
+    styledComponents: true,
+  },
 };
 
 export default withNextIntl(nextConfig);

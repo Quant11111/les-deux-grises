@@ -20,6 +20,8 @@ export default function Navbar({
         width: "100%",
         padding: "2rem",
         height: "5rem",
+        fontSize: "0.7rem",
+        fontWeight: "lighter",
       }}
     >
       <nav

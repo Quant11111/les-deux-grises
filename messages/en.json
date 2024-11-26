@@ -5,15 +5,15 @@
     "keywords": "Les deux grises, les deux grises, LesDeuxGrises, lesdeuxgrises, breeding, horses"
   },
   "Navbar": {
-    "home": "Home",
-    "about": "About",
-    "horses": "Horses",
-    "news": "News",
-    "contact": "Contact"
+    "home": "HOME",
+    "about": "ABOUT US",
+    "horses": "OUR HORSES",
+    "news": "NEWS",
+    "contact": "CONTACT US"
   },
   "HomePage": {
-    "title": "Excellence",
-    "description": "A promise to deliver a high caliber of horses and jumping mares with outstanding genetic profile(s)."
+    "title": "EXCELLENCE",
+    "description": "A promise to deliver a high caliber of horses and jumping mares with outstanding genetic profile."
   },
   "AboutPage": {
     "whoTitle": "Who we are",
