@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { LogoSvg } from "../svg/LogoSvg";
 import OnlyLarge from "./OnlyLarge";
-import OnlySmall from "./OnlySmall";
 
 const HeroTitle = styled.h1<{ imgZoom: number }>`
   position: absolute;
@@ -79,78 +78,63 @@ export default function Hero({
 
   const imgzoom = windowHeight / 2500;
   return (
-    <>
-      <OnlySmall>
+    <div
+      style={{
+        position: "relative",
+        flex: 1,
+        overflow: "hidden",
+      }}
+    >
+      <OnlyLarge>
         <LogoSvg
-          size={300}
+          size={600}
           color={themeVariables.lightForeground}
           style={{
-            scale: 1.5,
+            scale: 2.5, //crée un scroll jsp pourquoi ??
             position: "absolute",
-            top: "-100px",
-            left: "-100px",
+            top: "50%",
+            left: "25%",
+            transform: "translate(-25%, -20%)",
             zIndex: 1,
           }}
         />
-      </OnlySmall>
+      </OnlyLarge>
+
       <div
         style={{
-          position: "relative",
-          flex: 1,
-          overflow: "hidden",
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          transform: "translateY(-2%)",
         }}
       >
-        <OnlyLarge>
-          <LogoSvg
-            size={600}
-            color={themeVariables.lightForeground}
-            style={{
-              scale: 2.5, //crée un scroll jsp pourquoi ??
-              position: "absolute",
-              top: "50%",
-              left: "25%",
-              transform: "translate(-25%, -20%)",
-              zIndex: 1,
-            }}
-          />
-        </OnlyLarge>
-
         <div
           style={{
-            width: "100%",
-            height: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            transform: "translateY(-2%)",
+            position: "relative",
           }}
-        >
-          <div
-            style={{
-              position: "relative",
-            }}
-          ></div>
-          <div
-            style={{
-              height: "85%",
-              aspectRatio: "1/1.52",
-              backgroundImage: "url(/images/twohorses.jpg)",
-              zoom: imgzoom,
-              transform: "scaleX(-1)",
-              backgroundPosition: "center left 30%",
-              borderTopLeftRadius: "5000000000rem",
-              borderTopRightRadius: "5000000000rem",
-              maxWidth: "88%",
-            }}
-          />
+        ></div>
+        <div
+          style={{
+            height: "85%",
+            aspectRatio: "1/1.52",
+            backgroundImage: "url(/images/twohorses.jpg)",
+            zoom: imgzoom,
+            transform: "scaleX(-1)",
+            backgroundPosition: "center left 30%",
+            borderTopLeftRadius: "5000000000rem",
+            borderTopRightRadius: "5000000000rem",
+            maxWidth: "88%",
+          }}
+        />
 
-          <HeroTitle imgZoom={imgzoom}>{title}</HeroTitle>
+        <HeroTitle imgZoom={imgzoom}>{title}</HeroTitle>
 
-          <HeroDescription className={rawengulk.className} imgZoom={imgzoom}>
-            {description}
-          </HeroDescription>
-        </div>
+        <HeroDescription className={rawengulk.className} imgZoom={imgzoom}>
+          {description}
+        </HeroDescription>
       </div>
-    </>
+    </div>
   );
 }

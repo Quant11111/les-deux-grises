@@ -1,15 +1,19 @@
 "use client";
 
+import { useAppContext } from "@/utils/context";
 import themeVariables from "@/utils/themeVariables";
-import Link from "next/link";
 import { useState } from "react";
 import LanguageSelector from "./LanguageSelector";
+import NavButton from "./components/NavButton";
+import NavLink from "./components/NavLink";
 
 export default function Navbar({
   active,
   locale,
   home,
   about,
+  about1,
+  about2,
   horses,
   news,
   contact,
@@ -18,11 +22,15 @@ export default function Navbar({
   locale: string;
   home: string;
   about: string;
+  about1: string;
+  about2: string;
   horses: string;
   news: string;
   contact: string;
 }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const context = useAppContext();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -67,61 +75,69 @@ export default function Navbar({
             justifyContent: "right",
           }}
         >
-          <Link
-            href={`/${locale}/`}
+          <NavLink
+            text={home}
+            linkWord=""
+            locale={locale}
+            isActive={active === "home"}
+          />
+          <div
             style={{
-              color:
-                active === "home"
-                  ? themeVariables.neutralEarth
-                  : themeVariables.cloudyMist,
+              position: "relative",
             }}
           >
-            {home}
-          </Link>
-          <Link
-            href={`/${locale}/about`}
-            style={{
-              color:
-                active === "about"
-                  ? themeVariables.neutralEarth
-                  : themeVariables.cloudyMist,
-            }}
-          >
-            {about}
-          </Link>
-          <Link
-            href={`/${locale}/horses`}
-            style={{
-              color:
-                active === "horses"
-                  ? themeVariables.neutralEarth
-                  : themeVariables.cloudyMist,
-            }}
-          >
-            {horses}
-          </Link>
-          <Link
-            href={`/${locale}/news`}
-            style={{
-              color:
-                active === "news"
-                  ? themeVariables.neutralEarth
-                  : themeVariables.cloudyMist,
-            }}
-          >
-            {news}
-          </Link>
-          <Link
-            href={`/${locale}/contact`}
-            style={{
-              color:
-                active === "contact"
-                  ? themeVariables.neutralEarth
-                  : themeVariables.cloudyMist,
-            }}
-          >
-            {contact}
-          </Link>
+            <NavLink
+              text={about}
+              linkWord="about"
+              locale={locale}
+              isActive={active === "about"}
+            />
+            <div
+              className="aboutSub"
+              style={{
+                height: "2rem",
+                width: "auto",
+                display: active === "about" ? "flex" : "none",
+                position: "absolute",
+                bottom: "-2rem",
+                gap: "1rem",
+              }}
+            >
+              <NavButton
+                text={about1}
+                onClick={() => {
+                  context?.setAbout1();
+                }}
+                isActive={context?.aboutSub || false}
+              />
+              <NavButton
+                text={about2}
+                onClick={() => {
+                  context?.setAbout2();
+                }}
+                isActive={!context?.aboutSub || false}
+              />
+            </div>
+          </div>
+
+          <NavLink
+            text={horses}
+            linkWord="horses"
+            locale={locale}
+            isActive={active === "horses"}
+          />
+          <NavLink
+            text={news}
+            linkWord="news"
+            locale={locale}
+            isActive={active === "news"}
+          />
+          <NavLink
+            text={contact}
+            linkWord="contact"
+            locale={locale}
+            isActive={active === "contact"}
+          />
           <LanguageSelector locale={locale} />
         </nav>
       </div>
@@ -130,15 +146,13 @@ export default function Navbar({
           nav {
             display: "flex";
             flex-direction: column;
-            justify-content: space-around;
             align-items: center;
             position: absolute;
-            gap: 1rem !important;
             top: 0;
             left: 0;
             width: 250px;
-            height: 100vh;
-            background-color: white;
+            height: 100vh !important;
+            background-color: #0b2830;
             padding: 2rem;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
             transform: ${isSidebarOpen ? "translateX(0)" : "translateX(-100%)"};
@@ -149,6 +163,12 @@ export default function Navbar({
           }
           .navbar {
             height: 0 !important;
+          }
+          .aboutSub {
+            left: -2rem;
+            bottom: -3rem !important;
+            gap: 0.5rem !important;
+            flex-direction: column;
           }
         }
       `}</style>

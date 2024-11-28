@@ -7,6 +7,8 @@
   "Navbar": {
     "home": "HOME",
     "about": "ABOUT US",
+    "about1": "WHO WE ARE",
+    "about2": "WHAT WE DO",
     "horses": "OUR HORSES",
     "news": "NEWS",
     "contact": "CONTACT US"
@@ -16,7 +18,7 @@
     "description": "A promise to deliver a high caliber of horses and jumping mares with outstanding genetic profile."
   },
   "AboutPage": {
-    "whoTitle": "Who we are",
+    "whoTitle": "WHO WE ARE",
     "whoContent": "Les Deux Grises est un élevage de chevaux d'élite. Génétique de pointe et jumpers aguéris, voilà les fruits de la passion que portent les naisseurs de notre famille depuis des générations.",
     "whatTitle": "What we do",
     "whatContent": "Notre mission est de produire des che"

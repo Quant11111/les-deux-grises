@@ -1,11 +1,15 @@
 import Hero from "@/ui/components/Hero";
+import OnlySmall from "@/ui/components/OnlySmall";
 import Navbar from "@/ui/Navbar";
+import { LogoSvg } from "@/ui/svg/LogoSvg";
+import themeVariables from "@/utils/themeVariables";
 import { useLocale, useTranslations } from "next-intl";
 
 export default function Home() {
   const nt = useTranslations("Navbar");
   const t = useTranslations("HomePage");
   const locale = useLocale();
+  const logoSize = 400;
   return (
     <main
       style={{
@@ -16,6 +20,19 @@ export default function Home() {
         height: "100vh",
       }}
     >
+      <OnlySmall>
+        <LogoSvg
+          size={logoSize}
+          color={themeVariables.lightForeground}
+          style={{
+            scale: 1.5,
+            position: "absolute",
+            top: -logoSize / 2.7,
+            left: -logoSize / 2.7,
+            zIndex: 1,
+          }}
+        />
+      </OnlySmall>
       <Navbar
         active="home"
         locale={locale}

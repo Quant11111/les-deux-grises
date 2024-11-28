@@ -2,6 +2,7 @@
 
 import themeVariables from "@/utils/themeVariables";
 import { useRouter } from "next/navigation";
+import NavButton from "./components/NavButton";
 
 export default function LanguageSelector({ locale }: { locale: string }) {
   const router = useRouter();
@@ -35,19 +36,11 @@ export default function LanguageSelector({ locale }: { locale: string }) {
   }
   return (
     <div style={{ display: "flex", gap: "0.5rem" }}>
-      <button
-        style={{
-          background: "transparent",
-          color:
-            locale === "fr"
-              ? themeVariables.neutralEarth
-              : themeVariables.cloudyMist,
-          border: "none",
-        }}
+      <NavButton
+        text="FR"
         onClick={() => goFrench()}
-      >
-        FR
-      </button>
+        isActive={locale === "fr"}
+      />
       <div
         style={{
           width: "2px",
@@ -55,19 +48,11 @@ export default function LanguageSelector({ locale }: { locale: string }) {
           background: themeVariables.cloudyMist,
         }}
       />
-      <button
-        style={{
-          background: "transparent",
-          color:
-            locale === "en"
-              ? themeVariables.neutralEarth
-              : themeVariables.cloudyMist,
-          border: "none",
-        }}
+      <NavButton
+        text="EN"
         onClick={() => goEnglish()}
-      >
-        EN
-      </button>
+        isActive={locale === "en"}
+      />
     </div>
   );
 }
