@@ -17,13 +17,9 @@ export default function NavLink({
       className="aboutlink"
       href={`/${locale}/${linkWord}`}
       style={{
-        paddingBottom: "0.5rem",
         color: isActive
           ? themeVariables.cloudyMist
           : themeVariables.neutralEarth,
-        borderBottom: isActive
-          ? `0.1rem solid ${themeVariables.cloudyMist}`
-          : "none",
       }}
     >
       {text}

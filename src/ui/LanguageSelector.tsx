@@ -44,7 +44,6 @@ export default function LanguageSelector({ locale }: { locale: string }) {
       <div
         style={{
           width: "2px",
-          height: "100%",
           background: themeVariables.cloudyMist,
         }}
       />

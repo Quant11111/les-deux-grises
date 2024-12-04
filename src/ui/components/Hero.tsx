@@ -31,7 +31,6 @@ const HeroTitle = styled.h1<{ imgZoom: number }>`
 `;
 
 const HeroDescription = styled.p<{ imgZoom: number }>`
-  text-align: justify;
   color: ${themeVariables.neutralEarth};
   font-size: ${({ imgZoom }) => imgZoom * 67}px;
   font-weight: bold;
