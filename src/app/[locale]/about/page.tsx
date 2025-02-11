@@ -7,12 +7,13 @@ import { AppProvider } from "@/utils/context";
 import themeVariables from "@/utils/themeVariables";
 import { useLocale, useTranslations } from "next-intl";
 import AboutContent from "./AboutContent";
+import OnlyLarge from "@/ui/components/OnlyLarge";
 
 export default function About() {
   const locale = useLocale();
   const t = useTranslations("AboutPage");
   const nt = useTranslations("Navbar");
-  const logoSize = 400;
+  const logoSize = 600;
   return (
     <AppProvider>
       {" "}
@@ -38,6 +39,19 @@ export default function About() {
             }}
           />
         </OnlySmall>
+        <OnlyLarge>
+          <LogoSvg
+            size={logoSize}
+            color={themeVariables.lightForeground}
+            style={{
+              scale: 2,
+              position: "absolute",
+              top: -logoSize / 3.5,
+              left: -logoSize / 3.5,
+              zIndex: 1,
+            }}
+          />
+        </OnlyLarge>
         <Navbar
           active="about"
           locale={locale}
@@ -49,13 +63,25 @@ export default function About() {
           news={nt("news")}
           contact={nt("contact")}
         />
-
-        <AboutContent
-          title1={t("whoTitle")}
-          content1={t("whoContent")}
-          title2={t("whatTitle")}
-          content2={t("whatContent")}
-        />
+        <div
+          style={{
+            position: "relative",
+            display: "flex",
+            flexDirection: "column",
+            width: "100%",
+            height: "100%",
+            paddingBottom: "10vh",
+            paddingLeft: "10vh",
+            paddingRight: "10vh",
+          }}
+        >
+          <AboutContent
+            title1={t("whoTitle")}
+            content1={t("whoContent")}
+            title2={t("whatTitle")}
+            content2={t("whatContent")}
+          />
+        </div>
       </main>
     </AppProvider>
   );

@@ -53,6 +53,7 @@ export default function AboutContent({
           height: "95%",
           left: "5%",
           backgroundImage: "url(/images/domain.jpg)",
+          backgroundSize: "cover",
           bottom: "0", // Adjust the height as needed
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
@@ -79,15 +80,29 @@ export default function AboutContent({
               padding: "1rem",
               position: "absolute",
               width: "300px",
+              maxWidth: "80%",
               height: "350px",
-              bottom: "10%",
+              maxHeight: "60%",
+              bottom: "calc(0.8rem + 1vw)",
               left: "20%",
               backgroundColor: "white",
-              opacity: "0.5",
             }}
           >
-            <h1>{title1}</h1>
-            <p>{content1}</p>
+            <h1
+              style={{
+                color: `${themeVariables.corporateBlue}`,
+                fontSize: "1.5rem",
+              }}
+            >
+              {title1}
+            </h1>
+            <p
+              style={{
+                fontSize: "0.7rem",
+              }}
+            >
+              {content1}
+            </p>
           </div>
           <div
             className="div2"
@@ -102,21 +117,33 @@ export default function AboutContent({
               bottom: "10%",
               left: "120%",
               backgroundColor: "white",
-              opacity: "0.5",
             }}
           >
-            <h1>{title2}</h1>
-            <p>{content2}</p>
+            <h1
+              style={{
+                color: `${themeVariables.corporateBlue}`,
+                fontSize: "1.5rem",
+              }}
+            >
+              {title2}
+            </h1>
+            <p
+              style={{
+                fontSize: "0.7rem",
+              }}
+            >
+              {content2}
+            </p>
           </div>
         </div>
       </div>
       <style jsx>{`
         @media (max-width: 560px) {
           .div1 {
-            left: calc(50% - 150px) !important;
+            left: calc(50% - 130px) !important;
           }
           .div2 {
-            left: calc(150% - 150px) !important;
+            left: calc(150% - 130px) !important;
           }
         }
       `}</style>

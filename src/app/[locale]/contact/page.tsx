@@ -1,6 +1,10 @@
 import Hero from "@/ui/components/Hero";
+import OnlyLarge from "@/ui/components/OnlyLarge";
 import Navbar from "@/ui/Navbar";
+import { LogoSvg } from "@/ui/svg/LogoSvg";
+import themeVariables from "@/utils/themeVariables";
 import { useLocale, useTranslations } from "next-intl";
+import ContactContentSection from "./content/ContactContentSection";
 
 export default function Contact() {
   const locale = useLocale();
@@ -27,8 +31,30 @@ export default function Contact() {
         news={nt("news")}
         contact={nt("contact")}
       />
+      <div
+        style={{
+          display: "flex",
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          overflow: "hidden",
+          msScrollLimit: "0 0",
+        }}
+      >
+        <OnlyLarge>
+          <LogoSvg
+            size={600}
+            color={themeVariables.lightForeground}
+            style={{
+              scale: 2.5, //crée un scroll jsp pourquoi ??
 
-      <Hero title={t("title")} description={t("description")} />
+              zIndex: 1,
+            }}
+          />
+        </OnlyLarge>
+
+        <ContactContentSection />
+      </div>
     </main>
   );
 }

@@ -18,6 +18,8 @@ export default function Home() {
         flexDirection: "column",
         width: "100vw",
         height: "100vh",
+        overflow: "hidden",
+        msScrollLimit: "0 0",
       }}
     >
       <OnlySmall>
