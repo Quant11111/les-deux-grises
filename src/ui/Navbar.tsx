@@ -146,8 +146,10 @@ export default function Navbar({
           nav {
             display: "flex";
             flex-direction: column;
-            align-items: center;
+            align-items: space-around;
+            justify-content: center;
             position: absolute;
+            gap: 1rem !important;
             top: 0;
             left: 0;
             width: 250px;
