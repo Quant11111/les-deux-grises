@@ -22,8 +22,8 @@
     "motherName": "Grace",
     "fatherName": "Thunderbolt",
     "images": {
-      "detoured": "horses/BellaDétouré.png",
-      "avatar": "horses/BellaAvatar.png",
+      "detoured": "horses/LondonDetoure.png",
+      "avatar": "horses/LondonAvatar.jpg",
       "gallery": ["horses/Bella1.png", "horses/Bella2.png"]
     }
   },
@@ -36,8 +36,8 @@
     "motherName": "Luna",
     "fatherName": "Solar",
     "images": {
-      "detoured": "horses/StarDétouré.png",
-      "avatar": "horses/StarAvatar.png",
+      "detoured": "horses/LondonDetoure.png",
+      "avatar": "horses/LondonAvatar.jpg",
       "gallery": ["horses/Star1.png", "horses/Star2.png"]
     }
   },
@@ -50,8 +50,8 @@
     "motherName": "Athena",
     "fatherName": "Zeus",
     "images": {
-      "detoured": "horses/MaximusDétouré.png",
-      "avatar": "horses/MaximusAvatar.png",
+      "detoured": "horses/LondonDetoure.png",
+      "avatar": "horses/LondonAvatar.jpg",
       "gallery": ["horses/Maximus1.png", "horses/Maximus2.png"]
     }
   },
@@ -64,8 +64,8 @@
     "motherName": "Rose",
     "fatherName": "Apollo",
     "images": {
-      "detoured": "horses/DaisyDétouré.png",
-      "avatar": "horses/DaisyAvatar.png",
+      "detoured": "horses/LondonDetoure.png",
+      "avatar": "horses/LondonAvatar.jpg",
       "gallery": ["horses/Daisy1.png", "horses/Daisy2.png"]
     }
   },
@@ -78,8 +78,8 @@
     "motherName": "Venus",
     "fatherName": "Mars",
     "images": {
-      "detoured": "horses/ApolloDétouré.png",
-      "avatar": "horses/ApolloAvatar.png",
+      "detoured": "horses/LondonDetoure.png",
+      "avatar": "horses/LondonAvatar.jpg",
       "gallery": ["horses/Apollo1.png", "horses/Apollo2.png"]
     }
   },
@@ -92,8 +92,8 @@
     "motherName": "Stella",
     "fatherName": "Orion",
     "images": {
-      "detoured": "horses/LunaDétouré.png",
-      "avatar": "horses/LunaAvatar.png",
+      "detoured": "horses/LondonDetoure.png",
+      "avatar": "horses/LondonAvatar.jpg",
       "gallery": ["horses/Luna1.png", "horses/Luna2.png"]
     }
   },
@@ -106,8 +106,8 @@
     "motherName": "Breeze",
     "fatherName": "Gale",
     "images": {
-      "detoured": "horses/ZephyrDétouré.png",
-      "avatar": "horses/ZephyrAvatar.png",
+      "detoured": "horses/LondonDetoure.png",
+      "avatar": "horses/LondonAvatar.jpg",
       "gallery": ["horses/Zephyr1.png", "horses/Zephyr2.png"]
     }
   },
@@ -120,8 +120,8 @@
     "motherName": "Eos",
     "fatherName": "Helios",
     "images": {
-      "detoured": "horses/AuroraDétouré.png",
-      "avatar": "horses/AuroraAvatar.png",
+      "detoured": "horses/LondonDetoure.png",
+      "avatar": "horses/LondonAvatar.jpg",
       "gallery": ["horses/Aurora1.png", "horses/Aurora2.png"]
     }
   },
@@ -134,8 +134,8 @@
     "motherName": "Ember",
     "fatherName": "Flame",
     "images": {
-      "detoured": "horses/BlazeDétouré.png",
-      "avatar": "horses/BlazeAvatar.png",
+      "detoured": "horses/LondonDetoure.png",
+      "avatar": "horses/LondonAvatar.jpg",
       "gallery": ["horses/Blaze1.png", "horses/Blaze2.png"]
     }
   }

@@ -88,6 +88,22 @@ button {
   }
 }
 
+input[type="radio"]:checked::before {
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.83rem;
+  height: 0.83rem;
+  border-radius: 50%;
+  background-color: rgba(
+    205,
+    169,
+    136
+  ); /* Changez cette couleur selon vos besoins */
+  position: relative;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

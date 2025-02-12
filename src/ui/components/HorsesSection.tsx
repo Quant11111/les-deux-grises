@@ -63,7 +63,7 @@ export default function Horses({ locale }: { locale: string }) {
           gap: "2rem",
           position: "fixed",
           top: "6rem",
-          backgroundColor: "rgba(240, 240, 240, 0.5)",
+          backgroundColor: themeVariables.cloudyMist,
           padding: "1rem",
           borderRadius: "5px",
           boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
