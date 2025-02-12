@@ -68,6 +68,7 @@ export default function Horses({ locale }: { locale: string }) {
           borderRadius: "5px",
           boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
           zIndex: 50,
+          maxWidth: "100%",
         }}
       >
         <label style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
