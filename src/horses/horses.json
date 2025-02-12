@@ -1,0 +1,142 @@
+[
+  {
+    "name": "London",
+    "type": "horse",
+    "sex": "male",
+    "studbook": "KWPN",
+    "horsetelex": "https://www.horsetelex.com/horses/123456",
+    "motherName": "Storm",
+    "fatherName": "Lightning",
+    "images": {
+      "detoured": "horses/LondonDetoure.png",
+      "avatar": "horses/LondonAvatar.jpg",
+      "gallery": ["horses/Thunder1.png", "horses/Thunder2.png"]
+    }
+  },
+  {
+    "name": "Bella",
+    "type": "mare",
+    "sex": "female",
+    "studbook": "Holsteiner",
+    "horsetelex": "https://www.horsetelex.com/horses/123457",
+    "motherName": "Grace",
+    "fatherName": "Thunderbolt",
+    "images": {
+      "detoured": "horses/BellaDétouré.png",
+      "avatar": "horses/BellaAvatar.png",
+      "gallery": ["horses/Bella1.png", "horses/Bella2.png"]
+    }
+  },
+  {
+    "name": "Star",
+    "type": "youngster",
+    "sex": "female",
+    "studbook": "Hanoverian",
+    "horsetelex": "https://www.horsetelex.com/horses/123458",
+    "motherName": "Luna",
+    "fatherName": "Solar",
+    "images": {
+      "detoured": "horses/StarDétouré.png",
+      "avatar": "horses/StarAvatar.png",
+      "gallery": ["horses/Star1.png", "horses/Star2.png"]
+    }
+  },
+  {
+    "name": "Maximus",
+    "type": "horse",
+    "sex": "male",
+    "studbook": "Oldenburg",
+    "horsetelex": "https://www.horsetelex.com/horses/123459",
+    "motherName": "Athena",
+    "fatherName": "Zeus",
+    "images": {
+      "detoured": "horses/MaximusDétouré.png",
+      "avatar": "horses/MaximusAvatar.png",
+      "gallery": ["horses/Maximus1.png", "horses/Maximus2.png"]
+    }
+  },
+  {
+    "name": "Daisy",
+    "type": "mare",
+    "sex": "female",
+    "studbook": "Trakehner",
+    "horsetelex": "https://www.horsetelex.com/horses/123460",
+    "motherName": "Rose",
+    "fatherName": "Apollo",
+    "images": {
+      "detoured": "horses/DaisyDétouré.png",
+      "avatar": "horses/DaisyAvatar.png",
+      "gallery": ["horses/Daisy1.png", "horses/Daisy2.png"]
+    }
+  },
+  {
+    "name": "Apollo",
+    "type": "youngster",
+    "sex": "male",
+    "studbook": "Westphalian",
+    "horsetelex": "https://www.horsetelex.com/horses/123461",
+    "motherName": "Venus",
+    "fatherName": "Mars",
+    "images": {
+      "detoured": "horses/ApolloDétouré.png",
+      "avatar": "horses/ApolloAvatar.png",
+      "gallery": ["horses/Apollo1.png", "horses/Apollo2.png"]
+    }
+  },
+  {
+    "name": "Luna",
+    "type": "mare",
+    "sex": "female",
+    "studbook": "Selle Français",
+    "horsetelex": "https://www.horsetelex.com/horses/123462",
+    "motherName": "Stella",
+    "fatherName": "Orion",
+    "images": {
+      "detoured": "horses/LunaDétouré.png",
+      "avatar": "horses/LunaAvatar.png",
+      "gallery": ["horses/Luna1.png", "horses/Luna2.png"]
+    }
+  },
+  {
+    "name": "Zephyr",
+    "type": "horse",
+    "sex": "male",
+    "studbook": "Belgian Warmblood",
+    "horsetelex": "https://www.horsetelex.com/horses/123463",
+    "motherName": "Breeze",
+    "fatherName": "Gale",
+    "images": {
+      "detoured": "horses/ZephyrDétouré.png",
+      "avatar": "horses/ZephyrAvatar.png",
+      "gallery": ["horses/Zephyr1.png", "horses/Zephyr2.png"]
+    }
+  },
+  {
+    "name": "Aurora",
+    "type": "mare",
+    "sex": "female",
+    "studbook": "Dutch Warmblood",
+    "horsetelex": "https://www.horsetelex.com/horses/123464",
+    "motherName": "Eos",
+    "fatherName": "Helios",
+    "images": {
+      "detoured": "horses/AuroraDétouré.png",
+      "avatar": "horses/AuroraAvatar.png",
+      "gallery": ["horses/Aurora1.png", "horses/Aurora2.png"]
+    }
+  },
+  {
+    "name": "Blaze",
+    "type": "youngster",
+    "sex": "male",
+    "studbook": "Irish Sport Horse",
+    "horsetelex": "https://www.horsetelex.com/horses/123465",
+    "motherName": "Ember",
+    "fatherName": "Flame",
+    "images": {
+      "detoured": "horses/BlazeDétouré.png",
+      "avatar": "horses/BlazeAvatar.png",
+      "gallery": ["horses/Blaze1.png", "horses/Blaze2.png"]
+    }
+  }
+]

@@ -8,12 +8,18 @@ export default function Horses() {
   const nt = useTranslations("Navbar");
   return (
     <main
+      className="hide-scrollbar"
       style={{
         position: "relative",
         display: "flex",
         flexDirection: "column",
+
         width: "100vw",
         height: "100vh",
+        backgroundImage: "url('/images/ecurie.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
       }}
     >
       <Navbar

@@ -45,7 +45,10 @@ export default function ContactContentSection() {
             height: "13rem",
             borderTopRightRadius: "300000rem",
             borderTopLeftRadius: "300000rem",
+            transition: "transform 0.3s ease",
           }}
+          onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+          onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
           onMouseEnter={() => setActive(1)}
         >
           <PhoneSvg size={100} />
@@ -60,7 +63,10 @@ export default function ContactContentSection() {
             height: "13rem",
             borderTopRightRadius: "300000rem",
             borderTopLeftRadius: "300000rem",
+            transition: "transform 0.3s ease",
           }}
+          onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+          onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
           onMouseEnter={() => setActive(2)}
         >
           <MailSvg size={100} />
@@ -75,7 +81,10 @@ export default function ContactContentSection() {
             height: "13rem",
             borderTopRightRadius: "300000rem",
             borderTopLeftRadius: "300000rem",
+            transition: "transform 0.3s ease",
           }}
+          onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+          onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
           onMouseEnter={() => setActive(3)}
         >
           {" "}
