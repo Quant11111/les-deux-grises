@@ -126,12 +126,12 @@ export default function Navbar({
             locale={locale}
             isActive={active === "horses"}
           />
-          <NavLink
+          {/* <NavLink
             text={news}
             linkWord="news"
             locale={locale}
             isActive={active === "news"}
-          />
+          /> */}
           <NavLink
             text={contact}
             linkWord="contact"
