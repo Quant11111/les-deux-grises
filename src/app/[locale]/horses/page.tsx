@@ -1,5 +1,6 @@
 import HorsesSection from "@/ui/components/HorsesSection";
 import Navbar from "@/ui/Navbar";
+import themeVariables from "@/utils/themeVariables";
 import { useLocale, useTranslations } from "next-intl";
 
 export default function Horses() {
@@ -16,7 +17,7 @@ export default function Horses() {
 
         width: "100vw",
         height: "100vh",
-        backgroundImage: "url('/images/ecurie.jpg')",
+        background: themeVariables.grassGreen,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",

@@ -1,11 +1,116 @@
 "use client";
 
 import themeVariables from "@/utils/themeVariables";
-import { LoaderCircle } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import horsesData from "@/horses/horses.json";
 import Image from "next/image";
+import styled from "styled-components";
+
+const Container = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: calc(100vh - 4rem);
+  height: fill-available;
+  overflow-y: scroll;
+`;
+
+const Title = styled.h1`
+  position: fixed;
+  top: 6rem;
+  display: none;
+`;
+
+const FilterContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${themeVariables.grassGreen};
+  gap: 2rem;
+  position: fixed;
+  top: 1.5rem;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  z-index: 50;
+  min-width: 100%;
+`;
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 20rem);
+  gap: 2.5rem;
+  width: 100%;
+  padding: 2rem;
+  margin-top: 8rem;
+  justify-content: center;
+`;
+
+const FilterLabel = styled.label`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  input {
+    display: none;
+  }
+  input:checked {
+    color: ${themeVariables.cloudyMist};
+  }
+  span {
+    color: ${themeVariables.neutralEarth};
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
+
+const Card = styled.div`
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: ${(props) =>
+    props.type === "horse"
+      ? themeVariables.terracotaEarth
+      : props.type === "mare"
+      ? themeVariables.grassGreen
+      : themeVariables.coolBlueGrey};
+
+  border-radius: 300px 300px 0 0;
+  height: 25rem;
+  overflow: hidden;
+  transition: ease-in-out 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+`;
+
+const CardHeader = styled.div`
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  min-width: 100%;
+  justify-content: center;
+`;
+
+const CardContent = styled.div`
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: end;
+  gap: 0.5rem;
+`;
 
 const getImagePath = (path: string) => {
   try {
@@ -16,62 +121,44 @@ const getImagePath = (path: string) => {
   }
 };
 
+const getHorseType = (horse: any) => {
+  const currentYear = new Date().getFullYear();
+  if (currentYear - horse.birthYear < 1) {
+    return "youngster";
+  } else if (horse.gender.toLowerCase() === "stallion") {
+    return "horse";
+  } else if (horse.gender.toLowerCase() === "mare") {
+    return "mare";
+  }
+  return "unknown";
+};
+
 export default function Horses({ locale }: { locale: string }) {
   const [searchParam, setSearchParam] = useState("");
-  const [selectedType, setSelectedType] = useState("all"); // nouveau state pour le filtre
+  const [selectedType, setSelectedType] = useState("all");
   const router = useRouter();
 
-  // Filtrer les chevaux en fonction de searchParam ET du type sélectionné
   const filteredHorses = horsesData.filter((horse) => {
     const matchesSearch =
       horse.name.toLowerCase().includes(searchParam.toLowerCase()) ||
       horse.studbook.toLowerCase().includes(searchParam.toLowerCase());
 
-    // Si "all" est sélectionné, on ignore le filtre de type
-    const matchesType = selectedType === "all" || horse.type === selectedType;
+    const horseType = getHorseType(horse);
+    const matchesType = selectedType === "all" || horseType === selectedType;
 
     return matchesSearch && matchesType;
   });
 
   return (
-    <div
-      className="hide-scrollbar"
+    <Container
       style={{
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        width: "100%",
-        height: "fill-available",
-        overflowY: "scroll",
+        backgroundImage: "url('/images/ecurie.jpg')",
+        backgroundSize: "cover",
       }}
     >
-      <h1
-        style={{
-          position: "fixed",
-          top: "6rem",
-          display: "none",
-        }}
-      >
-        {locale === "en" ? "Horses" : "Chevaux"}
-      </h1>
-
-      {/* Radio buttons pour le filtrage */}
-      <div
-        style={{
-          display: "flex",
-          gap: "2rem",
-          position: "fixed",
-          top: "6rem",
-          backgroundColor: themeVariables.cloudyMist,
-          padding: "1rem",
-          borderRadius: "5px",
-          boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-          zIndex: 50,
-          maxWidth: "100%",
-        }}
-      >
-        <label style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+      <Title>{locale === "en" ? "Horses" : "Chevaux"}</Title>
+      <FilterContainer>
+        <FilterLabel>
           <input
             type="radio"
             name="type"
@@ -79,9 +166,18 @@ export default function Horses({ locale }: { locale: string }) {
             checked={selectedType === "all"}
             onChange={(e) => setSelectedType(e.target.value)}
           />
-          {locale === "en" ? "All" : "Tous"}
-        </label>
-        <label style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <span
+            style={{
+              color:
+                selectedType === "all"
+                  ? themeVariables.cloudyMist
+                  : themeVariables.neutralEarth,
+            }}
+          >
+            {locale === "en" ? "All" : "Tous"}
+          </span>
+        </FilterLabel>
+        <FilterLabel>
           <input
             type="radio"
             name="type"
@@ -89,9 +185,18 @@ export default function Horses({ locale }: { locale: string }) {
             checked={selectedType === "horse"}
             onChange={(e) => setSelectedType(e.target.value)}
           />
-          {locale === "en" ? "Horses" : "Chevaux"}
-        </label>
-        <label style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <span
+            style={{
+              color:
+                selectedType === "horse"
+                  ? themeVariables.cloudyMist
+                  : themeVariables.neutralEarth,
+            }}
+          >
+            {locale === "en" ? "Horses" : "Chevaux"}
+          </span>
+        </FilterLabel>
+        <FilterLabel>
           <input
             type="radio"
             name="type"
@@ -99,9 +204,18 @@ export default function Horses({ locale }: { locale: string }) {
             checked={selectedType === "mare"}
             onChange={(e) => setSelectedType(e.target.value)}
           />
-          {locale === "en" ? "Mares" : "Juments"}
-        </label>
-        <label style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <span
+            style={{
+              color:
+                selectedType === "mare"
+                  ? themeVariables.cloudyMist
+                  : themeVariables.neutralEarth,
+            }}
+          >
+            {locale === "en" ? "Mares" : "Juments"}
+          </span>
+        </FilterLabel>
+        <FilterLabel>
           <input
             type="radio"
             name="type"
@@ -109,89 +223,67 @@ export default function Horses({ locale }: { locale: string }) {
             checked={selectedType === "youngster"}
             onChange={(e) => setSelectedType(e.target.value)}
           />
-          {locale === "en" ? "Youngsters" : "Jeunes"}
-        </label>
-      </div>
-
-      {/* Grid des chevaux */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(20rem, 1fr))",
-          gap: "20px",
-          width: "100%",
-          padding: "2rem",
-          marginTop: "8rem",
-        }}
-      >
-        {filteredHorses.map((horse) => (
-          <div
-            className="card"
+          <span
             style={{
-              cursor: "pointer",
-              display: "flex",
-              flexDirection: "column",
-              padding: "1rem",
-              backgroundColor:
-                horse.type === "horse"
-                  ? themeVariables.terracotaEarth
-                  : horse.type === "mare"
-                  ? themeVariables.grassGreen
-                  : themeVariables.coolBlueGrey,
-              border: "1px solid #000",
-              borderRadius: "5px",
-              height: "15rem",
-              overflow: "hidden",
-              transition: "ease-in-out 0.3s",
+              color:
+                selectedType === "youngster"
+                  ? themeVariables.cloudyMist
+                  : themeVariables.neutralEarth,
             }}
+          >
+            {locale === "en" ? "Youngsters" : "Jeunes"}
+          </span>
+        </FilterLabel>
+      </FilterContainer>
+
+      <GridContainer>
+        {filteredHorses.map((horse) => (
+          <Card
             key={horse.name}
+            type={getHorseType(horse)}
             onClick={() => {
               router.push(`/${locale}/horses/${horse.name.toLowerCase()}`);
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "1rem",
-                marginBottom: "1rem",
-              }}
-            >
+            <CardHeader>
               <Image
                 src={getImagePath(horse.images.avatar)}
                 alt={`Avatar de ${horse.name}`}
-                width={50}
-                height={50}
+                width={110}
+                height={110}
                 style={{ borderRadius: "50%" }}
               />
-              <h2>{horse.name}</h2>
-            </div>
 
-            <div>
+              <h2 style={{ textAlign: "center" }}>{horse.name}</h2>
+            </CardHeader>
+
+            <CardContent>
               <p>
-                {horse.studbook} - {horse.type}
+                {horse.studbook} - {getHorseType(horse)}
               </p>
               <p>
                 {locale === "en"
-                  ? `By ${horse.fatherName} out of ${horse.motherName}`
-                  : `Par ${horse.fatherName}, mère ${horse.motherName}`}
+                  ? `By ${horse.parents.sire.name} out of ${horse.parents.dam.name}`
+                  : `Par ${horse.parents.sire.name}, mère ${horse.parents.dam.name}`}
               </p>
-              <a
-                href={horse.horsetelex}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                style={{
-                  color: themeVariables.neutralEarth,
-                  textDecoration: "underline",
-                }}
-              >
-                Horsetelex
-              </a>
-            </div>
-          </div>
+              {horse.url && (
+                <a
+                  href={horse.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  style={{
+                    color: themeVariables.neutralEarth,
+                    textDecoration: "underline",
+                  }}
+                >
+                  Horsetelex
+                </a>
+              )}
+            </CardContent>
+          </Card>
         ))}
-      </div>
-    </div>
+      </GridContainer>
+    </Container>
   );
 }

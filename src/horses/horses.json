@@ -1,142 +1,263 @@
 [
   {
-    "name": "London",
-    "type": "horse",
-    "sex": "male",
+    "name": "NIKITA",
+    "gender": "Mare",
+    "birthYear": 2025,
+    "color": "Grey",
     "studbook": "KWPN",
-    "horsetelex": "https://www.horsetelex.com/horses/123456",
-    "motherName": "Storm",
-    "fatherName": "Lightning",
+    "registration": "528003201803746",
+    "url": "https://www.horsetelex.com/horses/pedigree/2009004/nikita",
+    "additionalInfo": {
+      "D-OC": true
+    },
+    "parents": {
+      "sire": {
+        "name": "BERLIN",
+        "studbook": "HOLST",
+        "registration": "276321210274394"
+      },
+      "dam": {
+        "name": "ATIEN",
+        "studbook": "KWPN",
+        "registration": "528003200509552"
+      }
+    },
     "images": {
       "detoured": "horses/LondonDetoure.png",
       "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/Thunder1.png", "horses/Thunder2.png"]
+      "gallery": ["horses/London1.png", "horses/London2.png"]
     }
   },
   {
-    "name": "Bella",
-    "type": "mare",
-    "sex": "female",
-    "studbook": "Holsteiner",
-    "horsetelex": "https://www.horsetelex.com/horses/123457",
-    "motherName": "Grace",
-    "fatherName": "Thunderbolt",
+    "name": "CLUEDO DB Z",
+    "gender": "Stallion",
+    "birthYear": 2020,
+    "color": "Grey",
+    "studbook": "ZANG",
+    "registration": "056015Z55562120",
+    "url": "https://www.horsetelex.com/horses/pedigree/2318928/cluedo-db-z",
+    "parents": {
+      "sire": {
+        "name": "COLORIT",
+        "studbook": "BADWU",
+        "registration": "276473730631803"
+      },
+      "dam": {
+        "name": "SOCCA FONTANEL",
+        "studbook": "SF",
+        "registration": "25000106239414C"
+      }
+    },
     "images": {
       "detoured": "horses/LondonDetoure.png",
       "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/Bella1.png", "horses/Bella2.png"]
+      "gallery": ["horses/London1.png", "horses/London2.png"]
     }
   },
   {
-    "name": "Star",
-    "type": "youngster",
-    "sex": "female",
-    "studbook": "Hanoverian",
-    "horsetelex": "https://www.horsetelex.com/horses/123458",
-    "motherName": "Luna",
-    "fatherName": "Solar",
+    "name": "BATAAF V/D HORST Z",
+    "gender": "Stallion",
+    "birthYear": 2020,
+    "color": "Brown",
+    "studbook": "ZANG",
+    "registration": "056015Z55806220",
+    "url": "https://www.horsetelex.com/horses/pedigree/2155081/bataaf-v-d-horst-z",
+    "parents": {
+      "sire": {
+        "name": "BALOUBET DU ROUET",
+        "studbook": "SF",
+        "registration": "25000189502905H"
+      },
+      "dam": {
+        "name": "WHYCLARA O",
+        "studbook": "KWPN",
+        "registration": "528003200308025"
+      }
+    },
     "images": {
       "detoured": "horses/LondonDetoure.png",
       "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/Star1.png", "horses/Star2.png"]
+      "gallery": ["horses/London1.png", "horses/London2.png"]
     }
   },
   {
-    "name": "Maximus",
-    "type": "horse",
-    "sex": "male",
-    "studbook": "Oldenburg",
-    "horsetelex": "https://www.horsetelex.com/horses/123459",
-    "motherName": "Athena",
-    "fatherName": "Zeus",
+    "name": "VANITY VAN HET AUDGOED",
+    "gender": "Mare",
+    "birthYear": 2021,
+    "color": "Dark brown",
+    "studbook": "BWP",
+    "registration": "056002W00329604",
+    "parents": {
+      "sire": {
+        "name": "DIAMANT DE SEMILLY",
+        "studbook": "SF",
+        "registration": "25000191446545F"
+      },
+      "dam": {
+        "name": "CAYENNE",
+        "studbook": "KWPN",
+        "registration": "528003200709526"
+      }
+    },
     "images": {
       "detoured": "horses/LondonDetoure.png",
       "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/Maximus1.png", "horses/Maximus2.png"]
+      "gallery": ["horses/London1.png", "horses/London2.png"]
     }
   },
   {
-    "name": "Daisy",
-    "type": "mare",
-    "sex": "female",
-    "studbook": "Trakehner",
-    "horsetelex": "https://www.horsetelex.com/horses/123460",
-    "motherName": "Rose",
-    "fatherName": "Apollo",
+    "name": "COCO BLUE DE MELODIE Z",
+    "gender": "Mare",
+    "birthYear": 2021,
+    "color": "Brown",
+    "studbook": "ZANG",
+    "registration": "056015Z55229521",
+    "url": "https://www.horsetelex.com/horses/pedigree/2226670/coco-blue-de-melodie-z",
+    "parents": {
+      "sire": {
+        "name": "CHACCO-BLUE",
+        "studbook": "MECKL",
+        "registration": "276327271025998"
+      },
+      "dam": {
+        "name": "ILUNA DE MUZE",
+        "studbook": "BWP",
+        "registration": "056002W00270367"
+      }
+    },
     "images": {
       "detoured": "horses/LondonDetoure.png",
       "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/Daisy1.png", "horses/Daisy2.png"]
+      "gallery": ["horses/London1.png", "horses/London2.png"]
     }
   },
   {
-    "name": "Apollo",
-    "type": "youngster",
-    "sex": "male",
-    "studbook": "Westphalian",
-    "horsetelex": "https://www.horsetelex.com/horses/123461",
-    "motherName": "Venus",
-    "fatherName": "Mars",
+    "name": "HEARTKEY SR Z",
+    "gender": "Mare",
+    "birthYear": 2020,
+    "color": "Brown",
+    "studbook": "ZANG",
+    "registration": "056015Z55146820",
+    "url": "https://www.horsetelex.com/horses/pedigree/2152311/heartkey-sr-z",
+    "parents": {
+      "sire": {
+        "name": "HARDROCK Z",
+        "studbook": "ZANG",
+        "registration": "056015Z55667803"
+      },
+      "dam": {
+        "name": "WORETTA SR",
+        "studbook": "HOLST",
+        "registration": "276421000297606"
+      }
+    },
     "images": {
       "detoured": "horses/LondonDetoure.png",
       "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/Apollo1.png", "horses/Apollo2.png"]
+      "gallery": ["horses/London1.png", "horses/London2.png"]
     }
   },
   {
-    "name": "Luna",
-    "type": "mare",
-    "sex": "female",
-    "studbook": "Selle Français",
-    "horsetelex": "https://www.horsetelex.com/horses/123462",
-    "motherName": "Stella",
-    "fatherName": "Orion",
+    "name": "CARAMEL DE MELODIE Z",
+    "gender": "Stallion",
+    "birthYear": 2022,
+    "color": "Chestnut",
+    "studbook": "ZANG",
+    "registration": "056015Z55231722",
+    "url": "https://www.horsetelex.com/horses/pedigree/2471991/caramel-de-melodie-z",
+    "parents": {
+      "sire": {
+        "name": "CHACCO-BLUE",
+        "studbook": "MECKL",
+        "registration": "276327271025998"
+      },
+      "dam": {
+        "name": "ILUNA DE MUZE",
+        "studbook": "BWP",
+        "registration": "056002W00270367"
+      }
+    },
     "images": {
       "detoured": "horses/LondonDetoure.png",
       "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/Luna1.png", "horses/Luna2.png"]
+      "gallery": ["horses/London1.png", "horses/London2.png"]
     }
   },
   {
-    "name": "Zephyr",
-    "type": "horse",
-    "sex": "male",
-    "studbook": "Belgian Warmblood",
-    "horsetelex": "https://www.horsetelex.com/horses/123463",
-    "motherName": "Breeze",
-    "fatherName": "Gale",
+    "name": "OUR GYLA R",
+    "gender": "Mare",
+    "birthYear": 2019,
+    "color": "Skew or pie bald",
+    "studbook": "AES",
+    "registration": "826002190886832",
+    "parents": {
+      "sire": {
+        "name": "AD A BIG BOY",
+        "studbook": "BWP",
+        "registration": "056002W00192569"
+      },
+      "dam": {
+        "name": "GYLA R",
+        "studbook": "KWPN",
+        "registration": "528003201110424"
+      }
+    },
     "images": {
       "detoured": "horses/LondonDetoure.png",
       "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/Zephyr1.png", "horses/Zephyr2.png"]
+      "gallery": ["horses/London1.png", "horses/London2.png"]
     }
   },
   {
-    "name": "Aurora",
-    "type": "mare",
-    "sex": "female",
-    "studbook": "Dutch Warmblood",
-    "horsetelex": "https://www.horsetelex.com/horses/123464",
-    "motherName": "Eos",
-    "fatherName": "Helios",
+    "name": "ALL STAR'S PASITHEE",
+    "gender": "Mare",
+    "birthYear": 2020,
+    "color": "Brown",
+    "studbook": "KWPN",
+    "registration": "528003202002905",
+    "url": "https://www.horsetelex.com/horses/pedigree/2155285/all-star-s-pasithee",
+    "parents": {
+      "sire": {
+        "name": "ALL STAR 5",
+        "studbook": "HANN",
+        "registration": "276431310705003"
+      },
+      "dam": {
+        "name": "ATIEN",
+        "studbook": "KWPN",
+        "registration": "528003200509552"
+      }
+    },
     "images": {
       "detoured": "horses/LondonDetoure.png",
       "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/Aurora1.png", "horses/Aurora2.png"]
+      "gallery": ["horses/London1.png", "horses/London2.png"]
     }
   },
   {
-    "name": "Blaze",
-    "type": "youngster",
-    "sex": "male",
-    "studbook": "Irish Sport Horse",
-    "horsetelex": "https://www.horsetelex.com/horses/123465",
-    "motherName": "Ember",
-    "fatherName": "Flame",
+    "name": "PAKKEE",
+    "gender": "Mare",
+    "birthYear": 2020,
+    "color": "Brown",
+    "studbook": "KWPN",
+    "registration": "528003202006706",
+    "url": "https://www.horsetelex.com/horses/pedigree/2159017/pakkee",
+    "parents": {
+      "sire": {
+        "name": "HARDROCK Z",
+        "studbook": "ZANG",
+        "registration": "056015Z55667803"
+      },
+      "dam": {
+        "name": "AKKE",
+        "studbook": "KWPN",
+        "registration": "528003200512581"
+      }
+    },
     "images": {
       "detoured": "horses/LondonDetoure.png",
       "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/Blaze1.png", "horses/Blaze2.png"]
+      "gallery": ["horses/London1.png", "horses/London2.png"]
     }
   }
 ]
