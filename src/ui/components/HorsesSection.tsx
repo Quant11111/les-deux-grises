@@ -36,6 +36,7 @@ const FilterContainer = styled.div`
   padding-bottom: 2rem;
   z-index: 50;
   min-width: 100%;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Ajout de l'ombre */
 `;
 
 const GridContainer = styled.div`
