@@ -5,113 +5,6 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import horsesData from "@/horses/horses.json";
 import Image from "next/image";
-import styled from "styled-components";
-
-const Container = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  min-height: calc(100vh - 4rem);
-  height: fill-available;
-  overflow-y: scroll;
-`;
-
-const Title = styled.h1`
-  position: fixed;
-  top: 6rem;
-  display: none;
-`;
-
-const FilterContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${themeVariables.grassGreen};
-  gap: 2rem;
-  position: fixed;
-  top: 1.5rem;
-  padding-top: 4rem;
-  padding-bottom: 2rem;
-  z-index: 50;
-  min-width: 100%;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Ajout de l'ombre */
-`;
-
-const GridContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 20rem);
-  gap: 2.5rem;
-  width: 100%;
-  padding: 2rem;
-  margin-top: 8rem;
-  justify-content: center;
-`;
-
-const FilterLabel = styled.label`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  input {
-    display: none;
-  }
-  input:checked {
-    color: ${themeVariables.cloudyMist};
-  }
-  span {
-    color: ${themeVariables.neutralEarth};
-    text-decoration: none;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-`;
-
-const Card = styled.div`
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  background-color: ${(props) =>
-    props.type === "horse"
-      ? themeVariables.terracotaEarth
-      : props.type === "mare"
-      ? themeVariables.grassGreen
-      : themeVariables.coolBlueGrey};
-
-  border-radius: 300px 300px 0 0;
-  height: 25rem;
-  overflow: hidden;
-  transition: ease-in-out 0.3s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-`;
-
-const CardHeader = styled.div`
-  padding-top: 4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  min-width: 100%;
-  justify-content: center;
-`;
-
-const CardContent = styled.div`
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  justify-content: end;
-  gap: 0.5rem;
-`;
 
 const getImagePath = (path: string) => {
   try {
@@ -151,21 +44,54 @@ export default function Horses({ locale }: { locale: string }) {
   });
 
   return (
-    <Container
+    <div
       style={{
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        width: "100%",
+        minHeight: "calc(100vh - 4rem)",
+        height: "fill-available",
+        overflowY: "scroll",
         backgroundImage: "url('/images/ecurie.jpg')",
         backgroundSize: "cover",
       }}
     >
-      <Title>{locale === "en" ? "Horses" : "Chevaux"}</Title>
-      <FilterContainer>
-        <FilterLabel>
+      <h1 style={{ position: "fixed", top: "6rem", display: "none" }}>
+        {locale === "en" ? "Horses" : "Chevaux"}
+      </h1>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: themeVariables.grassGreen,
+          gap: "2rem",
+          position: "fixed",
+          top: "1.5rem",
+          paddingTop: "4rem",
+          paddingBottom: "2rem",
+          zIndex: 50,
+          minWidth: "100%",
+          boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)",
+        }}
+      >
+        <label
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            cursor: "pointer",
+          }}
+        >
           <input
             type="radio"
             name="type"
             value="all"
             checked={selectedType === "all"}
             onChange={(e) => setSelectedType(e.target.value)}
+            style={{ display: "none" }}
           />
           <span
             style={{
@@ -173,18 +99,28 @@ export default function Horses({ locale }: { locale: string }) {
                 selectedType === "all"
                   ? themeVariables.cloudyMist
                   : themeVariables.neutralEarth,
+              textDecoration: "none",
+              transition: "color 0.3s ease, text-decoration 0.3s ease",
             }}
           >
             {locale === "en" ? "All" : "Tous"}
           </span>
-        </FilterLabel>
-        <FilterLabel>
+        </label>
+        <label
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            cursor: "pointer",
+          }}
+        >
           <input
             type="radio"
             name="type"
             value="horse"
             checked={selectedType === "horse"}
             onChange={(e) => setSelectedType(e.target.value)}
+            style={{ display: "none" }}
           />
           <span
             style={{
@@ -192,18 +128,28 @@ export default function Horses({ locale }: { locale: string }) {
                 selectedType === "horse"
                   ? themeVariables.cloudyMist
                   : themeVariables.neutralEarth,
+              textDecoration: "none",
+              transition: "color 0.3s ease, text-decoration 0.3s ease",
             }}
           >
             {locale === "en" ? "Horses" : "Chevaux"}
           </span>
-        </FilterLabel>
-        <FilterLabel>
+        </label>
+        <label
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            cursor: "pointer",
+          }}
+        >
           <input
             type="radio"
             name="type"
             value="mare"
             checked={selectedType === "mare"}
             onChange={(e) => setSelectedType(e.target.value)}
+            style={{ display: "none" }}
           />
           <span
             style={{
@@ -211,18 +157,28 @@ export default function Horses({ locale }: { locale: string }) {
                 selectedType === "mare"
                   ? themeVariables.cloudyMist
                   : themeVariables.neutralEarth,
+              textDecoration: "none",
+              transition: "color 0.3s ease, text-decoration 0.3s ease",
             }}
           >
             {locale === "en" ? "Mares" : "Juments"}
           </span>
-        </FilterLabel>
-        <FilterLabel>
+        </label>
+        <label
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            cursor: "pointer",
+          }}
+        >
           <input
             type="radio"
             name="type"
             value="youngster"
             checked={selectedType === "youngster"}
             onChange={(e) => setSelectedType(e.target.value)}
+            style={{ display: "none" }}
           />
           <span
             style={{
@@ -230,23 +186,70 @@ export default function Horses({ locale }: { locale: string }) {
                 selectedType === "youngster"
                   ? themeVariables.cloudyMist
                   : themeVariables.neutralEarth,
+              textDecoration: "none",
+              transition: "color 0.3s ease, text-decoration 0.3s ease",
             }}
           >
             {locale === "en" ? "Youngsters" : "Jeunes"}
           </span>
-        </FilterLabel>
-      </FilterContainer>
+        </label>
+      </div>
 
-      <GridContainer>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, 20rem)",
+          gap: "2.5rem",
+          width: "100%",
+          padding: "2rem",
+          marginTop: "8rem",
+          justifyContent: "center",
+        }}
+      >
         {filteredHorses.map((horse) => (
-          <Card
+          <div
             key={horse.name}
-            type={getHorseType(horse)}
+            style={{
+              cursor: "pointer",
+              display: "flex",
+              flexDirection: "column",
+              padding: "1rem",
+              backgroundColor:
+                getHorseType(horse) === "horse"
+                  ? themeVariables.terracotaEarth
+                  : getHorseType(horse) === "mare"
+                  ? themeVariables.grassGreen
+                  : themeVariables.coolBlueGrey,
+              borderRadius: "300px 300px 0 0",
+              height: "25rem",
+              overflow: "hidden",
+              transition: "ease-in-out 0.3s",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+            }}
             onClick={() => {
               router.push(`/${locale}/horses/${horse.name.toLowerCase()}`);
             }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = "translateY(-5px)";
+              e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.2)";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
+            }}
           >
-            <CardHeader>
+            <div
+              style={{
+                paddingTop: "4rem",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "1rem",
+                marginBottom: "1rem",
+                minWidth: "100%",
+                justifyContent: "center",
+              }}
+            >
               <Image
                 src={getImagePath(horse.images.avatar)}
                 alt={`Avatar de ${horse.name}`}
@@ -256,9 +259,17 @@ export default function Horses({ locale }: { locale: string }) {
               />
 
               <h2 style={{ textAlign: "center" }}>{horse.name}</h2>
-            </CardHeader>
+            </div>
 
-            <CardContent>
+            <div
+              style={{
+                display: "flex",
+                flexGrow: 1,
+                flexDirection: "column",
+                justifyContent: "end",
+                gap: "0.5rem",
+              }}
+            >
               <p>
                 {horse.studbook} - {getHorseType(horse)}
               </p>
@@ -281,10 +292,10 @@ export default function Horses({ locale }: { locale: string }) {
                   Horsetelex
                 </a>
               )}
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         ))}
-      </GridContainer>
-    </Container>
+      </div>
+    </div>
   );
 }
