@@ -52,15 +52,11 @@ export default function Horses({ locale }: { locale: string }) {
         alignItems: "center",
         width: "100%",
         minHeight: "calc(100vh - 5rem)",
-        height: "fill-available",
+        height: "calc(100vh - 5rem)",
         overflowY: "scroll",
-        backgroundImage: "url('/images/ecurie.jpg')",
-        backgroundSize: "cover",
+        backgroundColor: themeVariables.grassGreen,
       }}
     >
-      <h1 style={{ position: "fixed", top: "6rem", display: "none" }}>
-        {locale === "en" ? "Horses" : "Chevaux"}
-      </h1>
       <div
         style={{
           display: "flex",
@@ -68,13 +64,9 @@ export default function Horses({ locale }: { locale: string }) {
           justifyContent: "center",
           backgroundColor: themeVariables.grassGreen,
           gap: "2rem",
-          position: "fixed",
-          top: "0",
-          paddingTop: "5.5rem",
-          paddingBottom: "2rem",
+          paddingTop: "2rem",
           zIndex: 50,
           minWidth: "100%",
-          boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)",
         }}
       >
         <label
@@ -200,10 +192,19 @@ export default function Horses({ locale }: { locale: string }) {
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, 20rem)",
           gap: "2.5rem",
-          width: "100%",
-          paddingBottom: "2rem",
-          marginTop: "8rem",
+          width: "90%",
+          marginTop: "2.5rem",
           justifyContent: "center",
+          backgroundImage: "url('/images/paille.jpg')",
+          backgroundSize: "cover",
+          borderTopLeftRadius: "20000000000000000000000000000px",
+          borderTopRightRadius: "20000000000000000000000000000px",
+          height: "calc(100vh - 14rem)",
+          overflowY: "scroll",
+          maxWidth: "calc(200vh - 28rem)",
+          padding: "6rem",
+          paddingTop: "9vw",
+          overflowX: "hidden",
         }}
       >
         {filteredHorses.map((horse) => (
@@ -224,6 +225,7 @@ export default function Horses({ locale }: { locale: string }) {
               height: "25rem",
               overflow: "hidden",
               transition: "ease-in-out 0.3s",
+              border: `2px solid ${themeVariables.neutralEarth}`,
               boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
             }}
             onClick={() => {
@@ -231,11 +233,13 @@ export default function Horses({ locale }: { locale: string }) {
             }}
             onMouseOver={(e) => {
               e.currentTarget.style.transform = "translateY(-5px)";
-              e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.2)";
+              e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.8)";
+              e.currentTarget.style.border = `2px solid ${themeVariables.lightForeground}`;
             }}
             onMouseOut={(e) => {
               e.currentTarget.style.transform = "translateY(0)";
               e.currentTarget.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
+              e.currentTarget.style.border = `2px solid ${themeVariables.neutralEarth}`;
             }}
           >
             <div
@@ -255,10 +259,16 @@ export default function Horses({ locale }: { locale: string }) {
                 alt={`Avatar de ${horse.name}`}
                 width={110}
                 height={110}
-                style={{ borderRadius: "50%" }}
+                style={{
+                  borderRadius: "50%",
+                  border: `2px solid ${themeVariables.neutralEarth}`,
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                }}
               />
 
-              <h2 style={{ textAlign: "center" }}>{horse.name}</h2>
+              <h2 style={{ textAlign: "center", color: "white" }}>
+                {horse.name}
+              </h2>
             </div>
 
             <div
