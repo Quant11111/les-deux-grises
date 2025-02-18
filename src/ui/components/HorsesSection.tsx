@@ -86,6 +86,7 @@ export default function Horses({ locale }: { locale: string }) {
             style={{ display: "none" }}
           />
           <span
+            className="radio-label"
             style={{
               color:
                 selectedType === "all"
@@ -115,6 +116,7 @@ export default function Horses({ locale }: { locale: string }) {
             style={{ display: "none" }}
           />
           <span
+            className="radio-label"
             style={{
               color:
                 selectedType === "horse"
@@ -144,6 +146,7 @@ export default function Horses({ locale }: { locale: string }) {
             style={{ display: "none" }}
           />
           <span
+            className="radio-label"
             style={{
               color:
                 selectedType === "mare"
@@ -173,6 +176,7 @@ export default function Horses({ locale }: { locale: string }) {
             style={{ display: "none" }}
           />
           <span
+            className="radio-label"
             style={{
               color:
                 selectedType === "youngster"
@@ -244,6 +248,13 @@ export default function Horses({ locale }: { locale: string }) {
         ))}
       </div>
       <style jsx>{`
+        .radio-label {
+          cursor: pointer;
+          font-size: 0.7rem;
+        }
+        .horse-name {
+          font-size: 0.8rem;
+        }
         @media (max-width: 1000px) {
           .horse-name {
             font-size: 0.7rem;

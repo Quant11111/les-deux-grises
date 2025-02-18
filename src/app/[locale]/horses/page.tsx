@@ -16,7 +16,7 @@ export default function Horses() {
         flexDirection: "column",
 
         width: "100vw",
-        height: "100vh",
+        height: "100%",
         background: themeVariables.grassGreen,
         backgroundSize: "cover",
         backgroundPosition: "center",
