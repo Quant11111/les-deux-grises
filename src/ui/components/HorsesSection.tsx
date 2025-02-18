@@ -189,12 +189,12 @@ export default function Horses({ locale }: { locale: string }) {
 
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, 20rem)",
-          gap: "2.5rem",
+          display: "flex",
+          flexDirection: "column",
+          gap: "2rem",
           width: "90%",
           marginTop: "2.5rem",
-          justifyContent: "center",
+          alignItems: "center",
           backgroundImage: "url('/images/paille.jpg')",
           backgroundSize: "cover",
           borderTopLeftRadius: "20000000000000000000000000000px",
@@ -203,7 +203,7 @@ export default function Horses({ locale }: { locale: string }) {
           overflowY: "scroll",
           maxWidth: "calc(200vh - 28rem)",
           padding: "6rem",
-          paddingTop: "9vw",
+          paddingTop: "14vw",
           overflowX: "hidden",
         }}
       >
@@ -213,19 +213,14 @@ export default function Horses({ locale }: { locale: string }) {
             style={{
               cursor: "pointer",
               display: "flex",
-              flexDirection: "column",
-              padding: "1rem",
-              backgroundColor:
-                getHorseType(horse) === "horse"
-                  ? themeVariables.terracotaEarth
-                  : getHorseType(horse) === "mare"
-                  ? themeVariables.grassGreen
-                  : themeVariables.coolBlueGrey,
-              borderRadius: "300px 300px 0 0",
-              height: "25rem",
-              overflow: "hidden",
+              alignItems: "center",
+              width: "600px",
+              maxWidth: "60vw",
+              minHeight: "2rem",
+              backgroundColor: themeVariables.lightForeground,
+              padding: "0.5rem",
               transition: "ease-in-out 0.3s",
-              border: `2px solid ${themeVariables.neutralEarth}`,
+
               boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
             }}
             onClick={() => {
@@ -233,76 +228,18 @@ export default function Horses({ locale }: { locale: string }) {
             }}
             onMouseOver={(e) => {
               e.currentTarget.style.transform = "translateY(-5px)";
+              e.currentTarget.style.borderRadius = "1rem";
               e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.8)";
-              e.currentTarget.style.border = `2px solid ${themeVariables.lightForeground}`;
+              e.currentTarget.style.outline = `2px solid ${themeVariables.neutralEarth}`;
             }}
             onMouseOut={(e) => {
               e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.borderRadius = "0%";
               e.currentTarget.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
-              e.currentTarget.style.border = `2px solid ${themeVariables.neutralEarth}`;
+              e.currentTarget.style.outline = `none`;
             }}
           >
-            <div
-              style={{
-                paddingTop: "4rem",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "1rem",
-                marginBottom: "1rem",
-                minWidth: "100%",
-                justifyContent: "center",
-              }}
-            >
-              <Image
-                src={getImagePath(horse.images.avatar)}
-                alt={`Avatar de ${horse.name}`}
-                width={110}
-                height={110}
-                style={{
-                  borderRadius: "50%",
-                  border: `2px solid ${themeVariables.neutralEarth}`,
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                }}
-              />
-
-              <h2 style={{ textAlign: "center", color: "white" }}>
-                {horse.name}
-              </h2>
-            </div>
-
-            <div
-              style={{
-                display: "flex",
-                flexGrow: 1,
-                flexDirection: "column",
-                justifyContent: "end",
-                gap: "0.5rem",
-              }}
-            >
-              <p>
-                {horse.studbook} - {getHorseType(horse)}
-              </p>
-              <p>
-                {locale === "en"
-                  ? `By ${horse.parents.sire.name} out of ${horse.parents.dam.name}`
-                  : `Par ${horse.parents.sire.name}, mère ${horse.parents.dam.name}`}
-              </p>
-              {horse.url && (
-                <a
-                  href={horse.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  style={{
-                    color: themeVariables.neutralEarth,
-                    textDecoration: "underline",
-                  }}
-                >
-                  Horsetelex
-                </a>
-              )}
-            </div>
+            <h2 style={{ fontSize: "1rem" }}>{horse.name}</h2>
           </div>
         ))}
       </div>
