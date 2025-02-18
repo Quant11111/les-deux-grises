@@ -95,7 +95,7 @@ export default function Horses({ locale }: { locale: string }) {
               transition: "color 0.3s ease, text-decoration 0.3s ease",
             }}
           >
-            {locale === "en" ? "All" : "Tous"}
+            {locale === "en" ? "ALL" : "TOUS"}
           </span>
         </label>
         <label
@@ -124,7 +124,7 @@ export default function Horses({ locale }: { locale: string }) {
               transition: "color 0.3s ease, text-decoration 0.3s ease",
             }}
           >
-            {locale === "en" ? "Horses" : "Chevaux"}
+            {locale === "en" ? "HORSES" : "CHEVAUX"}
           </span>
         </label>
         <label
@@ -153,7 +153,7 @@ export default function Horses({ locale }: { locale: string }) {
               transition: "color 0.3s ease, text-decoration 0.3s ease",
             }}
           >
-            {locale === "en" ? "Mares" : "Juments"}
+            {locale === "en" ? "MARES" : "JUMENTS"}
           </span>
         </label>
         <label
@@ -182,7 +182,7 @@ export default function Horses({ locale }: { locale: string }) {
               transition: "color 0.3s ease, text-decoration 0.3s ease",
             }}
           >
-            {locale === "en" ? "Youngsters" : "Jeunes"}
+            {locale === "en" ? "YOUNGSTERS" : "JEUNES"}
           </span>
         </label>
       </div>
@@ -239,10 +239,17 @@ export default function Horses({ locale }: { locale: string }) {
               e.currentTarget.style.outline = `none`;
             }}
           >
-            <h2 style={{ fontSize: "1rem" }}>{horse.name}</h2>
+            <h2 className="horse-name">{horse.name}</h2>
           </div>
         ))}
       </div>
+      <style jsx>{`
+        @media (max-width: 1000px) {
+          .horse-name {
+            font-size: 0.7rem;
+          }
+        }
+      `}</style>
     </div>
   );
 }
