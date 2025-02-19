@@ -207,7 +207,7 @@ export default function Horses({ locale }: { locale: string }) {
           overflowY: "scroll",
           maxWidth: "calc(200vh - 28rem)",
           padding: "6rem",
-          paddingTop: "14vw",
+          paddingTop: "16vw",
           overflowX: "hidden",
         }}
       >

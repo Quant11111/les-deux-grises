@@ -1,9 +1,7 @@
 "use client";
 
 import themeVariables from "@/utils/themeVariables";
-import { Horse } from "@prisma/client";
-import { FlameIcon, LoaderCircle } from "lucide-react";
-import { useEffect, useState } from "react";
+import horsesData from "@/horses/horses.json";
 
 export default function HorsePageContent({
   locale,
@@ -12,127 +10,104 @@ export default function HorsePageContent({
   locale: string;
   id: string;
 }) {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const [horse, setHorse] = useState<Horse | null>(null);
-
-  useEffect(() => {
-    setLoading(true);
-    const queryParams = new URLSearchParams({
-      horseId: id,
-    });
-    fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/horses?${queryParams.toString()}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((res) => {
-        if (!res.ok) {
-          console.error(`Error fetching horse - err ${res.status}`);
-          setError(`Error fetching horse - err ${res.status}`);
-        }
-        return res.json();
-      })
-      .then((data: Horse) => {
-        setHorse(data);
-        console.log(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching horse:", error);
-        setError(`Error fetching horse - err: ${error}`);
-        setLoading(false);
-      });
-  }, [id]);
-
+  const horse = horsesData.find((horse) => horse.name.toLowerCase() === id);
   return (
     <div
       style={{
+        position: "relative",
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         height: "calc(100vh - 5rem)",
       }}
     >
       <div
+        className="hide-scrollbar"
         style={{
           position: "relative",
-          width: "90%",
-          height: "100%",
+          display: "grid",
+          gridTemplateRows: "7fr 1fr 1fr 4fr",
           backgroundColor: themeVariables.grassGreen,
+          width: "80%",
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
-          overflow: "hidden",
+          height: "calc(100vh - 10rem)",
+          overflowY: "scroll",
+          paddingLeft: "calc(15vh - 1rem) ",
+          paddingRight: "calc(15vh - 1rem) ",
+          paddingBottom: "calc((100vh - 10rem)*7/100) ",
+          gap: "0.5rem",
+          maxWidth: "calc(200vh - 32rem)",
+          overflowX: "hidden",
         }}
       >
-        {loading && (
-          <LoaderCircle
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-              animation: "spin 1s linear infinite",
-            }}
-            color={themeVariables.neutralEarth}
-            size={64}
-          />
-        )}
-        {error && (
-          <>
-            <FlameIcon /> <p>{error}</p>
-          </>
-        )}
+        <div></div>
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            gap: "1rem",
-            height: "40%",
-            width: "70%",
-            position: "absolute",
-            bottom: "10%",
-            left: "50%",
-            transform: "translate(-50%, 0%)",
+            color: themeVariables.lightForeground,
+            alignItems: "end",
           }}
         >
-          <div
+          <h2>{horse?.gender.toUpperCase()}</h2>
+        </div>
+
+        <div
+          style={{
+            width: "100%",
+            backgroundColor: themeVariables.lightForeground,
+            color: themeVariables.corporateBlue,
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <h1 style={{ padding: "5px", paddingLeft: "12px" }}>{horse?.name}</h1>
+        </div>
+        <div
+          className="light-scrollbar"
+          style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            padding: "10px",
+            paddingLeft: "12px",
+            gap: "7px",
+            backgroundColor: themeVariables.neutralEarth,
+            color: themeVariables.darkForeground,
+            overflowY: "scroll",
+          }}
+        >
+          <p>FATHER: {horse?.parents.sire.name}</p>
+          <p>MOTHER: {horse?.parents.dam.name}</p>
+          <p>STUDBOOK: {horse?.studbook}</p>
+          <p>SEX: {horse?.gender}</p>
+          <p>BORN IN: {horse?.birthYear}</p>
+          <a
+            href={horse?.url}
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
+              borderRadius: "50px",
+              backgroundColor: "transparent",
+              textDecoration: "underline",
+              transition: "background-color 0.3s ease, text-align 0.3s ease",
+              display: "inline-block",
               width: "100%",
-              backgroundColor: themeVariables.lightForeground,
-              color: themeVariables.corporateBlue,
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = themeVariables.grassGreen;
+              e.currentTarget.style.textDecoration = "none";
+              e.currentTarget.style.textAlign = "center";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "transparent";
+              e.currentTarget.style.textDecoration = "underline";
+              e.currentTarget.style.textAlign = "left";
             }}
           >
-            <h1>CHACCO MACCO</h1>
-          </div>
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-around",
-              backgroundColor: themeVariables.neutralEarth,
-              color: themeVariables.darkForeground,
-              flex: "1",
-            }}
-          >
-            <p>FATHER: CHACCO BLUE</p>
-            <p>MOTHER: CASSINI I</p>
-            <p>GRANDMOTHER: ELVISTER PUTTE</p>
-            <p>SEX: MALE</p>
-            <p>STUDBOOK: ZANGERSHEIDE</p>
-            {horse?.birthday && (
-              <p>
-                AGE:{" "}
-                {new Date().getFullYear() -
-                  new Date(horse.birthday).getFullYear()}
-              </p>
-            )}
-          </div>
+            horsetelex.com
+          </a>
         </div>
       </div>
     </div>

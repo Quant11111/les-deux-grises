@@ -131,3 +131,18 @@ input[type="radio"]:checked::before {
   transform: scale(0.95);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.light-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(
+    var(--cool-blue-grey),
+    0.5
+  ); /* Couleur de l'indicateur */
+  border-radius: 10px; /* Arrondir les coins de l'indicateur */
+  border: 3px solid rgba(var(--light-foreground), 0.5); /* Ajouter une bordure autour de l'indicateur */
+}
+
+/* Styliser l'indicateur mobile de la scrollbar pour Firefox */
+.light-scrollbar {
+  scrollbar-color: rgba(var(--cool-blue-grey), 0.5)
+    rgba(var(--light-foreground), 0.5); /* Couleur de l'indicateur et de la piste */
+}

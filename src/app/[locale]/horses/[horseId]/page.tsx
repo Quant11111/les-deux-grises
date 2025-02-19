@@ -11,7 +11,8 @@ export default function HorsePage({ params }: { params: { horseId: string } }) {
       style={{
         height: "100vh",
         width: "100vw",
-        backgroundColor: "black",
+        backgroundImage: "url('/images/paille.jpg')",
+        backgroundSize: "cover",
       }}
     >
       <Navbar

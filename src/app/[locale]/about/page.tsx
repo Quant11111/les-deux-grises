@@ -28,26 +28,24 @@ export default function About() {
       >
         <OnlySmall>
           <LogoSvg
-            size={logoSize}
+            size={900}
             color={themeVariables.lightForeground}
             style={{
-              scale: 1.5,
               position: "absolute",
-              top: -logoSize / 2.7,
-              left: -logoSize / 2.7,
+              top: -600 / 2.7,
+              left: -150,
               zIndex: 1,
             }}
           />
         </OnlySmall>
         <OnlyLarge>
           <LogoSvg
-            size={logoSize}
+            size={1200}
             color={themeVariables.lightForeground}
             style={{
-              scale: 2,
               position: "absolute",
-              top: -logoSize / 3.5,
-              left: -logoSize / 3.5,
+              top: -450,
+              left: -450,
               zIndex: 1,
             }}
           />
