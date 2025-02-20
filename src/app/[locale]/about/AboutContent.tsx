@@ -48,6 +48,7 @@ export default function AboutContent({
       }}
     >
       <div
+        className="about-radios"
         style={{
           display: "flex",
           alignItems: "center",
@@ -162,7 +163,7 @@ export default function AboutContent({
               padding: "1rem",
               position: "absolute",
               width: "300px",
-              maxWidth: "80%",
+              maxWidth: "75vw",
               height: "350px",
               maxHeight: "60%",
               bottom: "calc(0.8rem + 1vw)",
@@ -232,6 +233,15 @@ export default function AboutContent({
           }
           .div2 {
             left: calc(100% + 2.5vw) !important;
+          }
+        }
+        @media (max-width: 1100px) {
+          .about-radios {
+            width: 100%;
+            flex-direction: column;
+            align-items: end !important;
+            gap: 0.5rem !important;
+            margin-right: 2rem !important;
           }
         }
       `}</style>
