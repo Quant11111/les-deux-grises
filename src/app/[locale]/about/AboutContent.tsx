@@ -33,40 +33,122 @@ export default function AboutContent({
   //false : what we do
   const [toogle, setToogle] = useState(true);
 
-  const context = useAppContext();
+  //const context = useAppContext();
 
   return (
     <div
       style={{
         position: "relative",
-        flex: 1,
+        height: "calc(100vh - 5rem)",
         display: "flex",
+        flexDirection: "column",
+
+        alignItems: "center",
         overflow: "hidden",
       }}
     >
       <div
-        className="arc"
         style={{
-          position: "absolute",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "1rem",
+          paddingBottom: "1.5rem",
+          gap: "2rem",
+        }}
+      >
+        <label
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            cursor: "pointer",
+          }}
+        >
+          <input
+            type="radio"
+            name="type"
+            value="all"
+            checked={toogle === true}
+            onChange={(e) => setToogle(true)}
+            style={{ display: "none" }}
+          />
+          <span
+            className="radio-label"
+            style={{
+              color:
+                toogle === true
+                  ? themeVariables.cloudyMist
+                  : themeVariables.neutralEarth,
+              textDecoration: "none",
+              transition: "color 0.3s ease, text-decoration 0.3s ease",
+            }}
+          >
+            {title1}
+          </span>
+        </label>
+        <label
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            cursor: "pointer",
+          }}
+        >
+          <input
+            type="radio"
+            name="type"
+            value="horse"
+            checked={toogle === false}
+            onChange={(e) => setToogle(false)}
+            style={{ display: "none" }}
+          />
+          <span
+            className="radio-label"
+            style={{
+              color:
+                toogle === false
+                  ? themeVariables.cloudyMist
+                  : themeVariables.neutralEarth,
+              textDecoration: "none",
+              transition: "color 0.3s ease, text-decoration 0.3s ease",
+            }}
+          >
+            {title2}
+          </span>
+        </label>
+      </div>
+      <div
+        style={{
+          position: "relative",
           overflow: "hidden",
-          width: "90%",
-          height: "95%",
-          left: "5%",
-          backgroundImage: "url(/images/domain.jpg)",
+
+          backgroundImage: toogle
+            ? "url('/images/domain.jpg')"
+            : "url('/images/ecurie.jpg')",
           backgroundSize: "cover",
-          bottom: "0", // Adjust the height as needed
+          backgroundPosition: "center",
+          width: "80%",
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
+          height: "calc(100vh - 10rem)",
+          overflowY: "scroll",
+          paddingLeft: "calc(15vh - 3rem) ",
+          paddingRight: "calc(15vh - 3rem) ",
+          paddingBottom: "calc((100vh - 10rem)*7/100) ",
+          gap: "0.5rem",
+          maxWidth: "calc(200vh - 32rem)",
+          overflowX: "hidden",
         }}
       >
         <div
           style={{
-            position: "relative",
-            width: "100%",
+            position: "absolute",
+            width: "200%",
             height: "100%",
-            transform: context?.aboutSub
-              ? "translateX(0)"
-              : "translateX(-100%)",
+            top: 0,
+            left: 0,
+            transform: toogle ? "translateX(0)" : "translateX(-100%)",
             transition: "ease-in-out 0.5s",
           }}
         >
@@ -84,7 +166,7 @@ export default function AboutContent({
               height: "350px",
               maxHeight: "60%",
               bottom: "calc(0.8rem + 1vw)",
-              left: "20%",
+              left: "calc(50% - 40%)",
               backgroundColor: "white",
             }}
           >
@@ -113,9 +195,11 @@ export default function AboutContent({
               padding: "1rem",
               position: "absolute",
               width: "300px",
+              maxWidth: "75vw",
               height: "350px",
-              bottom: "10%",
-              left: "120%",
+              maxHeight: "60%",
+              bottom: "calc(0.8rem + 1vw)",
+              left: "calc(150% - 40%)",
               backgroundColor: "white",
             }}
           >
@@ -138,12 +222,16 @@ export default function AboutContent({
         </div>
       </div>
       <style jsx>{`
+        .radio-label {
+          cursor: pointer;
+          font-size: 0.7rem;
+        }
         @media (max-width: 560px) {
           .div1 {
-            left: calc(50% - 130px) !important;
+            left: 2.5vw !important;
           }
           .div2 {
-            left: calc(150% - 130px) !important;
+            left: calc(100% + 2.5vw) !important;
           }
         }
       `}</style>

@@ -24,28 +24,29 @@ export default function About() {
           flexDirection: "column",
           width: "100vw",
           height: "100vh",
+          overflow: "hidden",
         }}
       >
         <OnlySmall>
           <LogoSvg
-            size={900}
+            size={150}
             color={themeVariables.lightForeground}
             style={{
               position: "absolute",
-              top: -600 / 2.7,
-              left: -150,
+              top: 0,
+              left: 0,
               zIndex: 1,
             }}
           />
         </OnlySmall>
         <OnlyLarge>
           <LogoSvg
-            size={1200}
+            size={150}
             color={themeVariables.lightForeground}
             style={{
               position: "absolute",
-              top: -450,
-              left: -450,
+              top: 0,
+              left: 0,
               zIndex: 1,
             }}
           />
@@ -69,8 +70,6 @@ export default function About() {
             width: "100%",
             height: "100%",
             paddingBottom: "10vh",
-            paddingLeft: "10vh",
-            paddingRight: "10vh",
           }}
         >
           <AboutContent

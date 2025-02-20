@@ -86,14 +86,13 @@ export default function Hero({
     >
       <OnlyLarge>
         <LogoSvg
-          size={600}
+          size={225}
           color={themeVariables.lightForeground}
           style={{
-            scale: 2.5, //crée un scroll jsp pourquoi ??
             position: "absolute",
             top: "50%",
-            left: "25%",
-            transform: "translate(-25%, -20%)",
+            left: "20%",
+            transform: "translate(-50%, -50%)",
             zIndex: 1,
           }}
         />

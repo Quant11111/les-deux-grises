@@ -9,7 +9,7 @@ export default function Home() {
   const nt = useTranslations("Navbar");
   const t = useTranslations("HomePage");
   const locale = useLocale();
-  const logoSize = 400;
+  const logoSize = 140;
   return (
     <main
       style={{
@@ -27,10 +27,9 @@ export default function Home() {
           size={logoSize}
           color={themeVariables.lightForeground}
           style={{
-            scale: 1.5,
             position: "absolute",
-            top: -logoSize / 2.7,
-            left: -logoSize / 2.7,
+            top: 1,
+            left: 1,
             zIndex: 1,
           }}
         />

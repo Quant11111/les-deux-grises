@@ -92,7 +92,7 @@ export default function Navbar({
               locale={locale}
               isActive={active === "about"}
             />
-            <div
+            {/* <div
               className="aboutSub"
               style={{
                 height: "2rem",
@@ -117,7 +117,7 @@ export default function Navbar({
                 }}
                 isActive={!context?.aboutSub || false}
               />
-            </div>
+            </div> */}
           </div>
 
           <NavLink

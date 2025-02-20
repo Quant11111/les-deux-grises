@@ -53,18 +53,19 @@ export default function Horses({ locale }: { locale: string }) {
         width: "100%",
         minHeight: "calc(100vh - 5rem)",
         height: "calc(100vh - 5rem)",
-        overflowY: "scroll",
+        overflow: "hidden",
         backgroundColor: themeVariables.grassGreen,
       }}
     >
       <div
+        className="horses-radios"
         style={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           backgroundColor: themeVariables.grassGreen,
           gap: "2rem",
-          paddingTop: "2rem",
+
           zIndex: 50,
           minWidth: "100%",
         }}
@@ -196,21 +197,61 @@ export default function Horses({ locale }: { locale: string }) {
           display: "flex",
           flexDirection: "column",
           gap: "2rem",
-          width: "90%",
           marginTop: "2.5rem",
           alignItems: "center",
           backgroundImage: "url('/images/paille.jpg')",
           backgroundSize: "cover",
-          borderTopLeftRadius: "20000000000000000000000000000px",
-          borderTopRightRadius: "20000000000000000000000000000px",
-          height: "calc(100vh - 14rem)",
+
           overflowY: "scroll",
-          maxWidth: "calc(200vh - 28rem)",
           padding: "6rem",
           paddingTop: "16vw",
           overflowX: "hidden",
+          width: "80%",
+          borderTopLeftRadius: "20000000000000000000000000000px",
+          borderTopRightRadius: "20000000000000000000000000000px",
+          height: "calc(100vh - 10rem)",
+
+          paddingLeft: "calc(15vh - 3rem) ",
+          paddingRight: "calc(15vh - 3rem) ",
+          paddingBottom: "calc((100vh - 10rem)*7/100) ",
+
+          maxWidth: "calc(200vh - 32rem)",
         }}
       >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginBottom: "2rem",
+          }}
+        >
+          {selectedType === "all" && (
+            <h1 style={{ color: themeVariables.lightForeground }}>
+              {locale === "fr" && "TOUT"}
+              {locale === "en" && "ALL"}
+            </h1>
+          )}
+          {selectedType === "horse" && (
+            <h1 style={{ color: themeVariables.lightForeground }}>
+              {locale === "fr" && "CHEVAUX"}
+              {locale === "en" && "HORSES"}
+            </h1>
+          )}
+          {selectedType === "mare" && (
+            <h1 style={{ color: themeVariables.lightForeground }}>
+              {locale === "fr" && "JUMENTS"}
+              {locale === "en" && "MARES"}
+            </h1>
+          )}
+          {selectedType === "youngster" && (
+            <h1 style={{ color: themeVariables.lightForeground }}>
+              {locale === "fr" && "JEUNES"}
+              {locale === "en" && "YOUNGSTERS"}
+            </h1>
+          )}
+        </div>
+
         {filteredHorses.map((horse) => (
           <div
             key={horse.name}
@@ -255,9 +296,12 @@ export default function Horses({ locale }: { locale: string }) {
         .horse-name {
           font-size: 0.8rem;
         }
-        @media (max-width: 1000px) {
+        @media (max-width: 1100px) {
           .horse-name {
             font-size: 0.7rem;
+          }
+          .horses-radios {
+            margin-top: 1rem;
           }
         }
       `}</style>

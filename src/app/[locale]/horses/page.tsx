@@ -16,11 +16,8 @@ export default function Horses() {
         flexDirection: "column",
 
         width: "100vw",
-        height: "100%",
+        height: "100vh",
         background: themeVariables.grassGreen,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
       }}
     >
       <Navbar
