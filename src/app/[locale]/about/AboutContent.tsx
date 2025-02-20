@@ -53,9 +53,10 @@ export default function AboutContent({
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "1rem",
-          paddingBottom: "1.5rem",
+          backgroundColor: themeVariables.grassGreen,
           gap: "2rem",
+
+          minWidth: "100%",
         }}
       >
         <label
@@ -123,7 +124,7 @@ export default function AboutContent({
         style={{
           position: "relative",
           overflow: "hidden",
-
+          marginTop: "2.5rem",
           backgroundImage: toogle
             ? "url('/images/domain.jpg')"
             : "url('/images/ecurie.jpg')",
@@ -241,7 +242,7 @@ export default function AboutContent({
             flex-direction: column;
             align-items: end !important;
             gap: 0.5rem !important;
-            margin-right: 2rem !important;
+            margin-right: 4rem !important;
           }
         }
       `}</style>
