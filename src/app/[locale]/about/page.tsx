@@ -62,23 +62,13 @@ export default function About() {
           news={nt("news")}
           contact={nt("contact")}
         />
-        <div
-          style={{
-            position: "relative",
-            display: "flex",
-            flexDirection: "column",
-            width: "100%",
-            height: "100%",
-            paddingBottom: "10vh",
-          }}
-        >
-          <AboutContent
-            title1={t("whoTitle")}
-            content1={t("whoContent")}
-            title2={t("whatTitle")}
-            content2={t("whatContent")}
-          />
-        </div>
+
+        <AboutContent
+          title1={t("whoTitle")}
+          content1={t("whoContent")}
+          title2={t("whatTitle")}
+          content2={t("whatContent")}
+        />
       </main>
     </AppProvider>
   );

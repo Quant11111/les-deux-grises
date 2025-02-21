@@ -23,8 +23,8 @@
       }
     },
     "images": {
-      "detoured": "horses/LondonDetoure.png",
-      "avatar": "horses/LondonAvatar.jpg",
+      "detoured": "NikitaDetoure.png",
+      "avatar": "NikitaAvatar.jpg",
       "gallery": ["horses/London1.png", "horses/London2.png"]
     }
   },

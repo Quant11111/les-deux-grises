@@ -54,6 +54,7 @@ export default function Horses({ locale }: { locale: string }) {
         minHeight: "calc(100vh - 5rem)",
         height: "calc(100vh - 5rem)",
         overflow: "hidden",
+        paddingBottom: "4vw",
         backgroundColor: themeVariables.grassGreen,
       }}
     >

@@ -2,6 +2,10 @@
 
 import themeVariables from "@/utils/themeVariables";
 import horsesData from "@/horses/horses.json";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import OnlyLarge from "@/ui/components/OnlyLarge";
+import OnlySmall from "@/ui/components/OnlySmall";
 
 export default function HorsePageContent({
   locale,
@@ -11,15 +15,25 @@ export default function HorsePageContent({
   id: string;
 }) {
   const horse = horsesData.find((horse) => horse.name.toLowerCase() === id);
+  const [imageSrc, setImageSrc] = useState<string>("/NikitaDetoure.png");
+
+  useEffect(() => {
+    if (horse?.images?.detoured) {
+      import(`@/img/horses/${horse.images.detoured}`)
+        .then((module) => setImageSrc(module.default))
+        .catch(() => setImageSrc("/NikitaDetoure.png"));
+    }
+  }, [horse]);
   return (
     <div
       style={{
         position: "relative",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
         alignItems: "center",
+        paddingTop: "1rem",
         height: "calc(100vh - 5rem)",
+        overflow: "hidden",
       }}
     >
       <div
@@ -110,6 +124,41 @@ export default function HorsePageContent({
           </a>
         </div>
       </div>
+      <OnlyLarge>
+        <Image
+          style={{
+            position: "absolute",
+            bottom: "-1vw",
+            right: "-1vw",
+            width: "85vw", // Adjust the width based on viewport width
+            height: "auto",
+            pointerEvents: "none",
+          }}
+          src={imageSrc}
+          alt={horse?.name || "Horse image"}
+          width={800} // Add a default width
+          height={600} // Add a default height
+        />
+      </OnlyLarge>
+      <OnlySmall>
+        <Image
+          style={{
+            position: "absolute",
+            top: "2rem",
+            left: "50%",
+            transform: "translate(-50%, -0%)",
+            maxWidth: "85vw", // Adjust the width based on viewport width
+            maxHeight: "50vh",
+            width: "auto",
+            height: "auto",
+            pointerEvents: "none",
+          }}
+          src={imageSrc}
+          alt={horse?.name || "Horse image"}
+          width={800} // Add a default width
+          height={600} // Add a default height
+        />
+      </OnlySmall>
     </div>
   );
 }

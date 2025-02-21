@@ -42,7 +42,7 @@ export default function AboutContent({
         height: "calc(100vh - 5rem)",
         display: "flex",
         flexDirection: "column",
-
+        paddingBottom: "4vw",
         alignItems: "center",
         overflow: "hidden",
       }}
