@@ -100,19 +100,15 @@ export default function Hero({
 
       <div
         style={{
+          position: "relative",
           width: "100%",
           height: "100%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          transform: "translateY(-2%)",
+          paddingTop: "1rem",
         }}
       >
-        <div
-          style={{
-            position: "relative",
-          }}
-        ></div>
         <div
           style={{
             height: "85%",
