@@ -219,40 +219,6 @@ export default function Horses({ locale }: { locale: string }) {
           maxWidth: "calc(200vh - 32rem)",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginBottom: "2rem",
-          }}
-        >
-          {selectedType === "all" && (
-            <h1 style={{ color: themeVariables.lightForeground }}>
-              {locale === "fr" && "TOUT"}
-              {locale === "en" && "ALL"}
-            </h1>
-          )}
-          {selectedType === "horse" && (
-            <h1 style={{ color: themeVariables.lightForeground }}>
-              {locale === "fr" && "CHEVAUX"}
-              {locale === "en" && "HORSES"}
-            </h1>
-          )}
-          {selectedType === "mare" && (
-            <h1 style={{ color: themeVariables.lightForeground }}>
-              {locale === "fr" && "JUMENTS"}
-              {locale === "en" && "MARES"}
-            </h1>
-          )}
-          {selectedType === "youngster" && (
-            <h1 style={{ color: themeVariables.lightForeground }}>
-              {locale === "fr" && "JEUNES"}
-              {locale === "en" && "YOUNGSTERS"}
-            </h1>
-          )}
-        </div>
-
         {filteredHorses.map((horse) => (
           <div
             key={horse.name}
@@ -292,14 +258,14 @@ export default function Horses({ locale }: { locale: string }) {
       <style jsx>{`
         .radio-label {
           cursor: pointer;
-          font-size: 0.7rem;
+          font-size: 1rem;
         }
         .horse-name {
-          font-size: 0.8rem;
+          font-size: 0.9rem;
         }
         @media (max-width: 1100px) {
           .horse-name {
-            font-size: 0.7rem;
+            font-size: 0.9rem;
           }
           .horses-radios {
             margin-top: 1rem;
