@@ -17,7 +17,7 @@ export default function Home() {
         display: "flex",
         flexDirection: "column",
         width: "100vw",
-        height: "100vh",
+        height: "100dvh",
         overflow: "hidden",
         msScrollLimit: "0 0",
       }}
