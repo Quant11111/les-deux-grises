@@ -15,13 +15,13 @@ export default function HorsePageContent({
   id: string;
 }) {
   const horse = horsesData.find((horse) => horse.name.toLowerCase() === id);
-  const [imageSrc, setImageSrc] = useState<string>("/NikitaDetoure.png");
+  const [imageSrc, setImageSrc] = useState<string>("");
 
   useEffect(() => {
     if (horse?.images?.detoured) {
       import(`@/img/horses/${horse.images.detoured}`)
         .then((module) => setImageSrc(module.default))
-        .catch(() => setImageSrc("/NikitaDetoure.png"));
+        .catch(() => setImageSrc(""));
     }
   }, [horse]);
   return (
@@ -48,8 +48,8 @@ export default function HorsePageContent({
           borderTopRightRadius: "20000000000000000000000000000px",
           height: "calc(100vh - 10rem)",
           overflowY: "scroll",
-          paddingLeft: "calc(15vh - 3rem) ",
-          paddingRight: "calc(15vh - 3rem) ",
+          paddingLeft: "calc(15vh - 4rem) ",
+          paddingRight: "calc(15vh - 4rem) ",
           paddingBottom: "calc((100vh - 10rem)*7/100) ",
           gap: "0.5rem",
           maxWidth: "calc(200vh - 32rem)",
@@ -144,10 +144,10 @@ export default function HorsePageContent({
         <Image
           style={{
             position: "absolute",
-            top: "2rem",
+            top: "7vh",
             left: "50%",
             transform: "translate(-50%, -0%)",
-            maxWidth: "85vw", // Adjust the width based on viewport width
+            maxWidth: "90vw", // Adjust the width based on viewport width
             maxHeight: "50vh",
             width: "auto",
             height: "auto",
