@@ -144,7 +144,7 @@ export default function HorsePageContent({
         <Image
           style={{
             position: "absolute",
-            top: "7vh",
+            top: "13%",
             left: "50%",
             transform: "translate(-50%, -0%)",
             maxWidth: "90vw", // Adjust the width based on viewport width
