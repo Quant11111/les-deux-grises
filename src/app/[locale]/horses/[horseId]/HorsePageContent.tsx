@@ -45,7 +45,7 @@ export default function HorsePageContent({
         style={{
           position: "relative",
           display: "grid",
-          gridTemplateRows: "5fr 1fr 1fr 7fr",
+          gridTemplateRows: "5fr 1fr 1fr 7fr 0.5fr",
           backgroundColor: themeVariables.grassGreen,
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
@@ -55,13 +55,41 @@ export default function HorsePageContent({
           // paddingRight: "calc(15vh - 3rem) ",
           // paddingBottom: "calc((100vh - 10rem)*7/100) ",
           padding: "1rem",
+
           gap: "0.5rem",
           aspectRatio: "0.85/1",
           maxWidth: "calc(95vw)",
           overflowX: "hidden",
         }}
       >
-        <div></div>
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Image
+            style={{
+              position: "absolute",
+              top: "1rem",
+              left: "50%",
+              transform: "translate(-50%, -0%)",
+              scale: "1.2",
+              maxWidth: "100%", // Adjust the width based on viewport width
+              maxHeight: "100%",
+              width: "auto",
+              height: "auto",
+              pointerEvents: "none",
+            }}
+            src={imageSrc}
+            alt={horse?.name || "Horse image"}
+            width={800} // Add a default width
+            height={600} // Add a default height
+          />
+        </div>
         <div
           style={{
             display: "flex",
@@ -151,23 +179,21 @@ export default function HorsePageContent({
             )}
           </div>
         </div>
-        <Image
+        <a
           style={{
-            position: "absolute",
-            top: "0",
-            left: "50%",
-            transform: "translate(-50%, -0%)",
-            maxWidth: "64vw", // Adjust the width based on viewport width
-            maxHeight: "40vh",
-            width: "auto",
-            height: "auto",
-            pointerEvents: "none",
+            color: themeVariables.lightForeground,
+            cursor: "pointer",
+            textAlign: "center",
+            justifyContent: "center",
+            alignItems: "center",
+            display: "flex",
+            width: "100%",
           }}
-          src={imageSrc}
-          alt={horse?.name || "Horse image"}
-          width={800} // Add a default width
-          height={600} // Add a default height
-        />
+          href={horse?.url}
+          target="_blank"
+        >
+          - click here to learn more
+        </a>
       </div>
 
       <style jsx>{`
@@ -183,6 +209,9 @@ export default function HorsePageContent({
           h2 {
             font-size: 0.7rem !important;
           }
+          a {
+            font-size: 0.5rem !important;
+          }
         }
         @media (min-width: 800px) and (max-width: 1200px) {
           h1 {
@@ -190,6 +219,9 @@ export default function HorsePageContent({
           }
           h2 {
             font-size: 1rem !important;
+          }
+          a {
+            font-size: 0.7rem !important;
           }
         }
         @media (min-width: 1200px) and (max-width: 1600px) {
@@ -199,6 +231,10 @@ export default function HorsePageContent({
           h2 {
             font-size: 1.5rem !important;
           }
+          a {
+            font-size: 0.7rem !important;
+          }
+        }
       `}</style>
     </div>
   );

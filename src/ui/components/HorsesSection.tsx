@@ -243,13 +243,11 @@ export default function Horses({ locale }: { locale: string }) {
             }}
             onMouseOver={(e) => {
               e.currentTarget.style.transform = "translateY(-5px)";
-              e.currentTarget.style.borderRadius = "1rem";
               e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.8)";
               e.currentTarget.style.outline = `2px solid ${themeVariables.neutralEarth}`;
             }}
             onMouseOut={(e) => {
               e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.borderRadius = "0%";
               e.currentTarget.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
               e.currentTarget.style.outline = `none`;
             }}
@@ -261,18 +259,25 @@ export default function Horses({ locale }: { locale: string }) {
       <style jsx>{`
         .radio-label {
           cursor: pointer;
-          font-size: 1rem;
+          font-size: 0.9rem;
         }
         .horse-name {
           font-size: 0.9rem;
+          white-space: "nowrap",
+              overflow: "hidden",
+              text-overflow: "ellipsis",
         }
         @media (max-width: 1100px) {
           .horse-name {
-            font-size: 0.9rem;
+            font-size: 0.7rem;
           }
           .horses-radios {
             margin-top: 1rem;
           }
+          .radio-label {
+
+          font-size: 0.7rem !important;
+        }
         }
       `}</style>
     </div>
