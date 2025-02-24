@@ -45,7 +45,7 @@ export default function HorsePageContent({
         style={{
           position: "relative",
           display: "grid",
-          gridTemplateRows: "7fr 1fr 1fr 4fr",
+          gridTemplateRows: "5fr 1fr 1fr 7fr",
           backgroundColor: themeVariables.grassGreen,
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
@@ -56,7 +56,7 @@ export default function HorsePageContent({
           // paddingBottom: "calc((100vh - 10rem)*7/100) ",
           padding: "1rem",
           gap: "0.5rem",
-          aspectRatio: "0.9/1",
+          aspectRatio: "0.85/1",
           maxWidth: "calc(95vw)",
           overflowX: "hidden",
         }}
@@ -88,6 +88,7 @@ export default function HorsePageContent({
             overflow: "scroll",
             display: "grid",
             gridTemplateColumns: "1fr 1fr 1fr",
+            placeItems: "center",
             gap: "20px",
             backgroundColor: themeVariables.neutralEarth,
           }}
@@ -96,9 +97,10 @@ export default function HorsePageContent({
           <div
             style={{
               display: "flex",
+              width: "100%",
               flexDirection: "column",
               justifyContent: "center",
-              alignItems: "space-around",
+              alignItems: "center",
               gap: "20px",
             }}
           >
@@ -107,11 +109,8 @@ export default function HorsePageContent({
           {/* Column 2: Parents */}
           <div
             style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "space-around",
-              gap: "20px",
+              display: "grid",
+              gridTemplateRows: "1fr 1fr ",
             }}
           >
             {horse?.dad && <InfoBlock title="Father" data={horse.dad} />}
@@ -121,11 +120,8 @@ export default function HorsePageContent({
           {/* Column 3: Grandparents */}
           <div
             style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "space-around",
-              flexDirection: "column",
-              gap: "20px",
+              display: "grid",
+              gridTemplateRows: "1fr 1fr 1fr 1fr",
             }}
           >
             {horse?.dad?.dad && (
@@ -148,8 +144,8 @@ export default function HorsePageContent({
             top: "0",
             left: "50%",
             transform: "translate(-50%, -0%)",
-            maxWidth: "90vw", // Adjust the width based on viewport width
-            maxHeight: "50vh",
+            maxWidth: "64vw", // Adjust the width based on viewport width
+            maxHeight: "40vh",
             width: "auto",
             height: "auto",
             pointerEvents: "none",
