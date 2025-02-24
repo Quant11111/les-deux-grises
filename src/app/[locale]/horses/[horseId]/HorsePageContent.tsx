@@ -74,14 +74,27 @@ export default function HorsePageContent({
 
         <div
           style={{
+            position: "relative",
             width: "100%",
+            overflow: "hidden",
             backgroundColor: themeVariables.lightForeground,
             color: themeVariables.corporateBlue,
             display: "flex",
             alignItems: "center",
           }}
         >
-          <h1 style={{ padding: "5px", paddingLeft: "12px" }}>{horse?.name}</h1>
+          <h1
+            style={{
+              padding: "5px",
+              paddingLeft: "12px",
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              width: "100%",
+            }}
+          >
+            {horse?.name}
+          </h1>
         </div>
         <div
           style={{
@@ -164,7 +177,28 @@ export default function HorsePageContent({
             padding-right: 2rem !important;
             padding-bottom: 2rem !important;
           }
+          h1 {
+            font-size: 0.7rem !important;
+          }
+          h2 {
+            font-size: 0.7rem !important;
+          }
         }
+        @media (min-width: 800px) and (max-width: 1200px) {
+          h1 {
+            font-size: 1rem !important;
+          }
+          h2 {
+            font-size: 1rem !important;
+          }
+        }
+        @media (min-width: 1200px) and (max-width: 1600px) {
+          h1 {
+            font-size: 1.5rem !important;
+          }
+          h2 {
+            font-size: 1.5rem !important;
+          }
       `}</style>
     </div>
   );
