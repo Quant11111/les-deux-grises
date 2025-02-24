@@ -2,30 +2,83 @@
   {
     "name": "NIKITA",
     "gender": "Mare",
-    "birthYear": 2025,
+    "birthYear": 2018,
     "color": "Grey",
     "studbook": "KWPN",
     "registration": "528003201803746",
+    "height": "1.63",
+    "distinctions": ["D-OC"],
+    "img": "NIKITA_Corps.png",
     "url": "https://www.horsetelex.com/horses/pedigree/2009004/nikita",
-    "additionalInfo": {
-      "D-OC": true
-    },
-    "parents": {
-      "sire": {
-        "name": "BERLIN",
+    "dad": {
+      "name": "BERLIN",
+      "studbook": "HOLST",
+      "registration": "276321210274394",
+      "birthYear": 1994,
+      "color": "Grey",
+      "height": "1.74",
+      "licenses": [
+        "HANN",
+        "HOLST",
+        "KWPN",
+        "OLDBG",
+        "OS",
+        "RHEIN",
+        "SBS",
+        "SF",
+        "SWB"
+      ],
+      "distinctions": ["pref"],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "CASSINI I",
         "studbook": "HOLST",
-        "registration": "276321210274394"
+        "registration": "276321210021688",
+        "birthYear": 1988,
+        "color": "Grey",
+        "height": "1.72",
+        "licenses": ["HOLST", "RHEIN", "SF"],
+        "performance": "1.60m Jump."
       },
-      "dam": {
-        "name": "ATIEN",
-        "studbook": "KWPN",
-        "registration": "528003200509552"
+      "mom": {
+        "name": "ESTIA",
+        "studbook": "HOLST",
+        "registration": "276321210025090",
+        "birthYear": 1990,
+        "color": "Brown",
+        "height": "1.72",
+        "distinctions": ["Hauptstutbuch"],
+        "performance": "1.60m Jump."
       }
     },
-    "images": {
-      "detoured": "NikitaDetoure.png",
-      "avatar": "NikitaAvatar.jpg",
-      "gallery": ["horses/London1.png", "horses/London2.png"]
+    "mom": {
+      "name": "ATIEN",
+      "studbook": "KWPN",
+      "registration": "528003200509552",
+      "birthYear": 2005,
+      "color": "Brown",
+      "height": "1.63",
+      "distinctions": ["prest", "Stb."],
+      "dad": {
+        "name": "PADINUS",
+        "studbook": "KWPN",
+        "registration": "528003199701588",
+        "birthYear": 1997,
+        "color": "Brown",
+        "height": "1.70",
+        "licenses": ["AES", "KWPN"],
+        "distinctions": ["keur"],
+        "performance": "1.30m Jump."
+      },
+      "mom": {
+        "name": "HODESSA",
+        "studbook": "KWPN",
+        "registration": "528003198907145",
+        "birthYear": 1989,
+        "color": "Dark brown",
+        "height": "1.64",
+        "distinctions": ["prest", "Stb."]
+      }
     }
   },
   {
@@ -35,23 +88,59 @@
     "color": "Grey",
     "studbook": "ZANG",
     "registration": "056015Z55562120",
-    "url": "https://www.horsetelex.com/horses/pedigree/2318928/cluedo-db-z",
-    "parents": {
-      "sire": {
-        "name": "COLORIT",
-        "studbook": "BADWU",
-        "registration": "276473730631803"
+    "img": "CLUEDO_Corps.png",
+    "dad": {
+      "name": "COLORIT",
+      "studbook": "BADWU",
+      "registration": "276473730631803",
+      "birthYear": 2003,
+      "color": "Grey",
+      "height": "1.74",
+      "licenses": ["BADWU", "BRAND", "HOLST", "MECKL", "SA", "ZANG"],
+      "distinctions": ["Elite"],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "CORIANO",
+        "studbook": "HOLST",
+        "registration": "276321210145290",
+        "birthYear": 1990,
+        "color": "Brown",
+        "height": "1.69",
+        "licenses": ["BADWU", "HANN", "HOLST", "ZANG"],
+        "performance": "1.60m Jump."
       },
-      "dam": {
-        "name": "SOCCA FONTANEL",
-        "studbook": "SF",
-        "registration": "25000106239414C"
+      "mom": {
+        "name": "H-CAMPINA",
+        "studbook": "HOLST",
+        "registration": "276321210305693",
+        "birthYear": 1993,
+        "color": "Grey"
       }
     },
-    "images": {
-      "detoured": "horses/LondonDetoure.png",
-      "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/London1.png", "horses/London2.png"]
+    "mom": {
+      "name": "SOCCA FONTANEL",
+      "studbook": "SF",
+      "registration": "25000106239414C",
+      "birthYear": 2006,
+      "color": "Brown",
+      "height": "1.70",
+      "dad": {
+        "name": "CALVARO Z",
+        "studbook": "HOLST",
+        "registration": "276321210003587",
+        "birthYear": 1987,
+        "color": "Brown",
+        "height": "1.76",
+        "licenses": ["HANN", "KWPN", "OS", "RHEIN", "SF", "ZANG", "ZfdP"],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "BILITIS DU DEFEY",
+        "studbook": "SF",
+        "registration": "25000189500252R",
+        "birthYear": 1989,
+        "color": "Brown"
+      }
     }
   },
   {
@@ -61,23 +150,63 @@
     "color": "Brown",
     "studbook": "ZANG",
     "registration": "056015Z55806220",
-    "url": "https://www.horsetelex.com/horses/pedigree/2155081/bataaf-v-d-horst-z",
-    "parents": {
-      "sire": {
-        "name": "BALOUBET DU ROUET",
+    "img": "BATAAF_Corps.png",
+    "dad": {
+      "name": "BALOUBET DU ROUET",
+      "studbook": "SF",
+      "registration": "25000189502905H",
+      "birthYear": 1989,
+      "color": "Chestnut",
+      "height": "1.70",
+      "licenses": ["BWP", "HANN", "HOLST", "SBS", "SF", "SWB"],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "GALOUBET A",
         "studbook": "SF",
-        "registration": "25000189502905H"
+        "registration": "25000160011039J",
+        "birthYear": 1972,
+        "color": "Brown",
+        "height": "1.73",
+        "licenses": ["AWR", "SF"],
+        "performance": "1.60m Jump."
       },
-      "dam": {
-        "name": "WHYCLARA O",
-        "studbook": "KWPN",
-        "registration": "528003200308025"
+      "mom": {
+        "name": "MESANGE DU ROUET",
+        "studbook": "SF",
+        "registration": "25000178141976T",
+        "birthYear": 1978,
+        "color": "Chestnut",
+        "performance": "1.25m Jump."
       }
     },
-    "images": {
-      "detoured": "horses/LondonDetoure.png",
-      "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/London1.png", "horses/London2.png"]
+    "mom": {
+      "name": "WHYCLARA O",
+      "studbook": "KWPN",
+      "registration": "528003200308025",
+      "birthYear": 2003,
+      "color": "Brown",
+      "distinctions": ["sport(spr)", "VB"],
+      "performance": "1.35m Jump.",
+      "dad": {
+        "name": "LUX Z",
+        "studbook": "HANN",
+        "registration": "276331319773688",
+        "birthYear": 1988,
+        "color": "Brown",
+        "height": "1.68",
+        "licenses": ["HOLST", "ISH", "KWPN", "SF"],
+        "distinctions": ["Stb."],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "LADY'S OPSTALAN",
+        "studbook": "KWPN",
+        "registration": "528003199300031",
+        "birthYear": 1993,
+        "color": "Bay",
+        "height": "1.64",
+        "distinctions": ["prest", "Stb."]
+      }
     }
   },
   {
@@ -87,22 +216,66 @@
     "color": "Dark brown",
     "studbook": "BWP",
     "registration": "056002W00329604",
-    "parents": {
-      "sire": {
-        "name": "DIAMANT DE SEMILLY",
+    "img": "VANITY_Corps.png",
+    "dad": {
+      "name": "DIAMANT DE SEMILLY",
+      "studbook": "SF",
+      "registration": "25000191446545F",
+      "birthYear": 1991,
+      "color": "Dark brown",
+      "height": "1.73",
+      "licenses": ["AWR", "BWP", "CHS", "HOLST", "MIPAAF", "SF", "ZANG"],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "LE TOT DE SEMILLY",
         "studbook": "SF",
-        "registration": "25000191446545F"
+        "registration": "25000177037073A",
+        "birthYear": 1977,
+        "color": "Chestnut",
+        "height": "1.68",
+        "licenses": ["AWR", "SF"],
+        "performance": "1.60m Jump."
       },
-      "dam": {
-        "name": "CAYENNE",
-        "studbook": "KWPN",
-        "registration": "528003200709526"
+      "mom": {
+        "name": "VENISE DES CRESLES",
+        "studbook": "SF",
+        "registration": "25000187354224F",
+        "birthYear": 1987,
+        "color": "Brown",
+        "distinctions": [
+          "Label élevage: excellente",
+          "Label modèle & allures: excellente"
+        ]
       }
     },
-    "images": {
-      "detoured": "horses/LondonDetoure.png",
-      "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/London1.png", "horses/London2.png"]
+    "mom": {
+      "name": "CAYENNE",
+      "studbook": "KWPN",
+      "registration": "528003200709526",
+      "birthYear": 2007,
+      "color": "Dark brown",
+      "height": "1.67",
+      "distinctions": ["prok", "Stb-ext"],
+      "dad": {
+        "name": "INDOCTRO",
+        "studbook": "HOLST",
+        "registration": "276321210242990",
+        "birthYear": 1990,
+        "color": "Dark brown",
+        "height": "1.68",
+        "licenses": ["HANN", "HOLST", "KWPN", "SBS", "SF", "SWB"],
+        "distinctions": ["pref", "Stb."],
+        "performance": "1.40m Jump."
+      },
+      "mom": {
+        "name": "NESTA I",
+        "studbook": "HOLST",
+        "registration": "276321210108298",
+        "birthYear": 1998,
+        "color": "Brown",
+        "height": "1.66",
+        "distinctions": ["Bezirksprämie"]
+      }
     }
   },
   {
@@ -112,23 +285,72 @@
     "color": "Brown",
     "studbook": "ZANG",
     "registration": "056015Z55229521",
-    "url": "https://www.horsetelex.com/horses/pedigree/2226670/coco-blue-de-melodie-z",
-    "parents": {
-      "sire": {
-        "name": "CHACCO-BLUE",
-        "studbook": "MECKL",
-        "registration": "276327271025998"
+    "img": "COCO_Corps.png",
+    "dad": {
+      "name": "CHACCO-BLUE",
+      "studbook": "MECKL",
+      "registration": "276327271025998",
+      "birthYear": 1998,
+      "color": "Brown",
+      "height": "1.72",
+      "licenses": [
+        "HANN",
+        "MECKL",
+        "OLDBG",
+        "OS",
+        "RHEIN",
+        "SF",
+        "SWB",
+        "WESTF"
+      ],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "CHAMBERTIN",
+        "studbook": "HOLST",
+        "registration": "276321210097093",
+        "birthYear": 1993,
+        "color": "Brown",
+        "height": "1.69",
+        "licenses": ["BADWU", "HOLST", "OLDBG", "OS"],
+        "performance": "1.35m Jump."
       },
-      "dam": {
-        "name": "ILUNA DE MUZE",
-        "studbook": "BWP",
-        "registration": "056002W00270367"
+      "mom": {
+        "name": "CONTARA",
+        "studbook": "MECKL",
+        "registration": "276327270320294",
+        "birthYear": 1994,
+        "color": "Brown",
+        "height": "1.66",
+        "distinctions": ["Verbandsprämie"],
+        "performance": "1.50m Jump."
       }
     },
-    "images": {
-      "detoured": "horses/LondonDetoure.png",
-      "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/London1.png", "horses/London2.png"]
+    "mom": {
+      "name": "ILUNA DE MUZE",
+      "studbook": "BWP",
+      "registration": "056002W00270367",
+      "birthYear": 2008,
+      "color": "Chestnut",
+      "distinctions": ["VB"],
+      "dad": {
+        "name": "NABAB DE REVE",
+        "studbook": "BWP",
+        "registration": "056002W00139797",
+        "birthYear": 1990,
+        "color": "Brown",
+        "height": "1.74",
+        "licenses": ["BWP", "SBS", "SF"],
+        "distinctions": ["BWP_Ambassadeur", "Stb."],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "NIMFE DE LA POMME",
+        "studbook": "SF",
+        "registration": "25000101711842B",
+        "birthYear": 2001,
+        "color": "Brown",
+        "performance": "1.35m Jump."
+      }
     }
   },
   {
@@ -138,23 +360,72 @@
     "color": "Brown",
     "studbook": "ZANG",
     "registration": "056015Z55146820",
-    "url": "https://www.horsetelex.com/horses/pedigree/2152311/heartkey-sr-z",
-    "parents": {
-      "sire": {
-        "name": "HARDROCK Z",
-        "studbook": "ZANG",
-        "registration": "056015Z55667803"
+    "img": "HEARTKEY_Corps.png",
+    "dad": {
+      "name": "HARDROCK Z",
+      "studbook": "ZANG",
+      "registration": "056015Z55667803",
+      "birthYear": 2003,
+      "color": "Brown",
+      "height": "1.71",
+      "licenses": ["HOLST", "KWPN", "OLDBG", "SF", "ZANG"],
+      "distinctions": ["D-OC", "WFFS-free"],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "HEARTBREAKER",
+        "studbook": "KWPN",
+        "registration": "528003198904335",
+        "birthYear": 1989,
+        "color": "Brown",
+        "height": "1.67",
+        "licenses": ["BAVAR", "BWP", "KWPN", "MIPAAF", "SF", "SWB"],
+        "distinctions": ["BWP_Ambassadeur", "pref", "Stb.", "WFFS-free"],
+        "performance": "1.60m Jump."
       },
-      "dam": {
-        "name": "WORETTA SR",
-        "studbook": "HOLST",
-        "registration": "276421000297606"
+      "mom": {
+        "name": "CARTE BLANCHE Z",
+        "studbook": "ZANG",
+        "registration": "056015Z55060897",
+        "birthYear": 1997,
+        "color": "Brown"
       }
     },
-    "images": {
-      "detoured": "horses/LondonDetoure.png",
-      "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/London1.png", "horses/London2.png"]
+    "mom": {
+      "name": "WORETTA SR",
+      "studbook": "HOLST",
+      "registration": "276421000297606",
+      "birthYear": 2006,
+      "color": "Brown",
+      "height": "1.69",
+      "dad": {
+        "name": "QUIDAM DE REVEL",
+        "studbook": "SF",
+        "registration": "25000182604507R",
+        "birthYear": 1982,
+        "color": "Brown",
+        "height": "1.68",
+        "licenses": [
+          "BWP",
+          "HANN",
+          "HOLST",
+          "KWPN",
+          "MIPAAF",
+          "SF",
+          "SWB",
+          "ZANG"
+        ],
+        "distinctions": ["Stb."],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "KORRETA",
+        "studbook": "KWPN",
+        "registration": "528003199203698",
+        "birthYear": 1992,
+        "color": "Brown",
+        "height": "1.66",
+        "distinctions": ["VB"]
+      }
     }
   },
   {
@@ -164,23 +435,72 @@
     "color": "Chestnut",
     "studbook": "ZANG",
     "registration": "056015Z55231722",
-    "url": "https://www.horsetelex.com/horses/pedigree/2471991/caramel-de-melodie-z",
-    "parents": {
-      "sire": {
-        "name": "CHACCO-BLUE",
-        "studbook": "MECKL",
-        "registration": "276327271025998"
+    "img": "CARAMEL_Corps.png",
+    "dad": {
+      "name": "CHACCO-BLUE",
+      "studbook": "MECKL",
+      "registration": "276327271025998",
+      "birthYear": 1998,
+      "color": "Brown",
+      "height": "1.72",
+      "licenses": [
+        "HANN",
+        "MECKL",
+        "OLDBG",
+        "OS",
+        "RHEIN",
+        "SF",
+        "SWB",
+        "WESTF"
+      ],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "CHAMBERTIN",
+        "studbook": "HOLST",
+        "registration": "276321210097093",
+        "birthYear": 1993,
+        "color": "Brown",
+        "height": "1.69",
+        "licenses": ["BADWU", "HOLST", "OLDBG", "OS"],
+        "performance": "1.35m Jump."
       },
-      "dam": {
-        "name": "ILUNA DE MUZE",
-        "studbook": "BWP",
-        "registration": "056002W00270367"
+      "mom": {
+        "name": "CONTARA",
+        "studbook": "MECKL",
+        "registration": "276327270320294",
+        "birthYear": 1994,
+        "color": "Brown",
+        "height": "1.66",
+        "distinctions": ["Verbandsprämie"],
+        "performance": "1.50m Jump."
       }
     },
-    "images": {
-      "detoured": "horses/LondonDetoure.png",
-      "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/London1.png", "horses/London2.png"]
+    "mom": {
+      "name": "ILUNA DE MUZE",
+      "studbook": "BWP",
+      "registration": "056002W00270367",
+      "birthYear": 2008,
+      "color": "Chestnut",
+      "distinctions": ["VB"],
+      "dad": {
+        "name": "NABAB DE REVE",
+        "studbook": "BWP",
+        "registration": "056002W00139797",
+        "birthYear": 1990,
+        "color": "Brown",
+        "height": "1.74",
+        "licenses": ["BWP", "SBS", "SF"],
+        "distinctions": ["BWP_Ambassadeur", "Stb."],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "NIMFE DE LA POMME",
+        "studbook": "SF",
+        "registration": "25000101711842B",
+        "birthYear": 2001,
+        "color": "Brown",
+        "performance": "1.35m Jump."
+      }
     }
   },
   {
@@ -190,22 +510,76 @@
     "color": "Skew or pie bald",
     "studbook": "AES",
     "registration": "826002190886832",
-    "parents": {
-      "sire": {
-        "name": "AD A BIG BOY",
-        "studbook": "BWP",
-        "registration": "056002W00192569"
-      },
-      "dam": {
-        "name": "GYLA R",
+    "img": "OURGYLA_Corps.png",
+    "dad": {
+      "name": "AD A BIG BOY",
+      "studbook": "BWP",
+      "registration": "056002W00192569",
+      "birthYear": 2000,
+      "color": "Liver chestnut",
+      "height": "1.67",
+      "licenses": ["AES", "ESHB", "ZANG"],
+      "distinctions": ["peatõuraamat"],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "KANNAN GFE",
         "studbook": "KWPN",
-        "registration": "528003201110424"
+        "registration": "528003199204130",
+        "birthYear": 1992,
+        "color": "Dark brown",
+        "height": "1.72",
+        "licenses": [
+          "AES",
+          "AWR",
+          "BAVAR",
+          "BWP",
+          "HOLST",
+          "KWPN",
+          "OLDBG",
+          "OS",
+          "RHEIN",
+          "SBS",
+          "SF",
+          "SWB"
+        ],
+        "distinctions": ["Stb."],
+        "performance": "1.60m Jump"
+      },
+      "mom": {
+        "name": "URLINE DE MUZE",
+        "studbook": "BWP",
+        "registration": "056002W00167464",
+        "birthYear": 1997,
+        "color": "Chestnut",
+        "distinctions": ["peatõuraamat", "VB"]
       }
     },
-    "images": {
-      "detoured": "horses/LondonDetoure.png",
-      "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/London1.png", "horses/London2.png"]
+    "mom": {
+      "name": "GYLA R",
+      "studbook": "KWPN",
+      "registration": "528003201110424",
+      "birthYear": 2011,
+      "color": "Skew or pie bald",
+      "height": "1.73",
+      "performance": "1.20m Jump.",
+      "dad": {
+        "name": "ZENTO",
+        "studbook": "KWPN",
+        "registration": "528003200411978",
+        "birthYear": 2004,
+        "color": "Dark brown",
+        "height": "1.68",
+        "licenses": ["BAVAR", "NRPS", "OLDBG"],
+        "distinctions": ["3e_bez._KWPN"],
+        "performance": "1.35m Jump."
+      },
+      "mom": {
+        "name": "TEYLA R",
+        "studbook": "KWPN",
+        "registration": "528003200008213",
+        "birthYear": 2000,
+        "color": "Brown"
+      }
     }
   },
   {
@@ -215,23 +589,86 @@
     "color": "Brown",
     "studbook": "KWPN",
     "registration": "528003202002905",
-    "url": "https://www.horsetelex.com/horses/pedigree/2155285/all-star-s-pasithee",
-    "parents": {
-      "sire": {
-        "name": "ALL STAR 5",
+    "img": "ALLSTAR_Corps.png",
+    "dad": {
+      "name": "ALL STAR 5",
+      "studbook": "HANN",
+      "registration": "276431310705003",
+      "birthYear": 2003,
+      "color": "Brown",
+      "height": "1.72",
+      "licenses": [
+        "DSP",
+        "HANN",
+        "HOLST",
+        "MECKL",
+        "OS",
+        "RHEIN",
+        "RPSI",
+        "SWB",
+        "WESTF",
+        "ZANG"
+      ],
+      "distinctions": ["WFFS-free"],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "ARGENTINUS",
         "studbook": "HANN",
-        "registration": "276431310705003"
+        "registration": "276331313302680",
+        "birthYear": 1980,
+        "color": "Brown",
+        "height": "1.72",
+        "licenses": [
+          "HANN",
+          "MIPAAF",
+          "OLDBG",
+          "RHEIN",
+          "SBS",
+          "SF",
+          "WESTF",
+          "ZfdP"
+        ],
+        "performance": "1.50m Jump."
       },
-      "dam": {
-        "name": "ATIEN",
-        "studbook": "KWPN",
-        "registration": "528003200509552"
+      "mom": {
+        "name": "APRIL LOVE ZH",
+        "studbook": "HANN",
+        "registration": "276331319628886",
+        "birthYear": 1986,
+        "color": "Chestnut",
+        "height": "1.70",
+        "distinctions": ["Staatsprämie"],
+        "performance": "B-dressage"
       }
     },
-    "images": {
-      "detoured": "horses/LondonDetoure.png",
-      "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/London1.png", "horses/London2.png"]
+    "mom": {
+      "name": "ATIEN",
+      "studbook": "KWPN",
+      "registration": "528003200509552",
+      "birthYear": 2005,
+      "color": "Brown",
+      "height": "1.63",
+      "distinctions": ["prest", "Stb."],
+      "dad": {
+        "name": "PADINUS",
+        "studbook": "KWPN",
+        "registration": "528003199701588",
+        "birthYear": 1997,
+        "color": "Brown",
+        "height": "1.70",
+        "licenses": ["AES", "KWPN"],
+        "distinctions": ["keur"],
+        "performance": "1.30m Jump."
+      },
+      "mom": {
+        "name": "HODESSA",
+        "studbook": "KWPN",
+        "registration": "528003198907145",
+        "birthYear": 1989,
+        "color": "Dark brown",
+        "height": "1.64",
+        "distinctions": ["prest", "Stb."]
+      }
     }
   },
   {
@@ -241,23 +678,64 @@
     "color": "Brown",
     "studbook": "KWPN",
     "registration": "528003202006706",
-    "url": "https://www.horsetelex.com/horses/pedigree/2159017/pakkee",
-    "parents": {
-      "sire": {
-        "name": "HARDROCK Z",
-        "studbook": "ZANG",
-        "registration": "056015Z55667803"
-      },
-      "dam": {
-        "name": "AKKE",
+    "img": "PAKKEE_Corps.png",
+    "dad": {
+      "name": "HARDROCK Z",
+      "studbook": "ZANG",
+      "registration": "056015Z55667803",
+      "birthYear": 2003,
+      "color": "Brown",
+      "height": "1.71",
+      "licenses": ["HOLST", "KWPN", "OLDBG", "SF", "ZANG"],
+      "distinctions": ["D-OC", "WFFS-free"],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "HEARTBREAKER",
         "studbook": "KWPN",
-        "registration": "528003200512581"
+        "registration": "528003198904335",
+        "birthYear": 1989,
+        "color": "Brown",
+        "height": "1.67",
+        "licenses": ["BAVAR", "BWP", "KWPN", "MIPAAF", "SF", "SWB"],
+        "distinctions": ["BWP_Ambassadeur", "pref", "Stb.", "WFFS-free"],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "CARTE BLANCHE Z",
+        "studbook": "ZANG",
+        "registration": "056015Z55060897",
+        "birthYear": 1997,
+        "color": "Brown"
       }
     },
-    "images": {
-      "detoured": "horses/LondonDetoure.png",
-      "avatar": "horses/LondonAvatar.jpg",
-      "gallery": ["horses/London1.png", "horses/London2.png"]
+    "mom": {
+      "name": "AKKE",
+      "studbook": "KWPN",
+      "registration": "528003200512581",
+      "birthYear": 2005,
+      "color": "Bay",
+      "height": "1.64",
+      "distinctions": ["Elite", "prest", "prok", "sport(spr)"],
+      "performance": "1.30m Jump.",
+      "dad": {
+        "name": "OKLUND",
+        "studbook": "KWPN",
+        "registration": "528003199602849",
+        "birthYear": 1996,
+        "color": "Brown",
+        "height": "1.69",
+        "licenses": ["KWPN"],
+        "distinctions": ["keur"],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "ULLA",
+        "studbook": "KWPN",
+        "registration": "528003200112114",
+        "birthYear": 2001,
+        "color": "Brown",
+        "distinctions": ["prest", "VB"]
+      }
     }
   }
 ]

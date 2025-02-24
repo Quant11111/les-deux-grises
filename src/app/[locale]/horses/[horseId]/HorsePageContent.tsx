@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import OnlyLarge from "@/ui/components/OnlyLarge";
 import OnlySmall from "@/ui/components/OnlySmall";
+import InfoBlock from "./InfoBlock";
 
 export default function HorsePageContent({
   locale,
@@ -14,12 +15,14 @@ export default function HorsePageContent({
   locale: string;
   id: string;
 }) {
-  const horse = horsesData.find((horse) => horse.name.toLowerCase() === id);
+  const horse = horsesData.find(
+    (horse) => horse.name.toLowerCase().replace(/\s+/g, "%20") === id
+  );
   const [imageSrc, setImageSrc] = useState<string>("");
 
   useEffect(() => {
-    if (horse?.images?.detoured) {
-      import(`@/img/horses/${horse.images.detoured}`)
+    if (horse?.img) {
+      import(`@/img/horses/${horse.img}`)
         .then((module) => setImageSrc(module.default))
         .catch(() => setImageSrc(""));
     }
@@ -31,6 +34,7 @@ export default function HorsePageContent({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        justifyContent: "center",
         paddingTop: "1rem",
         height: "calc(100vh - 5rem)",
         overflow: "hidden",
@@ -43,16 +47,17 @@ export default function HorsePageContent({
           display: "grid",
           gridTemplateRows: "7fr 1fr 1fr 4fr",
           backgroundColor: themeVariables.grassGreen,
-          width: "80%",
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
-          height: "calc(100vh - 10rem)",
+          maxHeight: "calc(100vh - 10rem)",
           overflowY: "scroll",
-          paddingLeft: "calc(15vh - 3rem) ",
-          paddingRight: "calc(15vh - 3rem) ",
-          paddingBottom: "calc((100vh - 10rem)*7/100) ",
+          // paddingLeft: "calc(15vh - 3rem) ",
+          // paddingRight: "calc(15vh - 3rem) ",
+          // paddingBottom: "calc((100vh - 10rem)*7/100) ",
+          padding: "1rem",
           gap: "0.5rem",
-          maxWidth: "calc(200vh - 32rem)",
+          aspectRatio: "0.9/1",
+          maxWidth: "calc(95vw)",
           overflowX: "hidden",
         }}
       >
@@ -79,72 +84,68 @@ export default function HorsePageContent({
           <h1 style={{ padding: "5px", paddingLeft: "12px" }}>{horse?.name}</h1>
         </div>
         <div
-          className="light-scrollbar"
           style={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            padding: "10px",
-            paddingLeft: "12px",
-            gap: "7px",
+            overflow: "scroll",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr 1fr",
+            gap: "20px",
             backgroundColor: themeVariables.neutralEarth,
-            color: themeVariables.darkForeground,
-            overflowY: "scroll",
           }}
         >
-          <p>FATHER: {horse?.parents.sire.name}</p>
-          <p>MOTHER: {horse?.parents.dam.name}</p>
-          <p>STUDBOOK: {horse?.studbook}</p>
-          <p>SEX: {horse?.gender}</p>
-          <p>BORN IN: {horse?.birthYear}</p>
-          <a
-            href={horse?.url}
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* Column 1: Horse Info */}
+          <div
             style={{
-              borderRadius: "50px",
-              backgroundColor: "transparent",
-              textDecoration: "underline",
-              transition: "background-color 0.3s ease, text-align 0.3s ease",
-              display: "inline-block",
-              width: "100%",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = themeVariables.grassGreen;
-              e.currentTarget.style.textDecoration = "none";
-              e.currentTarget.style.textAlign = "center";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "transparent";
-              e.currentTarget.style.textDecoration = "underline";
-              e.currentTarget.style.textAlign = "left";
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "space-around",
+              gap: "20px",
             }}
           >
-            horsetelex.com
-          </a>
+            <InfoBlock title={horse?.name || "Horse"} data={horse || {}} />
+          </div>
+          {/* Column 2: Parents */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "space-around",
+              gap: "20px",
+            }}
+          >
+            {horse?.dad && <InfoBlock title="Father" data={horse.dad} />}
+            {horse?.mom && <InfoBlock title="Mother" data={horse.mom} />}
+          </div>
+
+          {/* Column 3: Grandparents */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "space-around",
+              flexDirection: "column",
+              gap: "20px",
+            }}
+          >
+            {horse?.dad?.dad && (
+              <InfoBlock title="Paternal Grandfather" data={horse.dad.dad} />
+            )}
+            {horse?.dad?.mom && (
+              <InfoBlock title="Paternal Grandmother" data={horse.dad.mom} />
+            )}
+            {horse?.mom?.dad && (
+              <InfoBlock title="Maternal Grandfather" data={horse.mom.dad} />
+            )}
+            {horse?.mom?.mom && (
+              <InfoBlock title="Maternal Grandmother" data={horse.mom.mom} />
+            )}
+          </div>
         </div>
-      </div>
-      <OnlyLarge>
         <Image
           style={{
             position: "absolute",
-            bottom: "-1vw",
-            right: "-1vw",
-            width: "85vw", // Adjust the width based on viewport width
-            height: "auto",
-            pointerEvents: "none",
-          }}
-          src={imageSrc}
-          alt={horse?.name || "Horse image"}
-          width={800} // Add a default width
-          height={600} // Add a default height
-        />
-      </OnlyLarge>
-      <OnlySmall>
-        <Image
-          style={{
-            position: "absolute",
-            top: "13%",
+            top: "0",
             left: "50%",
             transform: "translate(-50%, -0%)",
             maxWidth: "90vw", // Adjust the width based on viewport width
@@ -158,7 +159,8 @@ export default function HorsePageContent({
           width={800} // Add a default width
           height={600} // Add a default height
         />
-      </OnlySmall>
+      </div>
+
       <style jsx>{`
         @media (max-width: 800px) {
           .fix-sm-padding {

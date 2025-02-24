@@ -236,7 +236,10 @@ export default function Horses({ locale }: { locale: string }) {
               boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
             }}
             onClick={() => {
-              router.push(`/${locale}/horses/${horse.name.toLowerCase()}`);
+              const formattedName = encodeURIComponent(
+                horse.name.toLowerCase()
+              );
+              router.push(`/${locale}/horses/${formattedName}`);
             }}
             onMouseOver={(e) => {
               e.currentTarget.style.transform = "translateY(-5px)";
