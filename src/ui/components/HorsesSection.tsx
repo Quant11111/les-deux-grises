@@ -244,7 +244,7 @@ export default function Horses({ locale }: { locale: string }) {
             onMouseOver={(e) => {
               e.currentTarget.style.transform = "translateY(-5px)";
               e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.8)";
-              e.currentTarget.style.outline = `2px solid ${themeVariables.neutralEarth}`;
+              e.currentTarget.style.outline = `2px solid ${themeVariables.grassGreen}`;
             }}
             onMouseOut={(e) => {
               e.currentTarget.style.transform = "translateY(0)";

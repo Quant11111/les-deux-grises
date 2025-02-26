@@ -41,7 +41,7 @@ export default function HorsePageContent({
         style={{
           position: "relative",
           display: "grid",
-          gridTemplateRows: "5fr 1fr 1fr 7fr 0.5fr",
+          gridTemplateRows: "0fr 5fr  0.5fr 7fr",
           backgroundColor: themeVariables.grassGreen,
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
@@ -50,7 +50,7 @@ export default function HorsePageContent({
           // paddingLeft: "calc(15vh - 3rem) ",
           // paddingRight: "calc(15vh - 3rem) ",
           // paddingBottom: "calc((100vh - 10rem)*7/100) ",
-          padding: "1rem",
+          padding: "1.5rem",
 
           gap: "0.5rem",
           aspectRatio: "0.85/1",
@@ -60,40 +60,39 @@ export default function HorsePageContent({
       >
         <div
           style={{
-            position: "relative",
-            width: "100%",
             display: "flex",
+            color: themeVariables.lightForeground,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <h2 style={{ position: "absolute", top: "1rem" }}>
+            {horse?.gender.toUpperCase()}
+          </h2>
+        </div>
+        <div
+          style={{
+            position: "relative",
+            height: "calc((100vh - 8rem) * 0.38)",
+            width: "100%",
             justifyContent: "center",
             alignItems: "center",
+            display: "flex",
           }}
         >
           <Image
             style={{
-              position: "absolute",
-              top: "1rem",
-              left: "50%",
-              transform: "translate(-50%, -0%)",
-              scale: "1.2",
-              maxWidth: "100%", // Adjust the width based on viewport width
-              maxHeight: "100%",
               width: "auto",
-              height: "auto",
+              height: "100%", // prendra 100% de la hauteur du parent
+              objectFit: "contain",
               pointerEvents: "none",
+              scale: "1.1",
             }}
             src={imageSrc}
             alt={horse?.name || "Horse image"}
             width={800} // Add a default width
             height={600} // Add a default height
           />
-        </div>
-        <div
-          style={{
-            display: "flex",
-            color: themeVariables.lightForeground,
-            alignItems: "end",
-          }}
-        >
-          <h2>{horse?.gender.toUpperCase()}</h2>
         </div>
 
         <div
@@ -176,14 +175,18 @@ export default function HorsePageContent({
           </div>
         </div>
         <a
+          className="horseredirect"
           style={{
             color: themeVariables.lightForeground,
+            position: "absolute",
             cursor: "pointer",
             textAlign: "center",
             justifyContent: "center",
             alignItems: "center",
             display: "flex",
             width: "100%",
+            fontSize: "0.7rem",
+            bottom: "0.3rem",
           }}
           href={horse?.url}
           target="_blank"
@@ -195,9 +198,10 @@ export default function HorsePageContent({
       <style jsx>{`
         @media (max-width: 800px) {
           .fix-sm-padding {
-            padding-left: 2rem !important;
-            padding-right: 2rem !important;
-            padding-bottom: 2rem !important;
+            padding: 0.5rem !important;
+          }
+          .horseredirect {
+            bottom: 0.5rem !important;
           }
           h1 {
             font-size: 0.7rem !important;
@@ -219,16 +223,22 @@ export default function HorsePageContent({
           a {
             font-size: 0.7rem !important;
           }
+          .horseredirect {
+            bottom: 0.3rem !important;
+          }
         }
         @media (min-width: 1200px) and (max-width: 1600px) {
           h1 {
-            font-size: 1.5rem !important;
+            font-size: 1rem !important;
           }
           h2 {
-            font-size: 1.5rem !important;
+            font-size: 1rem !important;
           }
           a {
             font-size: 0.7rem !important;
+          }
+          .horseredirect {
+            bottom: 0.3rem !important;
           }
         }
       `}</style>
