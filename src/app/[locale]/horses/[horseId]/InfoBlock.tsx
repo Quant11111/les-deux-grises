@@ -1,3 +1,4 @@
+import themeVariables from "@/utils/themeVariables";
 import { ReactNode } from "react";
 import styled from "styled-components";
 
@@ -16,7 +17,6 @@ interface HorseData {
 }
 
 interface InfoBlockProps {
-  title: string;
   data: HorseData;
 }
 
@@ -26,15 +26,17 @@ const BlockContainer = styled.div`
 `;
 
 const Title = styled.h3`
-  color: #2c5282;
+  color: ${themeVariables.corporateBlue};
   font-size: 0.8rem;
   padding-bottom: 0.5rem;
   font-weight: 600;
 `;
 
 const InfoGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 300px));
+  display: flex;
+  gap: 0.2rem;
+  line-height: 0.2rem;
+  flex-wrap: wrap;
 `;
 
 const InfoItem = styled.div`
@@ -62,17 +64,17 @@ const DistinctionsList = styled.div`
   margin-top: 4px;
 `;
 
-export const InfoBlock = ({ title, data }: InfoBlockProps) => {
+export const InfoBlock = ({ data }: InfoBlockProps) => {
   // Fonction pour formater l'affichage des valeurs
   const formatValue = (key: string, value: any): ReactNode => {
     if (Array.isArray(value)) {
       return (
-        <>
+        <Value data-full-text={value.join(", ")}>
           {" "}
-          {value.map((item, index) => (
-            <Value key={index}>{item}</Value>
-          ))}
-        </>
+          {value.join(", ").length > 10
+            ? value.join(", ").slice(0, 10) + "..."
+            : value.join(", ")}
+        </Value>
       );
     }
     return <Value>{value}</Value>;
@@ -89,6 +91,8 @@ export const InfoBlock = ({ title, data }: InfoBlockProps) => {
   // Filtrer les propriétés à afficher
   const displayableProperties = Object.entries(data).filter(([key, value]) => {
     return (
+      key !== "url" &&
+      key !== "name" &&
       key !== "dad" &&
       key !== "mom" &&
       key !== "img" &&
@@ -101,7 +105,7 @@ export const InfoBlock = ({ title, data }: InfoBlockProps) => {
 
   return (
     <BlockContainer>
-      <Title>{title}</Title>
+      <Title>{data.name}</Title>
       <InfoGrid>
         {displayableProperties.map(([key, value]) => (
           <InfoItem key={key}>{formatValue(key, value)}</InfoItem>

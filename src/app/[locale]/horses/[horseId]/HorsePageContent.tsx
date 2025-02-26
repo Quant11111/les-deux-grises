@@ -41,7 +41,7 @@ export default function HorsePageContent({
         style={{
           position: "relative",
           display: "grid",
-          gridTemplateRows: "0fr 5fr  0.5fr 7fr",
+          gridTemplateRows: "0fr 3.5fr  0.5fr 7fr",
           backgroundColor: themeVariables.grassGreen,
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
@@ -73,7 +73,7 @@ export default function HorsePageContent({
         <div
           style={{
             position: "relative",
-            height: "calc((100dvh - 8rem) * 0.38)",
+            height: "calc((100dvh - 8rem) * 0.32)",
             width: "100%",
             justifyContent: "center",
             alignItems: "center",
@@ -109,7 +109,6 @@ export default function HorsePageContent({
         >
           <h1
             style={{
-              padding: "5px",
               paddingLeft: "12px",
               whiteSpace: "nowrap",
               overflow: "hidden",
@@ -141,7 +140,7 @@ export default function HorsePageContent({
               gap: "20px",
             }}
           >
-            <InfoBlock title={horse?.name || "Horse"} data={horse || {}} />
+            <InfoBlock data={horse || {}} />
           </div>
           {/* Column 2: Parents */}
           <div
@@ -150,8 +149,8 @@ export default function HorsePageContent({
               gridTemplateRows: "1fr 1fr ",
             }}
           >
-            {horse?.dad && <InfoBlock title="Father" data={horse.dad} />}
-            {horse?.mom && <InfoBlock title="Mother" data={horse.mom} />}
+            {horse?.dad && <InfoBlock data={horse.dad} />}
+            {horse?.mom && <InfoBlock data={horse.mom} />}
           </div>
 
           {/* Column 3: Grandparents */}
@@ -161,18 +160,10 @@ export default function HorsePageContent({
               gridTemplateRows: "1fr 1fr 1fr 1fr",
             }}
           >
-            {horse?.dad?.dad && (
-              <InfoBlock title="Paternal Grandfather" data={horse.dad.dad} />
-            )}
-            {horse?.dad?.mom && (
-              <InfoBlock title="Paternal Grandmother" data={horse.dad.mom} />
-            )}
-            {horse?.mom?.dad && (
-              <InfoBlock title="Maternal Grandfather" data={horse.mom.dad} />
-            )}
-            {horse?.mom?.mom && (
-              <InfoBlock title="Maternal Grandmother" data={horse.mom.mom} />
-            )}
+            {horse?.dad?.dad && <InfoBlock data={horse.dad.dad} />}
+            {horse?.dad?.mom && <InfoBlock data={horse.dad.mom} />}
+            {horse?.mom?.dad && <InfoBlock data={horse.mom.dad} />}
+            {horse?.mom?.mom && <InfoBlock data={horse.mom.mom} />}
           </div>
         </div>
         <a
@@ -199,10 +190,10 @@ export default function HorsePageContent({
       <style jsx>{`
         @media (max-width: 800px) {
           .fix-sm-padding {
-            padding: 0.5rem !important;
+            padding: 1rem !important;
           }
           .horseredirect {
-            bottom: 0.5rem !important;
+            bottom: 0.15rem !important;
           }
           h1 {
             font-size: 0.7rem !important;
