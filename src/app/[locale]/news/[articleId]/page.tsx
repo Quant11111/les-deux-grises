@@ -8,7 +8,7 @@ export default function Article({ params }: { params: { articleId: string } }) {
   return (
     <main
       style={{
-        height: "100vh",
+        height: "100dvh",
         width: "100vw",
       }}
     >

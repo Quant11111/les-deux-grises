@@ -56,7 +56,7 @@ export default function ArticlePageContent({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "calc(100vh - 5rem)",
+        height: "calc(100dvh - 5rem)",
         padding: "1rem",
       }}
     >

@@ -16,7 +16,7 @@ export default function Contact() {
         display: "flex",
         flexDirection: "column",
         width: "100vw",
-        height: "100vh",
+        height: "100dvh",
         background: themeVariables.grassGreen,
         backgroundSize: "cover",
         backgroundPosition: "center",

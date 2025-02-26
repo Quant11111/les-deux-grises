@@ -129,13 +129,13 @@ export default function AboutContent({
           width: "80%",
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
-          height: "calc(100vh - 10rem)",
+          height: "calc(100dvh - 10rem)",
           overflowY: "scroll",
-          paddingLeft: "calc(15vh - 3rem) ",
-          paddingRight: "calc(15vh - 3rem) ",
-          paddingBottom: "calc((100vh - 10rem)*7/100) ",
+          paddingLeft: "calc(15dvh - 3rem) ",
+          paddingRight: "calc(15dvh - 3rem) ",
+          paddingBottom: "calc((100dvh - 10rem)*7/100) ",
           gap: "0.5rem",
-          maxWidth: "calc(200vh - 32rem)",
+          maxWidth: "calc(200dvh - 32rem)",
           overflowX: "hidden",
         }}
       >

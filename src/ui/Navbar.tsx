@@ -153,7 +153,7 @@ export default function Navbar({
             top: 0;
             left: 0;
             width: 250px;
-            height: 100vh !important;
+            height: 100dvh !important;
             background-color: #0b2830;
             padding: 2rem;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);

@@ -9,7 +9,7 @@ export default function HorsePage({ params }: { params: { horseId: string } }) {
   return (
     <main
       style={{
-        height: "100vh",
+        height: "100dvh",
         width: "100vw",
         backgroundImage: "url('/images/paille.jpg')",
         backgroundSize: "cover",

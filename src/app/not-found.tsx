@@ -18,7 +18,7 @@ export default async function NotFound() {
           gap: "2rem",
           alignItems: "center",
           flexDirection: "column",
-          height: "100vh",
+          height: "100dvh",
           fontSize: "5rem",
           color: `${themeVariables.cloudyMist}`,
           textAlign: "center",

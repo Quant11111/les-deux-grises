@@ -85,7 +85,7 @@ export default function NewHorsePage() {
         display: "flex",
         flexDirection: "column",
         width: "100vw",
-        height: "100vh",
+        height: "100dvh",
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: themeVariables.cloudyMist,

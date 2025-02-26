@@ -19,8 +19,8 @@ export default function ContactSection({ locale }: { locale: string }) {
         flexDirection: "column",
         alignItems: "center",
         width: "100%",
-        minHeight: "calc(100vh - 5rem)",
-        height: "calc(100vh - 5rem)",
+        minHeight: "calc(100dvh - 5rem)",
+        height: "calc(100dvh - 5rem)",
         overflowY: "scroll",
         backgroundColor: themeVariables.grassGreen,
       }}

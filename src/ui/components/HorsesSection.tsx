@@ -51,8 +51,8 @@ export default function Horses({ locale }: { locale: string }) {
         flexDirection: "column",
         alignItems: "center",
         width: "100%",
-        minHeight: "calc(100vh - 5rem)",
-        height: "calc(100vh - 5rem)",
+        minHeight: "calc(100dvh - 5rem)",
+        height: "calc(100dvh - 5rem)",
         overflow: "hidden",
         paddingBottom: "4vw",
         backgroundColor: themeVariables.grassGreen,
@@ -210,13 +210,13 @@ export default function Horses({ locale }: { locale: string }) {
           width: "80%",
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
-          height: "calc(100vh - 10rem)",
+          height: "calc(100dvh - 10rem)",
 
-          paddingLeft: "calc(15vh - 3rem) ",
-          paddingRight: "calc(15vh - 3rem) ",
-          paddingBottom: "calc((100vh - 10rem)*7/100) ",
+          paddingLeft: "calc(15dvh - 3rem) ",
+          paddingRight: "calc(15dvh - 3rem) ",
+          paddingBottom: "calc((100dvh - 10rem)*7/100) ",
 
-          maxWidth: "calc(200vh - 32rem)",
+          maxWidth: "calc(200dvh - 32rem)",
         }}
       >
         {filteredHorses.map((horse) => (

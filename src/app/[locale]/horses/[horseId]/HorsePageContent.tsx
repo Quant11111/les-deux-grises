@@ -32,7 +32,7 @@ export default function HorsePageContent({
         alignItems: "center",
         justifyContent: "center",
         paddingTop: "1rem",
-        height: "calc(100vh - 5rem)",
+        height: "calc(100dvh - 5rem)",
         overflow: "hidden",
       }}
     >
@@ -45,11 +45,11 @@ export default function HorsePageContent({
           backgroundColor: themeVariables.grassGreen,
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
-          maxHeight: "calc(100vh - 10rem)",
+          maxHeight: "calc(100dvh - 10rem)",
           overflowY: "scroll",
-          // paddingLeft: "calc(15vh - 3rem) ",
-          // paddingRight: "calc(15vh - 3rem) ",
-          // paddingBottom: "calc((100vh - 10rem)*7/100) ",
+          // paddingLeft: "calc(15dvh - 3rem) ",
+          // paddingRight: "calc(15dvh - 3rem) ",
+          // paddingBottom: "calc((100dvh - 10rem)*7/100) ",
           padding: "1.5rem",
 
           gap: "0.5rem",
@@ -73,7 +73,7 @@ export default function HorsePageContent({
         <div
           style={{
             position: "relative",
-            height: "calc((100vh - 8rem) * 0.38)",
+            height: "calc((100dvh - 8rem) * 0.38)",
             width: "100%",
             justifyContent: "center",
             alignItems: "center",
