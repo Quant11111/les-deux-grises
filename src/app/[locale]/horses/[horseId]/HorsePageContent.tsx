@@ -4,8 +4,6 @@ import themeVariables from "@/utils/themeVariables";
 import horsesData from "@/horses/horses.json";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import OnlyLarge from "@/ui/components/OnlyLarge";
-import OnlySmall from "@/ui/components/OnlySmall";
 import InfoBlock from "./InfoBlock";
 
 export default function HorsePageContent({
@@ -22,9 +20,7 @@ export default function HorsePageContent({
 
   useEffect(() => {
     if (horse?.img) {
-      import(`@/img/horses/${horse.img}`)
-        .then((module) => setImageSrc(module.default))
-        .catch(() => setImageSrc(""));
+      setImageSrc(`https://dsq73kname7kn.cloudfront.net/${horse.img}`);
     }
   }, [horse]);
   return (
