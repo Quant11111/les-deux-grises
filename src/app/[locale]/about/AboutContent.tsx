@@ -39,7 +39,7 @@ export default function AboutContent({
     <div
       style={{
         position: "relative",
-        height: "calc(100vh - 5rem)",
+        height: "calc(100dvh - 5rem)",
         display: "flex",
         flexDirection: "column",
         paddingBottom: "4vw",
@@ -125,11 +125,7 @@ export default function AboutContent({
           position: "relative",
           overflow: "hidden",
           marginTop: "2.5rem",
-          backgroundImage: toogle
-            ? "url('/images/domain.jpg')"
-            : "url('/images/ecurie.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+
           width: "80%",
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
@@ -146,6 +142,7 @@ export default function AboutContent({
         <div
           style={{
             position: "absolute",
+            display: "flex",
             width: "200%",
             height: "100%",
             top: 0,
@@ -154,7 +151,26 @@ export default function AboutContent({
             transition: "ease-in-out 0.5s",
           }}
         >
-          {" "}
+          <div
+            className="bg1"
+            style={{
+              backgroundImage: "url('/images/domain.jpg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              minWidth: "100%",
+              height: "100%",
+            }}
+          />
+          <div
+            className="bg2"
+            style={{
+              backgroundImage: "url('/images/cloture.jpg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              minWidth: "100%",
+              height: "100%",
+            }}
+          />{" "}
           <div
             className="div1"
             style={{
