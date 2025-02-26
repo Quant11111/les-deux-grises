@@ -83,6 +83,7 @@ export default function HorsePageContent({
           <Image
             style={{
               width: "auto",
+              maxWidth: "70%",
               height: "100%", // prendra 100% de la hauteur du parent
               objectFit: "contain",
               pointerEvents: "none",
