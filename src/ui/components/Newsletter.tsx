@@ -4,15 +4,30 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { BellIcon, X } from "lucide-react";
 import { IconButton } from "@mui/material";
+import { toast, Toaster } from "sonner";
 
 export default function Newsletter() {
   const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState("");
   const t = useTranslations("newsletter");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implémenter la logique d'inscription à la newsletter
+    e.preventDefault();
+    const res = await fetch("/api/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+      }),
+    });
+    if (res.ok) {
+      toast.success("email added successfully");
+    } else {
+      toast.error(`Error creating horse ${res.status}`, { duration: 5000 });
+    }
     setIsOpen(false);
     setEmail("");
   };
@@ -63,6 +78,7 @@ export default function Newsletter() {
           </div>
         </div>
       )}
+      <Toaster />
 
       <style jsx>{`
         .notification-button {

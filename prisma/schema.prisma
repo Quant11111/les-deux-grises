@@ -13,47 +13,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Horse {
+
+model Email {
   id        String   @id @default(cuid())
-  name      String  @unique
-  birthday DateTime
-
-  frenchDescription String
-  englishDescription String
-
-  articleIds String[] @default([])
-
-  images    String[] @default([])
-  keywords  String[] @default([])
-  links     String[] @default([])
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  deletedAt DateTime?
+  email     String   @unique
 }
 
-model Article {
-  id        String   @id @default(cuid())
-  language  String   @default("en")
-  title     String  @unique
-  content   String
-
-  horseIds  String[] @default([])
-
-  links     String[] @default([])
-  keywords  String[] @default([])
-  images    String[] @default([])
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  deletedAt DateTime?
-}
-
-model Registration {
-  id        String   @id @default(cuid())
-  name    String?
-  email   String
-  phone   String?
-  createdAt DateTime @default(now())
-  message String?
-}
