@@ -259,7 +259,7 @@ export default function Horses({ locale }: { locale: string }) {
       <style jsx>{`
         .radio-label {
           cursor: pointer;
-          font-size: 0.9rem;
+          font-size: 0.7rem;
         }
         .horse-name {
           font-size: 0.9rem;

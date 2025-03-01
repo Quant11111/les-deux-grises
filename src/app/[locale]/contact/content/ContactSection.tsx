@@ -3,6 +3,7 @@
 import themeVariables from "@/utils/themeVariables";
 import { useState } from "react";
 import Modal from "./Modal";
+import { toast, Toaster } from "sonner";
 
 export default function ContactSection({ locale }: { locale: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,112 +12,134 @@ export default function ContactSection({ locale }: { locale: string }) {
     // Fonction pour valider l'ajout d'un email (à implémenter)
   };
 
+  const contactInfo = {
+    email: "contact@lesdeuxgrises.com",
+    phone: "+33 6 12 34 56 78",
+    address: "123 rue des Arts, 75001 Paris, France",
+  };
+
+  const copyToClipboard = (text: string, type: string) => {
+    navigator.clipboard.writeText(text);
+    toast.success(`${type} copié !`);
+  };
+
   return (
     <div
       style={{
         position: "relative",
+        height: "calc(100dvh - 5rem)",
         display: "flex",
         flexDirection: "column",
+        paddingBottom: "4vw",
         alignItems: "center",
-        width: "100%",
-        minHeight: "calc(100dvh - 5rem)",
-        height: "calc(100dvh - 5rem)",
-        overflowY: "scroll",
-        backgroundColor: themeVariables.grassGreen,
+        overflow: "hidden",
       }}
     >
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: themeVariables.grassGreen,
           gap: "2rem",
-          paddingTop: "2rem",
-          zIndex: 50,
-          minWidth: "100%",
+          marginTop: "2.5rem",
+          alignItems: "center",
+          backgroundImage: "url('/images/balancoire.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+
+          overflowY: "scroll",
+          padding: "6rem",
+          paddingTop: "20vw",
+          overflowX: "hidden",
+          width: "80%",
+          borderTopLeftRadius: "20000000000000000000000000000px",
+          borderTopRightRadius: "20000000000000000000000000000px",
+          height: "calc(100dvh - 10rem)",
+
+          paddingLeft: "calc(15dvh - 3rem) ",
+          paddingRight: "calc(15dvh - 3rem) ",
+          paddingBottom: "calc((100dvh - 10rem)*7/100) ",
+
+          maxWidth: "calc(200dvh - 32rem)",
         }}
       >
-        <h1 style={{ color: themeVariables.cloudyMist }}>
-          {locale === "en" ? "Contact Us" : "Contactez-nous"}
-        </h1>
-        <p style={{ color: themeVariables.cloudyMist }}>
-          {locale === "en"
-            ? "Email: contact@example.com"
-            : "Email : contact@example.com"}
-        </p>
-        <p style={{ color: themeVariables.cloudyMist }}>
-          {locale === "en"
-            ? "Phone: +123 456 7890"
-            : "Téléphone : +123 456 7890"}
-        </p>
-        <p style={{ color: themeVariables.cloudyMist }}>
-          {locale === "en"
-            ? "Address: 123 Horse Street, Equine City"
-            : "Adresse : 123 rue des Chevaux, Ville Équine"}
-        </p>
-        <button
-          onClick={() => setIsModalOpen(true)}
+        <div
           style={{
-            padding: "1rem 2rem",
-            backgroundColor: themeVariables.neutralEarth,
-            color: themeVariables.cloudyMist,
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-            transition: "background-color 0.3s ease",
+            display: "flex",
+            flexDirection: "column",
+            gap: "1.5rem",
+            alignItems: "center",
+            width: "100%",
           }}
         >
-          {locale === "en"
-            ? "Subscribe to Newsletter"
-            : "S'inscrire à la newsletter"}
-        </button>
-      </div>
-
-      {isModalOpen && (
-        <Modal onClose={() => setIsModalOpen(false)}>
-          <div
+          <button
+            onClick={() => copyToClipboard(contactInfo.email, "Email")}
             style={{
-              padding: "2rem",
-              backgroundColor: themeVariables.grassGreen,
+              backgroundColor: "rgba(255, 255, 255, 0.9)",
+              padding: "1rem 2rem",
+              borderRadius: "8px",
+              border: "none",
+              cursor: "pointer",
+              width: "100%",
+              maxWidth: "400px",
+              fontSize: "1rem",
+              transition: "transform 0.2s",
+              boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
             }}
           >
-            <h2 style={{ color: themeVariables.cloudyMist }}>
-              {locale === "en"
-                ? "Subscribe to our Newsletter"
-                : "Inscrivez-vous à notre newsletter"}
-            </h2>
-            <input
-              type="email"
-              placeholder={
-                locale === "en" ? "Enter your email" : "Entrez votre email"
-              }
-              style={{
-                padding: "0.5rem",
-                margin: "1rem 0",
-                width: "100%",
-                borderRadius: "5px",
-                border: `1px solid ${themeVariables.neutralEarth}`,
-              }}
-            />
-            <button
-              onClick={() => handleSubscribe("")}
-              style={{
-                padding: "1rem 2rem",
-                backgroundColor: themeVariables.neutralEarth,
-                color: themeVariables.cloudyMist,
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer",
-                transition: "background-color 0.3s ease",
-              }}
-            >
-              {locale === "en" ? "Subscribe" : "S'inscrire"}
-            </button>
-          </div>
-        </Modal>
-      )}
+            {contactInfo.email}
+          </button>
+          <button
+            onClick={() =>
+              copyToClipboard(contactInfo.phone, "Numéro de téléphone")
+            }
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.9)",
+              padding: "1rem 2rem",
+              borderRadius: "8px",
+              border: "none",
+              cursor: "pointer",
+              width: "100%",
+              maxWidth: "400px",
+              fontSize: "1rem",
+              transition: "transform 0.2s",
+              boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+            }}
+          >
+            {contactInfo.phone}
+          </button>
+          <button
+            className="button-copy"
+            onClick={() => copyToClipboard(contactInfo.address, "Adresse")}
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.9)",
+              padding: "1rem 2rem",
+              borderRadius: "8px",
+              border: "none",
+              cursor: "pointer",
+              width: "100%",
+              maxWidth: "400px",
+              fontSize: "1rem",
+              transition: "transform 0.2s",
+              boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+            }}
+          >
+            {contactInfo.address}
+          </button>
+        </div>
+      </div>
+      <Toaster position="bottom-center" />
+      <style jsx>{`
+        @media (max-width: 1100px) {
+          button {
+            font-size: 0.9rem !important;
+          }
+        }
+        @media (max-width: 800px) {
+          button {
+            font-size: 0.7rem !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
