@@ -22,18 +22,6 @@ export default function Horses() {
         background: themeVariables.grassGreen,
       }}
     >
-      <OnlySmall>
-        <LogoSvg
-          size={150}
-          color={themeVariables.lightForeground}
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            zIndex: 60,
-          }}
-        />
-      </OnlySmall>
       <OnlyLarge>
         <LogoSvg
           size={150}
