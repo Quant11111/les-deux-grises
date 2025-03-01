@@ -67,7 +67,7 @@ export default function Horses({ locale }: { locale: string }) {
           backgroundColor: themeVariables.grassGreen,
           gap: "2rem",
 
-          zIndex: 50,
+          zIndex: 30,
           minWidth: "100%",
         }}
       >

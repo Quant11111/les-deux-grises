@@ -147,97 +147,101 @@ export default function AboutContent({
             height: "100%",
             top: 0,
             left: 0,
-            transform: toogle ? "translateX(0)" : "translateX(-100%)",
+            transform: toogle ? "translateX(0)" : "translateX(-50%)",
             transition: "ease-in-out 0.5s",
           }}
         >
           <div
             className="bg1"
             style={{
+              position: "relative",
               backgroundImage: "url('/images/domain.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
-              minWidth: "100%",
+              minWidth: "50%",
               height: "100%",
             }}
-          />
+          >
+            <div
+              className="divc"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "1rem",
+                padding: "1rem",
+                position: "absolute",
+                width: "300px",
+                maxWidth: "75vw",
+                height: "350px",
+                maxHeight: "60%",
+                bottom: "5%",
+                left: "20%",
+                backgroundColor: "white",
+              }}
+            >
+              <h1
+                style={{
+                  color: `${themeVariables.corporateBlue}`,
+                  fontSize: "1.5rem",
+                }}
+              >
+                {title1}
+              </h1>
+              <p
+                style={{
+                  fontSize: "0.7rem",
+                }}
+              >
+                {content1}
+              </p>
+            </div>
+          </div>
           <div
             className="bg2"
             style={{
+              position: "relative",
               backgroundImage: "url('/images/cloture.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
-              minWidth: "100%",
+              minWidth: "50%",
               height: "100%",
             }}
-          />{" "}
-          <div
-            className="div1"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "1rem",
-              padding: "1rem",
-              position: "absolute",
-              width: "300px",
-              maxWidth: "75vw",
-              height: "350px",
-              maxHeight: "60%",
-              bottom: "calc(0.8rem + 1vw)",
-              left: "calc(50% - 40%)",
-              backgroundColor: "white",
-            }}
           >
-            <h1
+            <div
+              className="divc"
               style={{
-                color: `${themeVariables.corporateBlue}`,
-                fontSize: "1.5rem",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1rem",
+                padding: "1rem",
+                position: "absolute",
+                width: "300px",
+                maxWidth: "75vw",
+                height: "350px",
+                maxHeight: "60%",
+                bottom: "5%",
+                left: "20%",
+                backgroundColor: "white",
               }}
             >
-              {title1}
-            </h1>
-            <p
-              style={{
-                fontSize: "0.7rem",
-              }}
-            >
-              {content1}
-            </p>
+              <h1
+                style={{
+                  color: `${themeVariables.corporateBlue}`,
+                  fontSize: "1.5rem",
+                }}
+              >
+                {title2}
+              </h1>
+              <p
+                style={{
+                  fontSize: "0.7rem",
+                }}
+              >
+                {content2}
+              </p>
+            </div>
           </div>
-          <div
-            className="div2"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "1rem",
-              padding: "1rem",
-              position: "absolute",
-              width: "300px",
-              maxWidth: "75vw",
-              height: "350px",
-              maxHeight: "60%",
-              bottom: "calc(0.8rem + 1vw)",
-              left: "calc(150% - 40%)",
-              backgroundColor: "white",
-            }}
-          >
-            <h1
-              style={{
-                color: `${themeVariables.corporateBlue}`,
-                fontSize: "1.5rem",
-              }}
-            >
-              {title2}
-            </h1>
-            <p
-              style={{
-                fontSize: "0.7rem",
-              }}
-            >
-              {content2}
-            </p>
-          </div>
-        </div>
+        </div>{" "}
       </div>
       <style jsx>{`
         .radio-label {
@@ -245,11 +249,11 @@ export default function AboutContent({
           font-size: 0.7rem;
         }
         @media (max-width: 560px) {
-          .div1 {
+          .divc {
             left: 2.5vw !important;
-          }
-          .div2 {
-            left: calc(100% + 2.5vw) !important;
+            width: 75vw !important;
+            height: 50dvh !important;
+            bottom: 2.5vw !important;
           }
         }
         @media (max-width: 1100px) {
@@ -259,6 +263,12 @@ export default function AboutContent({
             align-items: end !important;
             gap: 0.5rem !important;
             margin-right: 4rem !important;
+          }
+        }
+        @media (min-width: 2000px) {
+          .divc {
+            width: 600px !important;
+            height: 50dvh !important;
           }
         }
       `}</style>
