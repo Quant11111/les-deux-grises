@@ -5,6 +5,7 @@ import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { arkhip } from "../fonts/fonts";
 import "./globals.css";
+import Newsletter from "@/ui/components/Newsletter";
 
 export async function generateMetadata({
   params: { locale },
@@ -35,12 +36,13 @@ export default async function LocaleLayout({
   // Providing all messages to the client
   // side is the easiest way to get started
   const messages = await getMessages();
-
+  const t = await getTranslations({ locale, namespace: "newsletter" });
   return (
     <html lang={locale}>
       <body className={arkhip.className}>
         {" "}
         <NextIntlClientProvider messages={messages}>
+          <Newsletter />
           {children}
         </NextIntlClientProvider>
       </body>

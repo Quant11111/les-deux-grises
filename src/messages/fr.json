@@ -1,0 +1,9 @@
+{
+  "newsletter": {
+    "title": "Inscrivez-vous à notre newsletter",
+    "description": "Restez informé de nos dernières actualités et mises à jour",
+    "emailPlaceholder": "Votre adresse email",
+    "submit": "S'inscrire",
+    "cancel": "Annuler"
+  }
+}

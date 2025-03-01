@@ -22,5 +22,12 @@
     "whoContent": "Les Deux Grises est un élevage de chevaux d'élite. Génétique de pointe et jumpers aguéris, voilà les fruits de la passion que portent les naisseurs de notre famille depuis des générations.",
     "whatTitle": "WHAT WE DO",
     "whatContent": "Notre mission est de produire des che"
+  },
+  "newsletter": {
+    "title": "Subscribe to our newsletter",
+    "description": "Stay informed about our latest news and updates",
+    "emailPlaceholder": "Your email address",
+    "submit": "Subscribe",
+    "cancel": "Cancel"
   }
 }
