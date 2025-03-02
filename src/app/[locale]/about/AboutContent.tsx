@@ -1,5 +1,6 @@
 "use client";
 
+import { rawengulkDemibold } from "@/app/fonts/fonts";
 import { useAppContext } from "@/utils/context";
 import themeVariables from "@/utils/themeVariables";
 import { useState } from "react";
@@ -188,6 +189,7 @@ export default function AboutContent({
                 {title1}
               </h1>
               <p
+                className={rawengulkDemibold.className}
                 style={{
                   fontSize: "0.7rem",
                 }}
@@ -233,6 +235,7 @@ export default function AboutContent({
                 {title2}
               </h1>
               <p
+                className={rawengulkDemibold.className}
                 style={{
                   fontSize: "0.7rem",
                 }}
@@ -244,6 +247,9 @@ export default function AboutContent({
         </div>{" "}
       </div>
       <style jsx>{`
+        p {
+          text-align: justify;
+        }
         .radio-label {
           cursor: pointer;
           font-size: 0.7rem;
@@ -265,7 +271,19 @@ export default function AboutContent({
             margin-right: 4rem !important;
           }
         }
-        @media (min-width: 2000px) {
+        @media (min-width: 1100px) {
+          .divc {
+            padding: max(calc(1.2vw / 0.85), 1.5rem) !important;
+            overflow: scroll !important;
+          }
+          h1 {
+            font-size: max(calc(1.5vw / 0.85), 1.5rem) !important;
+          }
+          p {
+            font-size: max(calc(0.7vw / 0.85), 0.7rem) !important;
+          }
+        }
+        @media (min-width: 1500px) {
           .divc {
             width: 600px !important;
             height: 50dvh !important;
