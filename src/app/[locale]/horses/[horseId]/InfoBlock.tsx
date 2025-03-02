@@ -23,6 +23,9 @@ interface InfoBlockProps {
 const BlockContainer = styled.div`
   padding: 0.5rem;
   border-radius: 8px;
+  @media (min-width: 1200px) {
+    padding: 1rem !important;
+  }
 `;
 
 const Title = styled.h3`
@@ -30,6 +33,9 @@ const Title = styled.h3`
   font-size: 0.8rem;
   padding-bottom: 0.5rem;
   font-weight: 600;
+  @media (min-width: 1200px) {
+    font-size: calc(1.4vw / 0.85) !important;
+  }
 `;
 
 const InfoGrid = styled.div`
@@ -37,6 +43,9 @@ const InfoGrid = styled.div`
   gap: 0.2rem;
   line-height: 0.2rem;
   flex-wrap: wrap;
+  @media (min-width: 1200px) {
+    line-height: calc(0.8vw / 0.85) !important;
+  }
 `;
 
 const InfoItem = styled.div`
@@ -55,6 +64,9 @@ const Value = styled.span`
   font-size: 0.5rem;
   display: block;
   word-break: break-word;
+  @media (min-width: 1200px) {
+    font-size: calc(1vw / 0.85) !important;
+  }
 `;
 
 const DistinctionsList = styled.div`
@@ -105,18 +117,32 @@ export const InfoBlock = ({ data }: InfoBlockProps) => {
 
   return (
     <BlockContainer>
-      <Title>{data.name}</Title>
-      <InfoGrid>
+      <Title className="title">{data.name}</Title>
+      <InfoGrid className="info-grid">
         {displayableProperties.map(([key, value]) => (
           <InfoItem key={key}>{formatValue(key, value)}</InfoItem>
         ))}
         {data.distinctions && (
-          <InfoItem>{formatValue("distinctions", data.distinctions)}</InfoItem>
+          <InfoItem className="distinctions">
+            {formatValue("distinctions", data.distinctions)}
+          </InfoItem>
         )}
         {data.licenses && (
-          <InfoItem>{formatValue("licenses", data.licenses)}</InfoItem>
+          <InfoItem className="licenses">
+            {formatValue("licenses", data.licenses)}
+          </InfoItem>
         )}
       </InfoGrid>
+      <style jsx>{`
+        @media (min-width: 1200px) {
+          .title {
+            font-size: 7rem !important;
+          }
+          .info-grid {
+            font-size: 7rem !important;
+          }
+        }
+      `}</style>
     </BlockContainer>
   );
 };

@@ -25,6 +25,7 @@ export default function HorsePageContent({
   }, [horse]);
   return (
     <div
+      className="horse-page-content"
       style={{
         position: "relative",
         display: "flex",
@@ -32,12 +33,12 @@ export default function HorsePageContent({
         alignItems: "center",
         justifyContent: "center",
         paddingTop: "1rem",
-        height: "calc(100dvh - 5rem)",
-        overflow: "hidden",
+        height: "calc(100dvh -5rem)",
+        overflow: "scroll",
       }}
     >
       <div
-        className="hide-scrollbar fix-sm-padding"
+        className="hide-scrollbar fix-sm-padding arc"
         style={{
           position: "relative",
           display: "grid",
@@ -45,13 +46,13 @@ export default function HorsePageContent({
           backgroundColor: themeVariables.grassGreen,
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
-          maxHeight: "calc(100dvh - 10rem)",
+
           overflowY: "scroll",
           // paddingLeft: "calc(15dvh - 3rem) ",
           // paddingRight: "calc(15dvh - 3rem) ",
           // paddingBottom: "calc((100dvh - 10rem)*7/100) ",
           padding: "1.5rem",
-
+          scale: "0.9",
           gap: "0.5rem",
           aspectRatio: "0.85/1",
           maxWidth: "calc(95vw)",
@@ -66,11 +67,12 @@ export default function HorsePageContent({
             justifyContent: "center",
           }}
         >
-          <h2 style={{ position: "absolute", top: "1rem" }}>
+          <h2 className="gender" style={{ position: "absolute", top: "1rem" }}>
             {horse?.gender.toUpperCase()}
           </h2>
         </div>
         <div
+          className="horse-image"
           style={{
             position: "relative",
             height: "calc((100dvh - 8rem) * 0.32)",
@@ -108,6 +110,7 @@ export default function HorsePageContent({
           }}
         >
           <h1
+            className="horse-name"
             style={{
               paddingLeft: "12px",
               whiteSpace: "nowrap",
@@ -166,25 +169,27 @@ export default function HorsePageContent({
             {horse?.mom?.mom && <InfoBlock data={horse.mom.mom} />}
           </div>
         </div>
-        <a
-          className="horseredirect"
-          style={{
-            color: themeVariables.lightForeground,
-            position: "absolute",
-            cursor: "pointer",
-            textAlign: "center",
-            justifyContent: "center",
-            alignItems: "center",
-            display: "flex",
-            width: "100%",
-            fontSize: "0.7rem",
-            bottom: "0.3rem",
-          }}
-          href={horse?.url}
-          target="_blank"
-        >
-          - click here to learn more
-        </a>
+        {horse?.url && (
+          <a
+            className="horseredirect"
+            style={{
+              color: themeVariables.lightForeground,
+              position: "absolute",
+              cursor: "pointer",
+              textAlign: "center",
+              justifyContent: "center",
+              alignItems: "center",
+              display: "flex",
+              width: "100%",
+              fontSize: "0.7rem",
+              bottom: "0.3rem",
+            }}
+            href={horse?.url}
+            target="_blank"
+          >
+            - click here to learn more
+          </a>
+        )}
       </div>
 
       <style jsx>{`
@@ -231,6 +236,32 @@ export default function HorsePageContent({
           }
           .horseredirect {
             bottom: 0.3rem !important;
+          }
+        }
+        @media (min-width: 1200px) {
+          .arc {
+            width: 70% !important;
+            min-height: calc(80vw / 0.85) !important;
+            padding: calc(2vw / 0.85) !important;
+            gap: calc(0.5vw / 0.85) !important;
+          }
+          .gender {
+            font-size: calc(1.4vw / 0.85) !important;
+            top: calc(2vw / 0.85) !important;
+          }
+          .horse-image {
+            height: calc(25vw / 0.85) !important;
+            margin-bottom: calc(3vw / 0.85) !important;
+          }
+          .horse-page-content {
+            justify-content: flex-start !important;
+          }
+          .horseredirect {
+            font-size: calc(1vw / 0.85) !important;
+            bottom: calc(0.5vw / 0.85) !important;
+          }
+          .horse-name {
+            font-size: calc(1.5vw / 0.85) !important;
           }
         }
       `}</style>
