@@ -33,7 +33,7 @@ export default function HorsePageContent({
         alignItems: "center",
         justifyContent: "center",
         paddingTop: "1rem",
-        height: "calc(100dvh -5rem)",
+        height: "calc(100dvh - 5rem)",
         overflow: "scroll",
       }}
     >
@@ -42,7 +42,7 @@ export default function HorsePageContent({
         style={{
           position: "relative",
           display: "grid",
-          gridTemplateRows: "0fr 3.5fr  0.5fr 7fr",
+          gridTemplateRows: "0fr 3.5fr  0.6fr 5fr",
           backgroundColor: themeVariables.grassGreen,
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
