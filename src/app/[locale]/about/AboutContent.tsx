@@ -256,10 +256,10 @@ export default function AboutContent({
         }
         @media (max-width: 560px) {
           .divc {
-            left: 2.5vw !important;
-            width: 75vw !important;
+            left: 7.5vw !important;
+            width: 65vw !important;
             height: 50dvh !important;
-            bottom: 2.5vw !important;
+            bottom: 7.5vw !important;
           }
         }
         @media (max-width: 1100px) {
