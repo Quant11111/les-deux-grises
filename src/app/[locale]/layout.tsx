@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { arkhip } from "../fonts/fonts";
+import { arkhipRegular } from "../fonts/fonts";
 import "./globals.css";
 import Newsletter from "@/ui/components/Newsletter";
 
@@ -39,7 +39,7 @@ export default async function LocaleLayout({
   const t = await getTranslations({ locale, namespace: "newsletter" });
   return (
     <html lang={locale}>
-      <body className={arkhip.className}>
+      <body className={arkhipRegular.className}>
         {" "}
         <NextIntlClientProvider messages={messages}>
           <Newsletter />

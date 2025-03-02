@@ -1,6 +1,6 @@
 "use client";
 
-import { rawengulk } from "@/app/fonts/fonts";
+import { rawengulkDemibold, arkhipRegular, rawengulk } from "@/app/fonts/fonts";
 import themeVariables from "@/utils/themeVariables";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
@@ -11,7 +11,7 @@ const HeroTitle = styled.h1<{ imgZoom: number }>`
   position: absolute;
   font-size: ${({ imgZoom }) => imgZoom * 9 * 16}px;
   font-weight: lighter;
-  letter-spacing: ${({ imgZoom }) => imgZoom * 2.7 * 16}px;
+  letter-spacing: ${({ imgZoom }) => imgZoom * 2.6 * 16}px;
   color: ${themeVariables.lightForeground};
   left: 50%;
   bottom: 27%;
@@ -35,7 +35,7 @@ const HeroDescription = styled.p<{ imgZoom: number }>`
   font-size: ${({ imgZoom }) => imgZoom * 67}px;
   font-weight: bold;
   position: absolute;
-  width: ${({ imgZoom }) => imgZoom * 1000}px;
+  width: ${({ imgZoom }) => imgZoom * 1100}px;
   top: 73%;
   left: calc(50% + ${({ imgZoom }) => imgZoom * 660}px);
   z-index: 1;
@@ -123,9 +123,14 @@ export default function Hero({
           }}
         />
 
-        <HeroTitle imgZoom={imgzoom}>{title}</HeroTitle>
+        <HeroTitle className={arkhipRegular.className} imgZoom={imgzoom}>
+          {title}
+        </HeroTitle>
 
-        <HeroDescription className={rawengulk.className} imgZoom={imgzoom}>
+        <HeroDescription
+          className={rawengulkDemibold.className}
+          imgZoom={imgzoom}
+        >
           {description}
         </HeroDescription>
       </div>
