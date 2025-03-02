@@ -29,6 +29,7 @@ export default function ContactSection({ locale }: { locale: string }) {
         position: "relative",
         height: "calc(100dvh - 5rem)",
         display: "flex",
+        paddingTop: "1rem",
         flexDirection: "column",
         paddingBottom: "4vw",
         alignItems: "center",
@@ -41,23 +42,22 @@ export default function ContactSection({ locale }: { locale: string }) {
           flexDirection: "column",
           gap: "2rem",
           marginTop: "2.5rem",
+          paddingTop: "3rem",
+          paddingLeft: "2rem",
+          paddingRight: "2rem",
           alignItems: "center",
+          justifyContent: "center",
           backgroundImage: "url('/images/balancoire.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
 
           overflowY: "scroll",
-          padding: "6rem",
-          paddingTop: "20vw",
+
           overflowX: "hidden",
           width: "80%",
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
           height: "calc(100dvh - 10rem)",
-
-          paddingLeft: "calc(15dvh - 3rem) ",
-          paddingRight: "calc(15dvh - 3rem) ",
-          paddingBottom: "calc((100dvh - 10rem)*7/100) ",
 
           maxWidth: "calc(200dvh - 32rem)",
         }}
@@ -76,7 +76,7 @@ export default function ContactSection({ locale }: { locale: string }) {
             style={{
               backgroundColor: "rgba(255, 255, 255, 0.9)",
               padding: "1rem 2rem",
-              borderRadius: "8px",
+              wordBreak: "break-all",
               border: "none",
               cursor: "pointer",
               width: "100%",
@@ -95,7 +95,7 @@ export default function ContactSection({ locale }: { locale: string }) {
             style={{
               backgroundColor: "rgba(255, 255, 255, 0.9)",
               padding: "1rem 2rem",
-              borderRadius: "8px",
+
               border: "none",
               cursor: "pointer",
               width: "100%",
@@ -113,7 +113,7 @@ export default function ContactSection({ locale }: { locale: string }) {
             style={{
               backgroundColor: "rgba(255, 255, 255, 0.9)",
               padding: "1rem 2rem",
-              borderRadius: "8px",
+
               border: "none",
               cursor: "pointer",
               width: "100%",

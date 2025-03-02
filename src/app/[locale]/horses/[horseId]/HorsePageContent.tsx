@@ -5,6 +5,9 @@ import horsesData from "@/horses/horses.json";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import InfoBlock from "./InfoBlock";
+import { rawengulkBold } from "@/app/fonts/fonts";
+import { useTranslations } from "next-intl";
+import { Divider } from "@mui/material";
 
 export default function HorsePageContent({
   locale,
@@ -13,6 +16,8 @@ export default function HorsePageContent({
   locale: string;
   id: string;
 }) {
+  const t = useTranslations("HorsePage");
+
   const horse = horsesData.find(
     (horse) => horse.name.toLowerCase().replace(/\s+/g, "%20") === id
   );
@@ -42,7 +47,7 @@ export default function HorsePageContent({
         style={{
           position: "relative",
           display: "grid",
-          gridTemplateRows: "0fr 3.5fr  0.6fr 5fr",
+          gridTemplateRows: "0fr 3.5fr  0.3fr 5fr",
           backgroundColor: themeVariables.grassGreen,
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
@@ -123,6 +128,7 @@ export default function HorsePageContent({
           </h1>
         </div>
         <div
+          className="data-grid"
           style={{
             overflow: "scroll",
             display: "grid",
@@ -148,8 +154,10 @@ export default function HorsePageContent({
           {/* Column 2: Parents */}
           <div
             style={{
-              display: "grid",
-              gridTemplateRows: "1fr 1fr ",
+              display: "flex",
+              height: "100%",
+              flexDirection: "column",
+              justifyContent: "space-around",
             }}
           >
             {horse?.dad && <InfoBlock data={horse.dad} />}
@@ -159,19 +167,51 @@ export default function HorsePageContent({
           {/* Column 3: Grandparents */}
           <div
             style={{
-              display: "grid",
-              gridTemplateRows: "1fr 1fr 1fr 1fr",
+              display: "flex",
+              height: "100%",
+              flexDirection: "column",
+              justifyContent: "space-between",
             }}
           >
-            {horse?.dad?.dad && <InfoBlock data={horse.dad.dad} />}
-            {horse?.dad?.mom && <InfoBlock data={horse.dad.mom} />}
-            {horse?.mom?.dad && <InfoBlock data={horse.mom.dad} />}
-            {horse?.mom?.mom && <InfoBlock data={horse.mom.mom} />}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              {horse?.dad?.dad && <InfoBlock data={horse.dad.dad} />}
+              <Divider
+                sx={{
+                  width: "90%",
+                  alignSelf: "center",
+                  backgroundColor: themeVariables.lightForeground,
+                }}
+              />
+              {horse?.dad?.mom && <InfoBlock data={horse.dad.mom} />}
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              {" "}
+              {horse?.mom?.dad && <InfoBlock data={horse.mom.dad} />}
+              <Divider
+                sx={{
+                  width: "90%",
+                  alignSelf: "center",
+                  backgroundColor: themeVariables.lightForeground,
+                }}
+              />
+              {horse?.mom?.mom && <InfoBlock data={horse.mom.mom} />}
+            </div>
           </div>
         </div>
         {horse?.url && (
           <a
-            className="horseredirect"
+            className={`horseredirect ${rawengulkBold.className}`}
             style={{
               color: themeVariables.lightForeground,
               position: "absolute",
@@ -187,13 +227,16 @@ export default function HorsePageContent({
             href={horse?.url}
             target="_blank"
           >
-            - click here to learn more
+            {t("linkMessage")}
           </a>
         )}
       </div>
 
       <style jsx>{`
         @media (max-width: 800px) {
+          .arc {
+            grid-template-rows: 0fr 3.5fr 1rem 5fr !important;
+          }
           .fix-sm-padding {
             padding: 1rem !important;
           }
@@ -211,6 +254,9 @@ export default function HorsePageContent({
           }
         }
         @media (min-width: 800px) and (max-width: 1200px) {
+          .arc {
+            grid-template-rows: 0fr 3.5fr 1.2rem 5fr !important;
+          }
           h1 {
             font-size: 1rem !important;
           }
@@ -242,26 +288,29 @@ export default function HorsePageContent({
           .arc {
             width: 70% !important;
             min-height: calc(80vw / 0.85) !important;
-            padding: calc(2vw / 0.85) !important;
+            padding: calc(4vw / 0.85) !important;
             gap: calc(0.5vw / 0.85) !important;
           }
           .gender {
             font-size: calc(1.4vw / 0.85) !important;
-            top: calc(2vw / 0.85) !important;
+            top: calc(4vw / 0.85) !important;
           }
           .horse-image {
             height: calc(25vw / 0.85) !important;
-            margin-bottom: calc(3vw / 0.85) !important;
+            margin-bottom: calc(2vw / 0.85) !important;
           }
           .horse-page-content {
             justify-content: flex-start !important;
           }
           .horseredirect {
             font-size: calc(1vw / 0.85) !important;
-            bottom: calc(0.5vw / 0.85) !important;
+            bottom: calc(1.5vw / 0.85) !important;
           }
           .horse-name {
             font-size: calc(1.5vw / 0.85) !important;
+          }
+          .data-grid {
+            padding: calc(2vw / 0.85) !important;
           }
         }
       `}</style>

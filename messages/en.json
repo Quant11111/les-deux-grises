@@ -29,5 +29,9 @@
     "emailPlaceholder": "Your email address",
     "submit": "Subscribe",
     "cancel": "Cancel"
+  },
+
+  "HorsePage": {
+    "linkMessage": "Click here to learn more"
   }
 }

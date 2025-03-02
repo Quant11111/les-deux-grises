@@ -2,6 +2,8 @@ import themeVariables from "@/utils/themeVariables";
 import { ReactNode } from "react";
 import styled from "styled-components";
 
+import { rawengulkDemibold } from "@/app/fonts/fonts";
+
 interface HorseData {
   name?: string;
   gender?: string;
@@ -29,7 +31,7 @@ const BlockContainer = styled.div`
 `;
 
 const Title = styled.h3`
-  color: ${themeVariables.corporateBlue};
+  color: ${themeVariables.darkForeground};
   font-size: 0.8rem;
   padding-bottom: 0.5rem;
   font-weight: 600;
@@ -55,7 +57,6 @@ const InfoItem = styled.div`
 const Label = styled.span`
   color: #4a5568;
   font-size: 0.85rem;
-  font-weight: 500;
   display: block;
 `;
 
@@ -81,7 +82,10 @@ export const InfoBlock = ({ data }: InfoBlockProps) => {
   const formatValue = (key: string, value: any): ReactNode => {
     if (Array.isArray(value)) {
       return (
-        <Value data-full-text={value.join(", ")}>
+        <Value
+          className={rawengulkDemibold.className}
+          data-full-text={value.join(", ")}
+        >
           {" "}
           {value.join(", ").length > 10
             ? value.join(", ").slice(0, 10) + "..."
@@ -89,7 +93,7 @@ export const InfoBlock = ({ data }: InfoBlockProps) => {
         </Value>
       );
     }
-    return <Value>{value}</Value>;
+    return <Value className={rawengulkDemibold.className}>{value}</Value>;
   };
 
   // Fonction pour formater les clés en labels lisibles
