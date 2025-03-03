@@ -219,7 +219,7 @@ export default function Newsletter() {
         }
 
         .submit-button:hover {
-          background-color: #374151;
+          background-color: ${themeVariables.corporateBlue};
         }
       `}</style>
     </>
