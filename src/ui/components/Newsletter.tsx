@@ -94,6 +94,7 @@ export default function Newsletter() {
                 placeholder={t("emailPlaceholder")}
                 className="email-input"
                 required
+                style={{ fontSize: "16px" }}
               />
               <div className="button-container">
                 <button
