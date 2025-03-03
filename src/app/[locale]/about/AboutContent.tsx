@@ -270,6 +270,7 @@ export default function AboutContent({
             align-items: end !important;
             gap: 0.5rem !important;
             margin-right: 4rem !important;
+            margin-top: 1rem !important;
           }
           .arc-container {
             overflow: hidden !important;
