@@ -175,7 +175,7 @@ export default function AboutContent({
                 width: "300px",
                 maxWidth: "75vw",
                 height: "350px",
-                maxHeight: "60%",
+                maxHeight: "55%",
                 bottom: "5%",
                 left: "20%",
                 backgroundColor: "white",
@@ -221,7 +221,7 @@ export default function AboutContent({
                 width: "300px",
                 maxWidth: "75vw",
                 height: "350px",
-                maxHeight: "60%",
+                maxHeight: "55%",
                 bottom: "5%",
                 left: "20%",
                 backgroundColor: "white",
@@ -250,6 +250,9 @@ export default function AboutContent({
       <style jsx>{`
         p {
           text-align: justify;
+        }
+        .divc {
+          justify-content: space-around !important;
         }
         .radio-label {
           cursor: pointer;
@@ -293,7 +296,7 @@ export default function AboutContent({
         }
         @media (min-width: 1500px) {
           .divc {
-            width: 600px !important;
+            width: max(calc(23vw / 0.85), 450px) !important;
             height: 50dvh !important;
           }
         }

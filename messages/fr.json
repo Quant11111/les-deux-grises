@@ -39,5 +39,12 @@
 
   "HorsePage": {
     "linkMessage": "Cliquer ici pour en savoir plus"
+  },
+
+  "contact": {
+    "title": "N'hesitez pas a nous contacter !",
+    "webdev": "Vous aimez notre site web ?",
+    "webdevMessage": "Contactez-nous pour une collaboration ou une demande de site web personnalise.",
+    "webdevButton": "C'est par ici !"
   }
 }

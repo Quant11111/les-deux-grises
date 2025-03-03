@@ -4,9 +4,13 @@ import themeVariables from "@/utils/themeVariables";
 import { useState } from "react";
 import Modal from "./Modal";
 import { toast, Toaster } from "sonner";
+import { useTranslations } from "next-intl";
+import { rawengulkLight } from "@/app/fonts/fonts";
 
 export default function ContactSection({ locale }: { locale: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isWebDevOpen, setIsWebDevOpen] = useState(false);
+  const t = useTranslations("contact");
 
   const handleSubscribe = (email: string) => {
     // Fonction pour valider l'ajout d'un email (à implémenter)
@@ -49,7 +53,7 @@ export default function ContactSection({ locale }: { locale: string }) {
           justifyContent: "center",
           backgroundImage: "url('/images/balancoire.jpg')",
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "center 65%",
 
           overflowY: "scroll",
 
@@ -71,6 +75,25 @@ export default function ContactSection({ locale }: { locale: string }) {
             width: "100%",
           }}
         >
+          <h2
+            style={{
+              fontSize: "1.8rem",
+              fontWeight: "bold",
+              color: themeVariables.lightForeground,
+              textAlign: "center",
+            }}
+          >
+            {t("title")}
+          </h2>
+          <div
+            style={{
+              width: "100%",
+              maxWidth: "600px",
+              height: "2px",
+              borderRadius: "50%",
+              backgroundColor: "white",
+            }}
+          />
           <button
             onClick={() => copyToClipboard(contactInfo.email, "Email")}
             style={{
@@ -125,6 +148,94 @@ export default function ContactSection({ locale }: { locale: string }) {
           >
             {contactInfo.address}
           </button>
+          <div
+            style={{
+              width: "100%",
+              maxWidth: "800px",
+              height: "2px",
+              borderRadius: "50%",
+              backgroundColor: "white",
+            }}
+          />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "1rem",
+              alignItems: "center",
+              width: "100%",
+            }}
+          >
+            <div
+              style={{
+                width: "100%",
+                maxWidth: "400px",
+                backgroundColor: "rgba(255, 255, 255, 0.9)",
+                borderRadius: "4px",
+                overflow: "hidden",
+                boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+              }}
+            >
+              <button
+                onClick={() => setIsWebDevOpen(!isWebDevOpen)}
+                style={{
+                  backgroundColor: themeVariables.grassGreen,
+                  padding: "1rem 2rem",
+                  border: "none",
+                  cursor: "pointer",
+                  width: "100%",
+                  fontSize: "1rem",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  color: themeVariables.lightForeground,
+                }}
+              >
+                <span>{t("webdev")}</span>
+                <span>{isWebDevOpen ? "▲" : "▼"}</span>
+              </button>
+
+              {isWebDevOpen && (
+                <div
+                  style={{
+                    padding: "1rem",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "1rem",
+                    backgroundColor: "rgba(255, 255, 255, 0.9)",
+                  }}
+                >
+                  <p
+                    className={rawengulkLight.className}
+                    style={{ textAlign: "center" }}
+                  >
+                    {t("webdevMessage")}
+                  </p>
+                  <button
+                    style={{
+                      backgroundColor: themeVariables.grassGreen,
+                      color: themeVariables.lightForeground,
+                      padding: "0.75rem 1.5rem",
+                      border: "none",
+                      borderRadius: "4px",
+                      cursor: "pointer",
+                      fontWeight: "bold",
+                      transition: "all 0.2s ease",
+                    }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.backgroundColor = "#0a3836";
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.backgroundColor =
+                        themeVariables.grassGreen;
+                    }}
+                  >
+                    {t("webdevButton")}
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
       <Toaster position="bottom-center" />
