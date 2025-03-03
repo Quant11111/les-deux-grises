@@ -28,7 +28,8 @@
     "title": "Inscrivez-vous a notre newsletter",
     "description": "Restez informe de nos dernieres actualites et mises a jour",
     "emailPlaceholder": "Votre adresse email",
-    "submit": "S'inscrire",
+    "join": "Rejoindre",
+    "leave": "Quitter",
     "cancel": "Annuler"
   },
 

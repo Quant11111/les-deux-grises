@@ -27,7 +27,8 @@
     "title": "Subscribe to our newsletter",
     "description": "Stay informed about our latest news and updates",
     "emailPlaceholder": "Your email address",
-    "submit": "Subscribe",
+    "join": "Join",
+    "leave": "Leave",
     "cancel": "Cancel"
   },
 

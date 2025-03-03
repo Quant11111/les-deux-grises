@@ -14,7 +14,6 @@ export default function Newsletter() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    e.preventDefault();
     const res = await fetch("/api/emails", {
       method: "POST",
       headers: {
@@ -28,6 +27,32 @@ export default function Newsletter() {
       toast.success("email added successfully");
     } else {
       toast.error(`Error creating horse ${res.status}`, { duration: 5000 });
+    }
+    setIsOpen(false);
+    setEmail("");
+  };
+
+  const handleUnsubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) {
+      toast.error("Veuillez entrer votre email pour vous désabonner", {
+        duration: 5000,
+      });
+      return;
+    }
+
+    const res = await fetch(`/api/emails?email=${encodeURIComponent(email)}`, {
+      method: "DELETE",
+    });
+
+    if (res.ok) {
+      toast.success("Vous êtes désabonné avec succès");
+    } else {
+      const errorData = await res.json();
+      toast.error(
+        `Erreur lors du désabonnement: ${errorData.error || res.status}`,
+        { duration: 5000 }
+      );
     }
     setIsOpen(false);
     setEmail("");
@@ -71,8 +96,15 @@ export default function Newsletter() {
                 required
               />
               <div className="button-container">
+                <button
+                  type="button"
+                  onClick={handleUnsubscribe}
+                  className="unsubscribe-button"
+                >
+                  {t("leave")}
+                </button>
                 <button type="submit" className="submit-button">
-                  {t("submit")}
+                  {t("join")}
                 </button>
               </div>
             </form>
@@ -166,6 +198,17 @@ export default function Newsletter() {
 
         .cancel-button:hover {
           color: #1f2937;
+        }
+
+        .unsubscribe-button {
+          padding: 0.5rem 1rem;
+          background-color: #ef4444;
+          color: white;
+          border-radius: 0.375rem;
+        }
+
+        .unsubscribe-button:hover {
+          background-color: #dc2626;
         }
 
         .submit-button {
