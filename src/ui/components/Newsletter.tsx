@@ -93,7 +93,7 @@ export default function Newsletter() {
                 placeholder={t("emailPlaceholder")}
                 className="email-input"
                 required
-                style={{ fontSize: "16px" }}
+                style={{ border: "none", fontSize: "16px" }}
               />
               <div className="button-container">
                 <button
@@ -204,7 +204,7 @@ export default function Newsletter() {
           padding: 0.5rem 1rem;
           background-color: ${themeVariables.neutralEarth};
           color: white;
-          border-radius: 0.375rem;
+          border-radius: 0px;
         }
 
         .unsubscribe-button:hover {
@@ -215,7 +215,7 @@ export default function Newsletter() {
           padding: 0.5rem 1rem;
           background-color: ${themeVariables.grassGreen};
           color: white;
-          border-radius: 0.375rem;
+          border-radius: 0px;
         }
 
         .submit-button:hover {
