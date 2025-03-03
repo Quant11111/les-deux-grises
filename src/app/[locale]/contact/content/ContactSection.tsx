@@ -67,6 +67,7 @@ export default function ContactSection({ locale }: { locale: string }) {
         }}
       >
         <div
+          className="contact-section-content"
           style={{
             display: "flex",
             flexDirection: "column",
@@ -246,8 +247,14 @@ export default function ContactSection({ locale }: { locale: string }) {
           }
         }
         @media (max-width: 800px) {
+          .contact-section-content {
+            gap: 0.5rem !important;
+          }
+          .title {
+            font-size: 1.2rem !important;
+          }
           button {
-            font-size: 0.7rem !important;
+            font-size: 0.6rem !important;
           }
         }
       `}</style>
