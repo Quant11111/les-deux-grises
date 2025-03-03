@@ -24,9 +24,9 @@ export default function Newsletter() {
       }),
     });
     if (res.ok) {
-      toast.success("email added successfully");
+      toast.success(t("joinSuccess"));
     } else {
-      toast.error(`Error creating horse ${res.status}`, { duration: 5000 });
+      toast.error(t("joinError"), { duration: 5000 });
     }
     setIsOpen(false);
     setEmail("");
@@ -35,7 +35,7 @@ export default function Newsletter() {
   const handleUnsubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) {
-      toast.error("Veuillez entrer votre email pour vous désabonner", {
+      toast.error(t("leaveError"), {
         duration: 5000,
       });
       return;
@@ -46,13 +46,12 @@ export default function Newsletter() {
     });
 
     if (res.ok) {
-      toast.success("Vous êtes désabonné avec succès");
+      toast.success(t("leaveSuccess"));
     } else {
       const errorData = await res.json();
-      toast.error(
-        `Erreur lors du désabonnement: ${errorData.error || res.status}`,
-        { duration: 5000 }
-      );
+      toast.error(t("leaveError"), {
+        duration: 5000,
+      });
     }
     setIsOpen(false);
     setEmail("");
@@ -188,7 +187,7 @@ export default function Newsletter() {
 
         .button-container {
           display: flex;
-          justify-content: flex-end;
+          justify-content: space-between;
           gap: 1rem;
         }
 
@@ -203,7 +202,7 @@ export default function Newsletter() {
 
         .unsubscribe-button {
           padding: 0.5rem 1rem;
-          background-color: #ef4444;
+          background-color: ${themeVariables.neutralEarth};
           color: white;
           border-radius: 0.375rem;
         }

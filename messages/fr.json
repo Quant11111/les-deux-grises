@@ -28,8 +28,12 @@
     "title": "Inscrivez-vous a notre newsletter",
     "description": "Restez informe de nos dernieres actualites et mises a jour",
     "emailPlaceholder": "Votre adresse email",
-    "join": "Rejoindre",
-    "leave": "Quitter",
+    "join": "Nous Rejoindre",
+    "joinSuccess": "Vous etes inscrit a notre newsletter",
+    "joinError": "Une erreur est survenue lors de l'inscription a notre newsletter",
+    "leave": "Quitter le club",
+    "leaveSuccess": "Vous etes desabonne de notre newsletter",
+    "leaveError": "Une erreur est survenue lors de la desabonnement a notre newsletter",
     "cancel": "Annuler"
   },
 

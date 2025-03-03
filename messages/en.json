@@ -27,8 +27,12 @@
     "title": "Subscribe to our newsletter",
     "description": "Stay informed about our latest news and updates",
     "emailPlaceholder": "Your email address",
-    "join": "Join",
-    "leave": "Leave",
+    "join": "Join Us",
+    "joinSuccess": "You are subscribed to our newsletter",
+    "joinError": "An error occurred while subscribing to our newsletter",
+    "leave": "Leave the club",
+    "leaveSuccess": "You are unsubscribed from our newsletter",
+    "leaveError": "An error occurred while unsubscribing from our newsletter",
     "cancel": "Cancel"
   },
 
