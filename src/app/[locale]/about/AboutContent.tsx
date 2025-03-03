@@ -122,6 +122,7 @@ export default function AboutContent({
         </label>
       </div>
       <div
+        className="arc-container"
         style={{
           position: "relative",
           overflow: "hidden",
@@ -269,6 +270,12 @@ export default function AboutContent({
             align-items: end !important;
             gap: 0.5rem !important;
             margin-right: 4rem !important;
+          }
+          .arc-container {
+            overflow: hidden !important;
+          }
+          .divc {
+            overflow: scroll !important;
           }
         }
         @media (min-width: 1100px) {
