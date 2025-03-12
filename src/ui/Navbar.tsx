@@ -40,9 +40,10 @@ export default function Navbar({
       <div
         className="navbar"
         style={{
-          position: "sticky",
+          position: "fixed",
           top: 0,
-          zIndex: 100,
+          left: 0,
+          zIndex: 1000,
           width: "100%",
           padding: "2rem",
           height: "5rem",

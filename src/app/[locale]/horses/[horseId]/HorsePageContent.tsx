@@ -67,7 +67,7 @@ export default function HorsePageContent({
         alignItems: "center",
         justifyContent: "center",
         paddingTop: "1rem",
-        height: "calc(100dvh - 5rem)",
+        minHeight: "calc(100dvh - 5rem)",
       }}
     >
       <div

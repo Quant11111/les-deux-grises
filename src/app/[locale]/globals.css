@@ -68,6 +68,10 @@ body {
   background: rgb(var(--grass-green));
 }
 
+main {
+  padding-top: 5rem; /* Pour compenser la hauteur de la navbar fixe */
+}
+
 a {
   color: inherit;
   text-decoration: none;
