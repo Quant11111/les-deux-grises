@@ -68,7 +68,6 @@ export default function HorsePageContent({
         justifyContent: "center",
         paddingTop: "1rem",
         height: "calc(100dvh - 5rem)",
-        overflow: "scroll",
       }}
     >
       <div
@@ -306,6 +305,7 @@ export default function HorsePageContent({
           }
           .horse-page-content {
             justify-content: flex-start !important;
+            overflow: scroll !important;
           }
           .horseredirect {
             font-size: calc(1vw / 0.85) !important;
