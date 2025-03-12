@@ -3,7 +3,7 @@
 import themeVariables from "@/utils/themeVariables";
 import horsesData from "@/horses/horses.json";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import InfoBlock from "./InfoBlock";
 import { rawengulkBold } from "@/app/fonts/fonts";
 import { useTranslations } from "next-intl";
@@ -17,10 +17,17 @@ export default function HorsePageContent({
   id: string;
 }) {
   const t = useTranslations("HorsePage");
+  const dataGridRef = useRef<HTMLDivElement>(null);
+  const [dataGridHeight, setDataGridHeight] = useState<number | null>(null);
 
+  // Décodage de l'ID pour gérer les caractères spéciaux
+  const decodedId = decodeURIComponent(id);
+
+  // Recherche du cheval en utilisant une comparaison plus robuste
   const horse = horsesData.find(
-    (horse) => horse.name.toLowerCase().replace(/\s+/g, "%20") === id
+    (horse) => horse.name.toLowerCase() === decodedId
   );
+
   const [imageSrc, setImageSrc] = useState<string>("");
 
   useEffect(() => {
@@ -28,6 +35,28 @@ export default function HorsePageContent({
       setImageSrc(`https://dsq73kname7kn.cloudfront.net/${horse.img}`);
     }
   }, [horse]);
+
+  // Mesurer la hauteur réelle du contenu de data-grid
+  useEffect(() => {
+    const currentRef = dataGridRef.current;
+    if (currentRef) {
+      const resizeObserver = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+          // Obtenir la hauteur du contenu
+          const contentHeight = entry.contentRect.height;
+          setDataGridHeight(contentHeight);
+        }
+      });
+
+      resizeObserver.observe(currentRef);
+      return () => {
+        if (currentRef) {
+          resizeObserver.unobserve(currentRef);
+        }
+      };
+    }
+  }, []);
+
   return (
     <div
       className="horse-page-content"
@@ -47,21 +76,19 @@ export default function HorsePageContent({
         style={{
           position: "relative",
           display: "grid",
-          gridTemplateRows: "0fr 3.5fr  0.3fr 5fr",
+          gridTemplateRows: "0fr 3.5fr 0.3fr auto",
           backgroundColor: themeVariables.grassGreen,
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
-
-          overflowY: "scroll",
-          // paddingLeft: "calc(15dvh - 3rem) ",
-          // paddingRight: "calc(15dvh - 3rem) ",
-          // paddingBottom: "calc((100dvh - 10rem)*7/100) ",
+          overflowY: "auto",
           padding: "1.5rem",
           scale: "0.9",
           gap: "0.5rem",
-          aspectRatio: "0.85/1",
           maxWidth: "calc(95vw)",
           overflowX: "hidden",
+          minHeight: dataGridHeight
+            ? `calc(${dataGridHeight}px + 40vh)`
+            : "auto",
         }}
       >
         <div
@@ -129,13 +156,16 @@ export default function HorsePageContent({
         </div>
         <div
           className="data-grid"
+          ref={dataGridRef}
           style={{
-            overflow: "scroll",
             display: "grid",
             gridTemplateColumns: "1fr 1fr 1fr",
             placeItems: "center",
             gap: "20px",
             backgroundColor: themeVariables.neutralEarth,
+            padding: "1rem",
+            width: "100%",
+            overflow: "visible",
           }}
         >
           {/* Column 1: Horse Info */}
@@ -233,9 +263,10 @@ export default function HorsePageContent({
       </div>
 
       <style jsx>{`
-        @media (max-width: 800px) {
+        @media (max-width: 750px) {
           .arc {
-            grid-template-rows: 0fr 3.5fr 1rem 5fr !important;
+            grid-template-rows: 0fr 3.5fr 1rem auto !important;
+            aspect-ratio: unset !important;
           }
           .fix-sm-padding {
             padding: 1rem !important;
@@ -252,44 +283,18 @@ export default function HorsePageContent({
           a {
             font-size: 0.5rem !important;
           }
-        }
-        @media (min-width: 800px) and (max-width: 1200px) {
-          .arc {
-            grid-template-rows: 0fr 3.5fr 1.2rem 5fr !important;
-          }
-          h1 {
-            font-size: 1rem !important;
-          }
-          h2 {
-            font-size: 1rem !important;
-          }
-          a {
-            font-size: 0.7rem !important;
-          }
-          .horseredirect {
-            bottom: 0.3rem !important;
+          .data-grid {
+            font-size: 0.8rem !important;
           }
         }
-        @media (min-width: 1200px) and (max-width: 1600px) {
-          h1 {
-            font-size: 1rem !important;
-          }
-          h2 {
-            font-size: 1rem !important;
-          }
-          a {
-            font-size: 0.7rem !important;
-          }
-          .horseredirect {
-            bottom: 0.3rem !important;
-          }
-        }
-        @media (min-width: 1200px) {
+        @media (min-width: 750px) {
           .arc {
             width: 70% !important;
             min-height: calc(80vw / 0.85) !important;
             padding: calc(4vw / 0.85) !important;
             gap: calc(0.5vw / 0.85) !important;
+            grid-template-rows: 0fr 3.5fr 0.3fr auto !important;
+            aspect-ratio: unset !important;
           }
           .gender {
             font-size: calc(1.4vw / 0.85) !important;
