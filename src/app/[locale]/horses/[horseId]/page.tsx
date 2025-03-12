@@ -23,7 +23,7 @@ export default function HorsePage({ params }: { params: { horseId: string } }) {
           size={150}
           color={themeVariables.lightForeground}
           style={{
-            position: "absolute",
+            position: "fixed",
             top: 0,
             left: 0,
             zIndex: 60,
@@ -35,7 +35,7 @@ export default function HorsePage({ params }: { params: { horseId: string } }) {
           size={150}
           color={themeVariables.lightForeground}
           style={{
-            position: "absolute",
+            position: "fixed",
             top: 0,
             left: 0,
             zIndex: 60,
