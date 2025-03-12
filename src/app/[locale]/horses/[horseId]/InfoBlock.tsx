@@ -25,7 +25,7 @@ interface InfoBlockProps {
 const BlockContainer = styled.div`
   padding: 0.5rem;
   border-radius: 8px;
-  @media (min-width: 1200px) {
+  @media (min-width: 750px) {
     padding: 1rem !important;
   }
 `;
@@ -35,7 +35,7 @@ const Title = styled.h3`
   font-size: 0.8rem;
   padding-bottom: 0.5rem;
   font-weight: 600;
-  @media (min-width: 1200px) {
+  @media (min-width: 750px) {
     font-size: calc(1.4vw / 0.85) !important;
   }
 `;

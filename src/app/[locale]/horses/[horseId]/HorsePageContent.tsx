@@ -120,7 +120,7 @@ export default function HorsePageContent({
               height: "100%", // prendra 100% de la hauteur du parent
               objectFit: "contain",
               pointerEvents: "none",
-              scale: "1.1",
+              scale: "1.3",
             }}
             src={imageSrc}
             alt={horse?.name || "Horse image"}
