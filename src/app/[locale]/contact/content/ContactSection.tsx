@@ -86,7 +86,7 @@ export default function ContactSection({ locale }: { locale: string }) {
           >
             {t("title")}
           </h2>
-          <div
+          {/*           <div
             style={{
               width: "100%",
               maxWidth: "600px",
@@ -94,11 +94,11 @@ export default function ContactSection({ locale }: { locale: string }) {
               borderRadius: "50%",
               backgroundColor: "white",
             }}
-          />
+          /> */}
           <button
             onClick={() => copyToClipboard(contactInfo.email, "Email")}
             style={{
-              backgroundColor: "rgba(255, 255, 255, 0.9)",
+              backgroundColor: "rgba(255, 255, 255, 1)",
               padding: "1rem 2rem",
               wordBreak: "break-all",
               border: "none",
@@ -106,8 +106,14 @@ export default function ContactSection({ locale }: { locale: string }) {
               width: "100%",
               maxWidth: "400px",
               fontSize: "1rem",
-              transition: "transform 0.2s",
+              transition: "transform 0.2s, color 0.2s",
               boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.color = "#10504F";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.color = "initial";
             }}
           >
             {contactInfo.email}
@@ -117,16 +123,21 @@ export default function ContactSection({ locale }: { locale: string }) {
               copyToClipboard(contactInfo.phone, "Numéro de téléphone")
             }
             style={{
-              backgroundColor: "rgba(255, 255, 255, 0.9)",
+              backgroundColor: "rgba(255, 255, 255, 1)",
               padding: "1rem 2rem",
-
               border: "none",
               cursor: "pointer",
               width: "100%",
               maxWidth: "400px",
               fontSize: "1rem",
-              transition: "transform 0.2s",
+              transition: "transform 0.2s, color 0.2s",
               boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.color = "#10504F";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.color = "initial";
             }}
           >
             {contactInfo.phone}
@@ -135,21 +146,26 @@ export default function ContactSection({ locale }: { locale: string }) {
             className="button-copy"
             onClick={() => copyToClipboard(contactInfo.address, "Adresse")}
             style={{
-              backgroundColor: "rgba(255, 255, 255, 0.9)",
+              backgroundColor: "rgba(255, 255, 255, 1)",
               padding: "1rem 2rem",
-
               border: "none",
               cursor: "pointer",
               width: "100%",
               maxWidth: "400px",
               fontSize: "1rem",
-              transition: "transform 0.2s",
+              transition: "transform 0.2s, color 0.2s",
               boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.color = "#10504F";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.color = "initial";
             }}
           >
             {contactInfo.address}
           </button>
-          <div
+          {/*           <div
             style={{
               width: "100%",
               maxWidth: "800px",
@@ -157,7 +173,7 @@ export default function ContactSection({ locale }: { locale: string }) {
               borderRadius: "50%",
               backgroundColor: "white",
             }}
-          />
+          /> */}
           <div
             style={{
               display: "flex",
@@ -171,7 +187,7 @@ export default function ContactSection({ locale }: { locale: string }) {
               style={{
                 width: "100%",
                 maxWidth: "400px",
-                backgroundColor: "rgba(255, 255, 255, 0.9)",
+                backgroundColor: "rgba(255, 255, 255, 1)",
                 borderRadius: "4px",
                 overflow: "hidden",
                 boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
@@ -190,6 +206,13 @@ export default function ContactSection({ locale }: { locale: string }) {
                   justifyContent: "space-between",
                   alignItems: "center",
                   color: themeVariables.lightForeground,
+                  transition: "color 0.2s",
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.color = themeVariables.secondaryGlow;
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.color = themeVariables.lightForeground;
                 }}
               >
                 <span>{t("webdev")}</span>
@@ -203,7 +226,7 @@ export default function ContactSection({ locale }: { locale: string }) {
                     display: "flex",
                     flexDirection: "column",
                     gap: "1rem",
-                    backgroundColor: "rgba(255, 255, 255, 0.9)",
+                    backgroundColor: "rgba(255, 255, 255, 1)",
                   }}
                 >
                   <p
@@ -221,7 +244,7 @@ export default function ContactSection({ locale }: { locale: string }) {
                       borderRadius: "4px",
                       cursor: "pointer",
                       fontWeight: "bold",
-                      transition: "all 0.2s ease",
+                      transition: "all 0.2s ease, color 0.2s",
                     }}
                     onMouseOver={(e) => {
                       e.currentTarget.style.backgroundColor = "#0a3836";
