@@ -6,6 +6,7 @@ import Modal from "./Modal";
 import { toast, Toaster } from "sonner";
 import { useTranslations } from "next-intl";
 import { rawengulkLight } from "@/app/fonts/fonts";
+import Link from "next/link";
 
 export default function ContactSection({ locale }: { locale: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -235,7 +236,8 @@ export default function ContactSection({ locale }: { locale: string }) {
                   >
                     {t("webdevMessage")}
                   </p>
-                  <button
+                  <Link
+                    href="https://www.thefrenchbaguettes.com"
                     style={{
                       backgroundColor: themeVariables.grassGreen,
                       color: themeVariables.lightForeground,
@@ -255,7 +257,7 @@ export default function ContactSection({ locale }: { locale: string }) {
                     }}
                   >
                     {t("webdevButton")}
-                  </button>
+                  </Link>
                 </div>
               )}
             </div>
