@@ -75,7 +75,7 @@ export default function HorsePageContent({
         style={{
           position: "relative",
           display: "grid",
-          gridTemplateRows: "0fr 3.5fr 0.3fr auto",
+          gridTemplateRows: "0fr 5fr 0.5fr auto",
           backgroundColor: themeVariables.grassGreen,
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
@@ -102,37 +102,31 @@ export default function HorsePageContent({
             {horse?.gender.toUpperCase()}
           </h2>
         </div>
-        <div
-          className="horse-image"
+
+        <Image
           style={{
-            position: "relative",
-            height: "calc((100dvh - 8rem) * 0.32)",
-            width: "100%",
-            justifyContent: "center",
-            alignItems: "center",
-            display: "flex",
+            width: "auto",
+            maxWidth: "90%",
+            height: "100%",
+            objectFit: "contain",
+            pointerEvents: "none",
+            scale: "1.2",
+            marginLeft: "auto",
+            marginRight: "auto",
+            display: "block",
           }}
-        >
-          <Image
-            style={{
-              width: "auto",
-              maxWidth: "70%",
-              height: "100%", // prendra 100% de la hauteur du parent
-              objectFit: "contain",
-              pointerEvents: "none",
-              scale: "1.3",
-            }}
-            src={imageSrc}
-            alt={horse?.name || "Horse image"}
-            width={800} // Add a default width
-            height={600} // Add a default height
-          />
-        </div>
+          src={imageSrc}
+          alt={horse?.name || "Horse image"}
+          width={800} // Add a default width
+          height={600} // Add a default height
+        />
 
         <div
+          className="horse-name-container"
           style={{
             position: "relative",
             width: "100%",
+            minHeight: "100%",
             overflow: "hidden",
             backgroundColor: themeVariables.lightForeground,
             color: themeVariables.corporateBlue,
@@ -287,6 +281,9 @@ export default function HorsePageContent({
           }
         }
         @media (min-width: 750px) {
+          .horse-name-container {
+            min-height: 25px !important;
+          }
           .arc {
             width: 70% !important;
             min-height: calc(80vw / 0.85) !important;

@@ -46,7 +46,7 @@ const InfoGrid = styled.div`
   line-height: 0.2rem;
   flex-wrap: wrap;
   @media (min-width: 1200px) {
-    line-height: calc(0.8vw / 0.85) !important;
+    line-height: calc(0.9vw / 0.85) !important;
   }
 `;
 
