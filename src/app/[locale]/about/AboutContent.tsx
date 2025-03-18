@@ -197,6 +197,16 @@ export default function AboutContent({
               >
                 {content1}
               </p>
+              <div
+                style={{
+                  alignSelf: "flex-end",
+                  fontStyle: "italic",
+                  color: themeVariables.corporateBlue,
+                  fontSize: "0.8rem",
+                }}
+              >
+                Karim
+              </div>
             </div>
           </div>
           <div

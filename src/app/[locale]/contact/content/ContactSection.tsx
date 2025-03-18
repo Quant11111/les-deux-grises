@@ -18,8 +18,9 @@ export default function ContactSection({ locale }: { locale: string }) {
   };
 
   const contactInfo = {
-    email: "contact@lesdeuxgrises.com",
-    phone: "+33 6 12 34 56 78",
+    email: "ldg@lesdeuxgrises.com",
+    phone: "+33 1 34 70 36 75",
+    phone2: "+33 6 46 91 05 46",
     address: "123 rue des Arts, 75001 Paris, France",
   };
 
@@ -72,7 +73,7 @@ export default function ContactSection({ locale }: { locale: string }) {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: "1.5rem",
+            gap: "0.5rem",
             alignItems: "center",
             width: "100%",
           }}
@@ -83,6 +84,7 @@ export default function ContactSection({ locale }: { locale: string }) {
               fontWeight: "bold",
               color: themeVariables.lightForeground,
               textAlign: "center",
+              marginBottom: "1.5rem",
             }}
           >
             {t("title")}
@@ -142,6 +144,30 @@ export default function ContactSection({ locale }: { locale: string }) {
             }}
           >
             {contactInfo.phone}
+          </button>
+          <button
+            onClick={() =>
+              copyToClipboard(contactInfo.phone, "Numéro de téléphone")
+            }
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 1)",
+              padding: "1rem 2rem",
+              border: "none",
+              cursor: "pointer",
+              width: "100%",
+              maxWidth: "400px",
+              fontSize: "1rem",
+              transition: "transform 0.2s, color 0.2s",
+              boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.color = "#10504F";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.color = "initial";
+            }}
+          >
+            {contactInfo.phone2}
           </button>
           <button
             className="button-copy"
