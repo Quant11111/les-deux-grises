@@ -22,9 +22,6 @@ export default function About() {
           position: "relative",
           display: "flex",
           flexDirection: "column",
-          width: "100vw",
-          height: "100dvh",
-          overflow: "hidden",
         }}
       >
         <OnlySmall>

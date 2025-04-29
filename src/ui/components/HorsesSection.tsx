@@ -199,7 +199,8 @@ export default function Horses({ locale }: { locale: string }) {
           gap: "2rem",
           marginTop: "2.5rem",
           alignItems: "center",
-          backgroundImage: "url('/images/paille.jpg')",
+          backgroundImage:
+            "url('https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/horses/horsesbg.png')",
           backgroundSize: "cover",
 
           overflowY: "scroll",
@@ -227,11 +228,11 @@ export default function Horses({ locale }: { locale: string }) {
               alignItems: "center",
               width: "600px",
               maxWidth: "60vw",
-              minHeight: "2rem",
-              backgroundColor: themeVariables.lightForeground,
+              minHeight: "3rem",
+              backgroundColor: themeVariables.cloudyMist,
               padding: "0.5rem",
               transition: "ease-in-out 0.3s",
-
+              justifyContent: "center",
               boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
             }}
             onClick={() => {

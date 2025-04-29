@@ -7,11 +7,11 @@ import styled from "styled-components";
 import { LogoSvg } from "../svg/LogoSvg";
 import OnlyLarge from "./OnlyLarge";
 
-const HeroTitle = styled.h1<{ imgZoom: number }>`
+const HeroTitle = styled.h1<{ $imgzoom: number }>`
   position: absolute;
-  font-size: ${({ imgZoom }) => imgZoom * 9 * 16}px;
+  font-size: ${({ $imgzoom }) => $imgzoom * 9 * 16}px;
   font-weight: lighter;
-  letter-spacing: ${({ imgZoom }) => imgZoom * 2.6 * 16}px;
+  letter-spacing: ${({ $imgzoom }) => $imgzoom * 2.6 * 16}px;
   color: ${themeVariables.lightForeground};
   left: 50%;
   bottom: 27%;
@@ -19,25 +19,25 @@ const HeroTitle = styled.h1<{ imgZoom: number }>`
   @media (max-width: 1100px) {
     left: 50%;
     transform: translate(-49%, 60%);
-    letter-spacing: ${({ imgZoom }) => imgZoom * 2 * 16}px;
+    letter-spacing: ${({ $imgzoom }) => $imgzoom * 2 * 16}px;
     text-align: center;
   }
   @media (max-width: 800px) {
     font-size: 2rem;
     transform: translate(-49%, 0%);
-    letter-spacing: ${({ imgZoom }) => imgZoom * 1.5 * 16}px;
+    letter-spacing: ${({ $imgzoom }) => $imgzoom * 1.5 * 16}px;
     text-align: center;
   }
 `;
 
-const HeroDescription = styled.p<{ imgZoom: number }>`
+const HeroDescription = styled.p<{ $imgzoom: number }>`
   color: ${themeVariables.neutralEarth};
-  font-size: ${({ imgZoom }) => imgZoom * 67}px;
+  font-size: ${({ $imgzoom }) => $imgzoom * 67}px;
   font-weight: bold;
   position: absolute;
-  width: ${({ imgZoom }) => imgZoom * 1100}px;
+  width: ${({ $imgzoom }) => $imgzoom * 1100}px;
   top: 73%;
-  left: calc(50% + ${({ imgZoom }) => imgZoom * 660}px);
+  left: calc(50% + ${({ $imgzoom }) => $imgzoom * 660}px);
   z-index: 1;
   @media (max-width: 1100px) {
     left: 50%;
@@ -113,23 +113,23 @@ export default function Hero({
           style={{
             height: "85%",
             aspectRatio: "1/1.52",
-            backgroundImage: "url(/images/twohorses.jpg)",
-            zoom: imgzoom,
-            transform: "scaleX(-1)",
-            backgroundPosition: "center left 30%",
+            backgroundImage:
+              "url(https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/landing/landing.png)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
             borderTopLeftRadius: "5000000000rem",
             borderTopRightRadius: "5000000000rem",
             maxWidth: "88%",
           }}
         />
 
-        <HeroTitle className={arkhipRegular.className} imgZoom={imgzoom}>
+        <HeroTitle className={arkhipRegular.className} $imgzoom={imgzoom}>
           {title}
         </HeroTitle>
 
         <HeroDescription
           className={rawengulkDemibold.className}
-          imgZoom={imgzoom}
+          $imgzoom={imgzoom}
         >
           {description}
         </HeroDescription>

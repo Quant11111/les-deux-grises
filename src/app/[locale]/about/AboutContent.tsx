@@ -1,11 +1,10 @@
 "use client";
 
 import { rawengulkDemibold } from "@/app/fonts/fonts";
-import { useAppContext } from "@/utils/context";
 import themeVariables from "@/utils/themeVariables";
 import { useState } from "react";
 import styled from "styled-components";
-
+import Image from "next/image";
 const AboutButton = styled.button`
   color: inherit;
   text-decoration: none;
@@ -30,287 +29,183 @@ export default function AboutContent({
   title2: string;
   content2: string;
 }) {
-  //true : who we are
-  //false : what we do
-  const [toogle, setToogle] = useState(true);
-
-  //const context = useAppContext();
-
   return (
-    <div
-      style={{
-        position: "relative",
-        height: "calc(100dvh - 5rem)",
-        display: "flex",
-        flexDirection: "column",
-        paddingBottom: "4vw",
-        alignItems: "center",
-        overflow: "hidden",
-      }}
-    >
-      <div
-        className="about-radios"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: themeVariables.grassGreen,
-          gap: "2rem",
-
-          minWidth: "100%",
-        }}
-      >
-        <label
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            cursor: "pointer",
-          }}
-        >
-          <input
-            type="radio"
-            name="type"
-            value="all"
-            checked={toogle === true}
-            onChange={(e) => setToogle(true)}
-            style={{ display: "none" }}
+    <div className="about-content">
+      <section className="what-we-do">
+        <Image
+          className="backgroundImage"
+          src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/Fichier+28.png"
+          alt="What We Do background"
+          width={1920}
+          height={1080}
+        />
+        <div className="what-we-do-card">
+          <h2 className="what-we-do-card-title">{title1}</h2>
+          <p className="what-we-do-card-content">{content1}</p>
+          <Image
+            className="what-we-do-card-image"
+            src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/Fichier+29.png"
+            alt="What We Do card image"
+            width={800}
+            height={600}
           />
-          <span
-            className="radio-label"
-            style={{
-              color:
-                toogle === true
-                  ? themeVariables.cloudyMist
-                  : themeVariables.neutralEarth,
-              textDecoration: "none",
-              transition: "color 0.3s ease, text-decoration 0.3s ease",
-            }}
-          >
-            {title1}
-          </span>
-        </label>
-        <label
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            cursor: "pointer",
-          }}
-        >
-          <input
-            type="radio"
-            name="type"
-            value="horse"
-            checked={toogle === false}
-            onChange={(e) => setToogle(false)}
-            style={{ display: "none" }}
+        </div>
+      </section>
+      <section className="who-we-are">
+        <Image
+          className="backgroundImage"
+          src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/Fichier+30.png"
+          alt="Who We Are"
+          width={1920}
+          height={1080}
+        />
+        <div className="who-we-are-card">
+          <h2 className="who-we-are-card-title">{title2}</h2>
+          <p className="who-we-are-card-content">{content2}</p>
+        </div>
+      </section>
+      <section className="our-team">
+        <h2 className="our-team-title">Our Team</h2>
+        <div className="our-team-carousel">
+          <Image
+            className="our-team-carousel-image"
+            src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team1.jpg"
+            alt="Our Team 1"
+            width={400}
+            height={400}
           />
-          <span
-            className="radio-label"
-            style={{
-              color:
-                toogle === false
-                  ? themeVariables.cloudyMist
-                  : themeVariables.neutralEarth,
-              textDecoration: "none",
-              transition: "color 0.3s ease, text-decoration 0.3s ease",
-            }}
-          >
-            {title2}
-          </span>
-        </label>
-      </div>
-      <div
-        className="arc-container"
-        style={{
-          position: "relative",
-          overflow: "hidden",
-          marginTop: "2.5rem",
-
-          width: "80%",
-          borderTopLeftRadius: "20000000000000000000000000000px",
-          borderTopRightRadius: "20000000000000000000000000000px",
-          height: "calc(100dvh - 10rem)",
-          overflowY: "scroll",
-          paddingLeft: "calc(15dvh - 3rem) ",
-          paddingRight: "calc(15dvh - 3rem) ",
-          paddingBottom: "calc((100dvh - 10rem)*7/100) ",
-          gap: "0.5rem",
-          maxWidth: "calc(200dvh - 32rem)",
-          overflowX: "hidden",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            display: "flex",
-            width: "200%",
-            height: "100%",
-            top: 0,
-            left: 0,
-            transform: toogle ? "translateX(0)" : "translateX(-50%)",
-            transition: "ease-in-out 0.5s",
-          }}
-        >
-          <div
-            className="bg1"
-            style={{
-              position: "relative",
-              backgroundImage: "url('/images/domain.jpg')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              minWidth: "50%",
-              height: "100%",
-            }}
-          >
-            <div
-              className="divc"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "1rem",
-                padding: "1rem",
-                position: "absolute",
-                width: "300px",
-                maxWidth: "75vw",
-                height: "350px",
-                maxHeight: "55%",
-                bottom: "5%",
-                left: "20%",
-                backgroundColor: "white",
-              }}
-            >
-              <h1
-                style={{
-                  color: `${themeVariables.corporateBlue}`,
-                  fontSize: "1.5rem",
-                }}
-              >
-                {title1}
-              </h1>
-              <p
-                className={rawengulkDemibold.className}
-                style={{
-                  fontSize: "0.7rem",
-                }}
-              >
-                {content1}
-              </p>
-              <div
-                style={{
-                  alignSelf: "flex-end",
-                  fontStyle: "italic",
-                  color: themeVariables.corporateBlue,
-                  fontSize: "0.8rem",
-                }}
-              >
-                Karim
-              </div>
-            </div>
-          </div>
-          <div
-            className="bg2"
-            style={{
-              position: "relative",
-              backgroundImage: "url('/images/cloture.jpg')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              minWidth: "50%",
-              height: "100%",
-            }}
-          >
-            <div
-              className="divc"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "1rem",
-                padding: "1rem",
-                position: "absolute",
-                width: "300px",
-                maxWidth: "75vw",
-                height: "350px",
-                maxHeight: "55%",
-                bottom: "5%",
-                left: "20%",
-                backgroundColor: "white",
-              }}
-            >
-              <h1
-                style={{
-                  color: `${themeVariables.corporateBlue}`,
-                  fontSize: "1.5rem",
-                }}
-              >
-                {title2}
-              </h1>
-              <p
-                className={rawengulkDemibold.className}
-                style={{
-                  fontSize: "0.7rem",
-                }}
-              >
-                {content2}
-              </p>
-            </div>
-          </div>
-        </div>{" "}
-      </div>
-      <style jsx>{`
-        p {
-          text-align: justify;
-        }
-        .divc {
-          justify-content: space-around !important;
-        }
-        .radio-label {
-          cursor: pointer;
-          font-size: 0.7rem;
-        }
-        @media (max-width: 560px) {
-          .divc {
-            left: 7.5vw !important;
-            width: 65vw !important;
-            height: 50dvh !important;
-            bottom: 7.5vw !important;
-          }
-        }
-        @media (max-width: 1100px) {
-          .about-radios {
-            width: 100%;
-            flex-direction: column;
-            align-items: end !important;
-            gap: 0.5rem !important;
-            margin-right: 4rem !important;
-            margin-top: 1rem !important;
-          }
-          .arc-container {
-            overflow: hidden !important;
-          }
-          .divc {
-            overflow: scroll !important;
-          }
-        }
-        @media (min-width: 1100px) {
-          .divc {
-            padding: max(calc(1.2vw / 0.85), 1.5rem) !important;
-            overflow: scroll !important;
-          }
-          h1 {
-            font-size: max(calc(1.5vw / 0.85), 1.5rem) !important;
-          }
-          p {
-            font-size: max(calc(0.7vw / 0.85), 0.7rem) !important;
-          }
-        }
-        @media (min-width: 1500px) {
-          .divc {
-            width: max(calc(23vw / 0.85), 450px) !important;
-            height: 50dvh !important;
-          }
-        }
-      `}</style>
+          <Image
+            className="our-team-carousel-image"
+            src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team2.jpg"
+            alt="Our Team 2"
+            width={400}
+            height={400}
+          />
+          <Image
+            className="our-team-carousel-image"
+            src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team3.jpg"
+            alt="Our Team 3"
+            width={400}
+            height={400}
+          />
+          <Image
+            className="our-team-carousel-image"
+            src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team4.jpg"
+            alt="Our Team 4"
+            width={400}
+            height={400}
+          />
+          <Image
+            className="our-team-carousel-image"
+            src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team5.jpg"
+            alt="Our Team 5"
+            width={400}
+            height={400}
+          />
+        </div>
+      </section>
+      <section className="images-mosaic">
+        <div className="images-mosaic-grid">
+          <Image
+            className="images-mosaic-grid-image"
+            src="https://dsq73kname7kn.cloudfront.net/grid/grid1.jpg"
+            alt="Images Mosaic 1 "
+            width={300}
+            height={300}
+          />
+          <Image
+            className="images-mosaic-grid-image"
+            src="https://dsq73kname7kn.cloudfront.net/grid/grid2.jpg"
+            alt="Images Mosaic 2"
+            width={300}
+            height={300}
+          />
+          <Image
+            className="images-mosaic-grid-image"
+            src="https://dsq73kname7kn.cloudfront.net/grid/grid3.jpg"
+            alt="Images Mosaic 3"
+            width={300}
+            height={300}
+          />
+          <Image
+            className="images-mosaic-grid-image"
+            src="https://dsq73kname7kn.cloudfront.net/grid/grid4.jpg"
+            alt="Images Mosaic 4"
+            width={300}
+            height={300}
+          />
+          <Image
+            className="images-mosaic-grid-image"
+            src="https://dsq73kname7kn.cloudfront.net/grid/grid5.jpg"
+            alt="Images Mosaic 5"
+            width={300}
+            height={300}
+          />
+          <Image
+            className="images-mosaic-grid-image"
+            src="https://dsq73kname7kn.cloudfront.net/grid/grid6.jpg"
+            alt="Images Mosaic 6"
+            width={300}
+            height={300}
+          />
+          <Image
+            className="images-mosaic-grid-image"
+            src="https://dsq73kname7kn.cloudfront.net/grid/grid7.jpg"
+            alt="Images Mosaic 7"
+            width={300}
+            height={300}
+          />
+          <Image
+            className="images-mosaic-grid-image"
+            src="https://dsq73kname7kn.cloudfront.net/grid/grid8.jpg"
+            alt="Images Mosaic 8"
+            width={300}
+            height={300}
+          />
+          <Image
+            className="images-mosaic-grid-image"
+            src="https://dsq73kname7kn.cloudfront.net/grid/grid9.jpg"
+            alt="Images Mosaic 9"
+            width={300}
+            height={300}
+          />
+          <Image
+            className="images-mosaic-grid-image"
+            src="https://dsq73kname7kn.cloudfront.net/grid/grid10.jpg"
+            alt="Images Mosaic 10"
+            width={300}
+            height={300}
+          />
+          <Image
+            className="images-mosaic-grid-image"
+            src="https://dsq73kname7kn.cloudfront.net/grid/grid11.jpg"
+            alt="Images Mosaic 11"
+            width={300}
+            height={300}
+          />
+          <Image
+            className="images-mosaic-grid-image"
+            src="https://dsq73kname7kn.cloudfront.net/grid/grid12.jpg"
+            alt="Images Mosaic 12"
+            width={300}
+            height={300}
+          />
+          <Image
+            className="images-mosaic-grid-image"
+            src="https://dsq73kname7kn.cloudfront.net/grid/grid13.jpg"
+            alt="Images Mosaic 13"
+            width={300}
+            height={300}
+          />
+          <Image
+            className="images-mosaic-grid-image"
+            src="https://dsq73kname7kn.cloudfront.net/grid/grid14.jpg"
+            alt="Images Mosaic 14"
+            width={300}
+            height={300}
+          />
+        </div>
+      </section>
     </div>
   );
 }
