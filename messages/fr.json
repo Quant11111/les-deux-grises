@@ -41,7 +41,16 @@
     "linkMessage": "Cliquer ici pour en savoir plus"
   },
 
-  "HorsesPage": {},
+  "HorsesPage": {
+    "sections": {
+      "all": "TOUS",
+      "mare": "JUMENTS",
+      "horse": "CHEVAUX",
+      "youngster": "YOUNGSTERS",
+      "foal": "FOALS",
+      "future foal": "FUTURE FOALS"
+    }
+  },
 
   "contact": {
     "title": "Contactez-nous",

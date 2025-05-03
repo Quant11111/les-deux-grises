@@ -1,7 +1,8 @@
 [
   {
     "name": "NIKITA",
-    "gender": "Mare",
+    "gender": "f",
+    "category": "mare",
     "birthYear": 2018,
     "color": "Grey",
     "studbook": "KWPN",
@@ -83,7 +84,8 @@
   },
   {
     "name": "CLUEDO DB Z",
-    "gender": "Stallion",
+    "gender": "m",
+    "category": "horse",
     "birthYear": 2020,
     "color": "Grey",
     "studbook": "ZANG",
@@ -145,7 +147,8 @@
   },
   {
     "name": "BATAAF V/D HORST Z",
-    "gender": "Stallion",
+    "gender": "m",
+    "category": "horse",
     "birthYear": 2020,
     "color": "Brown",
     "studbook": "ZANG",
@@ -211,7 +214,8 @@
   },
   {
     "name": "VANITY VAN HET AUDGOED",
-    "gender": "Mare",
+    "gender": "f",
+    "category": "mare",
     "birthYear": 2021,
     "color": "Dark brown",
     "studbook": "BWP",
@@ -280,7 +284,8 @@
   },
   {
     "name": "COCO BLUE DE MELODIE Z",
-    "gender": "Mare",
+    "gender": "f",
+    "category": "mare",
     "birthYear": 2021,
     "color": "Brown",
     "studbook": "ZANG",
@@ -355,7 +360,8 @@
   },
   {
     "name": "HEARTKEY SR Z",
-    "gender": "Mare",
+    "gender": "f",
+    "category": "mare",
     "birthYear": 2020,
     "color": "Brown",
     "studbook": "ZANG",
@@ -430,7 +436,8 @@
   },
   {
     "name": "CARAMEL DE MELODIE Z",
-    "gender": "Stallion",
+    "gender": "m",
+    "category": "horse",
     "birthYear": 2022,
     "color": "Chestnut",
     "studbook": "ZANG",
@@ -505,7 +512,8 @@
   },
   {
     "name": "OUR GYLA R",
-    "gender": "Mare",
+    "gender": "f",
+    "category": "mare",
     "birthYear": 2019,
     "color": "Skew or pie bald",
     "studbook": "AES",
@@ -584,7 +592,8 @@
   },
   {
     "name": "ALL STAR'S PASITHEE",
-    "gender": "Mare",
+    "gender": "f",
+    "category": "mare",
     "birthYear": 2020,
     "color": "Brown",
     "studbook": "KWPN",
@@ -673,7 +682,8 @@
   },
   {
     "name": "PAKKEE",
-    "gender": "Mare",
+    "gender": "f",
+    "category": "mare",
     "birthYear": 2020,
     "color": "Brown",
     "studbook": "KWPN",
@@ -736,6 +746,214 @@
         "color": "Brown",
         "distinctions": ["prest", "VB"]
       }
+    }
+  },
+  {
+    "name": "FICTIF1",
+    "gender": "m",
+    "category": "youngster",
+    "birthYear": 2022,
+    "color": "Bay",
+    "studbook": "KWPN",
+    "registration": "528003202200456",
+    "height": "1.62",
+    "img": "placeholder.png",
+    "dad": {
+      "name": "DIAMANT DE SEMILLY",
+      "studbook": "SF",
+      "registration": "25000191446545F",
+      "birthYear": 1991,
+      "color": "Dark brown",
+      "height": "1.73",
+      "licenses": ["AWR", "BWP", "CHS", "HOLST", "MIPAAF", "SF", "ZANG"],
+      "performance": "1.60m Jump."
+    },
+    "mom": {
+      "name": "WIERA",
+      "studbook": "KWPN",
+      "registration": "528003201103562",
+      "birthYear": 2011,
+      "color": "Chestnut",
+      "height": "1.68",
+      "distinctions": ["Stb."]
+    }
+  },
+  {
+    "name": "FICTIF2",
+    "gender": "f",
+    "category": "youngster",
+    "birthYear": 2022,
+    "color": "Grey",
+    "studbook": "HOLST",
+    "registration": "276431310880215",
+    "height": "1.60",
+    "img": "placeholder.png",
+    "dad": {
+      "name": "CORNET OBOLENSKY",
+      "studbook": "BWP",
+      "registration": "056002W00178808",
+      "birthYear": 1999,
+      "color": "Grey",
+      "height": "1.73",
+      "licenses": [
+        "BWP",
+        "HANN",
+        "HOLST",
+        "KWPN",
+        "OLDBG",
+        "SF",
+        "WESTF",
+        "ZANG"
+      ],
+      "performance": "1.60m Jump."
+    },
+    "mom": {
+      "name": "BONTANA",
+      "studbook": "HOLST",
+      "registration": "276421000325715",
+      "birthYear": 2009,
+      "color": "Brown",
+      "height": "1.66",
+      "distinctions": ["Verbandsprämie"]
+    }
+  },
+  {
+    "name": "FICTIF3",
+    "gender": "m",
+    "category": "foal",
+    "birthYear": 2024,
+    "color": "Chestnut",
+    "studbook": "ZANG",
+    "registration": "056015Z55985624",
+    "img": "placeholder.png",
+    "dad": {
+      "name": "CHACCO-BLUE",
+      "studbook": "MECKL",
+      "registration": "276327271025998",
+      "birthYear": 1998,
+      "color": "Brown",
+      "height": "1.72",
+      "licenses": [
+        "HANN",
+        "MECKL",
+        "OLDBG",
+        "OS",
+        "RHEIN",
+        "SF",
+        "SWB",
+        "WESTF"
+      ],
+      "performance": "1.60m Jump."
+    },
+    "mom": {
+      "name": "FORTUNA ZX",
+      "studbook": "ZANG",
+      "registration": "056015Z55324819",
+      "birthYear": 2019,
+      "color": "Brown",
+      "height": "1.67",
+      "distinctions": ["WFFS-free"]
+    }
+  },
+  {
+    "name": "FICTIF4",
+    "gender": "f",
+    "category": "foal",
+    "birthYear": 2024,
+    "color": "Bay",
+    "studbook": "BWP",
+    "registration": "056002W00412538",
+    "img": "placeholder.png",
+    "dad": {
+      "name": "KANNAN GFE",
+      "studbook": "KWPN",
+      "registration": "528003199204130",
+      "birthYear": 1992,
+      "color": "Dark brown",
+      "height": "1.72",
+      "licenses": [
+        "AES",
+        "AWR",
+        "BAVAR",
+        "BWP",
+        "HOLST",
+        "KWPN",
+        "OLDBG",
+        "OS",
+        "RHEIN",
+        "SBS",
+        "SF",
+        "SWB"
+      ],
+      "performance": "1.60m Jump."
+    },
+    "mom": {
+      "name": "SABRINA HX",
+      "studbook": "BWP",
+      "registration": "056002W00325187",
+      "birthYear": 2013,
+      "color": "Dark brown",
+      "height": "1.70",
+      "distinctions": ["VB"]
+    }
+  },
+  {
+    "name": "FICTIF5",
+    "gender": "m",
+    "category": "future foal",
+    "birthYear": 2025,
+    "color": "Unknown",
+    "studbook": "SF",
+    "registration": "pending",
+    "img": "placeholder.png",
+    "dad": {
+      "name": "BALOUBET DU ROUET",
+      "studbook": "SF",
+      "registration": "25000189502905H",
+      "birthYear": 1989,
+      "color": "Chestnut",
+      "height": "1.70",
+      "licenses": ["BWP", "HANN", "HOLST", "SBS", "SF", "SWB"],
+      "performance": "1.60m Jump."
+    },
+    "mom": {
+      "name": "CELESTINE DU MARAIS",
+      "studbook": "SF",
+      "registration": "25000115233458K",
+      "birthYear": 2015,
+      "color": "Grey",
+      "height": "1.68",
+      "distinctions": ["Label élevage: excellente"]
+    }
+  },
+  {
+    "name": "FICTIF6",
+    "gender": "f",
+    "category": "future foal",
+    "birthYear": 2025,
+    "color": "Unknown",
+    "studbook": "KWPN",
+    "registration": "pending",
+    "img": "placeholder.png",
+    "dad": {
+      "name": "HEARTBREAKER",
+      "studbook": "KWPN",
+      "registration": "528003198904335",
+      "birthYear": 1989,
+      "color": "Brown",
+      "height": "1.67",
+      "licenses": ["BAVAR", "BWP", "KWPN", "MIPAAF", "SF", "SWB"],
+      "distinctions": ["BWP_Ambassadeur", "pref", "Stb.", "WFFS-free"],
+      "performance": "1.60m Jump."
+    },
+    "mom": {
+      "name": "GLORIOSA",
+      "studbook": "KWPN",
+      "registration": "528003201802346",
+      "birthYear": 2018,
+      "color": "Brown",
+      "height": "1.64",
+      "distinctions": ["Elite", "prok"]
     }
   }
 ]

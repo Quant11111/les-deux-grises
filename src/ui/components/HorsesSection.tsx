@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import horsesData from "@/horses/horses.json";
 import Image from "next/image";
+import HorsesRadios from "./HorsesRadios";
+import CustomScrollbar from "./CustomScrollbar";
 
 const getImagePath = (path: string) => {
   try {
@@ -15,29 +17,26 @@ const getImagePath = (path: string) => {
   }
 };
 
-const getHorseType = (horse: any) => {
-  const currentYear = new Date().getFullYear();
-  if (currentYear - horse.birthYear < 1) {
-    return "youngster";
-  } else if (horse.gender.toLowerCase() === "stallion") {
-    return "horse";
-  } else if (horse.gender.toLowerCase() === "mare") {
-    return "mare";
-  }
-  return "unknown";
-};
-
 export default function Horses({ locale }: { locale: string }) {
   const [searchParam, setSearchParam] = useState("");
   const [selectedType, setSelectedType] = useState("all");
   const router = useRouter();
+
+  const categories = [
+    "all",
+    "horse",
+    "mare",
+    "youngster",
+    "foal",
+    "future foal",
+  ];
 
   const filteredHorses = horsesData.filter((horse) => {
     const matchesSearch =
       horse.name.toLowerCase().includes(searchParam.toLowerCase()) ||
       horse.studbook.toLowerCase().includes(searchParam.toLowerCase());
 
-    const horseType = getHorseType(horse);
+    const horseType = horse.category;
     const matchesType = selectedType === "all" || horseType === selectedType;
 
     return matchesSearch && matchesType;
@@ -57,156 +56,26 @@ export default function Horses({ locale }: { locale: string }) {
         backgroundColor: themeVariables.grassGreen,
       }}
     >
-      <div
-        className="horses-radios"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: themeVariables.grassGreen,
-          gap: "2rem",
-
-          zIndex: 30,
-          minWidth: "100%",
-        }}
-      >
-        <label
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            cursor: "pointer",
-          }}
-        >
-          <input
-            type="radio"
-            name="type"
-            value="all"
-            checked={selectedType === "all"}
-            onChange={(e) => setSelectedType(e.target.value)}
-            style={{ display: "none" }}
-          />
-          <span
-            className="radio-label"
-            style={{
-              color:
-                selectedType === "all"
-                  ? themeVariables.cloudyMist
-                  : themeVariables.neutralEarth,
-              textDecoration: "none",
-              transition: "color 0.3s ease, text-decoration 0.3s ease",
-            }}
-          >
-            {locale === "en" ? "ALL" : "TOUS"}
-          </span>
-        </label>
-        <label
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            cursor: "pointer",
-          }}
-        >
-          <input
-            type="radio"
-            name="type"
-            value="horse"
-            checked={selectedType === "horse"}
-            onChange={(e) => setSelectedType(e.target.value)}
-            style={{ display: "none" }}
-          />
-          <span
-            className="radio-label"
-            style={{
-              color:
-                selectedType === "horse"
-                  ? themeVariables.cloudyMist
-                  : themeVariables.neutralEarth,
-              textDecoration: "none",
-              transition: "color 0.3s ease, text-decoration 0.3s ease",
-            }}
-          >
-            {locale === "en" ? "HORSES" : "CHEVAUX"}
-          </span>
-        </label>
-        <label
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            cursor: "pointer",
-          }}
-        >
-          <input
-            type="radio"
-            name="type"
-            value="mare"
-            checked={selectedType === "mare"}
-            onChange={(e) => setSelectedType(e.target.value)}
-            style={{ display: "none" }}
-          />
-          <span
-            className="radio-label"
-            style={{
-              color:
-                selectedType === "mare"
-                  ? themeVariables.cloudyMist
-                  : themeVariables.neutralEarth,
-              textDecoration: "none",
-              transition: "color 0.3s ease, text-decoration 0.3s ease",
-            }}
-          >
-            {locale === "en" ? "MARES" : "JUMENTS"}
-          </span>
-        </label>
-        <label
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            cursor: "pointer",
-          }}
-        >
-          <input
-            type="radio"
-            name="type"
-            value="youngster"
-            checked={selectedType === "youngster"}
-            onChange={(e) => setSelectedType(e.target.value)}
-            style={{ display: "none" }}
-          />
-          <span
-            className="radio-label"
-            style={{
-              color:
-                selectedType === "youngster"
-                  ? themeVariables.cloudyMist
-                  : themeVariables.neutralEarth,
-              textDecoration: "none",
-              transition: "color 0.3s ease, text-decoration 0.3s ease",
-            }}
-          >
-            {locale === "en" ? "YOUNGSTERS" : "JEUNES"}
-          </span>
-        </label>
-      </div>
+      <HorsesRadios
+        selectedCategory={selectedType}
+        setSelectedCategory={setSelectedType}
+        categories={categories}
+        locale={locale}
+      />
 
       <div
+        className="hide-scrollbar hide-scrollbar::-webkit-scrollbar"
         style={{
+          position: "relative",
           display: "flex",
           flexDirection: "column",
-          gap: "2rem",
-          marginTop: "2.5rem",
+          marginTop: "2rem",
           alignItems: "center",
           backgroundImage:
             "url('https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/horses/horsesbg.png')",
           backgroundSize: "cover",
-
-          overflowY: "scroll",
-          padding: "6rem",
-          paddingTop: "20vh",
-          overflowX: "hidden",
+          backgroundPosition: "center",
+          overflow: "hidden",
           width: "80%",
           borderTopLeftRadius: "20000000000000000000000000000px",
           borderTopRightRadius: "20000000000000000000000000000px",
@@ -214,47 +83,60 @@ export default function Horses({ locale }: { locale: string }) {
 
           paddingLeft: "calc(15dvh - 3rem) ",
           paddingRight: "calc(15dvh - 3rem) ",
-          paddingBottom: "calc((100dvh - 10rem)*7/100) ",
 
           maxWidth: "calc(200dvh - 32rem)",
         }}
       >
-        {filteredHorses.map((horse) => (
-          <div
-            key={horse.name}
-            style={{
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              width: "600px",
-              maxWidth: "60vw",
-              minHeight: "3rem",
-              backgroundColor: themeVariables.cloudyMist,
-              padding: "0.5rem",
-              transition: "ease-in-out 0.3s",
-              justifyContent: "center",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-            }}
-            onClick={() => {
-              const formattedName = encodeURIComponent(
-                horse.name.toLowerCase()
-              );
-              router.push(`/${locale}/horses/${formattedName}`);
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform = "translateY(-5px)";
-              e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.8)";
-              e.currentTarget.style.outline = `2px solid ${themeVariables.grassGreen}`;
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
-              e.currentTarget.style.outline = `none`;
-            }}
-          >
-            <h2 className="horse-name">{horse.name}</h2>
-          </div>
-        ))}
+        <CustomScrollbar
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
+            alignItems: "center",
+            width: "600px",
+            maxWidth: "60vw",
+            marginTop: "20vh",
+          }}
+        >
+          {filteredHorses.map((horse) => (
+            <div
+              key={horse.name}
+              style={{
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                width: "calc(100% - 20px)",
+                minHeight: "3rem",
+                backgroundColor: themeVariables.cloudyMist,
+                padding: "0.5rem",
+                marginBottom: "1rem",
+                transition: "ease-in-out 0.3s",
+                justifyContent: "center",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+              }}
+              onClick={() => {
+                const formattedName = encodeURIComponent(
+                  horse.name.toLowerCase()
+                );
+                router.push(`/${locale}/horses/${formattedName}`);
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "translateY(-5px)";
+                e.currentTarget.style.boxShadow =
+                  "0 8px 16px rgba(0, 0, 0, 0.8)";
+                e.currentTarget.style.outline = `2px solid ${themeVariables.grassGreen}`;
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow =
+                  "0 4px 8px rgba(0, 0, 0, 0.1)";
+                e.currentTarget.style.outline = `none`;
+              }}
+            >
+              <h2 className="horse-name">{horse.name}</h2>
+            </div>
+          ))}
+        </CustomScrollbar>
       </div>
       <style jsx>{`
         .radio-label {

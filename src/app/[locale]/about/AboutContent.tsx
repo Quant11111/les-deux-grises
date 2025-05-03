@@ -31,181 +31,106 @@ export default function AboutContent({
 }) {
   return (
     <div className="about-content">
-      <section className="what-we-do">
-        <Image
-          className="backgroundImage"
-          src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/Fichier+28.png"
-          alt="What We Do background"
-          width={1920}
-          height={1080}
-        />
-        <div className="what-we-do-card">
-          <h2 className="what-we-do-card-title">{title1}</h2>
-          <p className="what-we-do-card-content">{content1}</p>
+      <section
+        className="what-we-do"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div
+          className="what-we-do-background"
+          style={{
+            position: "relative",
+            maxWidth: "calc(200dvh - 32rem)",
+            height: "calc(100dvh - 10rem)",
+            width: "80%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <Image
-            className="what-we-do-card-image"
-            src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/Fichier+29.png"
-            alt="What We Do card image"
-            width={800}
-            height={600}
+            className="what-we-do-background-image"
+            src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/Fichier+28.png"
+            alt="What We Do background"
+            fill
+            style={{
+              objectFit: "cover",
+              objectPosition: "center top",
+            }}
           />
+          <div className="what-we-do-card">
+            <h2 className="what-we-do-card-title">{title1}</h2>
+            <p className="what-we-do-card-content">{content1}</p>
+            <div className="what-we-do-card-image-container">
+              <Image
+                className="what-we-do-card-image"
+                src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/Fichier+29.png"
+                alt="What We Do card image"
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+          </div>
         </div>
       </section>
-      <section className="who-we-are">
-        <Image
-          className="backgroundImage"
-          src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/Fichier+30.png"
-          alt="Who We Are"
-          width={1920}
-          height={1080}
-        />
+      {/*       <section className="who-we-are">
+        <div className="who-we-are-image-container">
+          <Image
+            className="backgroundImage"
+            src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/Fichier+30.png"
+            alt="Who We Are"
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </div>
         <div className="who-we-are-card">
           <h2 className="who-we-are-card-title">{title2}</h2>
           <p className="who-we-are-card-content">{content2}</p>
         </div>
-      </section>
-      <section className="our-team">
-        <h2 className="our-team-title">Our Team</h2>
-        <div className="our-team-carousel">
-          <Image
-            className="our-team-carousel-image"
-            src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team1.jpg"
-            alt="Our Team 1"
-            width={400}
-            height={400}
-          />
-          <Image
-            className="our-team-carousel-image"
-            src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team2.jpg"
-            alt="Our Team 2"
-            width={400}
-            height={400}
-          />
-          <Image
-            className="our-team-carousel-image"
-            src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team3.jpg"
-            alt="Our Team 3"
-            width={400}
-            height={400}
-          />
-          <Image
-            className="our-team-carousel-image"
-            src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team4.jpg"
-            alt="Our Team 4"
-            width={400}
-            height={400}
-          />
-          <Image
-            className="our-team-carousel-image"
-            src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team5.jpg"
-            alt="Our Team 5"
-            width={400}
-            height={400}
-          />
-        </div>
-      </section>
-      <section className="images-mosaic">
-        <div className="images-mosaic-grid">
-          <Image
-            className="images-mosaic-grid-image"
-            src="https://dsq73kname7kn.cloudfront.net/grid/grid1.jpg"
-            alt="Images Mosaic 1 "
-            width={300}
-            height={300}
-          />
-          <Image
-            className="images-mosaic-grid-image"
-            src="https://dsq73kname7kn.cloudfront.net/grid/grid2.jpg"
-            alt="Images Mosaic 2"
-            width={300}
-            height={300}
-          />
-          <Image
-            className="images-mosaic-grid-image"
-            src="https://dsq73kname7kn.cloudfront.net/grid/grid3.jpg"
-            alt="Images Mosaic 3"
-            width={300}
-            height={300}
-          />
-          <Image
-            className="images-mosaic-grid-image"
-            src="https://dsq73kname7kn.cloudfront.net/grid/grid4.jpg"
-            alt="Images Mosaic 4"
-            width={300}
-            height={300}
-          />
-          <Image
-            className="images-mosaic-grid-image"
-            src="https://dsq73kname7kn.cloudfront.net/grid/grid5.jpg"
-            alt="Images Mosaic 5"
-            width={300}
-            height={300}
-          />
-          <Image
-            className="images-mosaic-grid-image"
-            src="https://dsq73kname7kn.cloudfront.net/grid/grid6.jpg"
-            alt="Images Mosaic 6"
-            width={300}
-            height={300}
-          />
-          <Image
-            className="images-mosaic-grid-image"
-            src="https://dsq73kname7kn.cloudfront.net/grid/grid7.jpg"
-            alt="Images Mosaic 7"
-            width={300}
-            height={300}
-          />
-          <Image
-            className="images-mosaic-grid-image"
-            src="https://dsq73kname7kn.cloudfront.net/grid/grid8.jpg"
-            alt="Images Mosaic 8"
-            width={300}
-            height={300}
-          />
-          <Image
-            className="images-mosaic-grid-image"
-            src="https://dsq73kname7kn.cloudfront.net/grid/grid9.jpg"
-            alt="Images Mosaic 9"
-            width={300}
-            height={300}
-          />
-          <Image
-            className="images-mosaic-grid-image"
-            src="https://dsq73kname7kn.cloudfront.net/grid/grid10.jpg"
-            alt="Images Mosaic 10"
-            width={300}
-            height={300}
-          />
-          <Image
-            className="images-mosaic-grid-image"
-            src="https://dsq73kname7kn.cloudfront.net/grid/grid11.jpg"
-            alt="Images Mosaic 11"
-            width={300}
-            height={300}
-          />
-          <Image
-            className="images-mosaic-grid-image"
-            src="https://dsq73kname7kn.cloudfront.net/grid/grid12.jpg"
-            alt="Images Mosaic 12"
-            width={300}
-            height={300}
-          />
-          <Image
-            className="images-mosaic-grid-image"
-            src="https://dsq73kname7kn.cloudfront.net/grid/grid13.jpg"
-            alt="Images Mosaic 13"
-            width={300}
-            height={300}
-          />
-          <Image
-            className="images-mosaic-grid-image"
-            src="https://dsq73kname7kn.cloudfront.net/grid/grid14.jpg"
-            alt="Images Mosaic 14"
-            width={300}
-            height={300}
-          />
-        </div>
-      </section>
+      </section> */}
+
+      <style jsx>{`
+        .about-content {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+        }
+
+        .what-we-do-card {
+          position: absolute;
+          display: grid;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          grid-template-areas:
+            "image title"
+            "image content";
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 20px 1fr;
+          gap: 1rem;
+          width: 1000px;
+          height: auto;
+          padding: 1rem;
+          background-color: ${themeVariables.cloudyMist};
+        }
+        .what-we-do-card-title {
+          grid-area: title;
+          font-size: 1.2rem;
+        }
+        .what-we-do-card-content {
+          grid-area: content;
+          font-size: 1rem;
+        }
+        .what-we-do-card-image-container {
+          position: relative;
+          grid-area: image;
+          width: 100%;
+          height: 100%;
+        }
+      `}</style>
     </div>
   );
 }

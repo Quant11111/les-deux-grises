@@ -5,6 +5,7 @@ import themeVariables from "@/utils/themeVariables";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { LogoSvg } from "../svg/LogoSvg";
+import Image from "next/image";
 import OnlyLarge from "./OnlyLarge";
 
 const HeroTitle = styled.h1<{ $imgzoom: number }>`
@@ -111,17 +112,26 @@ export default function Hero({
       >
         <div
           style={{
+            position: "relative",
             height: "85%",
-            aspectRatio: "1/1.52",
+            aspectRatio: "1/1.6",
             backgroundImage:
               "url(https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/landing/landing.png)",
             backgroundSize: "cover",
             backgroundPosition: "center",
             borderTopLeftRadius: "5000000000rem",
             borderTopRightRadius: "5000000000rem",
+
             maxWidth: "88%",
           }}
-        />
+        >
+          <Image
+            src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/landing/landing.png"
+            alt="Hero"
+            fill
+            style={{ objectFit: "fill" }}
+          />
+        </div>
 
         <HeroTitle className={arkhipRegular.className} $imgzoom={imgzoom}>
           {title}

@@ -59,7 +59,7 @@ export default function HorsePageContent({
 
   return (
     <div
-      className="horse-page-content"
+      className="horse-page-content hide-scrollbar::-webkit-scrollbar hide-scrollbar"
       style={{
         position: "relative",
         display: "flex",
@@ -99,7 +99,7 @@ export default function HorsePageContent({
           }}
         >
           <h2 className="gender" style={{ position: "absolute", top: "1rem" }}>
-            {horse?.gender.toUpperCase()}
+            {horse?.category.toUpperCase()}
           </h2>
         </div>
 

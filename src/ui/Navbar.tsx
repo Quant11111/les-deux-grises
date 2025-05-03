@@ -2,7 +2,7 @@
 
 import { useAppContext } from "@/utils/context";
 import themeVariables from "@/utils/themeVariables";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LanguageSelector from "./LanguageSelector";
 import NavButton from "./components/NavButton";
 import NavLink from "./components/NavLink";
@@ -29,8 +29,24 @@ export default function Navbar({
   contact: string;
 }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   const context = useAppContext();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setHasScrolled(true);
+      } else {
+        setHasScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -49,6 +65,11 @@ export default function Navbar({
           height: "5rem",
           fontSize: "0.9rem",
           fontWeight: "lighter",
+          backgroundColor: hasScrolled
+            ? "rgba(11, 40, 48, 0.85)"
+            : "transparent",
+          backdropFilter: hasScrolled ? "blur(5px)" : "none",
+          transition: "background-color 0.3s ease, backdrop-filter 0.3s ease",
         }}
       >
         {" "}
@@ -65,6 +86,13 @@ export default function Navbar({
             color: themeVariables.cloudyMist,
             fontSize: "1.5rem",
             cursor: "pointer",
+            backgroundColor: hasScrolled
+              ? "rgba(11, 40, 48, 0.85)"
+              : "transparent",
+            backdropFilter: hasScrolled ? "blur(5px)" : "none",
+            transition: "background-color 0.3s ease, backdrop-filter 0.3s ease",
+            padding: "0.5rem",
+            borderRadius: "3rem",
           }}
         >
           MENU
@@ -173,6 +201,10 @@ export default function Navbar({
             gap: 0.5rem !important;
             flex-direction: column;
           }
+        }
+        .navbar {
+          background-color: transparent !important;
+          backdrop-filter: none !important;
         }
       `}</style>
     </>

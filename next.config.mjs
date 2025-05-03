@@ -5,7 +5,20 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["giphy.gif", "unsplash.com", "dsq73kname7kn.cloudfront.net"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "dsq73kname7kn.cloudfront.net",
+      },
+      {
+        protocol: "https",
+        hostname: "giphy.gif",
+      },
+      {
+        protocol: "https",
+        hostname: "unsplash.com",
+      },
+    ],
   },
   compiler: {
     styledComponents: true,
