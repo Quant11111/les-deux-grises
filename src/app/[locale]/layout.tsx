@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { arkhipRegular } from "../fonts/fonts";
 import "./globals.css";
 import Newsletter from "@/ui/components/Newsletter";
+import Footer from "@/ui/components/Footer";
 
 export async function generateMetadata({
   params: { locale },

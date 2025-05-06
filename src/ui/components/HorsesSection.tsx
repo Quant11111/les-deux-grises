@@ -96,6 +96,7 @@ export default function Horses({ locale }: { locale: string }) {
             width: "600px",
             maxWidth: "60vw",
             marginTop: "20vh",
+            marginBottom: "5vh",
           }}
         >
           {filteredHorses.map((horse) => (

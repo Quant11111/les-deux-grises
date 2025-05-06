@@ -8,6 +8,8 @@ import { useLocale, useTranslations } from "next-intl";
 import WhoWeAre from "./WhoWeAre";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import React, { CSSProperties } from "react";
+import Footer from "@/ui/components/Footer";
+import WhatWeDo from "./WhatWeDo";
 
 export default function About() {
   const locale = useLocale();
@@ -55,6 +57,7 @@ export default function About() {
       <main
         className="main-about"
         style={{
+          alignItems: "center",
           position: "relative",
           display: "flex",
           flexDirection: "column",
@@ -69,7 +72,7 @@ export default function About() {
             position: "absolute",
             top: 0,
             left: 0,
-            zIndex: 1,
+            zIndex: 100,
           }}
         />
 
@@ -86,28 +89,22 @@ export default function About() {
         />
 
         <Scrollbars
-          style={{ flex: 1 }}
+          style={{ flex: 1, maxWidth: "1301px" }}
           renderThumbVertical={renderThumb}
           renderTrackVertical={renderTrack}
           universal={true}
           autoHide={false}
           thumbSize={120}
         >
-          <div style={{ padding: "20px" }}>
-            {/* <AboutContent
+          {/* <AboutContent
               title1={t("whoTitle")}
               content1={t("whoContent")}
               title2={t("whatTitle")}
               content2={t("whatContent")}
             /> */}
-
-            <WhoWeAre title={t("whoTitle")} content={t("whoContent")} />
-            <WhoWeAre title={t("whoTitle")} content={t("whoContent")} />
-            <WhoWeAre title={t("whoTitle")} content={t("whoContent")} />
-            <WhoWeAre title={t("whoTitle")} content={t("whoContent")} />
-
-            <div style={{ height: "50vh" }}></div>
-          </div>
+          <WhatWeDo title={t("whatTitle")} content={t("whatContent")} />
+          <WhoWeAre title={t("whoTitle")} content={t("whoContent")} />
+          <Footer locale={locale} />
         </Scrollbars>
       </main>
     </AppProvider>
