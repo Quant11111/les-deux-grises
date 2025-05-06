@@ -101,7 +101,8 @@ export default function WhatWeDo({
         }
         @media (max-width: 750px) {
           .what-we-do-card {
-            grid-template-columns: 0px 80vw;
+            top: 50%;
+            grid-template-columns: 0px 60vw;
             opacity: 0.9;
           }
           .what-we-do-card-content {

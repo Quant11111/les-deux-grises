@@ -101,7 +101,7 @@ export default function About() {
             /> */}
         <WhatWeDo title={t("whatTitle")} content={t("whatContent")} />
         <WhoWeAre title={t("whoTitle")} content={t("whoContent")} />
-        {/* <Team /> */}
+        <Team title={t("teamTitle")} />
       </Scrollbars>
     </main>
   );
