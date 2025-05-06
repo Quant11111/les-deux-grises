@@ -6,9 +6,11 @@ import { LogoSvg } from "@/ui/svg/LogoSvg";
 import themeVariables from "@/utils/themeVariables";
 import { useLocale, useTranslations } from "next-intl";
 import WhoWeAre from "./WhoWeAre";
+import { Scrollbars } from "react-custom-scrollbars-2";
 import React, { CSSProperties } from "react";
 import Footer from "@/ui/components/Footer";
 import WhatWeDo from "./WhatWeDo";
+import Team from "./Team";
 
 export default function About() {
   const locale = useLocale();
@@ -59,8 +61,20 @@ export default function About() {
         display: "flex",
         flexDirection: "column",
         height: "100vh", // Hauteur fixe pour activer le scroll
+        overflow: "hidden", // Cacher le débordement pour que seule la scrollbar personnalisée soit visible
       }}
     >
+      <LogoSvg
+        size={150}
+        color={themeVariables.lightForeground}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          zIndex: 100,
+        }}
+      />
+
       <Navbar
         active="about"
         locale={locale}
@@ -70,18 +84,15 @@ export default function About() {
         news={nt("news")}
         contact={nt("contact")}
       />
-      <LogoSvg
-        size={150}
-        color={themeVariables.lightForeground}
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          zIndex: 100,
-        }}
-      />
 
-      <div style={{ flex: 1, maxWidth: "1301px" }}>
+      <Scrollbars
+        style={{ flex: 1, maxWidth: "1301px", gap: "10rem" }}
+        renderThumbVertical={renderThumb}
+        renderTrackVertical={renderTrack}
+        universal={true}
+        autoHide={false}
+        thumbSize={120}
+      >
         {/* <AboutContent
               title1={t("whoTitle")}
               content1={t("whoContent")}
@@ -90,7 +101,8 @@ export default function About() {
             /> */}
         <WhatWeDo title={t("whatTitle")} content={t("whatContent")} />
         <WhoWeAre title={t("whoTitle")} content={t("whoContent")} />
-      </div>
+        {/* <Team /> */}
+      </Scrollbars>
     </main>
   );
 }

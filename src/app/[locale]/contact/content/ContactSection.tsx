@@ -1,15 +1,15 @@
 "use client";
 
+// change img balancoire for cloudfront Image next compponenet
+
 import themeVariables from "@/utils/themeVariables";
 import { useState } from "react";
-import Modal from "./Modal";
 import { toast, Toaster } from "sonner";
 import { useTranslations } from "next-intl";
 import { rawengulkLight } from "@/app/fonts/fonts";
 import Link from "next/link";
 
 export default function ContactSection({ locale }: { locale: string }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isWebDevOpen, setIsWebDevOpen] = useState(false);
   const t = useTranslations("contact");
 

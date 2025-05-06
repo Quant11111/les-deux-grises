@@ -5,6 +5,7 @@ import OnlySmall from "@/ui/components/OnlySmall";
 import { LogoSvg } from "@/ui/svg/LogoSvg";
 import OnlyLarge from "@/ui/components/OnlyLarge";
 import themeVariables from "@/utils/themeVariables";
+import Image from "next/image";
 
 export default function HorsePage({ params }: { params: { horseId: string } }) {
   const locale = useLocale();
@@ -13,11 +14,17 @@ export default function HorsePage({ params }: { params: { horseId: string } }) {
   return (
     <main
       style={{
+        position: "relative",
+        height: "auto",
         width: "100vw",
-        backgroundImage: "url('/images/paille.jpg')",
-        backgroundSize: "cover",
       }}
     >
+      <Image
+        src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/horse/horsepagebg.png"
+        alt="horse page background"
+        fill
+        style={{ objectFit: "cover" }}
+      />
       <OnlySmall>
         <LogoSvg
           size={150}
