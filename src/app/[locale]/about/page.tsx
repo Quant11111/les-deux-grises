@@ -90,7 +90,6 @@ export default function About() {
             /> */}
         <WhatWeDo title={t("whatTitle")} content={t("whatContent")} />
         <WhoWeAre title={t("whoTitle")} content={t("whoContent")} />
-        <Footer locale={locale} />
       </div>
     </main>
   );
