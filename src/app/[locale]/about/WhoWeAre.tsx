@@ -37,9 +37,11 @@ export default function WhoWeAre({
 
       <style jsx>{`
         .who-we-are {
+          margin-bottom: 2rem;
           position: relative;
-          width: 100%;
-          height: 70vh;
+          width: 90%;
+          margin-left: 5%;
+          height: 80vh;
           max-height: 600px;
           margin-top: 4rem;
         }
@@ -53,6 +55,7 @@ export default function WhoWeAre({
         @media (max-width: 1000px) {
           .who-we-are {
             display: flex;
+            height: 70vh !important;
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -90,7 +93,7 @@ export default function WhoWeAre({
             grid-template-areas:
               "image null"
               "image card";
-            grid-template-rows: 0.4fr 1fr;
+            grid-template-rows: 0.5fr 1fr;
             grid-template-columns: 2fr 1fr;
             padding: 2rem;
             gap: 2rem;

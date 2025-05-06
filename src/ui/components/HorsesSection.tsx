@@ -18,7 +18,6 @@ const getImagePath = (path: string) => {
 };
 
 export default function Horses({ locale }: { locale: string }) {
-  const [searchParam, setSearchParam] = useState("");
   const [selectedType, setSelectedType] = useState("all");
   const router = useRouter();
 
@@ -32,14 +31,10 @@ export default function Horses({ locale }: { locale: string }) {
   ];
 
   const filteredHorses = horsesData.filter((horse) => {
-    const matchesSearch =
-      horse.name.toLowerCase().includes(searchParam.toLowerCase()) ||
-      horse.studbook.toLowerCase().includes(searchParam.toLowerCase());
-
     const horseType = horse.category;
     const matchesType = selectedType === "all" || horseType === selectedType;
 
-    return matchesSearch && matchesType;
+    return matchesType;
   });
 
   return (
@@ -134,7 +129,13 @@ export default function Horses({ locale }: { locale: string }) {
                 e.currentTarget.style.outline = `none`;
               }}
             >
-              <h2 className="horse-name">{horse.name}</h2>
+              {horse.category === "foal" || horse.category === "future foal" ? (
+                <h2 className="horse-name">
+                  {horse.name + " X " + horse.dad.name + " X " + horse.mom.name}
+                </h2>
+              ) : (
+                <h2 className="horse-name">{horse.name}</h2>
+              )}
             </div>
           ))}
         </CustomScrollbar>
@@ -145,6 +146,7 @@ export default function Horses({ locale }: { locale: string }) {
           font-size: 0.7rem;
         }
         .horse-name {
+          color: ${themeVariables.grassGreen};
           font-size: 0.9rem;
           white-space: "nowrap",
               overflow: "hidden",
@@ -153,6 +155,7 @@ export default function Horses({ locale }: { locale: string }) {
         @media (max-width: 1100px) {
           .horse-name {
             font-size: 0.7rem;
+
           }
           .horses-radios {
             margin-top: 1rem;

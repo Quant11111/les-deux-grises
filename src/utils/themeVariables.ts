@@ -4,7 +4,7 @@ const themeVariables = {
   fontMono:
     "ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace",
   grassGreen: "#10504F",
-  grassGreenRgb: "16 80 79", // "#10504F"
+  grassGreenRgb: "16, 80, 79", // "#10504F"
   corporateBlue: "#006A72",
   corporateBlueRgb: "0, 106, 114",
   coolBlueGrey: "#6A8A85",

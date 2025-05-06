@@ -139,13 +139,6 @@ export default function Navbar({
             flex-direction: column;
           }
         }
-        .navbar {
-          background: linear-gradient(
-            to bottom,
-            ${themeVariables.grassGreen},
-            transparent
-          ) !important;
-        }
       `}</style>
     </>
   );
