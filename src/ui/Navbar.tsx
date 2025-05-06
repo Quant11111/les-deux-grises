@@ -1,6 +1,5 @@
 "use client";
 
-import { useAppContext } from "@/utils/context";
 import themeVariables from "@/utils/themeVariables";
 import { useState, useEffect } from "react";
 import LanguageSelector from "./LanguageSelector";
@@ -12,26 +11,19 @@ export default function Navbar({
   locale,
   home,
   about,
-  about1,
-  about2,
   horses,
-  news,
   contact,
 }: {
   active: string;
   locale: string;
   home: string;
   about: string;
-  about1: string;
-  about2: string;
   horses: string;
   news: string;
   contact: string;
 }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
-
-  const context = useAppContext();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,9 +57,6 @@ export default function Navbar({
           height: "5rem",
           fontSize: "0.9rem",
           fontWeight: "lighter",
-          backgroundColor: hasScrolled
-            ? "rgba(11, 40, 48, 0.85)"
-            : "transparent",
           backdropFilter: hasScrolled ? "blur(5px)" : "none",
           transition: "background-color 0.3s ease, backdrop-filter 0.3s ease",
         }}
@@ -121,32 +110,6 @@ export default function Navbar({
               locale={locale}
               isActive={active === "about"}
             />
-            {/* <div
-              className="aboutSub"
-              style={{
-                height: "2rem",
-                width: "auto",
-                display: active === "about" ? "flex" : "none",
-                position: "absolute",
-                bottom: "-2rem",
-                gap: "1rem",
-              }}
-            >
-              <NavButton
-                text={about1}
-                onClick={() => {
-                  context?.setAbout1();
-                }}
-                isActive={context?.aboutSub || false}
-              />
-              <NavButton
-                text={about2}
-                onClick={() => {
-                  context?.setAbout2();
-                }}
-                isActive={!context?.aboutSub || false}
-              />
-            </div> */}
           </div>
 
           <NavLink
@@ -155,12 +118,7 @@ export default function Navbar({
             locale={locale}
             isActive={active === "horses"}
           />
-          {/* <NavLink
-            text={news}
-            linkWord="news"
-            locale={locale}
-            isActive={active === "news"}
-          /> */}
+
           <NavLink
             text={contact}
             linkWord="contact"
@@ -203,8 +161,11 @@ export default function Navbar({
           }
         }
         .navbar {
-          background-color: transparent !important;
-          backdrop-filter: none !important;
+          background: linear-gradient(
+            to bottom,
+            ${themeVariables.grassGreen},
+            transparent
+          ) !important;
         }
       `}</style>
     </>

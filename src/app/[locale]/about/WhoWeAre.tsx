@@ -48,6 +48,7 @@ export default function WhoWeAre({
         }
         .who-we-are-card-content {
           white-space: pre-line;
+          color: ${themeVariables.lightForeground};
         }
         @media (max-width: 1000px) {
           .who-we-are {
@@ -80,7 +81,6 @@ export default function WhoWeAre({
           }
           .who-we-are-card-content {
             font-size: 0.7rem;
-            color: ${themeVariables.lightForeground};
           }
         }
         @media (min-width: 1000px) {

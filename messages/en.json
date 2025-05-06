@@ -7,8 +7,6 @@
   "Navbar": {
     "home": "HOME",
     "about": "ABOUT US",
-    "about1": "WHO WE ARE",
-    "about2": "WHAT WE DO",
     "horses": "OUR HORSES",
     "news": "NEWS",
     "contact": "CONTACT US"
@@ -41,7 +39,7 @@
   },
 
   "HorsesPage": {
-    "categories": {
+    "sections": {
       "all": "ALL",
       "mare": "MARES",
       "horse": "HORSES",
