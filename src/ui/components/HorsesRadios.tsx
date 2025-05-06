@@ -1,7 +1,5 @@
 import React from "react";
-import styled from "styled-components";
 import themeVariables from "@/utils/themeVariables";
-import { rawengulkDemibold } from "@/app/fonts/fonts";
 import { useTranslations } from "next-intl";
 
 export default function HorsesRadios({

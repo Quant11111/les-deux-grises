@@ -82,6 +82,7 @@ export default function Horses({ locale }: { locale: string }) {
           maxWidth: "calc(200dvh - 32rem)",
         }}
       >
+        <h2 className="selected-title"> {selectedType} </h2>
         <CustomScrollbar
           style={{
             display: "flex",
@@ -141,13 +142,21 @@ export default function Horses({ locale }: { locale: string }) {
         </CustomScrollbar>
       </div>
       <style jsx>{`
+        .selected-title {
+          color: ${themeVariables.cloudyMist};
+          font-size: 1.5rem;
+          position: absolute;
+          top: 4rem;
+          left: 50%;
+          transform: translateX(-50%);
+        }
         .radio-label {
           cursor: pointer;
           font-size: 0.7rem;
         }
         .horse-name {
           color: ${themeVariables.grassGreen};
-          font-size: 0.9rem;
+          font-size: 0.8rem;
           white-space: "nowrap",
               overflow: "hidden",
               text-overflow: "ellipsis",

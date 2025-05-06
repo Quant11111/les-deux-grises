@@ -1,22 +1,88 @@
 "use client";
 
+import { useLocale, useTranslations } from "next-intl";
+import {
+  Suspense,
+  lazy,
+  CSSProperties,
+  useState,
+  useEffect,
+  useRef,
+} from "react";
+import dynamic from "next/dynamic";
+import themeVariables from "@/utils/themeVariables";
+
 import Navbar from "@/ui/Navbar";
 import { LogoSvg } from "@/ui/svg/LogoSvg";
 
-import themeVariables from "@/utils/themeVariables";
-import { useLocale, useTranslations } from "next-intl";
-import WhoWeAre from "./WhoWeAre";
-import { Scrollbars } from "react-custom-scrollbars-2";
-import React, { CSSProperties } from "react";
-import Footer from "@/ui/components/Footer";
-import WhatWeDo from "./WhatWeDo";
-import Team from "./Team";
+// Chargement optimisé des composants
+const WhatWeDo = lazy(() => import("./WhatWeDo"));
+const WhoWeAre = lazy(() => import("./WhoWeAre"));
+const Team = lazy(() => import("./Team"));
+
+// Chargement optimisé de la scrollbar
+const Scrollbars = dynamic(
+  () => import("react-custom-scrollbars-2").then((mod) => mod.Scrollbars),
+  { ssr: false }
+);
+
+// Placeholder pour les sections pendant le chargement
+const SectionLoader = () => (
+  <div
+    style={{
+      height: "300px",
+      backgroundColor: themeVariables.cloudyMist,
+      width: "100%",
+      marginBottom: "2rem",
+    }}
+  />
+);
 
 export default function About() {
   const locale = useLocale();
   const t = useTranslations("AboutPage");
   const nt = useTranslations("Navbar");
-  const logoSize = 600;
+  const [isLoaded, setIsLoaded] = useState(false);
+  const mainRef = useRef<HTMLElement>(null);
+  const [scrollHeight, setScrollHeight] = useState("100%");
+
+  // Gestion de l'affichage pour éviter le CLS
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
+  // Calcul de la hauteur disponible pour le scrollbar
+  useEffect(() => {
+    const calculateScrollHeight = () => {
+      if (mainRef.current) {
+        // Récupérer la hauteur totale du conteneur principal
+        const mainHeight = mainRef.current.clientHeight;
+        // Hauteur du logo et de la navigation (approximativement)
+        const navHeight = 150;
+        // Définir la hauteur du scrollbar
+        setScrollHeight(`${mainHeight - navHeight}px`);
+      }
+    };
+
+    calculateScrollHeight();
+
+    // Recalculer lors du redimensionnement
+    window.addEventListener("resize", calculateScrollHeight);
+    return () => window.removeEventListener("resize", calculateScrollHeight);
+  }, [isLoaded]);
+
+  // Préchargement des sections
+  useEffect(() => {
+    // Prefetch des composants pour un affichage plus rapide après le chargement initial
+    const prefetchComponents = async () => {
+      const whatWeDoPromise = import("./WhatWeDo");
+      const whoWeArePromise = import("./WhoWeAre");
+      await Promise.all([whatWeDoPromise, whoWeArePromise]);
+      // Team sera chargé plus tard car moins prioritaire
+    };
+
+    prefetchComponents();
+  }, []);
 
   // Personnalisation des composants de la scrollbar
   const renderThumb = ({
@@ -54,14 +120,17 @@ export default function About() {
 
   return (
     <main
+      ref={mainRef}
       className="main-about"
       style={{
         alignItems: "center",
         position: "relative",
         display: "flex",
         flexDirection: "column",
-        height: "100vh", // Hauteur fixe pour activer le scroll
-        overflow: "hidden", // Cacher le débordement pour que seule la scrollbar personnalisée soit visible
+        height: "100vh",
+        overflow: "hidden",
+        opacity: isLoaded ? 1 : 0,
+        transition: "opacity 0.3s ease-in",
       }}
     >
       <LogoSvg
@@ -85,24 +154,43 @@ export default function About() {
         contact={nt("contact")}
       />
 
-      <Scrollbars
-        style={{ flex: 1, maxWidth: "1301px", gap: "10rem" }}
-        renderThumbVertical={renderThumb}
-        renderTrackVertical={renderTrack}
-        universal={true}
-        autoHide={false}
-        thumbSize={120}
+      <div
+        style={{
+          flex: 1,
+          maxWidth: "1301px",
+          width: "100%",
+          height: "calc(100vh - 100px)",
+          position: "relative",
+        }}
       >
-        {/* <AboutContent
-              title1={t("whoTitle")}
-              content1={t("whoContent")}
-              title2={t("whatTitle")}
-              content2={t("whatContent")}
-            /> */}
-        <WhatWeDo title={t("whatTitle")} content={t("whatContent")} />
-        <WhoWeAre title={t("whoTitle")} content={t("whoContent")} />
-        <Team title={t("teamTitle")} />
-      </Scrollbars>
+        <Scrollbars
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+          }}
+          renderThumbVertical={renderThumb}
+          renderTrackVertical={renderTrack}
+          universal={true}
+          autoHide={false}
+          thumbSize={120}
+        >
+          <Suspense fallback={<SectionLoader />}>
+            <WhatWeDo title={t("whatTitle")} content={t("whatContent")} />
+          </Suspense>
+
+          <Suspense fallback={<SectionLoader />}>
+            <WhoWeAre title={t("whoTitle")} content={t("whoContent")} />
+          </Suspense>
+
+          <Suspense fallback={<SectionLoader />}>
+            <Team title={t("teamTitle")} />
+          </Suspense>
+        </Scrollbars>
+      </div>
     </main>
   );
 }
