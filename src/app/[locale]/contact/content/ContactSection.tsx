@@ -15,7 +15,7 @@ export default function ContactSection({ locale }: { locale: string }) {
     email: "ldg@lesdeuxgrises.com",
     phone: "+33 1 34 70 36 75",
     phone2: "+33 6 46 91 05 46",
-    address: "123 rue des Arts, 75001 Paris, France",
+    address: "634 Chemin de Montrognon, \n 95660 Champagne-sur-Oise",
   };
 
   const copyToClipboard = (text: string, type: string) => {
@@ -152,6 +152,7 @@ export default function ContactSection({ locale }: { locale: string }) {
           font-size: 1rem;
           transition: transform 0.2s, color 0.2s;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          white-space: pre-line;
         }
 
         .contact-button:hover {
