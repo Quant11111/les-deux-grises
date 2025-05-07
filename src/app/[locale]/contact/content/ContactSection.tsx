@@ -114,7 +114,7 @@ export default function ContactSection({ locale }: { locale: string }) {
           padding-right: 2rem;
           align-items: center;
           justify-content: center;
-          background-image: url("/images/balancoire.jpg");
+          background-image: url("https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/contact/contactbg.png");
           background-size: cover;
           background-position: center 65%;
           width: 75%;
