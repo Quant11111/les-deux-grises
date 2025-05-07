@@ -133,6 +133,18 @@ export default function About() {
         transition: "opacity 0.3s ease-in",
       }}
     >
+      <h1
+        className="hidden-title"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          zIndex: 100,
+          opacity: 0,
+        }}
+      >
+        {t("title")}
+      </h1>
       <LogoSvg
         size={150}
         color={themeVariables.lightForeground}

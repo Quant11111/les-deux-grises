@@ -2,7 +2,7 @@
   "Metadata": {
     "title": "LesDeuxGrises",
     "description": "Elevage de chevaux d'élite. Génétique de pointe et jumpers aguéris, voilà les fruits de la passion que portent les naisseurs de notre famille depuis des générations.",
-    "keywords": "chevaux, élevage, génétique, jumpers, passion, famille, naisseurs"
+    "keywords": "chevaux, élevage, jumpers, saut d'obstacles, naisseurs, compétition, les deux grises, lesdeuxgrises, juments, poulains"
   },
   "Navbar": {
     "home": "ACCUEIL",
@@ -12,10 +12,12 @@
     "contact": "CONTACT"
   },
   "HomePage": {
+    "hiddenTitle": "Les deux grises, un élevage de chevaux de saut d'obstacles",
     "title": "EXCELLENCE",
     "description": "Une promesse de livrer des chevaux de saut d'un calibre élevé et au profil génétique exceptionnel."
   },
   "AboutPage": {
+    "title": "LESDEUXGRISES découvrez notre élevage!",
     "whoTitle": "QUI NOUS SOMMES",
     "whoContent": "Depuis mon plus jeune age, l'equitation a toujours occupe une place centrale dans notre famille. Mon pere et mes freres, tous cavaliers accomplis et eleveurs passionnes, m'ont transmis leur amour des chevaux des l'age de quatre ans. Ce lien familial fort a naturellement influence mon parcours, me conduisant a devenir cavalier de competition, membre de l'equipe nationale libanaise de saut d'obstacles, et a participer a des competitions regionales et internationales. \n\n Apres avoir acquis une solide experience professionnelle dans le secteur de l'immobilier, tant residentiel que commercial, au Liban et au Ghana, nous avons choisi de changer de cap pour s'installer en France et realiser notre reve : elever des chevaux de race. C'est avec ma femme que nous avons fonde 'Les Deux Grises', une entreprise profondement ancree dans nos valeurs et notre passion commune pour l'elevage de chevaux de qualite.",
     "whatTitle": "CE QUE NOUS FAISONS",
@@ -41,6 +43,7 @@
   },
 
   "HorsesPage": {
+    "title": "LES DEUX GRISES, découvrez nos chevaux!",
     "sections": {
       "all": "TOUS",
       "mare": "JUMENTS",

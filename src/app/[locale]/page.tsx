@@ -22,6 +22,17 @@ export default function Home() {
         msScrollLimit: "0 0",
       }}
     >
+      <h1
+        className="hidden-title"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          opacity: 0,
+        }}
+      >
+        {t("hiddenTitle")}
+      </h1>
       <OnlySmall>
         <LogoSvg
           size={logoSize}

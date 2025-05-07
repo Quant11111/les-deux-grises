@@ -27,7 +27,7 @@ export default function ContactSection({ locale }: { locale: string }) {
     <div className="contact-container">
       <div className="contact-content-wrapper">
         <div className="contact-section-content">
-          <h2 className="contact-title">{t("title")}</h2>
+          <h1 className="contact-title">{t("title")}</h1>
 
           <button
             className="contact-button"

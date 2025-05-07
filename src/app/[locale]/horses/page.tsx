@@ -1,6 +1,5 @@
 import HorsesSection from "@/ui/components/HorsesSection";
 import OnlyLarge from "@/ui/components/OnlyLarge";
-import OnlySmall from "@/ui/components/OnlySmall";
 import Navbar from "@/ui/Navbar";
 import { LogoSvg } from "@/ui/svg/LogoSvg";
 import themeVariables from "@/utils/themeVariables";
@@ -22,6 +21,18 @@ export default function Horses() {
         background: themeVariables.grassGreen,
       }}
     >
+      <h1
+        className="hidden-title"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          zIndex: 100,
+          opacity: 0,
+        }}
+      >
+        {t("title")}
+      </h1>
       <OnlyLarge>
         <LogoSvg
           size={150}
