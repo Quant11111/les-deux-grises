@@ -2,7 +2,7 @@
 
 import { rawengulkDemibold, arkhipRegular, rawengulk } from "@/app/fonts/fonts";
 import themeVariables from "@/utils/themeVariables";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import styled from "styled-components";
 import { LogoSvg } from "../svg/LogoSvg";
 import Image from "next/image";
@@ -61,22 +61,24 @@ export default function Hero({
 }) {
   const [windowHeight, setWindowHeight] = useState(0);
 
+  const handleResize = useCallback(() => {
+    setWindowHeight(window.innerHeight);
+  }, []);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       setWindowHeight(window.innerHeight);
-
-      const handleResize = () => {
-        setWindowHeight(window.innerHeight);
-      };
-
       window.addEventListener("resize", handleResize);
       return () => {
         window.removeEventListener("resize", handleResize);
       };
     }
-  }, []);
+  }, [handleResize]);
 
   const imgzoom = windowHeight / 2500;
+  const imageUrl =
+    "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/landing/landing.png";
+
   return (
     <div
       style={{
@@ -115,21 +117,26 @@ export default function Hero({
             position: "relative",
             height: "85%",
             aspectRatio: "1/1.6",
-            backgroundImage:
-              "url(https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/landing/landing.png)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
             borderTopLeftRadius: "5000000000rem",
             borderTopRightRadius: "5000000000rem",
-
             maxWidth: "88%",
+            overflow: "hidden",
           }}
         >
           <Image
-            src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/landing/landing.png"
+            src={imageUrl}
             alt="Hero"
             fill
-            style={{ objectFit: "fill" }}
+            priority
+            sizes="(max-width: 800px) 100vw, (max-width: 1100px) 88vw, 70vw"
+            quality={85}
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO8/+F/PQAJJANm19bNwAAAAABJRU5ErkJggg=="
+            style={{
+              objectFit: "cover",
+              borderTopLeftRadius: "5000000000rem",
+              borderTopRightRadius: "5000000000rem",
+            }}
           />
         </div>
 

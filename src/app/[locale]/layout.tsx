@@ -3,7 +3,13 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { arkhipRegular } from "../fonts/fonts";
+import {
+  arkhipRegular,
+  rawengulk,
+  rawengulkBold,
+  rawengulkDemibold,
+  rawengulkLight,
+} from "../fonts/fonts";
 import "./globals.css";
 import Newsletter from "@/ui/components/Newsletter";
 import Footer from "@/ui/components/Footer";
@@ -19,6 +25,24 @@ export async function generateMetadata({
     title: t("title"),
     description: t("description"),
     keywords: t("keywords"),
+    metadataBase: new URL("https://lesdeuxgrises.com"),
+    applicationName: "Les Deux Grises",
+    authors: [{ name: "Les Deux Grises", url: "https://lesdeuxgrises.com" }],
+    viewport: {
+      width: "device-width",
+      initialScale: 1,
+      maximumScale: 5,
+    },
+    themeColor: "#076d74",
+    manifest: "/manifest.json",
+    robots: {
+      index: true,
+      follow: true,
+    },
+    icons: {
+      icon: "/favicon.ico",
+      apple: "/apple-icon.png",
+    },
   };
 }
 
@@ -39,9 +63,15 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   const t = await getTranslations({ locale, namespace: "newsletter" });
   return (
-    <html lang={locale}>
+    <html
+      lang={locale}
+      className={`${arkhipRegular.variable} ${rawengulk.variable} ${rawengulkBold.variable} ${rawengulkLight.variable} ${rawengulkDemibold.variable}`}
+    >
+      <head>
+        <link rel="preconnect" href="https://dsq73kname7kn.cloudfront.net" />
+        <meta name="theme-color" content="#076d74" />
+      </head>
       <body className={arkhipRegular.className}>
-        {" "}
         <NextIntlClientProvider messages={messages}>
           <Newsletter />
           {children}

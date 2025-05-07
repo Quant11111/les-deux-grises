@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import styled from "styled-components";
 
 const OnlySmall = styled.div`
@@ -8,4 +9,4 @@ const OnlySmall = styled.div`
   }
 `;
 
-export default OnlySmall;
+export default memo(OnlySmall);
