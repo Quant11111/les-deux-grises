@@ -36,7 +36,7 @@ const Title = styled.h3`
   padding-bottom: 0.5rem;
   font-weight: 600;
   @media (min-width: 750px) {
-    font-size: calc(1.4vw / 0.85) !important;
+    font-size: calc(1.2vw / 0.85) !important;
   }
 `;
 
@@ -137,7 +137,7 @@ export const InfoBlock = ({ data }: InfoBlockProps) => {
           </InfoItem>
         )}
       </InfoGrid>
-      <style jsx>{`
+      {/*       <style jsx>{`
         @media (min-width: 1200px) {
           .title {
             font-size: 7rem !important;
@@ -146,7 +146,7 @@ export const InfoBlock = ({ data }: InfoBlockProps) => {
             font-size: 7rem !important;
           }
         }
-      `}</style>
+      `}</style> */}
     </BlockContainer>
   );
 };

@@ -8,7 +8,6 @@ import OnlyLarge from "@/ui/components/OnlyLarge";
 
 export default function Contact() {
   const locale = useLocale();
-  const t = useTranslations("ContactPage");
   const nt = useTranslations("Navbar");
 
   return (
