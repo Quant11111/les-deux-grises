@@ -238,7 +238,7 @@ export default function Team({ title }: { title: string }) {
       </div>
 
       <div className="pagination">
-        {Array.from({ length: totalPages }).map((_, index) => (
+        {Array.from({ length: totalPages - 1 }).map((_, index) => (
           <button
             key={index}
             className={`pagination-dot ${
