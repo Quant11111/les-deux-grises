@@ -98,7 +98,7 @@ export default function ContactSection({ locale }: { locale: string }) {
           display: flex;
           padding-top: 1rem;
           flex-direction: column;
-          padding-bottom: 4vw;
+          padding-bottom: 1rem;
           align-items: center;
           justify-content: center;
           overflow: hidden;

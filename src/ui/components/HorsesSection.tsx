@@ -45,9 +45,9 @@ export default function Horses({ locale }: { locale: string }) {
         flexDirection: "column",
         alignItems: "center",
         width: "100%",
-        minHeight: "calc(100dvh - 5rem)",
-        height: "calc(100dvh - 5rem)",
-        paddingBottom: "4vw",
+        minHeight: "calc(100dvh - 8rem)",
+        height: "calc(100dvh - 8rem)",
+        paddingBottom: "1rem",
         backgroundColor: themeVariables.grassGreen,
       }}
     >

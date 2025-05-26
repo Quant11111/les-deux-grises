@@ -59,9 +59,7 @@ export default function Horses() {
 
       <HorsesSection locale={locale} />
 
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
-        <FooterMinimal locale={locale} />
-      </div>
+      <FooterMinimal locale={locale} />
     </main>
   );
 }
