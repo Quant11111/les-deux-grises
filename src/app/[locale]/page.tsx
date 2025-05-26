@@ -4,6 +4,7 @@ import Navbar from "@/ui/Navbar";
 import { LogoSvg } from "@/ui/svg/LogoSvg";
 import themeVariables from "@/utils/themeVariables";
 import { useLocale, useTranslations } from "next-intl";
+import FooterMinimal from "@/ui/components/FooterMinimal";
 
 export default function Home() {
   const nt = useTranslations("Navbar");
@@ -56,6 +57,10 @@ export default function Home() {
       />
 
       <Hero title={t("title")} description={t("description")} />
+
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
+        <FooterMinimal locale={locale} />
+      </div>
     </main>
   );
 }

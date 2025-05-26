@@ -16,6 +16,7 @@ const themeVariables = {
   neutralEarth: "#CDA988",
   neutralEarthRgb: "205, 169, 136",
   cloudyMist: "#E3DDD2",
+  lighterCloudyMist: "#F5F3EE",
   cloudyMistRgb: "227, 221, 210",
   nightGrey: "#2B2E32",
   nightGreyRgb: "43, 46, 50",

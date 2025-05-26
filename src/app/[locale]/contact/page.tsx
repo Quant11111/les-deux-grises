@@ -5,6 +5,7 @@ import themeVariables from "@/utils/themeVariables";
 import { useLocale, useTranslations } from "next-intl";
 import { LogoSvg } from "@/ui/svg/LogoSvg";
 import OnlyLarge from "@/ui/components/OnlyLarge";
+import FooterMinimal from "@/ui/components/FooterMinimal";
 
 export default function Contact() {
   const locale = useLocale();
@@ -23,6 +24,7 @@ export default function Contact() {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
+        overflow: "hidden",
       }}
     >
       <OnlySmall>
@@ -60,6 +62,10 @@ export default function Contact() {
       />
 
       <ContactSection locale={locale} />
+
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
+        <FooterMinimal locale={locale} />
+      </div>
     </main>
   );
 }

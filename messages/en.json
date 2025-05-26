@@ -77,6 +77,24 @@
     "home": "Home",
     "about": "About",
     "horses": "Horses",
-    "contact": "Contact"
+    "contact": "Contact",
+    "followUs": "Follow us",
+    "copyright": "All rights reserved",
+    "privacy": "Privacy Policy"
+  },
+
+  "Privacy": {
+    "title": "Privacy Policy",
+    "dataCollection": "Data Collection",
+    "dataCollectionText": "We only collect email addresses that you voluntarily provide to us when subscribing to our newsletter. No other personal data is collected without your explicit consent.",
+    "dataUsage": "Data Usage",
+    "dataUsageText": "The email addresses we collect are only used to keep interested people informed about important events related to Les Deux Grises. We do not engage in any lucrative activity regarding the emails we gather.",
+    "dataRetention": "Data Retention",
+    "dataRetentionText": "We automatically remove all people who unsubscribe from our newsletter from our databases. Your data is only retained as long as you remain subscribed to our newsletter.",
+    "yourRights": "Your Rights",
+    "yourRightsText": "You have the right to unsubscribe from our newsletter at any time. You can also contact us to request deletion of your data or for any questions regarding their processing.",
+    "contact": "Contact",
+    "contactText": "For any questions regarding this privacy policy, you can contact us at:",
+    "backHome": "Back to home"
   }
 }

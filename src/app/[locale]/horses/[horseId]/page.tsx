@@ -6,6 +6,7 @@ import { LogoSvg } from "@/ui/svg/LogoSvg";
 import OnlyLarge from "@/ui/components/OnlyLarge";
 import themeVariables from "@/utils/themeVariables";
 import Image from "next/image";
+import FooterMinimal from "@/ui/components/FooterMinimal";
 
 export default function HorsePage({ params }: { params: { horseId: string } }) {
   const locale = useLocale();
@@ -15,15 +16,17 @@ export default function HorsePage({ params }: { params: { horseId: string } }) {
     <main
       style={{
         position: "relative",
-        height: "auto",
+        minHeight: "100vh",
         width: "100vw",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <Image
         src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/horse/horsepagebg.png"
         alt="horse page background"
         fill
-        style={{ objectFit: "cover" }}
+        style={{ objectFit: "cover", zIndex: -1 }}
       />
       <OnlySmall>
         <LogoSvg
@@ -58,7 +61,10 @@ export default function HorsePage({ params }: { params: { horseId: string } }) {
         news={nt("news")}
         contact={nt("contact")}
       />
-      <HorsePageContent locale={locale} id={params.horseId} />
+      <div style={{ flex: 1 }}>
+        <HorsePageContent locale={locale} id={params.horseId} />
+      </div>
+      <FooterMinimal locale={locale} />
     </main>
   );
 }

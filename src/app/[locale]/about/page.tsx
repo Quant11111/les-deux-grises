@@ -15,6 +15,7 @@ import themeVariables from "@/utils/themeVariables";
 import Navbar from "@/ui/Navbar";
 import { LogoSvg } from "@/ui/svg/LogoSvg";
 import PicturesGrid from "./PicturesGrid";
+import Footer from "@/ui/components/Footer";
 
 // Chargement optimisé des composants
 const WhatWeDo = lazy(() => import("./WhatWeDo"));
@@ -191,21 +192,25 @@ export default function About() {
           autoHide={false}
           thumbSize={120}
         >
-          <Suspense fallback={<SectionLoader />}>
-            <WhatWeDo title={t("whatTitle")} content={t("whatContent")} />
-          </Suspense>
+          <div style={{ minHeight: "100%" }}>
+            <Suspense fallback={<SectionLoader />}>
+              <WhatWeDo title={t("whatTitle")} content={t("whatContent")} />
+            </Suspense>
 
-          <Suspense fallback={<SectionLoader />}>
-            <WhoWeAre title={t("whoTitle")} content={t("whoContent")} />
-          </Suspense>
+            <Suspense fallback={<SectionLoader />}>
+              <WhoWeAre title={t("whoTitle")} content={t("whoContent")} />
+            </Suspense>
 
-          <Suspense fallback={<SectionLoader />}>
-            <Team title={t("teamTitle")} />
-          </Suspense>
+            <Suspense fallback={<SectionLoader />}>
+              <Team title={t("teamTitle")} />
+            </Suspense>
 
-          <Suspense fallback={<SectionLoader />}>
-            <PicturesGrid />
-          </Suspense>
+            <Suspense fallback={<SectionLoader />}>
+              <PicturesGrid />
+            </Suspense>
+
+            <Footer locale={locale} />
+          </div>
         </Scrollbars>
       </div>
     </main>

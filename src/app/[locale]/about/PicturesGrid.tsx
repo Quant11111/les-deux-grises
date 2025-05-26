@@ -406,7 +406,9 @@ const PicturesGrid = () => {
                       >
                         <Image
                           src={image.url}
-                          alt={`Image de mode ${originalIndex + 1}`}
+                          alt={`Photo de mode ${
+                            originalIndex + 1
+                          } - Collection Les Deux Grises`}
                           width={width}
                           height={height}
                           className="main-image"
@@ -414,6 +416,9 @@ const PicturesGrid = () => {
                           sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
                           priority={originalIndex < 6}
                           loading={originalIndex < 6 ? "eager" : "lazy"}
+                          placeholder="blur"
+                          blurDataURL="data:image/svg+xml;base64,..."
+                          quality={75}
                         />
 
                         {/* Overlay avec effet de mode */}
@@ -438,7 +443,9 @@ const PicturesGrid = () => {
             <>
               <Image
                 src={images[selectedImageIndex].url}
-                alt={`Image de mode ${selectedImageIndex + 1}`}
+                alt={`Photo de mode ${
+                  selectedImageIndex + 1
+                } - Collection Les Deux Grises`}
                 width={parseInt(images[selectedImageIndex].width)}
                 height={parseInt(images[selectedImageIndex].height)}
                 style={modalImageStyle}

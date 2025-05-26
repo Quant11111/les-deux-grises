@@ -1,19 +1,19 @@
 {
   "Metadata": {
     "title": "LesDeuxGrises",
-    "description": "Elevage de chevaux d'élite. Génétique de pointe et jumpers aguéris, voilà les fruits de la passion que portent les naisseurs de notre famille depuis des générations.",
-    "keywords": "chevaux, élevage, jumpers, saut d'obstacles, naisseurs, compétition, les deux grises, lesdeuxgrises, juments, poulains",
+    "description": "Elevage de chevaux d'elite. Genetique de pointe et jumpers aguerris, voila les fruits de la passion que portent les naisseurs de notre famille depuis des generations.",
+    "keywords": "chevaux, elevage, jumpers, saut d'obstacles, naisseurs, competition, les deux grises, lesdeuxgrises, juments, poulains",
     "home": {
-      "keywords": "lesdeuxgrises, les deux grises, élevage de chevaux premium, saut d'obstacles, excellence en élevage, chevaux de compétition, france"
+      "keywords": "lesdeuxgrises, les deux grises, elevage de chevaux premium, saut d'obstacles, excellence en elevage, chevaux de competition, france"
     },
     "about": {
-      "keywords": "éleveurs de chevaux, équipe lesdeuxgrises, passion équestre, élevage de chevaux de saut, histoire d'élevage équin, élevage de chevaux en france"
+      "keywords": "eleveurs de chevaux, equipe lesdeuxgrises, passion equestre, elevage de chevaux de saut, histoire d'elevage equin, elevage de chevaux en france"
     },
     "horses": {
-      "keywords": "chevaux de saut, juments, étalons, youngsters, poulains, futurs poulains, haute valeur génétique, chevaux de compétition, chevaux premium, chevaux de CSO"
+      "keywords": "chevaux de saut, juments, etalons, youngsters, poulains, futurs poulains, haute valeur genetique, chevaux de competition, chevaux premium, chevaux de CSO"
     },
     "contact": {
-      "keywords": "contacter lesdeuxgrises, achat de chevaux, consultation d'élevage, adresse lesdeuxgrises, renseignements sur les chevaux, élevage équin en france"
+      "keywords": "contacter lesdeuxgrises, achat de chevaux, consultation d'elevage, adresse lesdeuxgrises, renseignements sur les chevaux, elevage equin en france"
     }
   },
   "Navbar": {
@@ -24,12 +24,12 @@
     "contact": "CONTACT"
   },
   "HomePage": {
-    "hiddenTitle": "Les deux grises, un élevage de chevaux de saut d'obstacles",
+    "hiddenTitle": "Les deux grises, un elevage de chevaux de saut d'obstacles",
     "title": "EXCELLENCE",
-    "description": "Une promesse de livrer des chevaux de saut d'un calibre élevé et au profil génétique exceptionnel."
+    "description": "Une promesse de livrer des chevaux de saut d'un calibre eleve et au profil genetique exceptionnel."
   },
   "AboutPage": {
-    "title": "LESDEUXGRISES découvrez notre élevage!",
+    "title": "LESDEUXGRISES decouvrez notre elevage!",
     "whoTitle": "QUI NOUS SOMMES",
     "whoContent": "Depuis mon plus jeune age, l'equitation a toujours occupe une place centrale dans notre famille. Mon pere et mes freres, tous cavaliers accomplis et eleveurs passionnes, m'ont transmis leur amour des chevaux des l'age de quatre ans. Ce lien familial fort a naturellement influence mon parcours, me conduisant a devenir cavalier de competition, membre de l'equipe nationale libanaise de saut d'obstacles, et a participer a des competitions regionales et internationales. \n\n Apres avoir acquis une solide experience professionnelle dans le secteur de l'immobilier, tant residentiel que commercial, au Liban et au Ghana, nous avons choisi de changer de cap pour s'installer en France et realiser notre reve : elever des chevaux de race. C'est avec ma femme que nous avons fonde 'Les Deux Grises', une entreprise profondement ancree dans nos valeurs et notre passion commune pour l'elevage de chevaux de qualite.",
     "whatTitle": "CE QUE NOUS FAISONS",
@@ -55,7 +55,7 @@
   },
 
   "HorsesPage": {
-    "title": "LES DEUX GRISES, découvrez nos chevaux!",
+    "title": "LES DEUX GRISES, decouvrez nos chevaux!",
     "sections": {
       "all": "TOUS",
       "mare": "JUMENTS",
@@ -69,15 +69,33 @@
   "contact": {
     "title": "Contactez-nous",
     "webdev": "Vous aimez notre site web ?",
-    "webdevMessage": "Contactez notre équipe de dévelopement web pour une collaboration ou une demande de site web personnalise.",
+    "webdevMessage": "Contactez notre equipe de developpement web pour une collaboration ou une demande de site web personnalise.",
     "webdevButton": "C'est par ici !"
   },
 
   "footer": {
     "navigation": "Navigation",
     "home": "Accueil",
-    "about": "À propos",
+    "about": "A propos",
     "horses": "Chevaux",
-    "contact": "Contact"
+    "contact": "Contact",
+    "followUs": "Suivez-nous",
+    "copyright": "Tous droits reserves",
+    "privacy": "Politique de confidentialite"
+  },
+
+  "Privacy": {
+    "title": "Politique de Confidentialite",
+    "dataCollection": "Collecte des Donnees",
+    "dataCollectionText": "Nous collectons uniquement les adresses e-mail que vous nous fournissez volontairement lors de votre inscription a notre newsletter. Aucune autre donnee personnelle n'est collectee sans votre consentement explicite.",
+    "dataUsage": "Utilisation des Donnees",
+    "dataUsageText": "Les adresses e-mail que nous recueillons ne servent qu'a tenir au courant les personnes interessees des evenements importants lies a Les Deux Grises. Nous n'exercons absolument aucune activite lucrative concernant les emails que nous rassemblons.",
+    "dataRetention": "Conservation des Donnees",
+    "dataRetentionText": "Nous supprimons automatiquement toutes les personnes qui se desinscrivent de notre newsletter de nos bases de donnees. Vos donnees ne sont conservees que tant que vous restez abonne a notre newsletter.",
+    "yourRights": "Vos Droits",
+    "yourRightsText": "Vous avez le droit de vous desinscrire a tout moment de notre newsletter. Vous pouvez egalement nous contacter pour demander la suppression de vos donnees ou pour toute question concernant leur traitement.",
+    "contact": "Contact",
+    "contactText": "Pour toute question concernant cette politique de confidentialite, vous pouvez nous contacter a :",
+    "backHome": "Retour a l'accueil"
   }
 }

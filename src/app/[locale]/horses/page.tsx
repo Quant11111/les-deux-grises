@@ -4,6 +4,7 @@ import Navbar from "@/ui/Navbar";
 import { LogoSvg } from "@/ui/svg/LogoSvg";
 import themeVariables from "@/utils/themeVariables";
 import { useLocale, useTranslations } from "next-intl";
+import FooterMinimal from "@/ui/components/FooterMinimal";
 
 export default function Horses() {
   const locale = useLocale();
@@ -19,6 +20,7 @@ export default function Horses() {
         width: "100vw",
         height: "100dvh",
         background: themeVariables.grassGreen,
+        overflow: "hidden",
       }}
     >
       <h1
@@ -56,6 +58,10 @@ export default function Horses() {
       />
 
       <HorsesSection locale={locale} />
+
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
+        <FooterMinimal locale={locale} />
+      </div>
     </main>
   );
 }
