@@ -1,0 +1,21 @@
+{
+  "name": "Les Deux Grises",
+  "short_name": "Les Deux Grises",
+  "description": "Découvrez l'écurie Les Deux Grises",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#076d74",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

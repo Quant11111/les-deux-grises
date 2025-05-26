@@ -1,5 +1,5 @@
 import { routing } from "@/i18n/routing";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -28,12 +28,6 @@ export async function generateMetadata({
     metadataBase: new URL("https://lesdeuxgrises.com"),
     applicationName: "Les Deux Grises",
     authors: [{ name: "Les Deux Grises", url: "https://lesdeuxgrises.com" }],
-    viewport: {
-      width: "device-width",
-      initialScale: 1,
-      maximumScale: 5,
-    },
-    themeColor: "#076d74",
     manifest: "/manifest.json",
     robots: {
       index: true,
@@ -43,6 +37,22 @@ export async function generateMetadata({
       icon: "/favicon.ico",
       apple: "/apple-icon.png",
     },
+  };
+}
+
+export async function generateViewport({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Viewport> {
+  // Vous pouvez ajouter des traductions spécifiques pour le viewport si nécessaire
+  // const t = await getTranslations({ locale, namespace: "Viewport" });
+
+  return {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    themeColor: "#076d74",
   };
 }
 

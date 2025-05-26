@@ -14,6 +14,7 @@ import themeVariables from "@/utils/themeVariables";
 
 import Navbar from "@/ui/Navbar";
 import { LogoSvg } from "@/ui/svg/LogoSvg";
+import PicturesGrid from "./PicturesGrid";
 
 // Chargement optimisé des composants
 const WhatWeDo = lazy(() => import("./WhatWeDo"));
@@ -200,6 +201,10 @@ export default function About() {
 
           <Suspense fallback={<SectionLoader />}>
             <Team title={t("teamTitle")} />
+          </Suspense>
+
+          <Suspense fallback={<SectionLoader />}>
+            <PicturesGrid />
           </Suspense>
         </Scrollbars>
       </div>

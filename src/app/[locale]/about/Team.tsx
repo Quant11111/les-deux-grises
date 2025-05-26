@@ -33,12 +33,18 @@ export default function Team({ title }: { title: string }) {
       },
       {
         id: 4,
+        name: "Camille Leroy",
+        image:
+          "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team5.png",
+      },
+      {
+        id: 5,
         name: "Pierre Dubois",
         image:
           "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team4.png",
       },
       {
-        id: 5,
+        id: 6,
         name: "Camille Leroy",
         image:
           "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team5.png",
@@ -60,7 +66,7 @@ export default function Team({ title }: { title: string }) {
 
   // Calculer le nombre total de pages
   const totalPages = useMemo(
-    () => Math.ceil(teamMembers.length / cardsPerPage),
+    () => Math.ceil((teamMembers.length + 1) / cardsPerPage),
     [teamMembers.length, cardsPerPage]
   );
 

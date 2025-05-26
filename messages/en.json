@@ -2,7 +2,19 @@
   "Metadata": {
     "title": "LesDeuxGrises",
     "description": "Breeding of high caliber show jumping horses with outstanding genetic profiles.",
-    "keywords": "lesdeuxgrises, les deux grises, horses, jumping horses, breeding, competition, outstanding genetic profiles, jumpers, youngsters, foals, mares"
+    "keywords": "lesdeuxgrises, les deux grises, horses, jumping horses, breeding, competition, outstanding genetic profiles, jumpers, youngsters, foals, mares",
+    "home": {
+      "keywords": "lesdeuxgrises, les deux grises, premium horse breeding, show jumping, excellence in breeding, competition horses, france"
+    },
+    "about": {
+      "keywords": "horse breeders, lesdeuxgrises team, equestrian passion, jumping horses breeding, horse breeding history, france horse breeding"
+    },
+    "horses": {
+      "keywords": "jumping horses, mares, stallions, youngsters, foals, future foals, high genetic value, competition horses, premium horses, show jumping horses"
+    },
+    "contact": {
+      "keywords": "contact lesdeuxgrises, horse purchase, breeding consultation, lesdeuxgrises address, horse inquiries, france horse breeding"
+    }
   },
   "Navbar": {
     "home": "HOME",
@@ -42,6 +54,7 @@
   },
 
   "HorsesPage": {
+    "title": "LESDEUXGRISES, discover our horses!",
     "sections": {
       "all": "ALL",
       "mare": "MARES",
