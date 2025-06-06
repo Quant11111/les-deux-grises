@@ -125,8 +125,8 @@ export default function Footer({ locale = "fr" }: FooterProps) {
       <style jsx>{`
         .footer {
           border-top: 1px solid ${themeVariables.coolBlueGrey};
-          color: ${themeVariables.lightForeground};
-          padding: 3rem 2rem 1rem;
+          color: ${themeVariables.neutralEarth};
+          padding: 2rem 1.5rem 0.75rem;
           margin-top: auto;
         }
 
@@ -134,15 +134,15 @@ export default function Footer({ locale = "fr" }: FooterProps) {
           max-width: 1300px;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 2rem;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 1.5rem;
           align-items: start;
         }
 
         .footer-section {
           display: flex;
           flex-direction: column;
-          gap: 1rem;
+          gap: 0.75rem;
         }
 
         .logo-section {
@@ -151,53 +151,53 @@ export default function Footer({ locale = "fr" }: FooterProps) {
         }
 
         .footer-tagline {
-          font-size: 1.2rem;
+          font-size: 1rem;
           font-weight: 600;
-          margin-top: 0.5rem;
+          margin-top: 0.25rem;
           color: ${themeVariables.cloudyMist};
         }
 
         .section-title {
-          font-size: 1.3rem;
+          font-size: 1.1rem;
           font-weight: bold;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.4rem;
           color: ${themeVariables.cloudyMist};
           border-bottom: 2px solid ${themeVariables.neutralEarth};
-          padding-bottom: 0.5rem;
+          padding-bottom: 0.3rem;
         }
 
         .contact-item {
           display: flex;
           align-items: center;
-          gap: 0.75rem;
-          margin-bottom: 0.5rem;
+          gap: 0.5rem;
+          margin-bottom: 0.3rem;
         }
 
         .contact-item.address {
           align-items: flex-start;
-          margin-top: 1rem;
+          margin-top: 0.75rem;
         }
 
         .contact-link {
-          color: ${themeVariables.lightForeground};
+          color: ${themeVariables.neutralEarth};
           text-decoration: none;
           transition: color 0.3s ease;
-          font-size: 0.95rem;
+          font-size: 0.85rem;
         }
 
         .contact-link:hover {
-          color: ${themeVariables.neutralEarth};
+          color: ${themeVariables.lightForeground};
         }
 
         .contact-text {
-          font-size: 0.95rem;
-          line-height: 1.4;
+          font-size: 0.85rem;
+          line-height: 1.3;
           white-space: pre-line;
         }
 
         .social-links {
           display: flex;
-          gap: 1rem;
+          gap: 0.75rem;
           align-items: center;
         }
 
@@ -205,8 +205,8 @@ export default function Footer({ locale = "fr" }: FooterProps) {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 48px;
-          height: 48px;
+          width: 40px;
+          height: 40px;
           border-radius: 50%;
           background-color: rgba(255, 255, 255, 0.1);
           transition: all 0.3s ease;
@@ -221,17 +221,17 @@ export default function Footer({ locale = "fr" }: FooterProps) {
         .footer-nav {
           display: flex;
           flex-direction: column;
-          gap: 0.75rem;
+          gap: 0.5rem;
         }
 
         .nav-link {
-          color: ${themeVariables.lightForeground};
+          color: ${themeVariables.neutralEarth} !important;
           text-decoration: none;
-          font-size: 0.95rem;
+          font-size: 0.85rem;
           transition: all 0.3s ease;
-          padding: 0.25rem 0;
+          padding: 0.2rem 0;
           border-left: 3px solid transparent;
-          padding-left: 0.5rem;
+          padding-left: 0.4rem;
         }
 
         .nav-link:hover {
@@ -240,14 +240,14 @@ export default function Footer({ locale = "fr" }: FooterProps) {
         }
 
         .footer-bottom {
-          margin-top: 2rem;
-          padding-top: 1.5rem;
+          margin-top: 1.5rem;
+          padding-top: 1rem;
           border-top: 1px solid rgba(255, 255, 255, 0.2);
           text-align: center;
         }
 
         .copyright {
-          font-size: 0.9rem;
+          font-size: 0.8rem;
           color: ${themeVariables.cloudyMist};
           margin: 0;
         }
@@ -255,12 +255,12 @@ export default function Footer({ locale = "fr" }: FooterProps) {
         /* Responsive Design */
         @media (max-width: 768px) {
           .footer {
-            padding: 2rem 1rem 1rem;
+            padding: 1.5rem 1rem 0.75rem;
           }
 
           .footer-content {
             grid-template-columns: 1fr;
-            gap: 2rem;
+            gap: 1.25rem;
             text-align: center;
           }
 
@@ -285,10 +285,11 @@ export default function Footer({ locale = "fr" }: FooterProps) {
           }
 
           .nav-link {
+            color: ${themeVariables.neutralEarth} !important;
             border-left: none;
             border-bottom: 2px solid transparent;
             padding-left: 0;
-            padding-bottom: 0.25rem;
+            padding-bottom: 0.2rem;
           }
 
           .nav-link:hover {
@@ -299,26 +300,26 @@ export default function Footer({ locale = "fr" }: FooterProps) {
 
         @media (max-width: 480px) {
           .footer {
-            padding: 1.5rem 1rem 1rem;
+            padding: 1.25rem 1rem 0.75rem;
           }
 
           .footer-content {
-            gap: 1.5rem;
+            gap: 1rem;
           }
 
           .section-title {
-            font-size: 1.1rem;
+            font-size: 1rem;
           }
 
           .contact-link,
           .contact-text,
           .nav-link {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
           }
 
           .social-link {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
           }
         }
       `}</style>

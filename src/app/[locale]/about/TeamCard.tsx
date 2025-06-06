@@ -50,6 +50,7 @@ const TeamCard = memo(
             border-top-left-radius: 100px;
             border-top-right-radius: 100px;
             will-change: transform;
+            overflow: hidden;
           }
 
           .name-overlay {

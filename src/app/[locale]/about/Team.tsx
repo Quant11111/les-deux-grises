@@ -15,39 +15,39 @@ export default function Team({ title }: { title: string }) {
     () => [
       {
         id: 1,
-        name: "Sophie Martin",
+        name: "ANTOINE HELIE",
         image:
           "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team1.png",
       },
       {
         id: 2,
-        name: "Jean Dupont",
+        name: "SHAELYN DUFOIX",
         image:
           "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team2.png",
       },
       {
         id: 3,
-        name: "Marie Laurent",
+        name: "ALEXIS LARCHER",
         image:
           "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team3.png",
       },
       {
         id: 4,
-        name: "Camille Leroy",
+        name: "KARIM ET LEA IBRAHIM",
         image:
           "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team5.png",
       },
       {
         id: 5,
-        name: "Pierre Dubois",
+        name: "SPEEDY JAYLO",
         image:
           "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team4.png",
       },
       {
         id: 6,
-        name: "Camille Leroy",
+        name: "ETIENNE SIMON",
         image:
-          "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team5.png",
+          "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team6.JPG",
       },
     ],
     []
