@@ -11,82 +11,43 @@ interface ImageData {
 }
 
 const PicturesGrid = () => {
-  const [visibleImages, setVisibleImages] = useState<Set<number>>(new Set());
   const [isClient, setIsClient] = useState(false);
-  const [columns, setColumns] = useState(3);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
     null
   );
-  const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const observerRef = useRef<IntersectionObserver | null>(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
   // S'assurer que le composant est monté côté client
   useEffect(() => {
     setIsClient(true);
-
-    // Calculer le nombre de colonnes selon la largeur
-    const updateColumns = () => {
-      const width = window.innerWidth;
-      if (width < 768) setColumns(2);
-      else if (width < 1024) setColumns(3);
-      else if (width < 1280) setColumns(4);
-      else setColumns(5);
-    };
-
-    updateColumns();
-    window.addEventListener("resize", updateColumns);
-
-    return () => window.removeEventListener("resize", updateColumns);
   }, []);
 
+  // Gestion du scroll et des boutons de navigation
   useEffect(() => {
-    if (!isClient) return;
-
-    // Créer l'Intersection Observer
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = parseInt(
-              entry.target.getAttribute("data-index") || "0"
-            );
-            setVisibleImages((prev) => {
-              const newSet = new Set(Array.from(prev));
-              newSet.add(index);
-              return newSet;
-            });
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "100px",
+    const updateScrollState = () => {
+      if (sliderRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
+        setScrollPosition(scrollLeft);
+        setCanScrollLeft(scrollLeft > 0);
+        setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
       }
-    );
+    };
 
-    // Observer toutes les images
-    imageRefs.current.forEach((ref) => {
-      if (ref && observerRef.current) {
-        observerRef.current.observe(ref);
-      }
-    });
-
-    // Fallback: afficher toutes les images après 2 secondes si aucune n'est visible
-    const fallbackTimer = setTimeout(() => {
-      if (visibleImages.size === 0) {
-        setVisibleImages(
-          new Set(Array.from({ length: images.length }, (_, i) => i))
-        );
-      }
-    }, 2000);
+    const slider = sliderRef.current;
+    if (slider) {
+      slider.addEventListener("scroll", updateScrollState);
+      updateScrollState(); // Initial check
+    }
 
     return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
+      if (slider) {
+        slider.removeEventListener("scroll", updateScrollState);
       }
-      clearTimeout(fallbackTimer);
     };
-  }, [isClient, visibleImages.size]);
+  }, [isClient]);
 
   // Gestion des touches du clavier pour le carrousel
   useEffect(() => {
@@ -110,44 +71,6 @@ const PicturesGrid = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedImageIndex]);
 
-  const getImageSize = (index: number) => {
-    // Créer des tailles variées pour un aspect déstructuré
-    const sizes = [
-      { width: 280, height: 380 },
-      { width: 320, height: 240 },
-      { width: 240, height: 320 },
-      { width: 360, height: 280 },
-      { width: 300, height: 400 },
-      { width: 400, height: 300 },
-      { width: 260, height: 350 },
-    ];
-
-    return sizes[index % sizes.length];
-  };
-
-  // Organiser les images en colonnes pour l'effet masonry
-  const organizeInColumns = () => {
-    const columnArrays: ImageData[][] = Array.from(
-      { length: columns },
-      () => []
-    );
-    const columnHeights = Array(columns).fill(0);
-
-    images.forEach((image, index) => {
-      const { height } = getImageSize(index);
-      const shortestColumnIndex = columnHeights.indexOf(
-        Math.min(...columnHeights)
-      );
-      columnArrays[shortestColumnIndex].push({
-        ...image,
-        originalIndex: index,
-      } as any);
-      columnHeights[shortestColumnIndex] += height + 16; // +16 pour le margin
-    });
-
-    return columnArrays;
-  };
-
   const openCarousel = (index: number) => {
     setSelectedImageIndex(index);
   };
@@ -168,30 +91,86 @@ const PicturesGrid = () => {
     );
   };
 
+  const scrollLeft = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: -400, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (sliderRef.current) {
+      sliderRef.current.scrollBy({ left: 400, behavior: "smooth" });
+    }
+  };
+
   if (!isClient) {
     return <div style={{ width: "100%", height: "400px" }} />; // Placeholder pendant l'hydratation
   }
 
-  const columnArrays = organizeInColumns();
-
   const containerStyle: CSSProperties = {
     width: "100%",
     padding: "48px 16px",
+    position: "relative",
+    maxHeight: "70vh",
+    overflow: "hidden",
   };
 
-  const innerContainerStyle: CSSProperties = {
+  const sliderWrapperStyle: CSSProperties = {
+    position: "relative",
     maxWidth: "1400px",
     margin: "0 auto",
-    display: "flex",
-    gap: "16px",
-    alignItems: "flex-start",
   };
 
-  const columnStyle: CSSProperties = {
-    flex: 1,
+  const sliderStyle: CSSProperties = {
     display: "flex",
-    flexDirection: "column",
     gap: "16px",
+    overflowX: "auto",
+    overflowY: "hidden",
+    scrollBehavior: "smooth",
+    paddingBottom: "16px",
+    scrollbarWidth: "none", // Firefox
+    msOverflowStyle: "none", // IE
+  };
+
+  // Styles CSS pour masquer les scrollbars
+  const globalStyles = `
+    .slider-container::-webkit-scrollbar {
+      display: none;
+    }
+    .slider-container {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  `;
+
+  const imageContainerStyle: CSSProperties = {
+    flexShrink: 0,
+    height: "300px",
+    position: "relative",
+    cursor: "pointer",
+    transition: "transform 500ms ease, box-shadow 500ms ease",
+    overflow: "hidden",
+  };
+
+  const navigationButtonStyle: CSSProperties = {
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    backgroundColor: "rgba(255, 255, 255, 0.9)",
+    border: "none",
+    borderRadius: "50%",
+    width: "50px",
+    height: "50px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "pointer",
+    fontSize: "18px",
+    fontWeight: "bold",
+    color: "#333",
+    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+    transition: "all 300ms ease",
+    zIndex: 10,
   };
 
   // Styles pour le carrousel modal
@@ -213,24 +192,24 @@ const PicturesGrid = () => {
 
   const modalContentStyle: CSSProperties = {
     position: "relative",
-    maxWidth: "90vw",
-    maxHeight: "90vh",
+    width: "100%",
+    height: "100%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   };
 
   const modalImageStyle: CSSProperties = {
-    maxWidth: "100%",
-    maxHeight: "100%",
+    maxWidth: "90vw",
+    maxHeight: "90vh",
     objectFit: "contain",
+    transform: "scale(1.05)",
     border: "none",
     outline: "none",
     margin: 0,
     padding: 0,
     verticalAlign: "top",
     display: "block",
-    boxShadow: "inset 0 0 3px 3px rgba(255, 255, 255, 0.1)",
   };
 
   const buttonStyle: CSSProperties = {
@@ -275,164 +254,166 @@ const PicturesGrid = () => {
 
   return (
     <>
+      <style dangerouslySetInnerHTML={{ __html: globalStyles }} />
       <div style={containerStyle}>
-        <div style={innerContainerStyle}>
-          {columnArrays.map((columnImages, columnIndex) => (
-            <div key={columnIndex} style={columnStyle}>
-              {columnImages.map((image: any, imageIndex) => {
-                const originalIndex = image.originalIndex;
-                const { width, height } = getImageSize(originalIndex);
-                const isVisible = visibleImages.has(originalIndex);
+        <div style={sliderWrapperStyle}>
+          {/* Bouton de navigation gauche */}
+          {canScrollLeft && (
+            <button
+              style={{ ...navigationButtonStyle, left: "10px" }}
+              onClick={scrollLeft}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor =
+                  "rgba(255, 255, 255, 1)";
+                e.currentTarget.style.transform = "translateY(-50%) scale(1.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor =
+                  "rgba(255, 255, 255, 0.9)";
+                e.currentTarget.style.transform = "translateY(-50%) scale(1)";
+              }}
+            >
+              ‹
+            </button>
+          )}
 
-                const imageContainerStyle: CSSProperties = {
-                  position: "relative",
-                  cursor: "pointer",
-                  transform: isVisible
-                    ? "translateY(0px) scale(1)"
-                    : "translateY(48px) scale(0.95)",
-                  opacity: isVisible ? 1 : 0,
-                  transition: "all 1000ms ease-out",
-                  transitionDelay: `${(originalIndex % 6) * 100}ms`,
-                };
+          {/* Slider des images */}
+          <div ref={sliderRef} className="slider-container" style={sliderStyle}>
+            {images.map((image, index) => {
+              // Calculer la largeur proportionnelle pour une hauteur de 300px
+              const originalWidth = parseInt(image.width);
+              const originalHeight = parseInt(image.height);
+              const aspectRatio = originalWidth / originalHeight;
+              const normalizedWidth = Math.round(300 * aspectRatio);
 
-                const imageWrapperStyle: CSSProperties = {
-                  position: "relative",
-                  overflow: "hidden",
-                  boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)",
-                  transition: "all 500ms ease",
-                  lineHeight: 0,
-                  fontSize: 0,
-                };
+              const imageStyle: CSSProperties = {
+                width: `${normalizedWidth}px`,
+                height: "300px",
+                objectFit: "cover",
+                transition: "transform 700ms ease",
+                transform: "scale(1.05)",
+                display: "block",
+                border: "none",
+                outline: "none",
+                margin: 0,
+                padding: 0,
+              };
 
-                const imageWrapperHoverStyle: CSSProperties = {
-                  transform: "scale(1.05)",
-                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)",
-                };
+              const overlayStyle: CSSProperties = {
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background:
+                  "linear-gradient(to top, rgba(0,0,0,0.3), transparent)",
+                opacity: 0,
+                transition: "opacity 500ms ease",
+              };
 
-                const imageStyle: CSSProperties = {
-                  width: "100%",
-                  height: "auto",
-                  display: "block",
-                  transition: "transform 700ms ease",
-                  verticalAlign: "top",
-                  border: "none",
-                  outline: "none",
-                  margin: 0,
-                  padding: 0,
-                  transform: "scale(1.02)",
-                };
+              const shimmerStyle: CSSProperties = {
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background:
+                  "linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent)",
+                transform: "translateX(-100%)",
+                transition: "transform 1000ms ease-in-out",
+              };
 
-                const overlayStyle: CSSProperties = {
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  background:
-                    "linear-gradient(to top, rgba(0,0,0,0.2), transparent)",
-                  opacity: 0,
-                  transition: "opacity 500ms ease",
-                };
+              return (
+                <div
+                  key={index}
+                  style={{
+                    ...imageContainerStyle,
+                    width: `${normalizedWidth}px`,
+                  }}
+                  onClick={() => openCarousel(index)}
+                  onMouseEnter={(e) => {
+                    const container = e.currentTarget;
+                    const img = container.querySelector(
+                      ".main-image"
+                    ) as HTMLElement;
+                    const overlay = container.querySelector(
+                      ".overlay"
+                    ) as HTMLElement;
+                    const shimmer = container.querySelector(
+                      ".shimmer"
+                    ) as HTMLElement;
 
-                const shimmerStyle: CSSProperties = {
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  background:
-                    "linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent)",
-                  transform: "translateX(-100%)",
-                  transition: "transform 1000ms ease-in-out",
-                };
+                    container.style.transform = "scale(1)";
+                    container.style.boxShadow =
+                      "0 20px 40px rgba(0, 0, 0, 0.3)";
+                    if (img) img.style.transform = "scale(1.1)";
+                    if (overlay) overlay.style.opacity = "1";
+                    if (shimmer) shimmer.style.transform = "translateX(100%)";
+                  }}
+                  onMouseLeave={(e) => {
+                    const container = e.currentTarget;
+                    const img = container.querySelector(
+                      ".main-image"
+                    ) as HTMLElement;
+                    const overlay = container.querySelector(
+                      ".overlay"
+                    ) as HTMLElement;
+                    const shimmer = container.querySelector(
+                      ".shimmer"
+                    ) as HTMLElement;
 
-                return (
-                  <div
-                    key={originalIndex}
-                    ref={(el) => {
-                      imageRefs.current[originalIndex] = el;
-                    }}
-                    data-index={originalIndex}
-                    style={imageContainerStyle}
-                    onClick={() => openCarousel(originalIndex)}
-                    onMouseEnter={(e) => {
-                      const wrapper = e.currentTarget.querySelector(
-                        ".image-wrapper"
-                      ) as HTMLElement;
-                      const img = e.currentTarget.querySelector(
-                        ".main-image"
-                      ) as HTMLElement;
-                      const overlay = e.currentTarget.querySelector(
-                        ".overlay"
-                      ) as HTMLElement;
-                      const shimmer = e.currentTarget.querySelector(
-                        ".shimmer"
-                      ) as HTMLElement;
+                    container.style.transform = "scale(1)";
+                    container.style.boxShadow =
+                      "0 10px 25px rgba(0, 0, 0, 0.1)";
+                    if (img) img.style.transform = "scale(1.05)";
+                    if (overlay) overlay.style.opacity = "0";
+                    if (shimmer) shimmer.style.transform = "translateX(-100%)";
+                  }}
+                >
+                  <Image
+                    src={image.url}
+                    alt={`Photo de mode ${
+                      index + 1
+                    } - Collection Les Deux Grises`}
+                    width={normalizedWidth}
+                    height={300}
+                    className="main-image"
+                    style={imageStyle}
+                    sizes={`${normalizedWidth}px`}
+                    priority={index < 6}
+                    loading={index < 6 ? "eager" : "lazy"}
+                    quality={75}
+                  />
 
-                      if (wrapper)
-                        Object.assign(wrapper.style, imageWrapperHoverStyle);
-                      if (img) img.style.transform = "scale(1.1)";
-                      if (overlay) overlay.style.opacity = "1";
-                      if (shimmer) shimmer.style.transform = "translateX(100%)";
-                    }}
-                    onMouseLeave={(e) => {
-                      const wrapper = e.currentTarget.querySelector(
-                        ".image-wrapper"
-                      ) as HTMLElement;
-                      const img = e.currentTarget.querySelector(
-                        ".main-image"
-                      ) as HTMLElement;
-                      const overlay = e.currentTarget.querySelector(
-                        ".overlay"
-                      ) as HTMLElement;
-                      const shimmer = e.currentTarget.querySelector(
-                        ".shimmer"
-                      ) as HTMLElement;
+                  {/* Overlay avec effet de mode */}
+                  <div className="overlay" style={overlayStyle} />
 
-                      if (wrapper) wrapper.style.transform = "scale(1)";
-                      if (img) img.style.transform = "scale(1.02)";
-                      if (overlay) overlay.style.opacity = "0";
-                      if (shimmer)
-                        shimmer.style.transform = "translateX(-100%)";
-                    }}
-                  >
-                    <div className="image-wrapper" style={imageWrapperStyle}>
-                      <div
-                        style={{
-                          position: "relative",
-                          lineHeight: 0,
-                          fontSize: 0,
-                        }}
-                      >
-                        <Image
-                          src={image.url}
-                          alt={`Photo de mode ${
-                            originalIndex + 1
-                          } - Collection Les Deux Grises`}
-                          width={width}
-                          height={height}
-                          className="main-image"
-                          style={imageStyle}
-                          sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
-                          priority={originalIndex < 6}
-                          loading={originalIndex < 6 ? "eager" : "lazy"}
-                          placeholder="blur"
-                          blurDataURL="data:image/svg+xml;base64,..."
-                          quality={75}
-                        />
+                  {/* Effet de brillance au survol */}
+                  <div className="shimmer" style={shimmerStyle} />
+                </div>
+              );
+            })}
+          </div>
 
-                        {/* Overlay avec effet de mode */}
-                        <div className="overlay" style={overlayStyle} />
-
-                        {/* Effet de brillance au survol */}
-                        <div className="shimmer" style={shimmerStyle} />
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          ))}
+          {/* Bouton de navigation droite */}
+          {canScrollRight && (
+            <button
+              style={{ ...navigationButtonStyle, right: "10px" }}
+              onClick={scrollRight}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor =
+                  "rgba(255, 255, 255, 1)";
+                e.currentTarget.style.transform = "translateY(-50%) scale(1.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor =
+                  "rgba(255, 255, 255, 0.9)";
+                e.currentTarget.style.transform = "translateY(-50%) scale(1)";
+              }}
+            >
+              ›
+            </button>
+          )}
         </div>
       </div>
 
@@ -441,16 +422,18 @@ const PicturesGrid = () => {
         <div style={modalContentStyle} onClick={(e) => e.stopPropagation()}>
           {selectedImageIndex !== null && (
             <>
-              <Image
-                src={images[selectedImageIndex].url}
-                alt={`Photo de mode ${
-                  selectedImageIndex + 1
-                } - Collection Les Deux Grises`}
-                width={parseInt(images[selectedImageIndex].width)}
-                height={parseInt(images[selectedImageIndex].height)}
-                style={modalImageStyle}
-                priority
-              />
+              <div style={{ position: "relative", overflow: "hidden" }}>
+                <Image
+                  src={images[selectedImageIndex].url}
+                  alt={`Photo de mode ${
+                    selectedImageIndex + 1
+                  } - Collection Les Deux Grises`}
+                  width={parseInt(images[selectedImageIndex].width)}
+                  height={parseInt(images[selectedImageIndex].height)}
+                  style={modalImageStyle}
+                  priority
+                />
+              </div>
 
               {/* Bouton précédent */}
               <button
