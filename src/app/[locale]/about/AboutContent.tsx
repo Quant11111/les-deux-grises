@@ -1,4 +1,5 @@
 "use client";
+"use client";
 
 import { rawengulkDemibold } from "@/app/fonts/fonts";
 import themeVariables from "@/utils/themeVariables";

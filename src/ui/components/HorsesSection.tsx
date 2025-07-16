@@ -4,9 +4,9 @@ import themeVariables from "@/utils/themeVariables";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import horsesData from "@/horses/horses.json";
-import Image from "next/image";
 import HorsesRadios from "./HorsesRadios";
 import CustomScrollbar from "./CustomScrollbar";
+import styled from "styled-components";
 
 const getImagePath = (path: string) => {
   try {
@@ -16,6 +16,82 @@ const getImagePath = (path: string) => {
     return ""; // ou une image par défaut
   }
 };
+
+// Styled Components
+const MainContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: calc(100dvh - 8rem);
+  height: calc(100dvh - 8rem);
+  padding-bottom: 1rem;
+  background-color: ${themeVariables.grassGreen};
+`;
+
+const ScrollableContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  align-items: center;
+  background-image: url("https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/horses/horsesbg.png");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  width: 80%;
+  border-top-left-radius: 20000000000000000000000000000px;
+  border-top-right-radius: 20000000000000000000000000000px;
+  height: calc(100dvh - 10rem);
+  padding-left: calc(15dvh - 3rem);
+  padding-right: calc(15dvh - 3rem);
+  max-width: calc(200dvh - 32rem);
+`;
+
+const scrollbarStyle = {
+  display: "flex",
+  flexDirection: "column" as const,
+  height: "100%",
+  alignItems: "center" as const,
+  width: "600px",
+  maxWidth: "60vw",
+  marginTop: "20vh",
+  marginBottom: "5vh",
+};
+
+const HorseCard = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: calc(100% - 20px);
+  min-height: 3rem;
+  background-color: ${themeVariables.cloudyMist};
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  transform: translateY(-1rem);
+  transition: all 0.3s ease-in-out;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(calc(-1rem - 5px));
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+    outline: 2px solid ${themeVariables.grassGreen};
+  }
+`;
+
+const HorseName = styled.h2`
+  color: ${themeVariables.grassGreen};
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (max-width: 1100px) {
+    font-size: 0.7rem;
+  }
+`;
 
 export default function Horses({ locale }: { locale: string }) {
   const [selectedType, setSelectedType] = useState("all");
@@ -38,19 +114,7 @@ export default function Horses({ locale }: { locale: string }) {
   });
 
   return (
-    <div
-      style={{
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        width: "100%",
-        minHeight: "calc(100dvh - 8rem)",
-        height: "calc(100dvh - 8rem)",
-        paddingBottom: "1rem",
-        backgroundColor: themeVariables.grassGreen,
-      }}
-    >
+    <MainContainer>
       <HorsesRadios
         selectedCategory={selectedType}
         setSelectedCategory={setSelectedType}
@@ -58,123 +122,29 @@ export default function Horses({ locale }: { locale: string }) {
         locale={locale}
       />
 
-      <div
-        className="hide-scrollbar hide-scrollbar::-webkit-scrollbar"
-        style={{
-          position: "relative",
-          display: "flex",
-          flexDirection: "column",
-          marginTop: "2rem",
-          alignItems: "center",
-          backgroundImage:
-            "url('https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/horses/horsesbg.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          overflow: "hidden",
-          width: "80%",
-          borderTopLeftRadius: "20000000000000000000000000000px",
-          borderTopRightRadius: "20000000000000000000000000000px",
-          height: "calc(100dvh - 10rem)",
-
-          paddingLeft: "calc(15dvh - 3rem) ",
-          paddingRight: "calc(15dvh - 3rem) ",
-
-          maxWidth: "calc(200dvh - 32rem)",
-        }}
-      >
-        <h2 className="selected-title"> {selectedType} </h2>
-        <CustomScrollbar
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            height: "100%",
-            alignItems: "center",
-            width: "600px",
-            maxWidth: "60vw",
-            marginTop: "20vh",
-            marginBottom: "5vh",
-          }}
-        >
+      <ScrollableContainer className="hide-scrollbar hide-scrollbar::-webkit-scrollbar">
+        <CustomScrollbar style={scrollbarStyle}>
           {filteredHorses.map((horse) => (
-            <div
+            <HorseCard
               key={horse.name}
-              style={{
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                width: "calc(100% - 20px)",
-                minHeight: "3rem",
-                backgroundColor: themeVariables.cloudyMist,
-                padding: "0.5rem",
-                marginBottom: "1rem",
-                transition: "ease-in-out 0.3s",
-                justifyContent: "center",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-              }}
               onClick={() => {
                 const formattedName = encodeURIComponent(
                   horse.name.toLowerCase()
                 );
                 router.push(`/${locale}/horses/${formattedName}`);
               }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.transform = "translateY(-5px)";
-                e.currentTarget.style.boxShadow =
-                  "0 8px 16px rgba(0, 0, 0, 0.8)";
-                e.currentTarget.style.outline = `2px solid ${themeVariables.grassGreen}`;
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow =
-                  "0 4px 8px rgba(0, 0, 0, 0.1)";
-                e.currentTarget.style.outline = `none`;
-              }}
             >
               {horse.category === "foal" || horse.category === "future foal" ? (
-                <h2 className="horse-name">
+                <HorseName>
                   {horse.name + " X " + horse.dad.name + " X " + horse.mom.name}
-                </h2>
+                </HorseName>
               ) : (
-                <h2 className="horse-name">{horse.name}</h2>
+                <HorseName>{horse.name}</HorseName>
               )}
-            </div>
+            </HorseCard>
           ))}
         </CustomScrollbar>
-      </div>
-      <style jsx>{`
-        .selected-title {
-          color: ${themeVariables.cloudyMist};
-          font-size: 1.5rem;
-          position: absolute;
-          top: 4rem;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-        .radio-label {
-          cursor: pointer;
-          font-size: 0.7rem;
-        }
-        .horse-name {
-          color: ${themeVariables.grassGreen};
-          font-size: 0.8rem;
-          white-space: "nowrap",
-              overflow: "hidden",
-              text-overflow: "ellipsis",
-        }
-        @media (max-width: 1100px) {
-          .horse-name {
-            font-size: 0.7rem;
-
-          }
-          .horses-radios {
-            margin-top: 1rem;
-          }
-          .radio-label {
-
-          font-size: 0.7rem !important;
-        }
-        }
-      `}</style>
-    </div>
+      </ScrollableContainer>
+    </MainContainer>
   );
 }

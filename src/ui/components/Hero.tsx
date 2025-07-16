@@ -8,6 +8,46 @@ import { LogoSvg } from "../svg/LogoSvg";
 import Image from "next/image";
 import OnlyLarge from "./OnlyLarge";
 
+const HeroContainer = styled.div`
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+`;
+
+const LogoContainer = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+`;
+
+const ContentContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+`;
+
+const ImageContainer = styled.div`
+  position: relative;
+  height: 85%;
+  aspect-ratio: 1/1.6;
+  border-top-left-radius: 5000000000rem;
+  border-top-right-radius: 5000000000rem;
+  max-width: 88%;
+  overflow: hidden;
+`;
+
+const StyledImage = styled(Image)`
+  object-fit: cover;
+  border-top-left-radius: 5000000000rem;
+  border-top-right-radius: 5000000000rem;
+`;
+
 const HeroTitle = styled.h1<{ $imgzoom: number }>`
   position: absolute;
   font-size: ${({ $imgzoom }) => $imgzoom * 9 * 16}px;
@@ -42,7 +82,6 @@ const HeroDescription = styled.p<{ $imgzoom: number }>`
   z-index: 1;
   @media (max-width: 1100px) {
     left: 50%;
-
     transform: translate(-50%, 50%);
     text-align: center;
   }
@@ -80,50 +119,16 @@ export default function Hero({
     "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/landing/landing.png";
 
   return (
-    <div
-      style={{
-        position: "relative",
-        flex: 1,
-        overflow: "hidden",
-      }}
-    >
+    <HeroContainer>
       <OnlyLarge>
-        <LogoSvg
-          size={225}
-          color={themeVariables.lightForeground}
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "20%",
-            transform: "translate(-50%, -50%)",
-            zIndex: 1,
-          }}
-        />
+        <LogoContainer>
+          <LogoSvg size={225} color={themeVariables.lightForeground} />
+        </LogoContainer>
       </OnlyLarge>
 
-      <div
-        style={{
-          position: "relative",
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          paddingTop: "1rem",
-        }}
-      >
-        <div
-          style={{
-            position: "relative",
-            height: "85%",
-            aspectRatio: "1/1.6",
-            borderTopLeftRadius: "5000000000rem",
-            borderTopRightRadius: "5000000000rem",
-            maxWidth: "88%",
-            overflow: "hidden",
-          }}
-        >
-          <Image
+      <ContentContainer>
+        <ImageContainer>
+          <StyledImage
             src={imageUrl}
             alt="Hero"
             fill
@@ -132,13 +137,8 @@ export default function Hero({
             quality={85}
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO8/+F/PQAJJANm19bNwAAAAABJRU5ErkJggg=="
-            style={{
-              objectFit: "cover",
-              borderTopLeftRadius: "5000000000rem",
-              borderTopRightRadius: "5000000000rem",
-            }}
           />
-        </div>
+        </ImageContainer>
 
         <HeroTitle className={arkhipRegular.className} $imgzoom={imgzoom}>
           {title}
@@ -150,7 +150,7 @@ export default function Hero({
         >
           {description}
         </HeroDescription>
-      </div>
-    </div>
+      </ContentContainer>
+    </HeroContainer>
   );
 }

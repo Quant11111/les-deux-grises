@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactNode } from "react";
+import React, { CSSProperties, ReactNode, useState, useEffect } from "react";
 import { Scrollbars } from "react-custom-scrollbars-2";
 import themeVariables from "@/utils/themeVariables";
 
@@ -18,13 +18,25 @@ const CustomScrollbar: React.FC<CustomScrollbarProps> = ({
   children,
   style,
   height = "100%",
-  thumbColor = themeVariables.lightForeground,
-  trackColor = "rgba(0, 0, 0, 0.2)",
+  thumbColor = themeVariables.cloudyMist,
+  trackColor = "rgba(0, 0, 0, 0)",
+
   thumbOpacity = 1,
   thumbWidth = 12,
-  autoHide = false,
+  autoHide = true,
   thumbSize = 120,
 }) => {
+  // État pour gérer l'auto-hide de la scrollbar
+  const [shouldAutoHide, setShouldAutoHide] = useState(false);
+
+  // Effet pour passer autoHide à true après 3 secondes
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShouldAutoHide(true);
+    }, 3000); // 3 secondes
+
+    return () => clearTimeout(timer); // Nettoyage du timer
+  }, []);
   // Personnalisation des composants de la scrollbar
   const renderThumb = ({
     style,
@@ -35,7 +47,7 @@ const CustomScrollbar: React.FC<CustomScrollbarProps> = ({
   }) => {
     const thumbStyle = {
       backgroundColor: thumbColor,
-      borderRadius: "4px",
+      borderRadius: "7px",
       opacity: thumbOpacity,
       width: `${thumbWidth}px !important`,
     };
@@ -51,7 +63,8 @@ const CustomScrollbar: React.FC<CustomScrollbarProps> = ({
   }) => {
     const trackStyle = {
       backgroundColor: trackColor,
-      borderRadius: "4px",
+      borderRadius: "7px",
+      border: `1px solid ${themeVariables.cloudyMist}`,
       right: "10px",
       width: `${thumbWidth}px`,
       height: "100%",
@@ -65,7 +78,7 @@ const CustomScrollbar: React.FC<CustomScrollbarProps> = ({
       renderThumbVertical={renderThumb}
       renderTrackVertical={renderTrack}
       universal={true}
-      autoHide={autoHide}
+      autoHide={shouldAutoHide && autoHide}
       thumbSize={thumbSize}
     >
       <div style={{ padding: "20px" }}>{children}</div>

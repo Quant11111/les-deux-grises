@@ -5,6 +5,73 @@ import { useState, useEffect } from "react";
 import LanguageSelector from "./LanguageSelector";
 import NavButton from "./components/NavButton";
 import NavLink from "./components/NavLink";
+import styled from "styled-components";
+
+// Styled Components
+const NavbarContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  padding: 2rem;
+  height: 5rem;
+  font-size: 0.9rem;
+  font-weight: lighter;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+
+  @media (max-width: 1100px) {
+    height: 0 !important;
+  }
+`;
+
+const MenuButton = styled.button`
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: none;
+  background: transparent;
+  border: none;
+  color: ${themeVariables.cloudyMist};
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 3rem;
+
+  @media (max-width: 1100px) {
+    display: flex !important;
+  }
+`;
+
+const Nav = styled.nav<{ $isOpen: boolean }>`
+  display: flex;
+  gap: 6rem;
+  justify-content: right;
+
+  @media (max-width: 1100px) {
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+    justify-content: center;
+    position: absolute;
+    gap: 1rem !important;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100dvh !important;
+    background-color: #0b2830;
+    padding: 2rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transform: ${(props) =>
+      props.$isOpen ? "translateX(0)" : "translateX(-100%)"};
+    transition: transform 0.3s ease-in-out;
+  }
+`;
+
+const NavItemContainer = styled.div`
+  position: relative;
+`;
 
 export default function Navbar({
   active,
@@ -27,69 +94,26 @@ export default function Navbar({
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
   return (
     <>
-      <div
-        className="navbar"
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          zIndex: 1000,
-          width: "100%",
-          padding: "2rem",
-          height: "5rem",
-          fontSize: "0.9rem",
-          fontWeight: "lighter",
-          transition: "background-color 0.3s ease, backdrop-filter 0.3s ease",
-        }}
-      >
-        {" "}
-        <button
-          className="menu-button"
-          onClick={toggleSidebar}
-          style={{
-            position: "absolute",
-            top: "2rem",
-            right: "2rem",
-            display: "none",
-            background: "transparent",
-            border: "none",
-            color: themeVariables.cloudyMist,
-            fontSize: "1.5rem",
-            cursor: "pointer",
-            transition: "background-color 0.3s ease, backdrop-filter 0.3s ease",
-            padding: "0.5rem",
-            borderRadius: "3rem",
-          }}
-        >
-          MENU
-        </button>
-        <nav
-          style={{
-            display: "flex",
-            gap: "6rem",
-            justifyContent: "right",
-          }}
-        >
+      <NavbarContainer>
+        <MenuButton onClick={toggleSidebar}>MENU</MenuButton>
+        <Nav $isOpen={isSidebarOpen}>
           <NavLink
             text={home}
             linkWord=""
             locale={locale}
             isActive={active === "home"}
           />
-          <div
-            style={{
-              position: "relative",
-            }}
-          >
+          <NavItemContainer>
             <NavLink
               text={about}
               linkWord="about"
               locale={locale}
               isActive={active === "about"}
             />
-          </div>
+          </NavItemContainer>
 
           <NavLink
             text={horses}
@@ -105,41 +129,8 @@ export default function Navbar({
             isActive={active === "contact"}
           />
           <LanguageSelector locale={locale} />
-        </nav>
-      </div>
-      <style jsx>{`
-        @media (max-width: 1100px) {
-          nav {
-            display: "flex";
-            flex-direction: column;
-            align-items: space-around;
-            justify-content: center;
-            position: absolute;
-            gap: 1rem !important;
-            top: 0;
-            left: 0;
-            width: 250px;
-            height: 100dvh !important;
-            background-color: #0b2830;
-            padding: 2rem;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            transform: ${isSidebarOpen ? "translateX(0)" : "translateX(-100%)"};
-            transition: transform 0.3s ease-in-out;
-          }
-          .menu-button {
-            display: flex !important;
-          }
-          .navbar {
-            height: 0 !important;
-          }
-          .aboutSub {
-            left: -2rem;
-            bottom: -3rem !important;
-            gap: 0.5rem !important;
-            flex-direction: column;
-          }
-        }
-      `}</style>
+        </Nav>
+      </NavbarContainer>
     </>
   );
 }

@@ -1,4 +1,5 @@
 "use client";
+"use client";
 
 import themeVariables from "@/utils/themeVariables";
 import { useRouter } from "next/navigation";

@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState, CSSProperties } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import styled from "styled-components";
 import images from "./images.json";
 
 interface ImageData {
@@ -9,6 +10,227 @@ interface ImageData {
   width: string;
   height: string;
 }
+
+// Styled Components
+const Container = styled.div`
+  width: 100%;
+  padding: 48px 16px;
+  position: relative;
+  max-height: 70vh;
+  overflow: hidden;
+`;
+
+const SliderWrapper = styled.div`
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+`;
+
+const Slider = styled.div`
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding-bottom: 16px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+const NavigationButton = styled.button<{ $side: "left" | "right" }>`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  ${(props) => props.$side}: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 300ms ease;
+  z-index: 10;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: translateY(-50%) scale(1.1);
+  }
+`;
+
+const ImageContainer = styled.div<{ $width: number }>`
+  flex-shrink: 0;
+  width: ${(props) => props.$width}px;
+  height: 300px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 500ms ease, box-shadow 500ms ease;
+  overflow: hidden;
+
+  &:hover {
+    transform: scale(1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+    .main-image {
+      transform: scale(1.1);
+    }
+
+    .overlay {
+      opacity: 1;
+    }
+
+    .shimmer {
+      transform: translateX(100%);
+    }
+  }
+`;
+
+const StyledImage = styled(Image)`
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 700ms ease;
+  transform: scale(1.05);
+  display: block;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+  opacity: 0;
+  transition: opacity 500ms ease;
+`;
+
+const Shimmer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 1000ms ease-in-out;
+`;
+
+const ModalOverlay = styled.div<{ $visible: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: ${(props) => (props.$visible ? 1 : 0)};
+  visibility: ${(props) => (props.$visible ? "visible" : "hidden")};
+  transition: opacity 300ms ease, visibility 300ms ease;
+`;
+
+const ModalContent = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ModalImageContainer = styled.div`
+  position: relative;
+  overflow: hidden;
+`;
+
+const ModalImage = styled(Image)`
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  transform: scale(1.05);
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  display: block;
+`;
+
+const ModalButton = styled.button<{ $side: "left" | "right" }>`
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  ${(props) => props.$side}: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 300ms ease;
+  z-index: 1001;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+`;
+
+const CloseButton = styled.button`
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 300ms ease;
+  z-index: 1001;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+`;
+
+const Counter = styled.div`
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 16px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  z-index: 1001;
+`;
+
+const Placeholder = styled.div`
+  width: 100%;
+  height: 400px;
+`;
 
 const PicturesGrid = () => {
   const [isClient, setIsClient] = useState(false);
@@ -39,7 +261,7 @@ const PicturesGrid = () => {
     const slider = sliderRef.current;
     if (slider) {
       slider.addEventListener("scroll", updateScrollState);
-      updateScrollState(); // Initial check
+      updateScrollState();
     }
 
     return () => {
@@ -104,181 +326,22 @@ const PicturesGrid = () => {
   };
 
   if (!isClient) {
-    return <div style={{ width: "100%", height: "400px" }} />; // Placeholder pendant l'hydratation
+    return <Placeholder />;
   }
-
-  const containerStyle: CSSProperties = {
-    width: "100%",
-    padding: "48px 16px",
-    position: "relative",
-    maxHeight: "70vh",
-    overflow: "hidden",
-  };
-
-  const sliderWrapperStyle: CSSProperties = {
-    position: "relative",
-    maxWidth: "1400px",
-    margin: "0 auto",
-  };
-
-  const sliderStyle: CSSProperties = {
-    display: "flex",
-    gap: "16px",
-    overflowX: "auto",
-    overflowY: "hidden",
-    scrollBehavior: "smooth",
-    paddingBottom: "16px",
-    scrollbarWidth: "none", // Firefox
-    msOverflowStyle: "none", // IE
-  };
-
-  // Styles CSS pour masquer les scrollbars
-  const globalStyles = `
-    .slider-container::-webkit-scrollbar {
-      display: none;
-    }
-    .slider-container {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-  `;
-
-  const imageContainerStyle: CSSProperties = {
-    flexShrink: 0,
-    height: "300px",
-    position: "relative",
-    cursor: "pointer",
-    transition: "transform 500ms ease, box-shadow 500ms ease",
-    overflow: "hidden",
-  };
-
-  const navigationButtonStyle: CSSProperties = {
-    position: "absolute",
-    top: "50%",
-    transform: "translateY(-50%)",
-    backgroundColor: "rgba(255, 255, 255, 0.9)",
-    border: "none",
-    borderRadius: "50%",
-    width: "50px",
-    height: "50px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    cursor: "pointer",
-    fontSize: "18px",
-    fontWeight: "bold",
-    color: "#333",
-    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
-    transition: "all 300ms ease",
-    zIndex: 10,
-  };
-
-  // Styles pour le carrousel modal
-  const modalOverlayStyle: CSSProperties = {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: "rgba(0, 0, 0, 0.95)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    zIndex: 1000,
-    opacity: selectedImageIndex !== null ? 1 : 0,
-    visibility: selectedImageIndex !== null ? "visible" : "hidden",
-    transition: "opacity 300ms ease, visibility 300ms ease",
-  };
-
-  const modalContentStyle: CSSProperties = {
-    position: "relative",
-    width: "100%",
-    height: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  };
-
-  const modalImageStyle: CSSProperties = {
-    maxWidth: "90vw",
-    maxHeight: "90vh",
-    objectFit: "contain",
-    transform: "scale(1.05)",
-    border: "none",
-    outline: "none",
-    margin: 0,
-    padding: 0,
-    verticalAlign: "top",
-    display: "block",
-  };
-
-  const buttonStyle: CSSProperties = {
-    position: "fixed",
-    top: "50%",
-    transform: "translateY(-50%)",
-    backgroundColor: "rgba(255, 255, 255, 0.2)",
-    border: "none",
-    color: "white",
-    fontSize: "24px",
-    padding: "12px 16px",
-    cursor: "pointer",
-    transition: "background-color 300ms ease",
-    zIndex: 1001,
-  };
-
-  const closeButtonStyle: CSSProperties = {
-    position: "fixed",
-    top: "20px",
-    right: "20px",
-    backgroundColor: "rgba(255, 255, 255, 0.2)",
-    border: "none",
-    color: "white",
-    fontSize: "24px",
-    padding: "8px 12px",
-    cursor: "pointer",
-    transition: "background-color 300ms ease",
-    zIndex: 1001,
-  };
-
-  const counterStyle: CSSProperties = {
-    position: "fixed",
-    bottom: "20px",
-    left: "50%",
-    transform: "translateX(-50%)",
-    color: "white",
-    fontSize: "16px",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    padding: "8px 16px",
-    zIndex: 1001,
-  };
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: globalStyles }} />
-      <div style={containerStyle}>
-        <div style={sliderWrapperStyle}>
+      <Container>
+        <SliderWrapper>
           {/* Bouton de navigation gauche */}
           {canScrollLeft && (
-            <button
-              style={{ ...navigationButtonStyle, left: "10px" }}
-              onClick={scrollLeft}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor =
-                  "rgba(255, 255, 255, 1)";
-                e.currentTarget.style.transform = "translateY(-50%) scale(1.1)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor =
-                  "rgba(255, 255, 255, 0.9)";
-                e.currentTarget.style.transform = "translateY(-50%) scale(1)";
-              }}
-            >
+            <NavigationButton $side="left" onClick={scrollLeft}>
               ‹
-            </button>
+            </NavigationButton>
           )}
 
           {/* Slider des images */}
-          <div ref={sliderRef} className="slider-container" style={sliderStyle}>
+          <Slider ref={sliderRef}>
             {images.map((image, index) => {
               // Calculer la largeur proportionnelle pour une hauteur de 300px
               const originalWidth = parseInt(image.width);
@@ -286,91 +349,13 @@ const PicturesGrid = () => {
               const aspectRatio = originalWidth / originalHeight;
               const normalizedWidth = Math.round(300 * aspectRatio);
 
-              const imageStyle: CSSProperties = {
-                width: `${normalizedWidth}px`,
-                height: "300px",
-                objectFit: "cover",
-                transition: "transform 700ms ease",
-                transform: "scale(1.05)",
-                display: "block",
-                border: "none",
-                outline: "none",
-                margin: 0,
-                padding: 0,
-              };
-
-              const overlayStyle: CSSProperties = {
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background:
-                  "linear-gradient(to top, rgba(0,0,0,0.3), transparent)",
-                opacity: 0,
-                transition: "opacity 500ms ease",
-              };
-
-              const shimmerStyle: CSSProperties = {
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background:
-                  "linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent)",
-                transform: "translateX(-100%)",
-                transition: "transform 1000ms ease-in-out",
-              };
-
               return (
-                <div
+                <ImageContainer
                   key={index}
-                  style={{
-                    ...imageContainerStyle,
-                    width: `${normalizedWidth}px`,
-                  }}
+                  $width={normalizedWidth}
                   onClick={() => openCarousel(index)}
-                  onMouseEnter={(e) => {
-                    const container = e.currentTarget;
-                    const img = container.querySelector(
-                      ".main-image"
-                    ) as HTMLElement;
-                    const overlay = container.querySelector(
-                      ".overlay"
-                    ) as HTMLElement;
-                    const shimmer = container.querySelector(
-                      ".shimmer"
-                    ) as HTMLElement;
-
-                    container.style.transform = "scale(1)";
-                    container.style.boxShadow =
-                      "0 20px 40px rgba(0, 0, 0, 0.3)";
-                    if (img) img.style.transform = "scale(1.1)";
-                    if (overlay) overlay.style.opacity = "1";
-                    if (shimmer) shimmer.style.transform = "translateX(100%)";
-                  }}
-                  onMouseLeave={(e) => {
-                    const container = e.currentTarget;
-                    const img = container.querySelector(
-                      ".main-image"
-                    ) as HTMLElement;
-                    const overlay = container.querySelector(
-                      ".overlay"
-                    ) as HTMLElement;
-                    const shimmer = container.querySelector(
-                      ".shimmer"
-                    ) as HTMLElement;
-
-                    container.style.transform = "scale(1)";
-                    container.style.boxShadow =
-                      "0 10px 25px rgba(0, 0, 0, 0.1)";
-                    if (img) img.style.transform = "scale(1.05)";
-                    if (overlay) overlay.style.opacity = "0";
-                    if (shimmer) shimmer.style.transform = "translateX(-100%)";
-                  }}
                 >
-                  <Image
+                  <StyledImage
                     src={image.url}
                     alt={`Photo de mode ${
                       index + 1
@@ -378,119 +363,64 @@ const PicturesGrid = () => {
                     width={normalizedWidth}
                     height={300}
                     className="main-image"
-                    style={imageStyle}
                     sizes={`${normalizedWidth}px`}
                     priority={index < 6}
                     loading={index < 6 ? "eager" : "lazy"}
                     quality={75}
                   />
-
-                  {/* Overlay avec effet de mode */}
-                  <div className="overlay" style={overlayStyle} />
-
-                  {/* Effet de brillance au survol */}
-                  <div className="shimmer" style={shimmerStyle} />
-                </div>
+                  <Overlay className="overlay" />
+                  <Shimmer className="shimmer" />
+                </ImageContainer>
               );
             })}
-          </div>
+          </Slider>
 
           {/* Bouton de navigation droite */}
           {canScrollRight && (
-            <button
-              style={{ ...navigationButtonStyle, right: "10px" }}
-              onClick={scrollRight}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor =
-                  "rgba(255, 255, 255, 1)";
-                e.currentTarget.style.transform = "translateY(-50%) scale(1.1)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor =
-                  "rgba(255, 255, 255, 0.9)";
-                e.currentTarget.style.transform = "translateY(-50%) scale(1)";
-              }}
-            >
+            <NavigationButton $side="right" onClick={scrollRight}>
               ›
-            </button>
+            </NavigationButton>
           )}
-        </div>
-      </div>
+        </SliderWrapper>
+      </Container>
 
       {/* Carrousel Modal */}
-      <div style={modalOverlayStyle} onClick={closeCarousel}>
-        <div style={modalContentStyle} onClick={(e) => e.stopPropagation()}>
+      <ModalOverlay
+        $visible={selectedImageIndex !== null}
+        onClick={closeCarousel}
+      >
+        <ModalContent onClick={(e) => e.stopPropagation()}>
           {selectedImageIndex !== null && (
             <>
-              <div style={{ position: "relative", overflow: "hidden" }}>
-                <Image
+              <ModalImageContainer>
+                <ModalImage
                   src={images[selectedImageIndex].url}
                   alt={`Photo de mode ${
                     selectedImageIndex + 1
                   } - Collection Les Deux Grises`}
                   width={parseInt(images[selectedImageIndex].width)}
                   height={parseInt(images[selectedImageIndex].height)}
-                  style={modalImageStyle}
                   priority
                 />
-              </div>
+              </ModalImageContainer>
 
-              {/* Bouton précédent */}
-              <button
-                style={{ ...buttonStyle, left: "20px" }}
-                onClick={goToPrevious}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.backgroundColor =
-                    "rgba(255, 255, 255, 0.3)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.backgroundColor =
-                    "rgba(255, 255, 255, 0.2)")
-                }
-              >
+              <ModalButton $side="left" onClick={goToPrevious}>
                 ‹
-              </button>
+              </ModalButton>
 
-              {/* Bouton suivant */}
-              <button
-                style={{ ...buttonStyle, right: "20px" }}
-                onClick={goToNext}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.backgroundColor =
-                    "rgba(255, 255, 255, 0.3)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.backgroundColor =
-                    "rgba(255, 255, 255, 0.2)")
-                }
-              >
+              <ModalButton $side="right" onClick={goToNext}>
                 ›
-              </button>
+              </ModalButton>
 
-              {/* Bouton fermer */}
-              <button
-                style={closeButtonStyle}
-                onClick={closeCarousel}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.backgroundColor =
-                    "rgba(255, 255, 255, 0.3)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.backgroundColor =
-                    "rgba(255, 255, 255, 0.2)")
-                }
-              >
-                ×
-              </button>
+              <CloseButton onClick={closeCarousel}>×</CloseButton>
 
-              {/* Compteur */}
-              <div style={counterStyle}>
+              <Counter>
                 {selectedImageIndex + 1} / {images.length}
-              </div>
+              </Counter>
             </>
           )}
-        </div>
-      </div>
+        </ModalContent>
+      </ModalOverlay>
     </>
   );
 };

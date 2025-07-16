@@ -1,4 +1,5 @@
 "use client";
+"use client";
 
 import { useLocale, useTranslations } from "next-intl";
 import {

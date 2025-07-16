@@ -1,4 +1,5 @@
 "use client";
+"use client";
 
 // change img balancoire for cloudfront Image next compponenet
 
