@@ -73,7 +73,9 @@ const TeamCard = memo(
             color: ${themeVariables.grassGreen};
             font-size: 1.5rem;
             font-family: ${rawengulkDemibold.style.fontFamily};
+            font-weight: 700;
             text-align: center;
+            white-space: pre-line;
           }
 
           .team-card:hover .name-overlay {

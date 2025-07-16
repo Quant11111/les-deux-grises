@@ -15,39 +15,39 @@ export default function Team({ title }: { title: string }) {
     () => [
       {
         id: 1,
-        name: "ANTOINE HELIE",
+        name: "KARIM ET LEA\nIBRAHIM",
+        image:
+          "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team5.png",
+      },
+      {
+        id: 6,
+        name: "ETIENNE\nSIMON",
+        image:
+          "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team6.JPG",
+      },
+      {
+        id: 2,
+        name: "SPEEDY\nJAYLO",
+        image:
+          "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team4.png",
+      },
+      {
+        id: 5,
+        name: "ANTOINE\nHELIE",
         image:
           "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team1.png",
       },
       {
-        id: 2,
-        name: "SHAELYN DUFOIX",
+        id: 4,
+        name: "SHAELYN\nDUFOIX",
         image:
           "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team2.png",
       },
       {
         id: 3,
-        name: "ALEXIS LARCHER",
+        name: "ALEXIS\nLARCHER",
         image:
           "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team3.png",
-      },
-      {
-        id: 4,
-        name: "KARIM ET LEA IBRAHIM",
-        image:
-          "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team5.png",
-      },
-      {
-        id: 5,
-        name: "SPEEDY JAYLO",
-        image:
-          "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team4.png",
-      },
-      {
-        id: 6,
-        name: "ETIENNE SIMON",
-        image:
-          "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/team/team6.JPG",
       },
     ],
     []
@@ -272,14 +272,15 @@ export default function Team({ title }: { title: string }) {
 
         .team-title {
           position: absolute;
-          top: 1.5rem;
-          left: 1.5rem;
-          font-size: 1rem;
+          top: rem;
+          left: 3rem;
+          font-size: 26px;
+          font-weight: 400;
           color: ${themeVariables.grassGreen};
         }
 
         .carousel-container {
-          margin-top: 2rem;
+          margin-top: 4rem;
           position: relative;
           width: 100%;
           max-width: 1200px;
@@ -298,7 +299,6 @@ export default function Team({ title }: { title: string }) {
           scrollbar-width: none; /* Firefox */
           -ms-overflow-style: none; /* IE and Edge */
           cursor: grab;
-          padding: 0.5rem;
           will-change: transform;
         }
 
@@ -318,7 +318,6 @@ export default function Team({ title }: { title: string }) {
           height: 306px;
           width: 200px;
           background-color: #e0e0e0;
-          margin-left: 2rem;
           border-top-left-radius: 100px;
           border-top-right-radius: 100px;
         }
@@ -333,8 +332,8 @@ export default function Team({ title }: { title: string }) {
           width: 12px;
           height: 12px;
           border-radius: 50%;
-          background-color: ${themeVariables.lightForeground};
-          border: none;
+          background-color: ${themeVariables.cloudyMist};
+          border: 2px solid ${themeVariables.corporateBlue};
           padding: 0;
           cursor: pointer;
           transition: background-color 0.2s ease;
