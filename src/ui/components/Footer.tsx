@@ -8,6 +8,7 @@ import { LogoSvg } from "@/ui/svg/LogoSvg";
 import { MailSvg } from "@/ui/svg/MailSvg";
 import { PhoneSvg } from "@/ui/svg/PhoneSvg";
 import { InstagramSvg } from "@/ui/svg/InstagramSvg";
+import { FacebookSvg } from "@/ui/svg/FacebookSvg";
 
 interface FooterProps {
   locale?: string;
@@ -33,8 +34,7 @@ export default function Footer({ locale = "fr" }: FooterProps) {
       <div className="footer-content">
         {/* Section Logo */}
         <div className="footer-section logo-section">
-          <LogoSvg size={120} color={themeVariables.lightForeground} />
-          <p className="footer-tagline">Les Deux Grises</p>
+          <LogoSvg size={200} color={themeVariables.lightForeground} />
         </div>
 
         {/* Section Contact */}
@@ -58,7 +58,7 @@ export default function Footer({ locale = "fr" }: FooterProps) {
               {contactInfo.phone2}
             </a>
           </div>
-          <div className="contact-item address">
+          <div className="contact-item ">
             <span className="contact-text">{contactInfo.address}</span>
           </div>
         </div>
@@ -83,12 +83,7 @@ export default function Footer({ locale = "fr" }: FooterProps) {
               className="social-link facebook"
               aria-label="Facebook"
             >
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                  fill="#1877F2"
-                />
-              </svg>
+              <FacebookSvg size={32} />
             </a>
           </div>
         </div>
@@ -125,7 +120,6 @@ export default function Footer({ locale = "fr" }: FooterProps) {
 
       <style jsx>{`
         .footer {
-          border-top: 1px solid ${themeVariables.coolBlueGrey};
           color: ${themeVariables.neutralEarth};
           padding: 2rem 1.5rem 0.75rem;
           margin-top: auto;
@@ -209,13 +203,13 @@ export default function Footer({ locale = "fr" }: FooterProps) {
           width: 40px;
           height: 40px;
           border-radius: 50%;
-          background-color: rgba(255, 255, 255, 0.1);
+          background-color: rgba(255, 255, 255, 0);
           transition: all 0.3s ease;
           text-decoration: none;
         }
 
         .social-link:hover {
-          background-color: rgba(255, 255, 255, 0.2);
+          background-color: rgba(255, 255, 255, 0);
           transform: translateY(-2px);
         }
 
@@ -243,7 +237,6 @@ export default function Footer({ locale = "fr" }: FooterProps) {
         .footer-bottom {
           margin-top: 1.5rem;
           padding-top: 1rem;
-          border-top: 1px solid rgba(255, 255, 255, 0.2);
           text-align: center;
         }
 

@@ -170,14 +170,17 @@ export default function About() {
       />
 
       <div
+        className="hide-scrollbar hide-scrollbar::-webkit-scrollbar"
         style={{
           flex: 1,
           maxWidth: "1301px",
           width: "100%",
           height: "calc(100vh - 100px)",
           position: "relative",
+          overflow: "scroll",
         }}
       >
+        {/* 
         <Scrollbars
           style={{
             width: "100%",
@@ -192,27 +195,27 @@ export default function About() {
           universal={true}
           autoHide={false}
           thumbSize={120}
-        >
-          <div style={{ minHeight: "100%" }}>
-            <Suspense fallback={<SectionLoader />}>
-              <WhatWeDo title={t("whatTitle")} content={t("whatContent")} />
-            </Suspense>
+        > */}
+        <div style={{ minHeight: "100%" }}>
+          <Suspense fallback={<SectionLoader />}>
+            <WhatWeDo title={t("whatTitle")} content={t("whatContent")} />
+          </Suspense>
 
-            <Suspense fallback={<SectionLoader />}>
-              <WhoWeAre title={t("whoTitle")} content={t("whoContent")} />
-            </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <WhoWeAre title={t("whoTitle")} content={t("whoContent")} />
+          </Suspense>
 
-            <Suspense fallback={<SectionLoader />}>
-              <Team title={t("teamTitle")} />
-            </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <Team title={t("teamTitle")} />
+          </Suspense>
 
-            <Suspense fallback={<SectionLoader />}>
-              <PicturesGrid />
-            </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <PicturesGrid />
+          </Suspense>
 
-            <Footer locale={locale} />
-          </div>
-        </Scrollbars>
+          <Footer locale={locale} />
+        </div>
+        {/*        </Scrollbars> */}
       </div>
     </main>
   );

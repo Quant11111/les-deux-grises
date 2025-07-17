@@ -10,6 +10,17 @@
     "height": "1.63",
     "distinctions": ["D-OC"],
     "img": "NIKITA_Corps.png",
+    "imgs": [
+      "ldgexportsquentin/horse/NIKITA_1.png",
+      "ldgexportsquentin/horse/NIKITA_2.png",
+      "ldgexportsquentin/horse/NIKITA_3.png",
+      "ldgexportsquentin/horse/NIKITA_4.png",
+      "ldgexportsquentin/horse/NIKITA_5.png",
+      "ldgexportsquentin/horse/NIKITA_6.png",
+      "ldgexportsquentin/horse/NIKITA_7.png",
+      "ldgexportsquentin/horse/NIKITA_8.png",
+      "ldgexportsquentin/horse/NIKITA_9.png"
+    ],
     "url": "https://www.horsetelex.com/horses/pedigree/2009004/nikita",
     "dad": {
       "name": "BERLIN",
@@ -90,7 +101,13 @@
     "color": "Grey",
     "studbook": "ZANG",
     "registration": "056015Z55562120",
-    "img": "CLUEDO_Corps.png",
+    "img": "ldgexportsquentin/horse/cluedo/cluedo_b.png",
+    "imgs": [
+      "ldgexportsquentin/horse/cluedo/cluedo_1.png",
+      "ldgexportsquentin/horse/cluedo/cluedo_2.png",
+      "ldgexportsquentin/horse/cluedo/cluedo_3.png",
+      "ldgexportsquentin/horse/cluedo/cluedo_4.png"
+    ],
     "dad": {
       "name": "COLORIT",
       "studbook": "BADWU",

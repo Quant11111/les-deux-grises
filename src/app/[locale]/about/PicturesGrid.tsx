@@ -5,6 +5,50 @@ import Image from "next/image";
 import styled from "styled-components";
 import images from "./images.json";
 
+// Nouveaux composants d'icônes
+const FlecheGauche = () => (
+  <svg viewBox="0 0 64.89 75.65" width="24" height="24" fill="none">
+    <path
+      d="M37.83,75.65h27.06V0h-27.06C16.94,0,0,16.94,0,37.83h0c0,20.89,16.94,37.83,37.83,37.83ZM38.2,24.65c.71-.71,1.86-.71,2.57,0,.71.71.71,1.86,0,2.57l-12.41,12.41,12.41,12.41c.71.71.71,1.86,0,2.57h0c-.71.71-1.86.71-2.57,0l-14.96-14.96h0s0-.02,0-.02l14.96-14.96Z"
+      fill="#ece3cd"
+    />
+  </svg>
+);
+
+const FlecheDroite = () => (
+  <svg viewBox="0 0 64.89 75.65" width="24" height="24" fill="none">
+    <path
+      d="M27.06,0H0v75.65h27.06c20.89,0,37.83-16.94,37.83-37.83h0C64.89,16.94,47.95,0,27.06,0ZM26.68,51c-.71.71-1.86.71-2.57,0-.71-.71-.71-1.86,0-2.57l12.41-12.41-12.41-12.41c-.71-.71-.71-1.86,0-2.57h0c.71-.71,1.86-.71,2.57,0l14.96,14.96h0s0,.02,0,.02l-14.96,14.96Z"
+      fill="#ece3cd"
+    />
+  </svg>
+);
+
+const CroixFermeture = () => (
+  <svg viewBox="0 0 34.84 34.84" width="24" height="24" fill="none">
+    <rect
+      x="15.18"
+      y="-6.29"
+      width="4.48"
+      height="47.41"
+      rx="2.24"
+      ry="2.24"
+      transform="translate(17.42 -7.22) rotate(45)"
+      fill="#ece3cd"
+    />
+    <rect
+      x="15.18"
+      y="-6.29"
+      width="4.48"
+      height="47.41"
+      rx="2.24"
+      ry="2.24"
+      transform="translate(42.05 17.42) rotate(135)"
+      fill="#ece3cd"
+    />
+  </svg>
+);
+
 interface ImageData {
   url: string;
   width: string;
@@ -46,7 +90,7 @@ const NavigationButton = styled.button<{ $side: "left" | "right" }>`
   top: 50%;
   transform: translateY(-50%);
   ${(props) => props.$side}: 10px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0);
   border: none;
   border-radius: 50%;
   width: 50px;
@@ -55,15 +99,12 @@ const NavigationButton = styled.button<{ $side: "left" | "right" }>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
   color: #333;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: all 300ms ease;
   z-index: 10;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 1);
     transform: translateY(-50%) scale(1.1);
   }
 `;
@@ -174,7 +215,6 @@ const ModalImage = styled(Image)`
   outline: none;
   margin: 0;
   padding: 0;
-  vertical-align: top;
   display: block;
 `;
 
@@ -182,15 +222,18 @@ const ModalButton = styled.button<{ $side: "left" | "right" }>`
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
+  transform: scale(1.5);
   ${(props) => props.$side}: 20px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: transparent;
   border: none;
   color: white;
-  font-size: 24px;
   padding: 12px 16px;
   cursor: pointer;
   transition: background-color 300ms ease;
   z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.3);
@@ -201,14 +244,16 @@ const CloseButton = styled.button`
   position: fixed;
   top: 20px;
   right: 20px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0);
   border: none;
   color: white;
-  font-size: 24px;
   padding: 8px 12px;
   cursor: pointer;
   transition: background-color 300ms ease;
   z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.3);
@@ -336,7 +381,7 @@ const PicturesGrid = () => {
           {/* Bouton de navigation gauche */}
           {canScrollLeft && (
             <NavigationButton $side="left" onClick={scrollLeft}>
-              ‹
+              <FlecheGauche />
             </NavigationButton>
           )}
 
@@ -378,7 +423,7 @@ const PicturesGrid = () => {
           {/* Bouton de navigation droite */}
           {canScrollRight && (
             <NavigationButton $side="right" onClick={scrollRight}>
-              ›
+              <FlecheDroite />
             </NavigationButton>
           )}
         </SliderWrapper>
@@ -405,14 +450,16 @@ const PicturesGrid = () => {
               </ModalImageContainer>
 
               <ModalButton $side="left" onClick={goToPrevious}>
-                ‹
+                <FlecheGauche />
               </ModalButton>
 
               <ModalButton $side="right" onClick={goToNext}>
-                ›
+                <FlecheDroite />
               </ModalButton>
 
-              <CloseButton onClick={closeCarousel}>×</CloseButton>
+              <CloseButton onClick={closeCarousel}>
+                <CroixFermeture />
+              </CloseButton>
 
               <Counter>
                 {selectedImageIndex + 1} / {images.length}
