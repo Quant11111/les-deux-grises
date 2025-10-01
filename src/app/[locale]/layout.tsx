@@ -40,22 +40,6 @@ export async function generateMetadata({
   };
 }
 
-export async function generateViewport({
-  params: { locale },
-}: {
-  params: { locale: string };
-}): Promise<Viewport> {
-  // Vous pouvez ajouter des traductions spécifiques pour le viewport si nécessaire
-  // const t = await getTranslations({ locale, namespace: "Viewport" });
-
-  return {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-    themeColor: "#076d74",
-  };
-}
-
 export default async function LocaleLayout({
   children,
   params: { locale },
