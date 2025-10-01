@@ -1,0 +1,9 @@
+.onlySmall {
+  display: block;
+}
+
+@media (min-width: 1101px) {
+  .onlySmall {
+    display: none;
+  }
+}

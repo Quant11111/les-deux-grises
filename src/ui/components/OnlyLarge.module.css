@@ -1,0 +1,9 @@
+.onlyLarge {
+  display: block;
+}
+
+@media (max-width: 1100px) {
+  .onlyLarge {
+    display: none;
+  }
+}

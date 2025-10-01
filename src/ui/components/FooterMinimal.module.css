@@ -1,0 +1,48 @@
+.footerMinimal {
+  background: transparent;
+  padding: 1rem 2rem;
+  margin-top: auto;
+}
+
+.footerMinimalContent {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.privacyLink {
+  color: #4ADE80; /* grassGreen */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.privacyLink:hover {
+  color: #0061A7; /* corporateBlue */
+  text-decoration: underline;
+}
+
+.separator {
+  color: #64748B; /* coolBlueGrey */
+  font-weight: bold;
+}
+
+.copyright {
+  color: #64748B; /* coolBlueGrey */
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .footerMinimal {
+    padding: 0.75rem 1rem;
+  }
+
+  .footerMinimalContent {
+    font-size: 0.8rem;
+    gap: 0.75rem;
+  }
+}

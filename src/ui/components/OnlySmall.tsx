@@ -1,13 +1,17 @@
-"use client";
-"use client";
+import { memo, ReactNode } from "react";
+import styles from "./OnlySmall.module.css";
 
-import { memo } from "react";
-import styled from "styled-components";
+interface OnlySmallProps {
+  children: ReactNode;
+  className?: string;
+}
 
-const OnlySmall = styled.div`
-  @media (min-width: 1101px) {
-    display: none;
-  }
-`;
+function OnlySmall({ children, className = "" }: OnlySmallProps) {
+  return (
+    <div className={`${styles.onlySmall} ${className}`}>
+      {children}
+    </div>
+  );
+}
 
 export default memo(OnlySmall);

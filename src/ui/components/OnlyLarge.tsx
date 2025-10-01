@@ -1,12 +1,15 @@
-"use client";
-"use client";
+import { ReactNode } from "react";
+import styles from "./OnlyLarge.module.css";
 
-import styled from "styled-components";
+interface OnlyLargeProps {
+  children: ReactNode;
+  className?: string;
+}
 
-const OnlyLarge = styled.div`
-  @media (max-width: 1100px) {
-    display: none;
-  }
-`;
-
-export default OnlyLarge;
+export default function OnlyLarge({ children, className = "" }: OnlyLargeProps) {
+  return (
+    <div className={`${styles.onlyLarge} ${className}`}>
+      {children}
+    </div>
+  );
+}

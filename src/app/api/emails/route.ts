@@ -20,7 +20,7 @@ export async function POST(request: Request) {
 export async function GET(request: Request) {
   const emails = await prisma.email.findMany();
   //transforme le résultat en liste
-  const emailsList = emails.map((email) => email.email);
+  const emailsList = emails.map((email: { email: string }) => email.email);
   return NextResponse.json(emailsList, { status: 200 });
 }
 

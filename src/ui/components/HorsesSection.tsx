@@ -8,15 +8,6 @@ import HorsesRadios from "./HorsesRadios";
 import CustomScrollbar from "./CustomScrollbar";
 import styled from "styled-components";
 
-const getImagePath = (path: string) => {
-  try {
-    return require(`/src/img/${path}`).default;
-  } catch (error) {
-    console.error(`Erreur de chargement de l'image: ${path}`, error);
-    return ""; // ou une image par défaut
-  }
-};
-
 // Styled Components
 const MainContainer = styled.div`
   position: relative;
