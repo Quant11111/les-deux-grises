@@ -1,54 +1,30 @@
 import OnlySmall from "@/ui/components/OnlySmall";
 import ContactSection from "./content/ContactSection";
 import Navbar from "@/ui/Navbar";
-import themeVariables from "@/utils/themeVariables";
 import { useLocale, useTranslations } from "next-intl";
 import { LogoSvg } from "@/ui/svg/LogoSvg";
 import OnlyLarge from "@/ui/components/OnlyLarge";
 import FooterMinimal from "@/ui/components/FooterMinimal";
+import styles from "./page.module.css";
 
 export default function Contact() {
   const locale = useLocale();
   const nt = useTranslations("Navbar");
 
   return (
-    <main
-      className="hide-scrollbar"
-      style={{
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
-        width: "100vw",
-        height: "100dvh",
-        background: themeVariables.grassGreen,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-        overflow: "hidden",
-      }}
-    >
+    <main className={`${styles.main} hide-scrollbar`}>
       <OnlySmall>
         <LogoSvg
           size={150}
-          color={themeVariables.lightForeground}
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            zIndex: 60,
-          }}
+          color="rgb(var(--light-foreground))"
+          className={styles.logo}
         />
       </OnlySmall>
       <OnlyLarge>
         <LogoSvg
           size={150}
-          color={themeVariables.lightForeground}
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            zIndex: 60,
-          }}
+          color="rgb(var(--light-foreground))"
+          className={styles.logo}
         />
       </OnlyLarge>
       <Navbar

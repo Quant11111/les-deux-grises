@@ -1,12 +1,8 @@
 "use client";
-"use client";
-
-// change img balancoire for cloudfront Image next compponenet
-
-import themeVariables from "@/utils/themeVariables";
 
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
+import styles from "./ContactSection.module.css";
 
 export default function ContactSection({ locale }: { locale: string }) {
   /* const [isWebDevOpen, setIsWebDevOpen] = useState(false); */
@@ -25,20 +21,20 @@ export default function ContactSection({ locale }: { locale: string }) {
   };
 
   return (
-    <div className="contact-container">
-      <div className="contact-content-wrapper">
-        <div className="contact-section-content">
-          <h1 className="contact-title">{t("title")}</h1>
+    <div className={styles.contactContainer}>
+      <div className={styles.contactContentWrapper}>
+        <div className={styles.contactSectionContent}>
+          <h1 className={styles.contactTitle}>{t("title")}</h1>
 
           <button
-            className="contact-button"
+            className={styles.contactButton}
             onClick={() => copyToClipboard(contactInfo.email, "Email")}
           >
             {contactInfo.email}
           </button>
 
           <button
-            className="contact-button"
+            className={styles.contactButton}
             onClick={() =>
               copyToClipboard(contactInfo.phone, "Numéro de téléphone")
             }
@@ -47,7 +43,7 @@ export default function ContactSection({ locale }: { locale: string }) {
           </button>
 
           <button
-            className="contact-button"
+            className={styles.contactButton}
             onClick={() =>
               copyToClipboard(contactInfo.phone2, "Numéro de téléphone")
             }
@@ -56,16 +52,16 @@ export default function ContactSection({ locale }: { locale: string }) {
           </button>
 
           <button
-            className="contact-button"
+            className={styles.contactButton}
             onClick={() => copyToClipboard(contactInfo.address, "Adresse")}
           >
             {contactInfo.address}
           </button>
 
-          {/* <div className="accordion-container">
-            <div className="accordion-wrapper">
+          {/* <div className={styles.accordionContainer}>
+            <div className={styles.accordionWrapper}>
               <button
-                className="accordion-header"
+                className={styles.accordionHeader}
                 onClick={() => setIsWebDevOpen(!isWebDevOpen)}
               >
                 <span>{t("webdev")}</span>
@@ -73,13 +69,13 @@ export default function ContactSection({ locale }: { locale: string }) {
               </button>
 
               {isWebDevOpen && (
-                <div className="accordion-content">
-                  <p className={`accordion-text ${rawengulkLight.className}`}>
+                <div className={styles.accordionContent}>
+                  <p className={`${styles.accordionText} ${rawengulkLight.className}`}>
                     {t("webdevMessage")}
                   </p>
                   <Link
                     href="https://www.thefrenchbaguettes.com"
-                    className="webdev-link"
+                    className={styles.webdevLink}
                   >
                     {t("webdevButton")}
                   </Link>
@@ -89,206 +85,6 @@ export default function ContactSection({ locale }: { locale: string }) {
           </div> */}
         </div>
       </div>
-      <style jsx>{`
-        .contact-container {
-          position: relative;
-          height: calc(100dvh - 5rem);
-          width: 100vw;
-          max-width: 1300px;
-          margin: 0 auto;
-          display: flex;
-          padding-top: 1rem;
-          flex-direction: column;
-          padding-bottom: 1rem;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-        }
-
-        .contact-content-wrapper {
-          display: flex;
-          flex-direction: column;
-          gap: 2rem;
-          margin-top: 2.5rem;
-          padding-top: 3rem;
-          padding-left: 2rem;
-          padding-right: 2rem;
-          align-items: center;
-          justify-content: center;
-          background-image: url("https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/contact/contactbg.png");
-          background-size: cover;
-          background-position: center 65%;
-          width: 75%;
-          border-top-left-radius: 20000000000000000000000000000px;
-          border-top-right-radius: 20000000000000000000000000000px;
-          height: calc(100dvh - 10rem);
-          max-height: 700px;
-          max-width: 1300px;
-        }
-
-        .contact-section-content {
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
-          align-items: center;
-          width: 100%;
-        }
-
-        .contact-title {
-          font-size: 1.8rem;
-          font-weight: bold;
-          color: ${themeVariables.lightForeground};
-          text-align: center;
-          margin-bottom: 4rem;
-        }
-
-        .contact-button {
-          color: ${themeVariables.grassGreen};
-          background-color: ${themeVariables.cloudyMist};
-          padding: 1rem 2rem;
-          border: none;
-          cursor: pointer;
-          width: 100%;
-          max-width: 400px;
-          font-size: 1rem;
-          transition: transform 0.2s, color 0.2s;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          white-space: pre-line;
-        }
-
-        .contact-button:hover {
-          color: ${themeVariables.neutralEarth};
-          transform: translateY(-2px);
-        }
-
-        .accordion-container {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          align-items: center;
-          width: 100%;
-        }
-
-        .accordion-wrapper {
-          width: 100%;
-          max-width: 400px;
-          background-color: rgba(255, 255, 255, 1);
-          border-radius: 4px;
-          overflow: hidden;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .accordion-header {
-          background-color: ${themeVariables.grassGreen};
-          padding: 1rem 2rem;
-          border: none;
-          cursor: pointer;
-          width: 100%;
-          font-size: 1rem;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          color: ${themeVariables.lightForeground};
-          transition: color 0.2s;
-        }
-
-        .accordion-header:hover {
-          color: ${themeVariables.secondaryGlow};
-        }
-
-        .accordion-content {
-          padding: 1rem;
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          background-color: rgba(255, 255, 255, 1);
-        }
-
-        .accordion-text {
-          text-align: center;
-        }
-
-        .webdev-link {
-          background-color: ${themeVariables.grassGreen};
-          color: ${themeVariables.lightForeground};
-          padding: 0.75rem 1.5rem;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-          font-weight: bold;
-          transition: all 0.2s ease;
-          text-align: center;
-          display: block;
-        }
-
-        .webdev-link:hover {
-          background-color: #0a3836;
-        }
-
-        /* Styles pour le design responsive */
-        @media (max-width: 1200px) {
-          .contact-content-wrapper {
-            width: 90%;
-          }
-        }
-
-        @media (max-width: 1100px) {
-          .contact-button,
-          .accordion-header {
-            font-size: 0.9rem;
-            padding: 0.9rem 1.8rem;
-          }
-
-          .contact-title {
-            font-size: 1.6rem;
-          }
-        }
-
-        @media (max-width: 800px) {
-          .contact-content-wrapper {
-            width: 95%;
-            padding-left: 1rem;
-            padding-right: 1rem;
-          }
-
-          .contact-section-content {
-            gap: 0.4rem;
-          }
-
-          .contact-title {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-          }
-
-          .contact-button,
-          .accordion-header {
-            font-size: 0.8rem;
-            padding: 0.8rem 1.5rem;
-          }
-
-          .webdev-link {
-            padding: 0.6rem 1.2rem;
-            font-size: 0.8rem;
-          }
-        }
-
-        @media (max-width: 500px) {
-          .contact-title {
-            font-size: 1.2rem;
-          }
-
-          .contact-button,
-          .accordion-header {
-            font-size: 0.7rem;
-            padding: 0.7rem 1.2rem;
-          }
-
-          .contact-content-wrapper {
-            padding-top: 2rem;
-            gap: 1.5rem;
-          }
-        }
-      `}</style>
     </div>
   );
 }
