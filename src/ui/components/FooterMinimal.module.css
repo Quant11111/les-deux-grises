@@ -15,24 +15,23 @@
 }
 
 .privacyLink {
-  color: #4ADE80; /* grassGreen */
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .privacyLink:hover {
-  color: #0061A7; /* corporateBlue */
+  color: rgb(var(--light-foreground));
   text-decoration: underline;
 }
 
 .separator {
-  color: #64748B; /* coolBlueGrey */
+  color: rgb(var(--cool-blue-grey));
   font-weight: bold;
 }
 
 .copyright {
-  color: #64748B; /* coolBlueGrey */
+  color: rgb(var(--cool-blue-grey));
 }
 
 /* Responsive Design */
