@@ -1,0 +1,62 @@
+.blockContainer {
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.title {
+  color: rgb(var(--dark-foreground));
+  font-size: 0.8rem;
+  padding-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.infoGrid {
+  display: flex;
+  gap: 0.2rem;
+  line-height: 0.2rem;
+  flex-wrap: wrap;
+}
+
+.infoItem {
+  margin-bottom: 8px;
+}
+
+.label {
+  color: #4a5568;
+  font-size: 0.85rem;
+  display: block;
+}
+
+.value {
+  color: #1a202c;
+  font-size: 0.5rem;
+  display: block;
+  word-break: break-word;
+}
+
+.distinctionsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+@media (min-width: 750px) {
+  .blockContainer {
+    padding: 1rem !important;
+  }
+
+  .title {
+    font-size: calc(1.2vw / 0.85) !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .infoGrid {
+    line-height: calc(0.9vw / 0.85) !important;
+  }
+
+  .value {
+    font-size: calc(1vw / 0.85) !important;
+  }
+}

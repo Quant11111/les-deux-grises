@@ -4,52 +4,34 @@ import HorsePageContent from "./HorsePageContent";
 import OnlySmall from "@/ui/components/OnlySmall";
 import { LogoSvg } from "@/ui/svg/LogoSvg";
 import OnlyLarge from "@/ui/components/OnlyLarge";
-import themeVariables from "@/utils/themeVariables";
 import Image from "next/image";
 import FooterMinimal from "@/ui/components/FooterMinimal";
+import styles from "./page.module.css";
 
 export default function HorsePage({ params }: { params: { horseId: string } }) {
   const locale = useLocale();
   const t = useTranslations("HorsePage");
   const nt = useTranslations("Navbar");
   return (
-    <main
-      style={{
-        position: "relative",
-        minHeight: "100vh",
-        width: "100vw",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
+    <main className={styles.main}>
       <Image
         src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/horse/horsepagebg.png"
         alt="horse page background"
         fill
-        style={{ objectFit: "cover", zIndex: -1 }}
+        className={styles.backgroundImage}
       />
       <OnlySmall>
         <LogoSvg
           size={150}
-          color={themeVariables.lightForeground}
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            zIndex: 60,
-          }}
+          color="rgb(var(--light-foreground))"
+          className={styles.logo}
         />
       </OnlySmall>
       <OnlyLarge>
         <LogoSvg
           size={150}
-          color={themeVariables.lightForeground}
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            zIndex: 60,
-          }}
+          color="rgb(var(--light-foreground))"
+          className={styles.logo}
         />
       </OnlyLarge>
       <Navbar
@@ -61,7 +43,7 @@ export default function HorsePage({ params }: { params: { horseId: string } }) {
         news={nt("news")}
         contact={nt("contact")}
       />
-      <div style={{ flex: 1 }}>
+      <div className={styles.contentWrapper}>
         <HorsePageContent locale={locale} id={params.horseId} />
       </div>
       <FooterMinimal locale={locale} />

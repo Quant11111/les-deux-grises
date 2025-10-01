@@ -1,8 +1,6 @@
-import themeVariables from "@/utils/themeVariables";
 import { ReactNode } from "react";
-import styled from "styled-components";
-
 import { rawengulkDemibold } from "@/app/fonts/fonts";
+import styles from "./InfoBlock.module.css";
 
 interface HorseData {
   name?: string;
@@ -22,78 +20,22 @@ interface InfoBlockProps {
   data: HorseData;
 }
 
-const BlockContainer = styled.div`
-  padding: 0.5rem;
-  border-radius: 8px;
-  @media (min-width: 750px) {
-    padding: 1rem !important;
-  }
-`;
-
-const Title = styled.h3`
-  color: ${themeVariables.darkForeground};
-  font-size: 0.8rem;
-  padding-bottom: 0.5rem;
-  font-weight: 600;
-  @media (min-width: 750px) {
-    font-size: calc(1.2vw / 0.85) !important;
-  }
-`;
-
-const InfoGrid = styled.div`
-  display: flex;
-  gap: 0.2rem;
-  line-height: 0.2rem;
-  flex-wrap: wrap;
-  @media (min-width: 1200px) {
-    line-height: calc(0.9vw / 0.85) !important;
-  }
-`;
-
-const InfoItem = styled.div`
-  margin-bottom: 8px;
-`;
-
-const Label = styled.span`
-  color: #4a5568;
-  font-size: 0.85rem;
-  display: block;
-`;
-
-const Value = styled.span`
-  color: #1a202c;
-  font-size: 0.5rem;
-  display: block;
-  word-break: break-word;
-  @media (min-width: 1200px) {
-    font-size: calc(1vw / 0.85) !important;
-  }
-`;
-
-const DistinctionsList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-top: 4px;
-`;
-
 export const InfoBlock = ({ data }: InfoBlockProps) => {
   // Fonction pour formater l'affichage des valeurs
   const formatValue = (key: string, value: any): ReactNode => {
     if (Array.isArray(value)) {
       return (
-        <Value
-          className={rawengulkDemibold.className}
+        <span
+          className={`${styles.value} ${rawengulkDemibold.className}`}
           data-full-text={value.join(", ")}
         >
-          {" "}
           {value.join(", ").length > 10
             ? value.join(", ").slice(0, 10) + "..."
             : value.join(", ")}
-        </Value>
+        </span>
       );
     }
-    return <Value className={rawengulkDemibold.className}>{value}</Value>;
+    return <span className={`${styles.value} ${rawengulkDemibold.className}`}>{value}</span>;
   };
 
   // Fonction pour formater les clés en labels lisibles
@@ -120,34 +62,26 @@ export const InfoBlock = ({ data }: InfoBlockProps) => {
   });
 
   return (
-    <BlockContainer>
-      <Title className="title">{data.name}</Title>
-      <InfoGrid className="info-grid">
+    <div className={styles.blockContainer}>
+      <h3 className={styles.title}>{data.name}</h3>
+      <div className={styles.infoGrid}>
         {displayableProperties.map(([key, value]) => (
-          <InfoItem key={key}>{formatValue(key, value)}</InfoItem>
+          <div key={key} className={styles.infoItem}>
+            {formatValue(key, value)}
+          </div>
         ))}
         {data.distinctions && (
-          <InfoItem className="distinctions">
+          <div className={`${styles.infoItem} distinctions`}>
             {formatValue("distinctions", data.distinctions)}
-          </InfoItem>
+          </div>
         )}
         {data.licenses && (
-          <InfoItem className="licenses">
+          <div className={`${styles.infoItem} licenses`}>
             {formatValue("licenses", data.licenses)}
-          </InfoItem>
+          </div>
         )}
-      </InfoGrid>
-      {/*       <style jsx>{`
-        @media (min-width: 1200px) {
-          .title {
-            font-size: 7rem !important;
-          }
-          .info-grid {
-            font-size: 7rem !important;
-          }
-        }
-      `}</style> */}
-    </BlockContainer>
+      </div>
+    </div>
   );
 };
 
