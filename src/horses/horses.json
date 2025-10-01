@@ -9,7 +9,7 @@
     "registration": "528003201803746",
     "height": "1.63",
     "distinctions": ["D-OC"],
-    "img": "NIKITA_Corps.png",
+    "img": "ldgexportsquentin/horse/nikita/nikitaprofilepic.png",
     "imgs": [
       "ldgexportsquentin/horse/NIKITA_1.png",
       "ldgexportsquentin/horse/NIKITA_2.png",
@@ -170,7 +170,7 @@
     "color": "Brown",
     "studbook": "ZANG",
     "registration": "056015Z55806220",
-    "img": "BATAAF_Corps.png",
+    "img": "ldgexportsquentin/horse/bataaf/bataafprofilepic.png",
     "dad": {
       "name": "BALOUBET DU ROUET",
       "studbook": "SF",
@@ -237,7 +237,7 @@
     "color": "Dark brown",
     "studbook": "BWP",
     "registration": "056002W00329604",
-    "img": "VANITY_Corps.png",
+    "img": "ldgexportsquentin/horse/vanity/vanityprofilepic.png",
     "dad": {
       "name": "DIAMANT DE SEMILLY",
       "studbook": "SF",
@@ -307,7 +307,7 @@
     "color": "Brown",
     "studbook": "ZANG",
     "registration": "056015Z55229521",
-    "img": "COCO_Corps.png",
+    "img": "ldgexportsquentin/horse/coco/cocoprofilepic.png",
     "dad": {
       "name": "CHACCO-BLUE",
       "studbook": "MECKL",
@@ -383,7 +383,7 @@
     "color": "Brown",
     "studbook": "ZANG",
     "registration": "056015Z55146820",
-    "img": "HEARTKEY_Corps.png",
+    "img": "ldgexportsquentin/horse/heartkey/hearthkeyprofilepic.png",
     "dad": {
       "name": "HARDROCK Z",
       "studbook": "ZANG",
@@ -459,7 +459,7 @@
     "color": "Chestnut",
     "studbook": "ZANG",
     "registration": "056015Z55231722",
-    "img": "CARAMEL_Corps.png",
+    "img": "ldgexportsquentin/horse/caramel/caramelprofilepic.png",
     "dad": {
       "name": "CHACCO-BLUE",
       "studbook": "MECKL",
@@ -535,7 +535,7 @@
     "color": "Skew or pie bald",
     "studbook": "AES",
     "registration": "826002190886832",
-    "img": "OURGYLA_Corps.png",
+    "img": "ldgexportsquentin/horse/ourgyla/ourgylaprofilepic.png",
     "dad": {
       "name": "AD A BIG BOY",
       "studbook": "BWP",
@@ -615,7 +615,7 @@
     "color": "Brown",
     "studbook": "KWPN",
     "registration": "528003202002905",
-    "img": "ALLSTAR_Corps.png",
+    "img": "ldgexportsquentin/horse/pasithee/pasitheeprofilepic.png",
     "dad": {
       "name": "ALL STAR 5",
       "studbook": "HANN",
@@ -705,7 +705,7 @@
     "color": "Brown",
     "studbook": "KWPN",
     "registration": "528003202006706",
-    "img": "PAKKEE_Corps.png",
+    "img": "ldgexportsquentin/horse/pakkee/pakeeprofilepic.png",
     "dad": {
       "name": "HARDROCK Z",
       "studbook": "ZANG",
