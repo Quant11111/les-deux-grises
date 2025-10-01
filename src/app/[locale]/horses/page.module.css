@@ -1,0 +1,27 @@
+/* Main container for horses page */
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100dvh;
+  background: rgb(var(--grass-green));
+  overflow: hidden;
+}
+
+/* Hidden title for SEO */
+.hiddenTitle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  opacity: 0;
+}
+
+/* Logo styling for large screens */
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 60;
+}

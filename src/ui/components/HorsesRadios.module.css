@@ -1,0 +1,39 @@
+/* Container for radio buttons */
+.horsesRadios {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(var(--grass-green));
+  gap: 2rem;
+  z-index: 30;
+  min-width: 100%;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+}
+
+/* Radio label container */
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+/* Hidden input radio */
+.radioInput {
+  display: none;
+}
+
+/* Radio label text */
+.radioText {
+  color: rgb(var(--neutral-earth));
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+/* Active radio text */
+.radioTextActive {
+  color: rgb(var(--cloudy-mist));
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}

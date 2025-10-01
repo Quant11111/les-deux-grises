@@ -1,5 +1,4 @@
 "use client";
-"use client";
 
 import { useLocale, useTranslations } from "next-intl";
 import {
@@ -11,7 +10,7 @@ import {
   useRef,
 } from "react";
 import dynamic from "next/dynamic";
-import themeVariables from "@/utils/themeVariables";
+import styles from "./page.module.css";
 
 import Navbar from "@/ui/Navbar";
 import { LogoSvg } from "@/ui/svg/LogoSvg";
@@ -30,16 +29,7 @@ const Scrollbars = dynamic(
 );
 
 // Placeholder pour les sections pendant le chargement
-const SectionLoader = () => (
-  <div
-    style={{
-      height: "300px",
-      backgroundColor: themeVariables.cloudyMist,
-      width: "100%",
-      marginBottom: "2rem",
-    }}
-  />
-);
+const SectionLoader = () => <div className={styles.sectionLoader} />;
 
 export default function About() {
   const locale = useLocale();
@@ -96,7 +86,7 @@ export default function About() {
     [key: string]: any;
   }) => {
     const thumbStyle = {
-      backgroundColor: themeVariables.lightForeground,
+      backgroundColor: "rgb(var(--light-foreground))",
       borderRadius: "4px",
       opacity: 1,
       width: "12px !important",
@@ -124,39 +114,13 @@ export default function About() {
   return (
     <main
       ref={mainRef}
-      className="main-about"
-      style={{
-        alignItems: "center",
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
-        height: "100vh",
-        overflow: "hidden",
-        opacity: isLoaded ? 1 : 0,
-        transition: "opacity 0.3s ease-in",
-      }}
+      className={`${styles.main} ${isLoaded ? styles.mainLoaded : ""}`}
     >
-      <h1
-        className="hidden-title"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          zIndex: 100,
-          opacity: 0,
-        }}
-      >
-        {t("title")}
-      </h1>
+      <h1 className={styles.hiddenTitle}>{t("title")}</h1>
       <LogoSvg
         size={150}
-        color={themeVariables.lightForeground}
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          zIndex: 100,
-        }}
+        color="rgb(var(--light-foreground))"
+        className={styles.logo}
       />
 
       <Navbar
@@ -170,17 +134,9 @@ export default function About() {
       />
 
       <div
-        className="hide-scrollbar hide-scrollbar::-webkit-scrollbar"
-        style={{
-          flex: 1,
-          maxWidth: "1301px",
-          width: "100%",
-          height: "calc(100vh - 100px)",
-          position: "relative",
-          overflow: "scroll",
-        }}
+        className={`${styles.contentContainer} hide-scrollbar hide-scrollbar::-webkit-scrollbar`}
       >
-        {/* 
+        {/*
         <Scrollbars
           style={{
             width: "100%",
@@ -196,7 +152,7 @@ export default function About() {
           autoHide={false}
           thumbSize={120}
         > */}
-        <div style={{ minHeight: "100%" }}>
+        <div className={styles.contentWrapper}>
           <Suspense fallback={<SectionLoader />}>
             <WhatWeDo title={t("whatTitle")} content={t("whatContent")} />
           </Suspense>

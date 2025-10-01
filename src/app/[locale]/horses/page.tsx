@@ -2,49 +2,25 @@ import HorsesSection from "@/ui/components/HorsesSection";
 import OnlyLarge from "@/ui/components/OnlyLarge";
 import Navbar from "@/ui/Navbar";
 import { LogoSvg } from "@/ui/svg/LogoSvg";
-import themeVariables from "@/utils/themeVariables";
 import { useLocale, useTranslations } from "next-intl";
 import FooterMinimal from "@/ui/components/FooterMinimal";
+import styles from "./page.module.css";
 
 export default function Horses() {
   const locale = useLocale();
   const t = useTranslations("HorsesPage");
   const nt = useTranslations("Navbar");
+
   return (
-    <main
-      className="hide-scrollbar"
-      style={{
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
-        width: "100vw",
-        height: "100dvh",
-        background: themeVariables.grassGreen,
-        overflow: "hidden",
-      }}
-    >
-      <h1
-        className="hidden-title"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          zIndex: 100,
-          opacity: 0,
-        }}
-      >
+    <main className={`${styles.main} hide-scrollbar`}>
+      <h1 className={styles.hiddenTitle}>
         {t("title")}
       </h1>
       <OnlyLarge>
         <LogoSvg
           size={150}
-          color={themeVariables.lightForeground}
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            zIndex: 60,
-          }}
+          color="rgb(var(--light-foreground))"
+          className={styles.logo}
         />
       </OnlyLarge>
       <Navbar

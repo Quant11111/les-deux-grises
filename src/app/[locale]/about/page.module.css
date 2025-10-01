@@ -1,0 +1,55 @@
+/* Main container for about page */
+.main {
+  align-items: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.mainLoaded {
+  opacity: 1;
+}
+
+/* Hidden title for SEO */
+.hiddenTitle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  opacity: 0;
+}
+
+/* Logo styling */
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+/* Content container */
+.contentContainer {
+  flex: 1;
+  max-width: 1301px;
+  width: 100%;
+  height: calc(100vh - 100px);
+  position: relative;
+  overflow: scroll;
+}
+
+/* Inner content wrapper */
+.contentWrapper {
+  min-height: 100%;
+}
+
+/* Section loader placeholder */
+.sectionLoader {
+  height: 300px;
+  background-color: rgb(var(--cloudy-mist));
+  width: 100%;
+  margin-bottom: 2rem;
+}

@@ -1,0 +1,97 @@
+/* WhatWeDo section container */
+.whatWeDo {
+  position: relative;
+  margin-top: 20px;
+  max-height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background container */
+.whatWeDoBackground {
+  position: relative;
+  max-width: 1200px;
+  height: calc(100dvh - 10rem);
+  max-height: 700px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background image */
+.whatWeDoBackgroundImage {
+  object-fit: cover;
+  object-position: center top;
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+}
+
+/* Card container */
+.whatWeDoCard {
+  position: absolute;
+  display: grid;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  grid-template-areas:
+    "image title"
+    "image content";
+  grid-template-columns: 250px 400px;
+  grid-template-rows: 90px 1fr;
+  gap: 1rem;
+  height: auto;
+  padding: 1rem;
+  background-color: rgb(var(--cloudy-mist));
+}
+
+/* Card title */
+.whatWeDoCardTitle {
+  color: rgb(var(--grass-green));
+  margin-top: 40px;
+  grid-area: title;
+  font-size: 1.5rem;
+}
+
+/* Card content */
+.whatWeDoCardContent {
+  white-space: pre-line;
+  grid-area: content;
+  font-size: 0.75rem;
+  margin-bottom: 45px;
+}
+
+/* Card image container */
+.whatWeDoCardImageContainer {
+  position: relative;
+  grid-area: image;
+  width: 100%;
+  height: 100%;
+}
+
+/* Card image */
+.whatWeDoCardImage {
+  object-fit: cover;
+}
+
+/* Mobile styles */
+@media (max-width: 750px) {
+  .whatWeDoCard {
+    top: 50%;
+    grid-template-columns: 0px 60vw;
+    opacity: 0.9;
+  }
+
+  .whatWeDoCardContent {
+    font-size: 0.8rem;
+  }
+}
+
+/* Large desktop styles */
+@media (min-width: 1300px) {
+  .whatWeDoCard {
+    top: 62%;
+    left: 31%;
+  }
+}

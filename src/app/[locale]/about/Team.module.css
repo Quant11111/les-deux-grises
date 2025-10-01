@@ -1,0 +1,104 @@
+/* Team section container */
+.team {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  max-height: 500px;
+  width: 100%;
+  background-color: rgb(var(--cloudy-mist));
+  padding: 2rem 0;
+  contain: content;
+}
+
+/* Team title */
+.teamTitle {
+  position: absolute;
+  top: 2rem;
+  left: 3rem;
+  font-size: 26px;
+  font-weight: 400;
+  color: rgb(var(--grass-green));
+}
+
+/* Carousel container */
+.carouselContainer {
+  margin-top: 4rem;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Carousel */
+.carousel {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  cursor: grab;
+  will-change: transform;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Carousel item */
+.carouselItem {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  contain: layout style;
+}
+
+/* Team card skeleton for loading */
+.teamCardSkeleton {
+  height: 306px;
+  width: 200px;
+  background-color: #e0e0e0;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+/* Pagination dot */
+.paginationDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgb(var(--cloudy-mist));
+  border: 2px solid rgb(var(--corporate-blue));
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.paginationDot.active {
+  background-color: rgb(var(--corporate-blue));
+}
+
+/* Mobile styles */
+@media (max-width: 640px) {
+  .carousel {
+    gap: 1rem;
+  }
+
+  .teamTitle {
+    font-size: 1.5rem;
+  }
+}

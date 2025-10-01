@@ -1,0 +1,106 @@
+/* WhoWeAre section container */
+.whoWeAre {
+  margin-bottom: 2rem;
+  position: relative;
+  width: 90%;
+  margin-left: 5%;
+  height: 80vh;
+  max-height: 600px;
+  margin-top: 4rem;
+}
+
+/* Title styling */
+.whoWeAreCardTitle {
+  color: rgb(var(--neutral-earth));
+}
+
+/* Content styling */
+.whoWeAreCardContent {
+  white-space: pre-line;
+  color: rgb(var(--light-foreground));
+}
+
+/* Mobile styles */
+@media (max-width: 1000px) {
+  .whoWeAre {
+    display: flex;
+    height: 70vh !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .whoWeAreBackgroundImageContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 100%;
+  }
+
+  .whoWeAreCard {
+    padding: 2rem;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    width: 90%;
+    background-color: rgb(var(--grass-green));
+  }
+
+  .whoWeAreCardTitle {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .whoWeAreCardContent {
+    font-size: 0.7rem;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1000px) {
+  .whoWeAre {
+    max-height: 600px;
+    display: grid;
+    grid-template-areas:
+      "image null"
+      "image card";
+    grid-template-rows: 0.5fr 1fr;
+    grid-template-columns: 2fr 1fr;
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .whoWeAreBackgroundImageContainer {
+    position: relative;
+    grid-area: image;
+  }
+
+  .whoWeAreCard {
+    position: relative;
+    grid-area: card;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .whoWeAreCardTitle {
+    font-size: 1.5rem;
+  }
+
+  .whoWeAreCardContent {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+}
+
+/* Background image styling */
+.whoWeAreBackgroundImage {
+  object-fit: cover;
+  object-position: center;
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+}
