@@ -47,9 +47,8 @@ export default function Privacy() {
         style={{
           flex: 1,
           maxWidth: "800px",
-          margin: "0 auto",
+          margin: "auto",
           padding: "2rem",
-          marginTop: "6rem",
         }}
       >
         <div className="privacy-content">
@@ -69,22 +68,6 @@ export default function Privacy() {
             <h2 className="section-title">{t("dataRetention")}</h2>
             <p className="section-text">{t("dataRetentionText")}</p>
           </div>
-
-          <div className="privacy-section">
-            <h2 className="section-title">{t("yourRights")}</h2>
-            <p className="section-text">{t("yourRightsText")}</p>
-          </div>
-
-          <div className="privacy-section">
-            <h2 className="section-title">{t("contact")}</h2>
-            <p className="section-text">
-              {t("contactText")}{" "}
-              <a href="mailto:ldg@lesdeuxgrises.com" className="contact-link">
-                ldg@lesdeuxgrises.com
-              </a>
-            </p>
-          </div>
-
           <div className="back-link">
             <Link href={`/${locale}`} className="back-button">
               ← {t("backHome")}
@@ -96,7 +79,6 @@ export default function Privacy() {
       <style jsx>{`
         .privacy-content {
           background: ${themeVariables.lighterCloudyMist};
-          border-radius: 12px;
           padding: 3rem;
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
@@ -123,7 +105,7 @@ export default function Privacy() {
         }
 
         .section-text {
-          font-size: 1rem;
+          font-size: 0.9rem;
           line-height: 1.6;
           color: ${themeVariables.nightGrey};
           text-align: justify;
