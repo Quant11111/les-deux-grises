@@ -39,7 +39,7 @@ const themeVariables = {
   calloutBorderRgb: "106 138 133", // var(--cool-blue-grey)
   cardRgb: "180, 185, 188",
   cardBorderRgb: "131, 134, 135",
-  warning: /* warm lightg red */ "#FF8C94",
+  warningRgb: /* warm lightg red */ "rgba(255, 140, 148, 1)",
 
   breakpoints: {
     sm: "640px",

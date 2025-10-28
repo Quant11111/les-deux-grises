@@ -20,6 +20,8 @@
   --background-start-rgb: var(--grass-green);
   --background-end-rgb: var(--night-grey);
 
+  --warning: 255, 140, 148;
+
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
     rgba(var(--grass-green), 0.2) 0deg,

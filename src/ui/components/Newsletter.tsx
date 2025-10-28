@@ -59,7 +59,10 @@ export default function Newsletter() {
 
   return (
     <>
-      <button className={styles.notificationButton} onClick={() => setIsOpen(true)}>
+      <button
+        className={styles.notificationButton}
+        onClick={() => setIsOpen(true)}
+      >
         <div className={styles.notificationIcon}>
           <BellIcon />
           <span className={styles.notificationBadge}>1</span>
@@ -69,9 +72,12 @@ export default function Newsletter() {
       {isOpen && (
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
-            <IconButton className={styles.closeButton} onClick={() => setIsOpen(false)}>
+            <button
+              className={styles.closeButton}
+              onClick={() => setIsOpen(false)}
+            >
               <X />
-            </IconButton>
+            </button>
             <h2 className={styles.modalTitle}>{t("title")}</h2>
             <p className={styles.modalDescription}>{t("description")}</p>
 

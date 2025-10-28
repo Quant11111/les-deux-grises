@@ -29,6 +29,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: bold;
+  padding-top: 2px;
 }
 
 .modalOverlay {
@@ -53,9 +55,20 @@
 .closeButton {
   position: absolute;
   border-radius: 10%;
-  top: 0;
-  right: 0;
-  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 2rem;
+  right: 2rem;
+  color: rgb(var(--warning));
+  border: 2px solid white;
+  background-color: white;
+}
+
+.closeButton:hover {
+  transition: ease-in-out 0.14s;
+  border: 2px solid rgb(var(--warning));
+  color: rgb(var(--warning));
 }
 
 .modalTitle {
