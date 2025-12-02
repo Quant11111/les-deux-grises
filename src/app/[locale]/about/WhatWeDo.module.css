@@ -88,6 +88,21 @@
   }
 }
 
+@media (max-width: 500px) {
+  .h1 {
+    font-size: 1.5rem;
+  }
+  .whatWeDoCard {
+    top: 52%;
+    grid-template-columns: 0px 70vw;
+    max-width: 80vw;
+  }
+
+  .whatWeDoCardContent {
+    font-size: 0.7rem;
+  }
+}
+
 /* Large desktop styles */
 @media (min-width: 1300px) {
   .whatWeDoCard {
