@@ -1,12 +1,9 @@
-"use client";
-
-import { rawengulkDemibold, arkhipRegular, rawengulk } from "@/app/fonts/fonts";
+import { arkhipRegular, rawengulkDemibold } from "@/app/fonts/fonts";
 import themeVariables from "@/utils/themeVariables";
-import { useEffect, useState, useCallback } from "react";
-import { LogoSvg } from "../svg/LogoSvg";
 import Image from "next/image";
-import OnlyLarge from "./OnlyLarge";
+import { LogoSvg } from "../svg/LogoSvg";
 import styles from "./Hero.module.css";
+import OnlyLarge from "./OnlyLarge";
 
 export default function Hero({
   title,
@@ -15,23 +12,6 @@ export default function Hero({
   title: string;
   description: string;
 }) {
-  const [windowHeight, setWindowHeight] = useState(0);
-
-  const handleResize = useCallback(() => {
-    setWindowHeight(window.innerHeight);
-  }, []);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setWindowHeight(window.innerHeight);
-      window.addEventListener("resize", handleResize);
-      return () => {
-        window.removeEventListener("resize", handleResize);
-      };
-    }
-  }, [handleResize]);
-
-  const imgzoom = windowHeight / 2500;
   const imageUrl =
     "https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/landing/landing.png";
 
@@ -58,26 +38,11 @@ export default function Hero({
           />
         </div>
 
-        <h1
-          className={`${styles.heroTitle} ${arkhipRegular.className}`}
-          style={{
-            fontSize: `${imgzoom * 9 * 16}px`,
-            letterSpacing: `${imgzoom * 2.6 * 16}px`,
-            color: themeVariables.lightForeground,
-          }}
-        >
+        <h1 className={`${styles.heroTitle} ${arkhipRegular.className}`}>
           {title}
         </h1>
 
-        <p
-          className={`${styles.heroDescription} ${rawengulkDemibold.className}`}
-          style={{
-            color: themeVariables.neutralEarth,
-            fontSize: `${imgzoom * 67}px`,
-            width: `${imgzoom * 1100}px`,
-            left: `calc(50% + ${imgzoom * 660}px)`,
-          }}
-        >
+        <p className={`${styles.heroDescription} ${rawengulkDemibold.className}`}>
           {description}
         </p>
       </div>
