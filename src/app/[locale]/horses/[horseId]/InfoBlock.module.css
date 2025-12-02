@@ -60,3 +60,15 @@
     font-size: calc(1vw / 0.85) !important;
   }
 }
+
+@media (max-width: 500px) {
+  .infoGrid {
+    gap: 0.1rem;
+  }
+  .title {
+    font-size: 0.6rem;
+  }
+  .value {
+    font-size: 0.6rem;
+  }
+}
