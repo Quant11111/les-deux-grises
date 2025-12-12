@@ -9,7 +9,11 @@
   padding: 0.2rem;
   cursor: pointer;
   border: none;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.479);
+  box-shadow: 0 4px 6px rgb(0, 0, 0);
+}
+.notificationButton:hover {
+  background: rgba(67, 255, 92, 0.589);
 }
 
 .notificationIcon {

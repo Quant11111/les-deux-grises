@@ -99,5 +99,7 @@
     font-size: 0.9rem !important;
     transform: translate(-49%, -30%) !important;
     text-align: center !important;
+    max-width: 80vw !important;
+    top: 75% !important;
   }
 }
