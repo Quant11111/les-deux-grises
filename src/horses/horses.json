@@ -764,5 +764,918 @@
         "distinctions": ["prest", "VB"]
       }
     }
+  },
+  {
+    "name": "P. CHACOON'S COOL GIRL",
+    "gender": "f",
+    "category": "mare",
+    "birthYear": 2020,
+    "color": "Grey",
+    "studbook": "KWPN",
+    "registration": "528003202008127",
+    "url": "https://www.horsetelex.fr/horses/pedigree/2154994/p-chacoon-s-cool-girl",
+    "img": "",
+    "imgs": [],
+    "dad": {
+      "name": "CHACOON BLUE",
+      "studbook": "MECKL",
+      "registration": "276427270322009",
+      "birthYear": 2009,
+      "color": "Grey",
+      "height": "1.72",
+      "licenses": ["DSP", "HANN", "MECKL", "MIPAAF", "OLDBG", "OS", "RHEIN", "WESTF"],
+      "distinctions": [],
+      "performance": "1.50m Jump.",
+      "dad": {
+        "name": "CHACCO-BLUE",
+        "studbook": "MECKL",
+        "registration": "276327271025998",
+        "birthYear": 1998,
+        "color": "Brown",
+        "height": "1.72",
+        "licenses": ["HANN", "MECKL", "OLDBG", "OS", "RHEIN", "SF", "SWB", "WESTF"],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "CINDINA",
+        "studbook": "OS",
+        "registration": "276418180109305",
+        "birthYear": 2005,
+        "color": "Grey",
+        "distinctions": ["Hauptstutbuch"],
+        "performance": "1.40m Jump."
+      }
+    },
+    "mom": {
+      "name": "UMBERTA",
+      "studbook": "HOLST",
+      "registration": "276421000248604",
+      "birthYear": 2004,
+      "color": "Grey",
+      "height": "1.65",
+      "distinctions": [],
+      "dad": {
+        "name": "COLMAN",
+        "studbook": "HOLST",
+        "registration": "276321210176396",
+        "birthYear": 1996,
+        "color": "Grey",
+        "height": "1.70",
+        "licenses": ["AWR", "BAVAR", "HANN", "HOLST", "OLDBG", "OS", "RHEIN", "SBS", "SF"],
+        "distinctions": ["WFFS-free"],
+        "performance": "1.20m Jump."
+      },
+      "mom": {
+        "name": "DUNJA XIII",
+        "studbook": "HOLST",
+        "registration": "276321210208789",
+        "birthYear": 1989,
+        "color": "Brown",
+        "height": "1.64",
+        "distinctions": ["Hauptstutbuch"]
+      }
+    }
+  },
+  {
+    "name": "NICARETTE END Z",
+    "gender": "f",
+    "category": "mare",
+    "birthYear": 2019,
+    "color": "Dark brown",
+    "studbook": "ZANG",
+    "registration": "056015Z55130619",
+    "url": "https://www.horsetelex.fr/horses/pedigree/2058917/nicarette-end-z",
+    "img": "",
+    "imgs": [],
+    "dad": {
+      "name": "NIMMERDOR",
+      "studbook": "KWPN",
+      "registration": "147STB-H",
+      "birthYear": 1972,
+      "color": "Brown",
+      "height": "1.68",
+      "licenses": ["HOLST", "KWPN", "SF"],
+      "distinctions": ["pref", "Stb."],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "FARN",
+        "studbook": "HOLST",
+        "registration": "276321210378459",
+        "birthYear": 1959,
+        "color": "Brown",
+        "height": "1.69",
+        "licenses": ["HOLST", "KWPN"],
+        "distinctions": ["pref"]
+      },
+      "mom": {
+        "name": "RAMONAA",
+        "studbook": "NWP",
+        "registration": "187Bv",
+        "birthYear": 1963,
+        "color": "Brown",
+        "distinctions": ["ster"]
+      }
+    },
+    "mom": {
+      "name": "FAGILE END",
+      "studbook": "KWPN",
+      "registration": "528003201000188",
+      "birthYear": 2010,
+      "color": "Dark brown",
+      "height": "",
+      "distinctions": ["VB"],
+      "dad": {
+        "name": "EMILION",
+        "studbook": "KWPN",
+        "registration": "528003198605823",
+        "birthYear": 1986,
+        "color": "Brown",
+        "height": "1.68",
+        "licenses": ["BWP", "KWPN", "SF", "SWB", "WESTF"],
+        "distinctions": ["pref", "Stb."],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "GLENMORE",
+        "studbook": "HOLST",
+        "registration": "276321210042188",
+        "birthYear": 1988,
+        "color": "Grey",
+        "height": "1.68",
+        "distinctions": ["ster"]
+      }
+    }
+  },
+  {
+    "name": "LOVELY DES PREMICES",
+    "gender": "f",
+    "category": "mare",
+    "birthYear": 2021,
+    "color": "Brown",
+    "studbook": "SF",
+    "registration": "25000121368960T",
+    "url": "https://www.horsetelex.fr/horses/pedigree/2218145/lovely-des-premices",
+    "img": "",
+    "imgs": [],
+    "dad": {
+      "name": "CASALL",
+      "studbook": "HOLST",
+      "registration": "276321210208399",
+      "birthYear": 1999,
+      "color": "Brown",
+      "height": "1.67",
+      "licenses": ["AWR", "BRAND", "HOLST", "MIPAAF", "RHEIN", "SBS", "SF", "SWB", "WSI"],
+      "distinctions": ["First Premium Premier"],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "CARETINO",
+        "studbook": "HOLST",
+        "registration": "276321210242583",
+        "birthYear": 1983,
+        "color": "Brown",
+        "height": "1.68",
+        "licenses": ["HOLST", "KWPN", "MIPAAF", "SF", "SWB"],
+        "distinctions": ["Stb."],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "KIRA XVII",
+        "studbook": "HOLST",
+        "registration": "276321210249895",
+        "birthYear": 1995,
+        "color": "Dark brown",
+        "height": "1.70",
+        "distinctions": ["Bezirksprämie", "Zuchtbuch"]
+      }
+    },
+    "mom": {
+      "name": "RHUM DAISY DU COTY",
+      "studbook": "SF",
+      "registration": "25000105065023P",
+      "birthYear": 2005,
+      "color": "Brown",
+      "height": "1.78",
+      "distinctions": [],
+      "dad": {
+        "name": "QUIDAM DE REVEL",
+        "studbook": "SF",
+        "registration": "25000182604507R",
+        "birthYear": 1982,
+        "color": "Brown",
+        "height": "1.68",
+        "licenses": ["AWR", "BWP", "HANN", "HOLST", "KWPN", "MIPAAF", "SF", "SWB", "ZANG"],
+        "distinctions": ["First Premium Premier", "Stb."],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "DAIKIRI DES FORETS",
+        "studbook": "SF",
+        "registration": "25000191011714Y",
+        "birthYear": 1991,
+        "color": "Brown",
+        "performance": "1.35m Jump."
+      }
+    }
+  },
+  {
+    "name": "ALHENA DE MELODIE Z",
+    "gender": "Jument",
+    "category": "",
+    "birthYear": 2022,
+    "color": "Chestnut",
+    "studbook": "ZANG",
+    "registration": "056015Z55232122",
+    "url": "https://www.horsetelex.fr/horses/pedigree/2471993/alhena-de-melodie-z",
+    "img": "",
+    "imgs": [],
+    "dad": {
+      "name": "ALL STAR 5",
+      "studbook": "HANN",
+      "registration": "276431310705003",
+      "birthYear": 2003,
+      "color": "Brown",
+      "height": "1.72m",
+      "licenses": ["DSP", "HANN", "HOLST", "MECKL", "OS", "RHEIN", "RPSI", "SWB", "WESTF", "ZANG"],
+      "distinctions": ["WFFS-free"],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "ARGENTINUS",
+        "studbook": "HANN",
+        "registration": "276331313302680",
+        "birthYear": 1980,
+        "color": "Brown",
+        "height": "1.72m",
+        "licenses": ["HANN", "MIPAAF", "OLDBG", "RHEIN", "SBS", "SF", "WESTF", "ZfdP"],
+        "performance": "1.50m Jump."
+      },
+      "mom": {
+        "name": "APRIL LOVE ZH",
+        "studbook": "HANN",
+        "registration": "276331319628886",
+        "birthYear": 1986,
+        "color": "Chestnut",
+        "height": "1.70m",
+        "distinctions": ["Staatsprämie"],
+        "performance": "Club 4 dre"
+      }
+    },
+    "mom": {
+      "name": "CHARLIE BAY INDEBUS Z",
+      "studbook": "ZANG",
+      "registration": "056015Z55559318",
+      "birthYear": 2018,
+      "color": "Brown",
+      "height": "",
+      "distinctions": [],
+      "dad": {
+        "name": "CHACOON BLUE",
+        "studbook": "MECKL",
+        "registration": "276427270322009",
+        "birthYear": 2009,
+        "color": "Grey",
+        "height": "1.72m",
+        "licenses": ["DSP", "HANN", "MECKL", "MIPAAF", "OLDBG", "OS", "RHEIN", "WESTF"],
+        "performance": "1.50m Jump."
+      },
+      "mom": {
+        "name": "HOPE BAY DE MUZE",
+        "studbook": "BWP",
+        "registration": "056002W00264610",
+        "birthYear": 2007,
+        "color": "Brown",
+        "distinctions": ["VB"]
+      }
+    }
+  },
+  {
+    "name": "E MARQUISE DE MELODIE Z",
+    "gender": "Jument",
+    "category": "",
+    "birthYear": 2022,
+    "color": "Chestnut",
+    "studbook": "ZANG",
+    "registration": "056015Z55231922",
+    "url": "https://www.horsetelex.fr/horses/pedigree/2471994/e-marquise-de-melodie-z",
+    "img": "",
+    "imgs": [],
+    "dad": {
+      "name": "EMERALD VAN 'T RUYTERSHOF",
+      "studbook": "BWP",
+      "registration": "056002W00233177",
+      "birthYear": 2004,
+      "color": "Chestnut",
+      "height": "1.70m",
+      "licenses": ["AA", "AES", "BAVAR", "BWP", "HOLST", "KWPN", "OC", "OLDBG", "SF", "SWB"],
+      "distinctions": ["BWP_Ambassadeur", "WFFS-free"],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "DIAMANT DE SEMILLY",
+        "studbook": "SF",
+        "registration": "25000191446545F",
+        "birthYear": 1991,
+        "color": "Dark brown",
+        "height": "1.73m",
+        "licenses": ["AA", "AWR", "BWP", "CHS", "HOLST", "MIPAAF", "OC", "SF", "ZANG"],
+        "distinctions": ["WFFS-free"],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "CARTHINA Z",
+        "studbook": "ZANG",
+        "registration": "056015Z55536700",
+        "birthYear": 2000,
+        "color": "Chestnut",
+        "performance": "1.45m Jump."
+      }
+    },
+    "mom": {
+      "name": "ILUNA DE MUZE",
+      "studbook": "BWP",
+      "registration": "056002W00270367",
+      "birthYear": 2008,
+      "color": "Chestnut",
+      "height": "",
+      "distinctions": ["VB"],
+      "dad": {
+        "name": "NABAB DE REVE",
+        "studbook": "BWP",
+        "registration": "056002W00139797",
+        "birthYear": 1990,
+        "color": "Brown",
+        "height": "1.74m",
+        "licenses": ["BWP", "SBS", "SF"],
+        "distinctions": ["BWP_Ambassadeur", "Stb."],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "NIMFE DE LA POMME",
+        "studbook": "SF",
+        "registration": "25000101711842B",
+        "birthYear": 2001,
+        "color": "Brown",
+        "performance": "1.35m Jump."
+      }
+    }
+  },
+  {
+    "name": "COURONNE IMPERIALE DE MELODIE Z",
+    "gender": "Jument",
+    "category": "",
+    "birthYear": 2022,
+    "color": "Grey",
+    "studbook": "ZANG",
+    "registration": "056015Z55262022",
+    "url": "https://www.horsetelex.fr/horses/pedigree/2471996/couronne-imperiale-de-melodie-z",
+    "img": "",
+    "imgs": [],
+    "dad": {
+      "name": "CORNET OBOLENSKY",
+      "studbook": "BWP",
+      "registration": "056002W00184083",
+      "birthYear": 1999,
+      "color": "Grey",
+      "height": "1.71m",
+      "licenses": ["BAVAR", "BWP", "CDE", "HANN", "HOLST", "KWPN", "OLDBG", "RHEIN", "SF", "SWB", "WESTF", "WSI"],
+      "distinctions": ["BWP_Ambassadeur"],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "CLINTON",
+        "studbook": "HOLST",
+        "registration": "276321210236093",
+        "birthYear": 1993,
+        "color": "Grey",
+        "height": "1.70m",
+        "licenses": ["BAVAR", "BWP", "HANN", "HOLST", "KWPN", "MIPAAF", "OLDBG", "OS", "RHEIN", "SF", "ZANG"],
+        "distinctions": ["BWP_Ambassadeur"],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "RABANNA VAN COSTERSVELD",
+        "studbook": "BWP",
+        "registration": "056002W00144908",
+        "birthYear": 1994,
+        "color": "Dark brown",
+        "distinctions": ["VB"],
+        "performance": "1.35m Jump."
+      }
+    },
+    "mom": {
+      "name": "CHABADA DE LA POMME",
+      "studbook": "SBS",
+      "registration": "056007000C45054",
+      "birthYear": 2008,
+      "color": "Chestnut",
+      "height": "1.72m",
+      "distinctions": [],
+      "dad": {
+        "name": "KASHMIR VAN SCHUTTERSHOF",
+        "studbook": "SBS",
+        "registration": "056007000K28286",
+        "birthYear": 1994,
+        "color": "Brown",
+        "height": "1.72m",
+        "licenses": ["BWP", "SBS", "SF", "ZANG"],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "EXCELLENTIA DE MUZE",
+        "studbook": "BWP",
+        "registration": "056002W00233446",
+        "birthYear": 2004,
+        "color": "Brown",
+        "height": "1.68m",
+        "distinctions": ["VB"]
+      }
+    }
+  },
+  {
+    "name": "CHOUKINE DES GRISES LDG Z",
+    "gender": "Jument",
+    "category": "",
+    "birthYear": 2024,
+    "color": "Brown",
+    "studbook": "ZANG",
+    "registration": "056015Z56192824",
+    "url": "https://www.horsetelex.fr/horses/pedigree/2666095/choukine-des-grises-ldg-z",
+    "img": "",
+    "imgs": [],
+    "dad": {
+      "name": "CASALLCO",
+      "studbook": "HOLST",
+      "registration": "276421000564311",
+      "birthYear": 2011,
+      "color": "Dark brown",
+      "height": "1.74m",
+      "licenses": ["HANN", "MECKL", "OLDBG", "OS", "RHEIN", "WESTF"],
+      "distinctions": ["Prämienhengst", "Stb.", "WFFS-free"],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "CASALL",
+        "studbook": "HOLST",
+        "registration": "276321210208399",
+        "birthYear": 1999,
+        "color": "Brown",
+        "height": "1.67m",
+        "licenses": ["AWR", "BRAND", "HOLST", "MIPAAF", "RHEIN", "SBS", "SF", "SWB", "WSI"],
+        "distinctions": ["First Premium Premier"],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "ZELDA IV",
+        "studbook": "HOLST",
+        "registration": "276421000620107",
+        "birthYear": 2007,
+        "color": "Brown",
+        "height": "1.67m",
+        "distinctions": ["Bezirksprämie", "Zuchtbuch"]
+      }
+    },
+    "mom": {
+      "name": "EMERALDA GDL G Z",
+      "studbook": "ZANG",
+      "registration": "056015Z55376419",
+      "birthYear": 2019,
+      "color": "Dark brown",
+      "height": "1.64m",
+      "distinctions": [],
+      "performance": "1.30m Jump.",
+      "dad": {
+        "name": "EMERALD VAN 'T RUYTERSHOF",
+        "studbook": "BWP",
+        "registration": "056002W00233177",
+        "birthYear": 2004,
+        "color": "Chestnut",
+        "height": "1.70m",
+        "licenses": ["AA", "AES", "BAVAR", "BWP", "HOLST", "KWPN", "OC", "OLDBG", "SF", "SWB"],
+        "distinctions": ["BWP_Ambassadeur", "WFFS-free"],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "CARIN ALDA G Z",
+        "studbook": "ZANG",
+        "registration": "056015Z55570416",
+        "birthYear": 2016,
+        "color": "Dark brown"
+      }
+    }
+  },
+  {
+    "name": "OLYMPE DES GRISES LDG",
+    "gender": "Jument",
+    "category": "",
+    "birthYear": 2024,
+    "color": "Black",
+    "studbook": "SF",
+    "registration": "25000124166695C",
+    "url": "https://www.horsetelex.fr/horses/pedigree/2666096/olympe-des-grises-ldg",
+    "img": "",
+    "imgs": [],
+    "dad": {
+      "name": "BALOU DU ROUET",
+      "studbook": "OLDBG",
+      "registration": "276333331331099",
+      "birthYear": 1999,
+      "color": "Dark brown",
+      "height": "1.71m",
+      "licenses": ["AWR", "HANN", "HOLST", "ISH", "MECKL", "MIPAAF", "OLDBG", "OS", "RHEIN", "SF", "SWB", "WESTF", "ZANG"],
+      "distinctions": [],
+      "performance": "1.50m Jump.",
+      "dad": {
+        "name": "BALOUBET DU ROUET",
+        "studbook": "SF",
+        "registration": "25000189502905H",
+        "birthYear": 1989,
+        "color": "Chestnut",
+        "height": "1.70m",
+        "licenses": ["BWP", "HANN", "HOLST", "SBS", "SF", "SWB"],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "GEORGIA",
+        "studbook": "OLDBG",
+        "registration": "276333330567595",
+        "birthYear": 1995,
+        "color": "Dark brown",
+        "distinctions": ["Hauptstutbuch"]
+      }
+    },
+    "mom": {
+      "name": "ALL STAR'S PASITHEE",
+      "studbook": "KWPN",
+      "registration": "528003202002905",
+      "birthYear": 2020,
+      "color": "Brown",
+      "height": "",
+      "distinctions": [],
+      "dad": {
+        "name": "ALL STAR 5",
+        "studbook": "HANN",
+        "registration": "276431310705003",
+        "birthYear": 2003,
+        "color": "Brown",
+        "height": "1.72m",
+        "licenses": ["DSP", "HANN", "HOLST", "MECKL", "OS", "RHEIN", "RPSI", "SWB", "WESTF", "ZANG"],
+        "distinctions": ["WFFS-free"],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "ATIEN",
+        "studbook": "KWPN",
+        "registration": "528003200509552",
+        "birthYear": 2005,
+        "color": "Brown",
+        "height": "1.63m",
+        "distinctions": ["prest", "Stb."]
+      }
+    }
+  },
+  {
+    "name": "EMERAUDE DES GRISES LDG Z",
+    "gender": "Jument",
+    "category": "",
+    "birthYear": 2024,
+    "color": "Brown",
+    "studbook": "ZANG",
+    "registration": "056015Z56016124",
+    "url": "https://www.horsetelex.fr/horses/pedigree/2666098/emeraude-des-grises-ldg-z",
+    "img": "",
+    "imgs": [],
+    "dad": {
+      "name": "EMERALD VAN 'T RUYTERSHOF",
+      "studbook": "BWP",
+      "registration": "056002W00233177",
+      "birthYear": 2004,
+      "color": "Chestnut",
+      "height": "1.70m",
+      "licenses": ["AA", "AES", "BAVAR", "BWP", "HOLST", "KWPN", "OC", "OLDBG", "SF", "SWB"],
+      "distinctions": ["BWP_Ambassadeur", "WFFS-free"],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "DIAMANT DE SEMILLY",
+        "studbook": "SF",
+        "registration": "25000191446545F",
+        "birthYear": 1991,
+        "color": "Dark brown",
+        "height": "1.73m",
+        "licenses": ["AA", "AWR", "BWP", "CHS", "HOLST", "MIPAAF", "OC", "SF", "ZANG"],
+        "distinctions": ["WFFS-free"],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "CARTHINA Z",
+        "studbook": "ZANG",
+        "registration": "056015Z55536700",
+        "birthYear": 2000,
+        "color": "Chestnut",
+        "performance": "1.45m Jump."
+      }
+    },
+    "mom": {
+      "name": "PAKKEE",
+      "studbook": "KWPN",
+      "registration": "528003202006706",
+      "birthYear": 2020,
+      "color": "Brown",
+      "height": "",
+      "distinctions": ["VB"],
+      "dad": {
+        "name": "HARDROCK Z",
+        "studbook": "ZANG",
+        "registration": "056015Z55667803",
+        "birthYear": 2003,
+        "color": "Brown",
+        "height": "1.71m",
+        "licenses": ["HOLST", "KWPN", "OLDBG", "SF", "ZANG"],
+        "distinctions": ["D-OC", "WFFS-free"],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "AKKE",
+        "studbook": "KWPN",
+        "registration": "528003200512581",
+        "birthYear": 2005,
+        "color": "Brown",
+        "height": "1.64m",
+        "distinctions": ["Elite", "prest", "prok", "sport(spr)"],
+        "performance": "1.30m Jump."
+      }
+    }
+  },
+  {
+    "name": "HOCUS POCUS DES LYS JAUNES",
+    "gender": "Étalon",
+    "category": "",
+    "birthYear": 2022,
+    "color": "Brown",
+    "height": "1.66m",
+    "studbook": "WESTF",
+    "registration": "276441411082422",
+    "url": "https://www.horsetelex.fr/horses/pedigree/2325580/hocus-pocus-des-lys-jaunes",
+    "img": "",
+    "imgs": [],
+    "dad": {
+      "name": "HARDROCK Z",
+      "studbook": "ZANG",
+      "registration": "056015Z55667803",
+      "birthYear": 2003,
+      "color": "Brown",
+      "height": "1.71m",
+      "licenses": ["HOLST", "KWPN", "OLDBG", "SF", "ZANG"],
+      "distinctions": ["D-OC", "WFFS-free"],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "HEARTBREAKER",
+        "studbook": "KWPN",
+        "registration": "528003198904335",
+        "birthYear": 1989,
+        "color": "Brown",
+        "height": "1.67m",
+        "licenses": ["BAVAR", "BWP", "KWPN", "MIPAAF", "SF", "SWB"],
+        "distinctions": ["BWP_Ambassadeur", "pref", "Stb.", "WFFS-free"],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "CARTE BLANCHE Z",
+        "studbook": "ZANG",
+        "registration": "056015Z55060897",
+        "birthYear": 1997,
+        "color": "Brown"
+      }
+    },
+    "mom": {
+      "name": "NUGONDA",
+      "studbook": "KWPN",
+      "registration": "528003201806132",
+      "birthYear": 2018,
+      "color": "Brown",
+      "height": "1.66m",
+      "distinctions": ["D-OC", "Stb-ext"],
+      "dad": {
+        "name": "KANNAN GFE",
+        "studbook": "KWPN",
+        "registration": "528003199204130",
+        "birthYear": 1992,
+        "color": "Dark brown",
+        "height": "1.75m",
+        "licenses": ["AES", "AWR", "BAVAR", "BWP", "HOLST", "KWPN", "OLDBG", "OS", "RHEIN", "SBS", "SF", "SWB"],
+        "distinctions": ["Stb."],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "DEGONDA",
+        "studbook": "KWPN",
+        "registration": "528003000809473",
+        "birthYear": 2008,
+        "color": "Brown",
+        "height": "1.65m",
+        "distinctions": ["Elite", "EPTM(spr)", "pref", "prest", "prok"]
+      }
+    }
+  },
+  {
+    "name": "NABILA LDG",
+    "gender": "Jument",
+    "category": "",
+    "birthYear": 2023,
+    "color": "Dark brown",
+    "studbook": "SF",
+    "registration": "25000123711123P",
+    "url": "https://www.horsetelex.fr/horses/pedigree/2666103/nabila-ldg",
+    "img": "",
+    "imgs": [],
+    "dad": {
+      "name": "CHACCO-BLUE",
+      "studbook": "MECKL",
+      "registration": "276327271025998",
+      "birthYear": 1998,
+      "color": "Brown",
+      "height": "1.72m",
+      "licenses": ["HANN", "MECKL", "OLDBG", "OS", "RHEIN", "SF", "SWB", "WESTF"],
+      "distinctions": [],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "CHAMBERTIN",
+        "studbook": "HOLST",
+        "registration": "276321210097093",
+        "birthYear": 1993,
+        "color": "Brown",
+        "height": "1.69m",
+        "licenses": ["BADWU", "HOLST", "OLDBG", "OS"],
+        "performance": "1.35m Jump."
+      },
+      "mom": {
+        "name": "CONTARA",
+        "studbook": "MECKL",
+        "registration": "276327270320294",
+        "birthYear": 1994,
+        "color": "Dark brown"
+      }
+    },
+    "mom": {
+      "name": "INKA VAN 'T ROOSAKKER",
+      "studbook": "BWP",
+      "registration": "056002W00270565",
+      "birthYear": 2008,
+      "color": "Brown",
+      "height": "",
+      "distinctions": ["VB"],
+      "dad": {
+        "name": "CALVARO Z",
+        "studbook": "HOLST",
+        "registration": "276321210003587",
+        "birthYear": 1987,
+        "color": "Brown",
+        "height": "1.76m",
+        "licenses": ["HANN", "KWPN", "OS", "RHEIN", "SF", "ZANG", "ZfdP"],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "ATOUCHA VAN 'T ROOSAKKER",
+        "studbook": "BWP",
+        "registration": "056002W00193610",
+        "birthYear": 2000,
+        "color": "Dark brown"
+      }
+    }
+  },
+  {
+    "name": "I AMELUSINA VDP",
+    "gender": "Jument",
+    "category": "",
+    "birthYear": 2013,
+    "color": "Grey",
+    "height": "1.68m",
+    "studbook": "KWPN",
+    "registration": "528003201305298",
+    "url": "https://www.horsetelex.fr/horses/pedigree/1571252/i-amelusina-vdp",
+    "img": "",
+    "imgs": [],
+    "distinctions": ["D-OC", "Elite", "IBOP(spr)", "sport(spr)"],
+    "performance": "1.40m Jump.",
+    "dad": {
+      "name": "ZIROCCO BLUE VDL",
+      "studbook": "SF",
+      "registration": "25000104375748B",
+      "birthYear": 2004,
+      "color": "Grey",
+      "height": "1.75m",
+      "licenses": ["BAVAR", "HANN", "HOLST", "KWPN", "OS", "RHEIN", "SATHU", "SF"],
+      "distinctions": ["pref", "Stb."],
+      "performance": "1.60m Jump.",
+      "dad": {
+        "name": "MR. BLUE",
+        "studbook": "KWPN",
+        "registration": "528003198804049",
+        "birthYear": 1988,
+        "color": "Grey",
+        "height": "1.68m",
+        "licenses": ["BWP", "KWPN", "SF"],
+        "distinctions": ["pref", "Stb."],
+        "performance": "1.60m Jump., Club 3 dre"
+      },
+      "mom": {
+        "name": "LICORNE DES FORETS",
+        "studbook": "SF",
+        "registration": "25000199402117U",
+        "birthYear": 1999,
+        "color": "Chestnut"
+      }
+    },
+    "mom": {
+      "name": "D.AMELUSINA R 19",
+      "studbook": "KWPN",
+      "registration": "528003000809707",
+      "birthYear": 2008,
+      "color": "Brown",
+      "height": "1.62m",
+      "distinctions": ["Elite", "IBOP(spr)", "pref", "prest", "prok", "sport(spr)"],
+      "dad": {
+        "name": "MERMUS R",
+        "studbook": "KWPN",
+        "registration": "528003199403116",
+        "birthYear": 1994,
+        "color": "Brown",
+        "height": "1.69m",
+        "licenses": ["KWPN", "SF", "WSI"],
+        "distinctions": ["keur"],
+        "performance": "1.30m Jump."
+      },
+      "mom": {
+        "name": "V.AMELUSINA 12",
+        "studbook": "KWPN",
+        "registration": "528003200207414",
+        "birthYear": 2002,
+        "color": "Dark brown"
+      }
+    }
+  },
+  {
+    "name": "WASABI TER DIJKE",
+    "gender": "Étalon",
+    "category": "",
+    "birthYear": 2022,
+    "color": "Chestnut",
+    "height": "1.66m",
+    "studbook": "BWP",
+    "registration": "056002W00332816",
+    "url": "https://www.horsetelex.fr/horses/pedigree/2327921/wasabi-ter-dijke",
+    "img": "",
+    "imgs": [],
+    "licenses": ["WESTF"],
+    "dad": {
+      "name": "UNITED TOUCH S",
+      "studbook": "WESTF",
+      "registration": "276441411292012",
+      "birthYear": 2012,
+      "color": "Brown",
+      "height": "1.72m",
+      "licenses": ["BWP", "HANN", "HOLST", "OLDBG", "OS", "WESTF"],
+      "distinctions": ["BWP_Ambassadeur", "Elite", "Prämienhengst"],
+      "performance": "1.70m Jump.",
+      "dad": {
+        "name": "UNTOUCHED",
+        "studbook": "WESTF",
+        "registration": "276441411917107",
+        "birthYear": 2007,
+        "color": "Chestnut",
+        "height": "1.70m",
+        "licenses": ["WESTF"],
+        "distinctions": ["2e_bez._KWPN", "Prämienhengst"],
+        "performance": "1.60m Jump."
+      },
+      "mom": {
+        "name": "TOUCH OF CLASS",
+        "studbook": "HOLST",
+        "registration": "276421000418803",
+        "birthYear": 2003,
+        "color": "Brown"
+      }
+    },
+    "mom": {
+      "name": "INDIRA",
+      "studbook": "BWP",
+      "registration": "056002W00266424",
+      "birthYear": 2008,
+      "color": "Brown",
+      "distinctions": ["VB"],
+      "dad": {
+        "name": "WANDOR VAN DE MISPELAERE",
+        "studbook": "BWP",
+        "registration": "056002W00186949",
+        "birthYear": 1999,
+        "color": "Chestnut",
+        "height": "1.67m",
+        "licenses": ["BWP", "SBS", "SF"],
+        "distinctions": ["BWP_Ambassadeur", "G-label"],
+        "performance": "1.50m Jump."
+      },
+      "mom": {
+        "name": "WEGINA-S",
+        "studbook": "BWP",
+        "registration": "056002W00185308",
+        "birthYear": 1999,
+        "color": "Dark brown"
+      }
+    }
   }
 ]
