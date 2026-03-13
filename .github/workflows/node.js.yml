@@ -6,54 +6,52 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [20.17.0]
     env:
-      DATABASE_URL: ${{secrets.DATABASE_URL}}
-      GOOGLE_ID: ${{secrets.GOOGLE_ID}}
-      GOOGLE_SECRET: ${{secrets.GOOGLE_SECRET}}
-      NEXTAUTH_SECRET: ${{secrets.NEXTAUTH_SECRET}}
-      RESEND_API_KEY: ${{secrets.RESEND_API_KEY}}
-      RESEND_AUDIENCE_ID: ${{secrets.RESEND_AUDIENCE_ID}}
-      STRIPE_SECRET_KEY: ${{secrets.STRIPE_SECRET_KEY}}
-      STRIPE_WEBHOOK_SECRET: ${{secrets.STRIPE_WEBHOOK_SECRET}}
-      NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}}
+      NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }}
+      NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
 
     steps:
       - uses: actions/checkout@v4
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9.1.4 # Remplacez par la version de pnpm que vous souhaitez utiliser
-      - name: Use Node.js ${{ matrix.node-version }}
+          version: 9.1.4
+      - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 20
           cache: "pnpm"
       - name: Install dependencies
-        run: rm -rf node_modules pnpm-lock.yaml && pnpm install
-      - name: Generate .env file
-        run: |
-          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
-          echo "GOOGLE_ID=${{ secrets.GOOGLE_ID }}" >> .env
-          echo "GOOGLE_SECRET=${{ secrets.GOOGLE_SECRET }}" >> .env
-          echo "NEXTAUTH_URL=${{ secrets.NEXTAUTH_URL }}" >> .env
-          echo "NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }}" >> .env
-          echo "RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}" >> .env
-          echo "RESEND_AUDIENCE_ID=${{ secrets.RESEND_AUDIENCE_ID }}" >> .env
-          echo "STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }}" >> .env
-          echo "STRIPE_WEBHOOK_SECRET=${{ secrets.STRIPE_WEBHOOK_SECRET }}" >> .env
-          echo "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }}" >> .env
-          echo "PROJECT_ENV=${{ secrets.PROJECT_ENV }}" >> .env
-          echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env
-          echo "ADMIN_PASSWORD=${{ secrets.ADMIN_PASSWORD }}" >> .env
-      - name: Build and Migrate
-        run: |
-          rm -rf .next
-          pnpm exec prisma migrate dev
-          pnpm run build
-      - name: restart pm2 lesdeuxgrises instance
+        run: pnpm install --frozen-lockfile
+      - name: Build
+        run: pnpm run build
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nextjs-build
+          path: |
+            .next/
+            package.json
+            pnpm-lock.yaml
+            public/
+            prisma/
+          retention-days: 1
+
+  deploy:
+    runs-on: self-hosted
+    needs: build
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: nextjs-build
+      - name: Install production dependencies
+        run: pnpm install --frozen-lockfile --prod
+      - name: Run database migrations
+        run: pnpm exec prisma migrate deploy
+      - name: Restart pm2
         run: pm2 restart lesdeuxgrises
