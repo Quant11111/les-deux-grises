@@ -51,10 +51,20 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: nextjs-build
+      - name: Verify .next exists
+        run: |
+          echo "=== ls -la ==="
+          ls -la
+          echo "=== .next contents ==="
+          ls -la .next/ || echo ".next NOT FOUND"
+          echo "=== BUILD_ID ==="
+          cat .next/BUILD_ID || echo "NO BUILD_ID"
       - name: Restore .env
         run: cp ~/env-lesdeuxgrises/.env .env
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Generate Prisma client
+        run: pnpm exec prisma generate
       - name: Run database migrations
         run: pnpm exec prisma migrate deploy
       - name: Restart pm2
