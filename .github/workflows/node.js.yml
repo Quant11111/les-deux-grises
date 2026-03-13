@@ -51,6 +51,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: nextjs-build
+      - name: Restore .env
+        run: cp ~/env-lesdeuxgrises/.env .env
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Run database migrations
