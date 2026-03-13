@@ -29,16 +29,13 @@ jobs:
         run: pnpm exec prisma generate
       - name: Build
         run: pnpm run build
+      - name: Package build
+        run: tar czf nextjs-build.tar.gz .next/ package.json pnpm-lock.yaml public/ prisma/
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: nextjs-build
-          path: |
-            .next/
-            package.json
-            pnpm-lock.yaml
-            public/
-            prisma/
+          path: nextjs-build.tar.gz
           retention-days: 1
 
   deploy:
@@ -51,14 +48,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: nextjs-build
-      - name: Verify .next exists
-        run: |
-          echo "=== ls -la ==="
-          ls -la
-          echo "=== .next contents ==="
-          ls -la .next/ || echo ".next NOT FOUND"
-          echo "=== BUILD_ID ==="
-          cat .next/BUILD_ID || echo "NO BUILD_ID"
+      - name: Extract build
+        run: tar xzf nextjs-build.tar.gz && rm nextjs-build.tar.gz
       - name: Restore .env
         run: cp ~/env-lesdeuxgrises/.env .env
       - name: Install dependencies
