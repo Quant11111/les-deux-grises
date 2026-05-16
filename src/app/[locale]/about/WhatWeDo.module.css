@@ -20,6 +20,12 @@
   align-items: center;
 }
 
+/* Image wrapper (desktop: fills background; mobile: fixed-height arch on top) */
+.whatWeDoImageWrapper {
+  position: absolute;
+  inset: 0;
+}
+
 /* Background image */
 .whatWeDoBackgroundImage {
   object-fit: cover;
@@ -79,23 +85,45 @@
   object-fit: cover;
 }
 
-/* Mobile styles */
+/* Mobile styles — stack the arch and the card vertically to avoid overlap */
 @media (max-width: 750px) {
+  .whatWeDo {
+    max-height: none;
+    margin-top: 0;
+    padding: 1.5rem 1rem 0;
+  }
+
   .whatWeDoBackground {
-    width: 88%;
-    height: calc(100dvh - 8rem);
-    max-height: 620px;
+    flex-direction: column;
+    width: 100%;
+    max-width: 30rem;
+    height: auto;
+    max-height: none;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 1.25rem;
+  }
+
+  .whatWeDoImageWrapper {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 280px;
+    flex-shrink: 0;
   }
 
   .whatWeDoCard {
-    top: 58%;
-    grid-template-columns: 0px min(72vw, 22rem);
-    grid-template-rows: auto 1fr;
-    gap: 0.6rem;
-    padding: 1.25rem 1.4rem;
-    background-color: rgba(227, 221, 210, 0.94);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1.25rem 1.4rem 1.5rem;
+    background-color: rgb(var(--cloudy-mist));
+    box-shadow: var(--shadow-md);
   }
 
   .whatWeDoCardImageContainer {
@@ -106,25 +134,29 @@
     margin-top: 0;
     font-size: 1.2rem;
     text-align: center;
+    letter-spacing: 0.04em;
   }
 
   .whatWeDoCardContent {
-    font-size: 0.85rem;
-    line-height: 1.65;
-    margin-bottom: 0.25rem;
-    text-align: center;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+    text-align: left;
+    color: rgb(var(--night-grey));
   }
 }
 
 @media (max-width: 500px) {
-  .h1 {
-    font-size: 1.5rem;
+  .whatWeDo {
+    padding: 1rem 0.75rem 0;
   }
+
+  .whatWeDoImageWrapper {
+    height: 240px;
+  }
+
   .whatWeDoCard {
-    top: 56%;
-    grid-template-columns: 0px min(80vw, 20rem);
-    max-width: 88vw;
-    padding: 1.1rem 1.2rem;
+    padding: 1.1rem 1.2rem 1.25rem;
   }
 
   .whatWeDoCardTitle {
@@ -132,8 +164,14 @@
   }
 
   .whatWeDoCardContent {
-    font-size: 0.8rem;
-    line-height: 1.6;
+    font-size: 0.84rem;
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 380px) {
+  .whatWeDoImageWrapper {
+    height: 210px;
   }
 }
 

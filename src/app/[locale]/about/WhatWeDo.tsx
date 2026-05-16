@@ -11,12 +11,14 @@ export default function WhatWeDo({ title, content }: WhatWeDoProps) {
   return (
     <section className={styles.whatWeDo}>
       <div className={styles.whatWeDoBackground}>
-        <Image
-          className={styles.whatWeDoBackgroundImage}
-          src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/Fichier+28.png"
-          alt="What We Do background"
-          fill
-        />
+        <div className={styles.whatWeDoImageWrapper}>
+          <Image
+            className={styles.whatWeDoBackgroundImage}
+            src="https://dsq73kname7kn.cloudfront.net/ldgexportsquentin/about/Fichier+28.png"
+            alt="What We Do background"
+            fill
+          />
+        </div>
         <div className={styles.whatWeDoCard}>
           <h2 className={`${styles.whatWeDoCardTitle} ${arkhipRegular.className}`}>
             {title}

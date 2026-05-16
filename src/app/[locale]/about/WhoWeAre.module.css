@@ -20,73 +20,88 @@
   color: rgb(var(--light-foreground));
 }
 
-/* Mobile styles */
+/* Mobile styles — stack the arch image and the card vertically */
 @media (max-width: 1000px) {
   .whoWeAre {
     display: flex;
-    height: 72dvh !important;
-    max-height: 620px;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    height: auto;
+    max-height: none;
+    padding: 0 1rem;
+    gap: 1.25rem;
   }
 
   .whoWeAreBackgroundImageContainer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 88%;
-    height: 100%;
+    position: relative;
+    width: 100%;
+    max-width: 30rem;
+    height: 280px;
+    margin: 0 auto;
+    transform: none;
+    inset: auto;
   }
 
   .whoWeAreCard {
-    padding: 1.5rem 1.6rem;
-    position: absolute;
-    top: 56%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    inset: auto;
+    transform: none;
+    width: 100%;
+    max-width: 30rem;
     height: auto;
-    width: 80%;
-    max-width: 22rem;
-    background-color: rgba(16, 80, 79, 0.92);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    margin: 0 auto;
+    padding: 1.5rem 1.6rem;
+    background-color: rgb(var(--grass-green));
     box-shadow: var(--shadow-md);
   }
 
   .whoWeAreCardTitle {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: 0.75rem;
     letter-spacing: 0.04em;
-    text-align: center;
+    text-align: left;
   }
 
   .whoWeAreCardContent {
-    font-size: 0.85rem;
-    line-height: 1.65;
-    text-align: center;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    text-align: left;
   }
 }
 
 @media (max-width: 500px) {
   .whoWeAre {
-    height: 70dvh !important;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 0 0.75rem;
+  }
+
+  .whoWeAreBackgroundImageContainer {
+    height: 240px;
   }
 
   .whoWeAreCard {
-    padding: 1.25rem 1.25rem;
-    width: 84%;
+    padding: 1.25rem 1.25rem 1.4rem;
   }
 
   .whoWeAreCardTitle {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
   .whoWeAreCardContent {
-    font-size: 0.8rem;
-    line-height: 1.6;
+    font-size: 0.84rem;
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 380px) {
+  .whoWeAreBackgroundImageContainer {
+    height: 210px;
   }
 }
 
