@@ -74,14 +74,33 @@
   }
 }
 
-@media (max-width: 500px) {
-  .infoGrid {
-    gap: 0.2rem 0.4rem;
+@media (max-width: 750px) {
+  .blockContainer {
+    padding: 0.55rem 0.7rem;
   }
   .title {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
   }
   .value {
-    font-size: 0.65rem;
+    font-size: 0.78rem;
+  }
+  .infoGrid {
+    gap: 0.25rem 0.6rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 500px) {
+  .blockContainer {
+    padding: 0.5rem 0.65rem;
+  }
+  .infoGrid {
+    gap: 0.2rem 0.5rem;
+  }
+  .title {
+    font-size: 0.78rem;
+  }
+  .value {
+    font-size: 0.72rem;
   }
 }

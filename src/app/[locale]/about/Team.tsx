@@ -334,34 +334,64 @@ export default function Team({ title }: { title: string }) {
         }
 
         .pagination-dot {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background-color: transparent;
+          border: none;
+          padding: 0;
+          cursor: pointer;
+          position: relative;
+          transition: transform var(--duration-base) var(--ease-out);
+        }
+
+        .pagination-dot::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
           width: 8px;
           height: 8px;
           border-radius: 50%;
-          background-color: transparent;
           border: 1px solid ${themeVariables.grassGreen};
-          padding: 0;
-          cursor: pointer;
+          transform: translate(-50%, -50%);
+          background-color: transparent;
           transition: background-color var(--duration-base) var(--ease-out),
             transform var(--duration-base) var(--ease-out);
         }
 
-        .pagination-dot:hover {
+        .pagination-dot:hover::before {
           background-color: rgba(16, 80, 79, 0.3);
         }
 
-        .pagination-dot.active {
+        .pagination-dot.active::before {
           background-color: ${themeVariables.grassGreen};
-          transform: scale(1.15);
+          transform: translate(-50%, -50%) scale(1.15);
         }
 
         @media (max-width: 640px) {
+          .team {
+            padding: 1.75rem 0 1.25rem;
+            max-height: none;
+          }
+
           .carousel {
             gap: 1rem;
           }
 
+          .carousel-container {
+            margin-top: 2.75rem;
+            margin-bottom: 0.75rem;
+          }
+
           .team-title {
-            font-size: 1.25rem;
-            left: 1.5rem;
+            font-size: 1.2rem;
+            top: 1rem;
+            left: 1.25rem;
+          }
+
+          .pagination {
+            margin-top: 0;
           }
         }
       `}</style>

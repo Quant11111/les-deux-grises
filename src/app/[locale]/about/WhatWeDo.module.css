@@ -81,15 +81,38 @@
 
 /* Mobile styles */
 @media (max-width: 750px) {
+  .whatWeDoBackground {
+    width: 88%;
+    height: calc(100dvh - 8rem);
+    max-height: 620px;
+  }
+
   .whatWeDoCard {
-    top: 50%;
-    grid-template-columns: 0px 60vw;
-    opacity: 0.9;
+    top: 58%;
+    grid-template-columns: 0px min(72vw, 22rem);
+    grid-template-rows: auto 1fr;
+    gap: 0.6rem;
+    padding: 1.25rem 1.4rem;
+    background-color: rgba(227, 221, 210, 0.94);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .whatWeDoCardImageContainer {
+    display: none;
+  }
+
+  .whatWeDoCardTitle {
+    margin-top: 0;
+    font-size: 1.2rem;
+    text-align: center;
   }
 
   .whatWeDoCardContent {
     font-size: 0.85rem;
     line-height: 1.65;
+    margin-bottom: 0.25rem;
+    text-align: center;
   }
 }
 
@@ -98,13 +121,18 @@
     font-size: 1.5rem;
   }
   .whatWeDoCard {
-    top: 52%;
-    grid-template-columns: 0px 70vw;
-    max-width: 80vw;
+    top: 56%;
+    grid-template-columns: 0px min(80vw, 20rem);
+    max-width: 88vw;
+    padding: 1.1rem 1.2rem;
+  }
+
+  .whatWeDoCardTitle {
+    font-size: 1.05rem;
   }
 
   .whatWeDoCardContent {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     line-height: 1.6;
   }
 }

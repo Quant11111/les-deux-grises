@@ -74,7 +74,7 @@
 .dataGrid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  place-items: center;
+  place-items: stretch;
   gap: 20px;
   background-color: rgb(var(--neutral-earth));
   padding: 1.25rem;
@@ -140,31 +140,80 @@
 
 /* Mobile styles */
 @media (max-width: 750px) {
-  .horseImage {
-    transform: translateY(-0.7rem);
+  .horsePageContent {
+    padding-top: 0.5rem;
+    overflow: auto !important;
   }
+
+  .arc {
+    width: 94% !important;
+    scale: 1 !important;
+    padding: 1.25rem 1.25rem 2.5rem !important;
+    grid-template-rows: auto auto auto auto !important;
+  }
+
+  .horseImage {
+    scale: 1;
+    transform: none;
+    max-width: 90%;
+    height: auto;
+    aspect-ratio: 4/3;
+    margin-top: 2.25rem;
+    margin-bottom: 1rem;
+  }
+
   .fixSmPadding {
-    padding: 1rem !important;
+    padding: 1.25rem 1rem 2.5rem !important;
+  }
+
+  .genderContainer {
+    top: 0.75rem;
+  }
+
+  .gender {
+    font-size: 0.9rem !important;
+    letter-spacing: 0.12em;
+  }
+
+  .horseNameContainer {
+    min-height: 2.75rem;
+  }
+
+  .horseName {
+    font-size: 1rem !important;
+    left: 1rem !important;
+    right: 1rem;
+    width: auto !important;
+    max-width: calc(100% - 2rem);
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .horseRedirect {
-    bottom: 0.15rem !important;
-  }
-
-  .arc h1 {
+    bottom: 0.6rem !important;
     font-size: 0.7rem !important;
-  }
-
-  .arc h2 {
-    font-size: 0.7rem !important;
-  }
-
-  .arc a {
-    font-size: 0.5rem !important;
   }
 
   .dataGrid {
-    font-size: 0.8rem !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.6rem !important;
+    padding: 0.85rem !important;
+    font-size: 0.85rem !important;
+  }
+
+  .dataColumn,
+  .parentsColumn,
+  .grandparentsColumn {
+    width: 100%;
+    gap: 0.6rem;
+  }
+
+  .grandparentGroup {
+    gap: 0.4rem;
+  }
+
+  .divider {
+    width: 80%;
   }
 }
 

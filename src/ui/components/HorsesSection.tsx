@@ -44,10 +44,10 @@ export default function HorsesSection({ locale }: { locale: string }) {
             flexDirection: "column" as const,
             height: "100%",
             alignItems: "center" as const,
-            width: "600px",
-            maxWidth: "60vw",
-            marginTop: "20vh",
-            marginBottom: "5vh",
+            width: "min(600px, 80%)",
+            maxWidth: "100%",
+            marginTop: "clamp(2.5rem, 14dvh, 14rem)",
+            marginBottom: "3vh",
             transform: "translateX(10px)",
           }}
         >

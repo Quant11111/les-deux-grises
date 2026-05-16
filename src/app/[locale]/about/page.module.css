@@ -26,9 +26,23 @@
 /* Logo styling */
 .logo {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: max(0.25rem, env(safe-area-inset-top));
+  left: max(0.25rem, env(safe-area-inset-left));
   z-index: 100;
+}
+
+@media (max-width: 500px) {
+  .logo :global(svg) {
+    width: 100px !important;
+    height: 100px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .logo :global(svg) {
+    width: 84px !important;
+    height: 84px !important;
+  }
 }
 
 /* Content container */

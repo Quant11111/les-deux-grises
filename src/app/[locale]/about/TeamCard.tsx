@@ -43,6 +43,21 @@ const TeamCard = memo(
             cursor: pointer;
           }
 
+          @media (max-width: 640px) {
+            .team-card {
+              height: 280px;
+              width: 180px;
+              margin-left: 1rem;
+            }
+          }
+
+          @media (max-width: 380px) {
+            .team-card {
+              height: 250px;
+              width: 160px;
+            }
+          }
+
           .image-container {
             width: 100%;
             height: 100%;

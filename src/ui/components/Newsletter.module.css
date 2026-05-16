@@ -1,7 +1,7 @@
 .notificationButton {
   position: fixed;
-  bottom: 1.25rem;
-  right: 1.25rem;
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  right: max(1.25rem, env(safe-area-inset-right));
   z-index: 50;
   border-radius: 50%;
   width: 3rem;
@@ -17,6 +17,15 @@
   transition: background-color var(--duration-base) var(--ease-out),
     box-shadow var(--duration-base) var(--ease-out),
     transform var(--duration-base) var(--ease-out);
+}
+
+@media (max-width: 500px) {
+  .notificationButton {
+    width: 2.75rem;
+    height: 2.75rem;
+    bottom: max(0.9rem, env(safe-area-inset-bottom));
+    right: max(0.9rem, env(safe-area-inset-right));
+  }
 }
 .notificationButton:hover {
   background: rgba(253, 253, 253, 0.98);
@@ -83,6 +92,23 @@
   margin: 0 1rem;
   box-shadow: var(--shadow-lg);
   border-top: 3px solid rgb(var(--grass-green));
+}
+
+@media (max-width: 500px) {
+  .modalContent {
+    padding: 1.75rem 1.25rem 1.25rem;
+    margin: 0 0.75rem;
+  }
+
+  .buttonContainer {
+    flex-direction: column-reverse;
+  }
+
+  .submitButton,
+  .unsubscribeButton {
+    width: 100%;
+    min-height: 44px;
+  }
 }
 
 .closeButton {

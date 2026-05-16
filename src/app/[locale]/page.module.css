@@ -25,8 +25,8 @@
 
 .logo {
   position: absolute;
-  top: 1px;
-  left: 1px;
+  top: max(0.25rem, env(safe-area-inset-top));
+  left: max(0.25rem, env(safe-area-inset-left));
   z-index: 1;
 }
 
@@ -35,4 +35,19 @@
   bottom: 0;
   left: 0;
   right: 0;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@media (max-width: 500px) {
+  .logo :global(svg) {
+    width: 100px !important;
+    height: 100px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .logo :global(svg) {
+    width: 84px !important;
+    height: 84px !important;
+  }
 }

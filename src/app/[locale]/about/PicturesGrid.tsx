@@ -62,6 +62,10 @@ const Container = styled.div`
   position: relative;
   max-height: 70vh;
   overflow: hidden;
+
+  @media (max-width: 640px) {
+    padding: 28px 12px;
+  }
 `;
 
 const SliderWrapper = styled.div`
@@ -76,12 +80,24 @@ const Slider = styled.div`
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
   padding-bottom: 16px;
   scrollbar-width: none;
   -ms-overflow-style: none;
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media (max-width: 640px) {
+    gap: 10px;
+    padding-bottom: 8px;
+    scroll-padding-left: 12px;
+  }
+
+  > * {
+    scroll-snap-align: start;
   }
 `;
 
@@ -116,6 +132,10 @@ const NavigationButton = styled.button<{ $side: "left" | "right" }>`
     outline: 2px solid #cda988;
     outline-offset: 3px;
   }
+
+  @media (max-width: 640px) {
+    display: none;
+  }
 `;
 
 const ImageContainer = styled.div<{ $width: number }>`
@@ -143,6 +163,11 @@ const ImageContainer = styled.div<{ $width: number }>`
       transform: translateX(100%);
     }
   }
+
+  @media (max-width: 640px) {
+    height: 220px;
+    width: ${(props) => Math.round(props.$width * 0.73)}px;
+  }
 `;
 
 const StyledImage = styled(Image)`
@@ -156,6 +181,10 @@ const StyledImage = styled(Image)`
   outline: none;
   margin: 0;
   padding: 0;
+
+  @media (max-width: 640px) {
+    height: 220px;
+  }
 `;
 
 const Overlay = styled.div`

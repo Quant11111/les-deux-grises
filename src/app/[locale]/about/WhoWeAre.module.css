@@ -24,7 +24,8 @@
 @media (max-width: 1000px) {
   .whoWeAre {
     display: flex;
-    height: 70vh !important;
+    height: 72dvh !important;
+    max-height: 620px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -35,30 +36,57 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
+    width: 88%;
     height: 100%;
   }
 
   .whoWeAreCard {
-    padding: 2rem;
+    padding: 1.5rem 1.6rem;
     position: absolute;
-    top: 55%;
+    top: 56%;
     left: 50%;
     transform: translate(-50%, -50%);
     height: auto;
-    width: 90%;
-    background-color: rgb(var(--grass-green));
+    width: 80%;
+    max-width: 22rem;
+    background-color: rgba(16, 80, 79, 0.92);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: var(--shadow-md);
   }
 
   .whoWeAreCardTitle {
-    font-size: 1.05rem;
-    margin-bottom: 1rem;
-    letter-spacing: 0.02em;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.04em;
+    text-align: center;
   }
 
   .whoWeAreCardContent {
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     line-height: 1.65;
+    text-align: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .whoWeAre {
+    height: 70dvh !important;
+    margin-top: 2.5rem;
+  }
+
+  .whoWeAreCard {
+    padding: 1.25rem 1.25rem;
+    width: 84%;
+  }
+
+  .whoWeAreCardTitle {
+    font-size: 1rem;
+  }
+
+  .whoWeAreCardContent {
+    font-size: 0.8rem;
+    line-height: 1.6;
   }
 }
 
