@@ -62,23 +62,40 @@ export default function Newsletter() {
       <button
         className={styles.notificationButton}
         onClick={() => setIsOpen(true)}
+        aria-label={t("title")}
+        type="button"
       >
         <div className={styles.notificationIcon}>
-          <BellIcon />
-          <span className={styles.notificationBadge}>1</span>
+          <BellIcon aria-hidden="true" size={22} />
+          <span className={styles.notificationBadge} aria-hidden="true">
+            1
+          </span>
         </div>
       </button>
 
       {isOpen && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.modalContent}>
+        <div
+          className={styles.modalOverlay}
+          onClick={() => setIsOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="newsletter-modal-title"
+        >
+          <div
+            className={styles.modalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               className={styles.closeButton}
               onClick={() => setIsOpen(false)}
+              aria-label="Close"
+              type="button"
             >
-              <X />
+              <X size={18} aria-hidden="true" />
             </button>
-            <h2 className={styles.modalTitle}>{t("title")}</h2>
+            <h2 id="newsletter-modal-title" className={styles.modalTitle}>
+              {t("title")}
+            </h2>
             <p className={styles.modalDescription}>{t("description")}</p>
 
             <form onSubmit={handleSubmit}>

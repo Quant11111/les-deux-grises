@@ -17,23 +17,78 @@
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
+  padding: 0.25rem 0.4rem;
+  border-radius: 4px;
+  transition: background-color var(--duration-base) var(--ease-out);
+}
+
+.radioLabel:hover {
+  background-color: rgba(227, 221, 210, 0.08);
 }
 
 /* Hidden input radio */
 .radioInput {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Radio label text */
 .radioText {
   color: rgb(var(--neutral-earth));
   text-decoration: none;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
+  letter-spacing: 0.04em;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color var(--duration-base) var(--ease-out);
+}
+
+.radioText::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: rgb(var(--cloudy-mist));
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.radioLabel:hover .radioText {
+  color: rgb(var(--cloudy-mist));
 }
 
 /* Active radio text */
 .radioTextActive {
   color: rgb(var(--cloudy-mist));
   text-decoration: none;
-  transition: color 0.3s ease, text-decoration 0.3s ease;
+  letter-spacing: 0.04em;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color var(--duration-base) var(--ease-out);
+}
+
+.radioTextActive::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: rgb(var(--neutral-earth));
+}
+
+.radioInput:focus-visible + .radioText,
+.radioInput:focus-visible + .radioTextActive {
+  outline: 2px solid rgb(var(--neutral-earth));
+  outline-offset: 4px;
+  border-radius: 2px;
 }

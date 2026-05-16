@@ -272,10 +272,11 @@ export default function Team({ title }: { title: string }) {
 
         .team-title {
           position: absolute;
-          top: rem;
+          top: 1.5rem;
           left: 3rem;
-          font-size: 26px;
+          font-size: 1.6rem;
           font-weight: 400;
+          letter-spacing: 0.04em;
           color: ${themeVariables.grassGreen};
         }
 
@@ -302,6 +303,10 @@ export default function Team({ title }: { title: string }) {
           will-change: transform;
         }
 
+        .carousel:active {
+          cursor: grabbing;
+        }
+
         .carousel::-webkit-scrollbar {
           display: none; /* Chrome, Safari and Opera */
         }
@@ -325,22 +330,28 @@ export default function Team({ title }: { title: string }) {
         .pagination {
           display: flex;
           gap: 0.5rem;
-          margin-top: 0.2rem;
+          margin-top: 0.4rem;
         }
 
         .pagination-dot {
-          width: 12px;
-          height: 12px;
+          width: 8px;
+          height: 8px;
           border-radius: 50%;
-          background-color: ${themeVariables.cloudyMist};
-          border: 2px solid ${themeVariables.corporateBlue};
+          background-color: transparent;
+          border: 1px solid ${themeVariables.grassGreen};
           padding: 0;
           cursor: pointer;
-          transition: background-color 0.2s ease;
+          transition: background-color var(--duration-base) var(--ease-out),
+            transform var(--duration-base) var(--ease-out);
+        }
+
+        .pagination-dot:hover {
+          background-color: rgba(16, 80, 79, 0.3);
         }
 
         .pagination-dot.active {
-          background-color: ${themeVariables.corporateBlue};
+          background-color: ${themeVariables.grassGreen};
+          transform: scale(1.15);
         }
 
         @media (max-width: 640px) {
@@ -349,7 +360,8 @@ export default function Team({ title }: { title: string }) {
           }
 
           .team-title {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
+            left: 1.5rem;
           }
         }
       `}</style>

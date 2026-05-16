@@ -121,8 +121,9 @@ export default function Footer({ locale = "fr" }: FooterProps) {
       <style jsx>{`
         .footer {
           color: ${themeVariables.neutralEarth};
-          padding: 2rem 1.5rem 0.75rem;
+          padding: 2.25rem 1.5rem 1rem;
           margin-top: auto;
+          border-top: 1px solid rgba(205, 169, 136, 0.18);
         }
 
         .footer-content {
@@ -130,7 +131,7 @@ export default function Footer({ locale = "fr" }: FooterProps) {
           margin: 0 auto;
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-          gap: 1.5rem;
+          gap: 1.75rem;
           align-items: start;
         }
 
@@ -153,18 +154,20 @@ export default function Footer({ locale = "fr" }: FooterProps) {
         }
 
         .section-title {
-          font-size: 1.1rem;
-          font-weight: bold;
-          margin-bottom: 0.4rem;
+          font-size: 0.95rem;
+          font-weight: 600;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          margin-bottom: 0.5rem;
           color: ${themeVariables.cloudyMist};
-          border-bottom: 2px solid ${themeVariables.neutralEarth};
-          padding-bottom: 0.3rem;
+          border-bottom: 1px solid rgba(205, 169, 136, 0.4);
+          padding-bottom: 0.4rem;
         }
 
         .contact-item {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 0.6rem;
           margin-bottom: 0.3rem;
         }
 
@@ -176,8 +179,9 @@ export default function Footer({ locale = "fr" }: FooterProps) {
         .contact-link {
           color: ${themeVariables.neutralEarth};
           text-decoration: none;
-          transition: color 0.3s ease;
+          transition: color var(--duration-base) var(--ease-out);
           font-size: 0.85rem;
+          letter-spacing: 0.02em;
         }
 
         .contact-link:hover {
@@ -186,7 +190,7 @@ export default function Footer({ locale = "fr" }: FooterProps) {
 
         .contact-text {
           font-size: 0.85rem;
-          line-height: 1.3;
+          line-height: 1.55;
           white-space: pre-line;
         }
 
@@ -203,14 +207,16 @@ export default function Footer({ locale = "fr" }: FooterProps) {
           width: 40px;
           height: 40px;
           border-radius: 50%;
-          background-color: rgba(255, 255, 255, 0);
-          transition: all 0.3s ease;
+          background-color: transparent;
+          transition: background-color var(--duration-base) var(--ease-out),
+            opacity var(--duration-base) var(--ease-out);
           text-decoration: none;
+          opacity: 0.85;
         }
 
         .social-link:hover {
-          background-color: rgba(255, 255, 255, 0);
-          transform: translateY(-2px);
+          background-color: rgba(227, 221, 210, 0.1);
+          opacity: 1;
         }
 
         .footer-nav {
@@ -223,26 +229,32 @@ export default function Footer({ locale = "fr" }: FooterProps) {
           color: ${themeVariables.neutralEarth} !important;
           text-decoration: none;
           font-size: 0.85rem;
-          transition: all 0.3s ease;
+          letter-spacing: 0.04em;
+          transition: color var(--duration-base) var(--ease-out),
+            border-color var(--duration-base) var(--ease-out),
+            padding-left var(--duration-base) var(--ease-out);
           padding: 0.2rem 0;
-          border-left: 3px solid transparent;
-          padding-left: 0.4rem;
+          border-left: 1px solid transparent;
+          padding-left: 0.6rem;
         }
 
         .nav-link:hover {
-          color: ${themeVariables.neutralEarth};
+          color: ${themeVariables.cloudyMist} !important;
           border-left-color: ${themeVariables.neutralEarth};
+          padding-left: 0.8rem;
         }
 
         .footer-bottom {
-          margin-top: 1.5rem;
+          margin-top: 1.75rem;
           padding-top: 1rem;
+          border-top: 1px solid rgba(205, 169, 136, 0.18);
           text-align: center;
         }
 
         .copyright {
-          font-size: 0.8rem;
-          color: ${themeVariables.cloudyMist};
+          font-size: 0.75rem;
+          color: ${themeVariables.neutralEarth};
+          letter-spacing: 0.06em;
           margin: 0;
         }
 

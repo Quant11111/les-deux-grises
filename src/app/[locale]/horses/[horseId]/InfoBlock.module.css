@@ -1,37 +1,50 @@
 .blockContainer {
-  padding: 0.5rem;
-  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  background-color: rgba(253, 253, 253, 0.18);
+  width: 100%;
+  transition: background-color var(--duration-base) var(--ease-out);
+}
+
+.blockContainer:hover {
+  background-color: rgba(253, 253, 253, 0.28);
 }
 
 .title {
-  color: rgb(var(--dark-foreground));
-  font-size: 0.8rem;
-  padding-bottom: 0.5rem;
+  color: rgb(var(--grass-green));
+  font-size: 0.85rem;
+  padding-bottom: 0.4rem;
   font-weight: 600;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid rgba(16, 80, 79, 0.18);
+  margin-bottom: 0.4rem;
 }
 
 .infoGrid {
   display: flex;
-  gap: 0.2rem;
-  line-height: 0.2rem;
+  gap: 0.3rem 0.5rem;
+  line-height: 1.35;
   flex-wrap: wrap;
 }
 
 .infoItem {
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .label {
-  color: #4a5568;
-  font-size: 0.85rem;
+  color: rgb(var(--cool-blue-grey));
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   display: block;
 }
 
 .value {
-  color: #1a202c;
-  font-size: 0.5rem;
+  color: rgb(var(--night-grey));
+  font-size: 0.7rem;
   display: block;
   word-break: break-word;
+  letter-spacing: 0.02em;
 }
 
 .distinctionsList {
@@ -53,22 +66,22 @@
 
 @media (min-width: 1200px) {
   .infoGrid {
-    line-height: calc(0.9vw / 0.85) !important;
+    line-height: 1.4 !important;
   }
 
   .value {
-    font-size: calc(1vw / 0.85) !important;
+    font-size: calc(0.95vw / 0.85) !important;
   }
 }
 
 @media (max-width: 500px) {
   .infoGrid {
-    gap: 0.1rem;
+    gap: 0.2rem 0.4rem;
   }
   .title {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
   .value {
-    font-size: 0.6rem;
+    font-size: 0.65rem;
   }
 }

@@ -51,12 +51,14 @@
   }
 
   .whoWeAreCardTitle {
-    font-size: 1rem;
+    font-size: 1.05rem;
     margin-bottom: 1rem;
+    letter-spacing: 0.02em;
   }
 
   .whoWeAreCardContent {
-    font-size: 0.7rem;
+    font-size: 0.78rem;
+    line-height: 1.65;
   }
 }
 
@@ -89,10 +91,12 @@
 
   .whoWeAreCardTitle {
     font-size: 1.5rem;
+    letter-spacing: 0.02em;
   }
 
   .whoWeAreCardContent {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
     margin-top: 1rem;
   }
 }
@@ -101,6 +105,7 @@
 .whoWeAreBackgroundImage {
   object-fit: cover;
   object-position: center;
-  border-top-left-radius: 9999px;
-  border-top-right-radius: 9999px;
+  border-top-left-radius: var(--arch-radius);
+  border-top-right-radius: var(--arch-radius);
+  box-shadow: var(--shadow-lg);
 }

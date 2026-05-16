@@ -40,17 +40,24 @@ const TeamCard = memo(
             overflow: hidden;
             margin-left: 2rem;
             contain: content;
+            cursor: pointer;
           }
 
           .image-container {
             width: 100%;
             height: 100%;
             position: relative;
-            transition: transform 0.3s ease;
+            transition: transform var(--duration-slow) var(--ease-out),
+              box-shadow var(--duration-slow) var(--ease-out);
             border-top-left-radius: 100px;
             border-top-right-radius: 100px;
             will-change: transform;
             overflow: hidden;
+            box-shadow: var(--shadow-sm);
+          }
+
+          .team-card:hover .image-container {
+            box-shadow: var(--shadow-md);
           }
 
           .name-overlay {
@@ -63,19 +70,25 @@ const TeamCard = memo(
             justify-content: center;
             align-items: center;
             opacity: 0;
-            transition: opacity 0.3s ease;
-            background-color: rgba(205, 169, 136, 0.5);
+            transition: opacity var(--duration-slow) var(--ease-out);
+            background: linear-gradient(
+              to bottom,
+              rgba(205, 169, 136, 0.35),
+              rgba(205, 169, 136, 0.7)
+            );
             border-top-left-radius: 100px;
             border-top-right-radius: 100px;
           }
 
           .name {
             color: ${themeVariables.grassGreen};
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-family: ${rawengulkDemibold.style.fontFamily};
             font-weight: 700;
             text-align: center;
             white-space: pre-line;
+            letter-spacing: 0.04em;
+            line-height: 1.25;
           }
 
           .team-card:hover .name-overlay {

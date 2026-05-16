@@ -24,8 +24,8 @@
 .whatWeDoBackgroundImage {
   object-fit: cover;
   object-position: center top;
-  border-top-left-radius: 9999px;
-  border-top-right-radius: 9999px;
+  border-top-left-radius: var(--arch-radius);
+  border-top-right-radius: var(--arch-radius);
 }
 
 /* Card container */
@@ -42,8 +42,9 @@
   grid-template-rows: 90px 1fr;
   gap: 1rem;
   height: auto;
-  padding: 1rem;
+  padding: 1.25rem 1.5rem;
   background-color: rgb(var(--cloudy-mist));
+  box-shadow: var(--shadow-md);
 }
 
 /* Card title */
@@ -52,13 +53,16 @@
   margin-top: 40px;
   grid-area: title;
   font-size: 1.5rem;
+  letter-spacing: 0.02em;
 }
 
 /* Card content */
 .whatWeDoCardContent {
   white-space: pre-line;
   grid-area: content;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: rgb(var(--night-grey));
   margin-bottom: 45px;
 }
 
@@ -84,7 +88,8 @@
   }
 
   .whatWeDoCardContent {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    line-height: 1.65;
   }
 }
 
@@ -99,7 +104,8 @@
   }
 
   .whatWeDoCardContent {
-    font-size: 0.7rem;
+    font-size: 0.78rem;
+    line-height: 1.6;
   }
 }
 

@@ -22,6 +22,24 @@
 
   --warning: 255, 140, 148;
 
+  /* Arch radius — canonical value for the brand's signature arch silhouette.
+     Replaces ad-hoc enormous numbers scattered across modules. */
+  --arch-radius: 9999px;
+
+  /* Soft, multi-layered shadow scale (luxury feel, not harsh) */
+  --shadow-sm: 0 1px 2px rgba(20, 20, 20, 0.06),
+    0 1px 1px rgba(20, 20, 20, 0.04);
+  --shadow-md: 0 4px 12px rgba(20, 20, 20, 0.08),
+    0 2px 4px rgba(20, 20, 20, 0.05);
+  --shadow-lg: 0 12px 28px rgba(20, 20, 20, 0.14),
+    0 4px 10px rgba(20, 20, 20, 0.08);
+
+  /* Easings & durations */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 160ms;
+  --duration-base: 220ms;
+  --duration-slow: 320ms;
+
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
     rgba(var(--grass-green), 0.2) 0deg,
@@ -65,9 +83,22 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--grass-green));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern", "liga", "calt";
+}
+
+::selection {
+  background-color: rgb(var(--neutral-earth));
+  color: rgb(var(--grass-green));
 }
 
 main {
@@ -77,21 +108,37 @@ main {
 a {
   color: inherit;
   text-decoration: none;
-  &:hover {
-    text-shadow: currentColor 0 0 1px;
-    color: rgb(var(--light-foreground));
-  }
   cursor: pointer;
+  transition: color var(--duration-base) var(--ease-out),
+    opacity var(--duration-base) var(--ease-out);
+}
+a:hover {
+  color: rgb(var(--light-foreground));
 }
 
 button {
   font: inherit;
   color: inherit;
   text-decoration: none;
-  &:hover {
-    text-shadow: currentColor 0 0 1px;
-    color: rgb(var(--light-foreground));
-  }
+  background: none;
+  border: none;
+  transition: color var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    opacity var(--duration-base) var(--ease-out);
+}
+button:hover {
+  color: rgb(var(--light-foreground));
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--neutral-earth));
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 input[type="radio"]:checked::before {
@@ -133,9 +180,24 @@ input[type="radio"]:checked::before {
   scrollbar-width: none; /* Firefox */
 }
 
+.card {
+  transition: box-shadow var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
 .card:hover {
-  transform: scale(0.95);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-lg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .light-scrollbar::-webkit-scrollbar-thumb {

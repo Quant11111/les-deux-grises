@@ -90,22 +90,31 @@ const NavigationButton = styled.button<{ $side: "left" | "right" }>`
   top: 50%;
   transform: translateY(-50%);
   ${(props) => props.$side}: 10px;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(43, 46, 50, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border: none;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #333;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: all 300ms ease;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(20, 20, 20, 0.18);
+  transition: background-color 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 220ms cubic-bezier(0.22, 1, 0.36, 1);
   z-index: 10;
 
   &:hover {
-    transform: translateY(-50%) scale(1.1);
+    background-color: rgba(43, 46, 50, 0.78);
+    box-shadow: 0 8px 20px rgba(20, 20, 20, 0.28);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #cda988;
+    outline-offset: 3px;
   }
 `;
 
@@ -115,15 +124,15 @@ const ImageContainer = styled.div<{ $width: number }>`
   height: 300px;
   position: relative;
   cursor: pointer;
-  transition: transform 500ms ease, box-shadow 500ms ease;
+  transition: box-shadow 320ms cubic-bezier(0.22, 1, 0.36, 1);
   overflow: hidden;
+  box-shadow: 0 1px 3px rgba(20, 20, 20, 0.08);
 
   &:hover {
-    transform: scale(1);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 12px 28px rgba(20, 20, 20, 0.18);
 
     .main-image {
-      transform: scale(1.1);
+      transform: scale(1.08);
     }
 
     .overlay {
@@ -140,8 +149,8 @@ const StyledImage = styled(Image)`
   width: 100%;
   height: 300px;
   object-fit: cover;
-  transition: transform 700ms ease;
-  transform: scale(1.05);
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform: scale(1.02);
   display: block;
   border: none;
   outline: none;
@@ -221,22 +230,27 @@ const ModalImage = styled(Image)`
 const ModalButton = styled.button<{ $side: "left" | "right" }>`
   position: fixed;
   top: 50%;
-  transform: translateY(-50%);
-  transform: scale(1.5);
-  ${(props) => props.$side}: 20px;
+  transform: translateY(-50%) scale(1.4);
+  ${(props) => props.$side}: 24px;
   background-color: transparent;
   border: none;
   color: white;
   padding: 12px 16px;
   cursor: pointer;
-  transition: background-color 300ms ease;
+  transition: opacity 220ms cubic-bezier(0.22, 1, 0.36, 1);
   z-index: 1001;
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0.78;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #cda988;
+    outline-offset: 4px;
   }
 `;
 
@@ -244,31 +258,44 @@ const CloseButton = styled.button`
   position: fixed;
   top: 20px;
   right: 20px;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(43, 46, 50, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   border: none;
   color: white;
-  padding: 8px 12px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   cursor: pointer;
-  transition: background-color 300ms ease;
+  transition: background-color 220ms cubic-bezier(0.22, 1, 0.36, 1);
   z-index: 1001;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(43, 46, 50, 0.78);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #cda988;
+    outline-offset: 3px;
   }
 `;
 
 const Counter = styled.div`
   position: fixed;
-  bottom: 20px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
-  color: white;
-  font-size: 16px;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 8px 16px;
+  color: #fdfdfd;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  background-color: rgba(43, 46, 50, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 6px 14px;
+  border-radius: 999px;
   z-index: 1001;
 `;
 
@@ -380,7 +407,12 @@ const PicturesGrid = () => {
         <SliderWrapper>
           {/* Bouton de navigation gauche */}
           {canScrollLeft && (
-            <NavigationButton $side="left" onClick={scrollLeft}>
+            <NavigationButton
+              $side="left"
+              onClick={scrollLeft}
+              aria-label="Previous images"
+              type="button"
+            >
               <FlecheGauche />
             </NavigationButton>
           )}
@@ -422,7 +454,12 @@ const PicturesGrid = () => {
 
           {/* Bouton de navigation droite */}
           {canScrollRight && (
-            <NavigationButton $side="right" onClick={scrollRight}>
+            <NavigationButton
+              $side="right"
+              onClick={scrollRight}
+              aria-label="Next images"
+              type="button"
+            >
               <FlecheDroite />
             </NavigationButton>
           )}
@@ -449,15 +486,29 @@ const PicturesGrid = () => {
                 />
               </ModalImageContainer>
 
-              <ModalButton $side="left" onClick={goToPrevious}>
+              <ModalButton
+                $side="left"
+                onClick={goToPrevious}
+                aria-label="Previous image"
+                type="button"
+              >
                 <FlecheGauche />
               </ModalButton>
 
-              <ModalButton $side="right" onClick={goToNext}>
+              <ModalButton
+                $side="right"
+                onClick={goToNext}
+                aria-label="Next image"
+                type="button"
+              >
                 <FlecheDroite />
               </ModalButton>
 
-              <CloseButton onClick={closeCarousel}>
+              <CloseButton
+                onClick={closeCarousel}
+                aria-label="Close"
+                type="button"
+              >
                 <CroixFermeture />
               </CloseButton>
 

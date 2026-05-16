@@ -11,27 +11,29 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: rgb(var(--neutral-earth));
 }
 
 .privacyLink {
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  color: rgb(var(--neutral-earth));
+  transition: color var(--duration-base) var(--ease-out);
 }
 
 .privacyLink:hover {
-  color: rgb(var(--light-foreground));
-  text-decoration: underline;
+  color: rgb(var(--cloudy-mist));
 }
 
 .separator {
-  color: rgb(var(--cool-blue-grey));
-  font-weight: bold;
+  color: rgb(var(--neutral-earth));
+  opacity: 0.55;
 }
 
 .copyright {
-  color: rgb(var(--cool-blue-grey));
+  color: rgb(var(--neutral-earth));
 }
 
 /* Responsive Design */

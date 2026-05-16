@@ -27,11 +27,12 @@
   background-size: cover;
   background-position: center 65%;
   width: 75%;
-  border-top-left-radius: 20000000000000000000000000000px;
-  border-top-right-radius: 20000000000000000000000000000px;
+  border-top-left-radius: var(--arch-radius);
+  border-top-right-radius: var(--arch-radius);
   height: calc(100dvh - 10rem);
   max-height: 700px;
   max-width: 1300px;
+  box-shadow: var(--shadow-lg);
 }
 
 .contactSectionContent {
@@ -48,6 +49,8 @@
   color: rgb(var(--light-foreground));
   text-align: center;
   margin-bottom: 4rem;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 12px rgba(20, 20, 20, 0.35);
 }
 
 .contactButton {
@@ -59,14 +62,23 @@
   width: 100%;
   max-width: 400px;
   font-size: 1rem;
-  transition: transform 0.2s, color 0.2s;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.04em;
+  transition: background-color var(--duration-base) var(--ease-out),
+    color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+  box-shadow: var(--shadow-sm);
   white-space: pre-line;
+  position: relative;
 }
 
 .contactButton:hover {
-  color: rgb(var(--neutral-earth));
-  transform: translateY(-2px);
+  color: rgb(var(--grass-green));
+  background-color: rgb(245, 243, 238);
+  box-shadow: var(--shadow-md);
+}
+
+.contactButton:active {
+  box-shadow: var(--shadow-sm);
 }
 
 .accordionContainer {

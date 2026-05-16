@@ -13,13 +13,14 @@
   display: grid;
   grid-template-rows: 5fr 1.4rem auto;
   background-color: rgb(var(--grass-green));
-  border-top-left-radius: 20000000000000000000000000000px;
-  border-top-right-radius: 20000000000000000000000000000px;
+  border-top-left-radius: var(--arch-radius);
+  border-top-right-radius: var(--arch-radius);
   padding: 1.5rem;
   scale: 0.9;
   gap: 0.5rem;
   max-width: calc(95vw);
   overflow-x: hidden;
+  box-shadow: var(--shadow-lg);
 }
 
 .genderContainer {
@@ -55,16 +56,17 @@
   color: rgb(var(--corporate-blue));
   display: flex;
   align-items: center;
+  box-shadow: var(--shadow-sm);
 }
 
 .horseName {
   position: absolute;
   top: 50%;
-  left: 12px;
-  transform: translateY(-44%);
+  left: 16px;
+  transform: translateY(-50%);
   white-space: nowrap;
   align-items: center;
-
+  letter-spacing: 0.04em;
   text-overflow: ellipsis;
   width: 100%;
 }
@@ -75,9 +77,10 @@
   place-items: center;
   gap: 20px;
   background-color: rgb(var(--neutral-earth));
-  padding: 1rem;
+  padding: 1.25rem;
   width: 100%;
   overflow: visible;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 .dataColumn {
@@ -125,6 +128,14 @@
   width: 100%;
   font-size: 0.7rem;
   bottom: 0.3rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.horseRedirect:hover {
+  opacity: 0.78;
+  color: rgb(var(--neutral-earth));
 }
 
 /* Mobile styles */

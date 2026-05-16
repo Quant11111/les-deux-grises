@@ -1,130 +1,191 @@
 .notificationButton {
   position: fixed;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 1.25rem;
+  right: 1.25rem;
   z-index: 50;
   border-radius: 50%;
   width: 3rem;
   height: 3rem;
   padding: 0.2rem;
   cursor: pointer;
-  border: none;
-  background: rgba(255, 255, 255, 0.479);
-  box-shadow: 0 4px 6px rgb(0, 0, 0);
+  border: 1px solid rgba(253, 253, 253, 0.35);
+  background: rgba(227, 221, 210, 0.92);
+  color: rgb(var(--grass-green));
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
 }
 .notificationButton:hover {
-  background: rgba(67, 255, 92, 0.589);
+  background: rgba(253, 253, 253, 0.98);
+  box-shadow: var(--shadow-lg);
+}
+
+.notificationButton:active {
+  transform: scale(0.97);
 }
 
 .notificationIcon {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .notificationBadge {
   position: absolute;
-  top: 0.6rem;
-  right: 0.1rem;
-  height: 1rem;
-  width: 1rem;
+  top: -0.3rem;
+  right: -0.3rem;
+  height: 1.1rem;
+  width: 1.1rem;
   border-radius: 9999px;
-  background-color: #ef4444;
-  color: white;
-  font-size: 0.75rem;
+  background-color: rgb(var(--terracota-earth));
+  color: rgb(var(--light-foreground));
+  font-size: 0.7rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  padding-top: 2px;
+  font-weight: 600;
+  box-shadow: 0 0 0 2px rgba(227, 221, 210, 0.92);
+  letter-spacing: 0;
 }
 
 .modalOverlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(20, 20, 20, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 50;
+  animation: ldgFadeIn var(--duration-base) var(--ease-out);
+}
+
+@keyframes ldgFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .modalContent {
   position: relative;
-  background-color: white;
-  padding: 2rem;
+  background-color: rgb(var(--light-foreground));
+  padding: 2.25rem 2rem 1.75rem;
   max-width: 28rem;
   width: 100%;
   margin: 0 1rem;
+  box-shadow: var(--shadow-lg);
+  border-top: 3px solid rgb(var(--grass-green));
 }
 
 .closeButton {
   position: absolute;
-  border-radius: 10%;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 2rem;
-  right: 2rem;
-  color: rgb(var(--warning));
-  border: 2px solid white;
-  background-color: white;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2rem;
+  height: 2rem;
+  color: rgb(var(--cool-blue-grey));
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color var(--duration-base) var(--ease-out),
+    color var(--duration-base) var(--ease-out);
 }
 
 .closeButton:hover {
-  transition: ease-in-out 0.14s;
-  border: 2px solid rgb(var(--warning));
-  color: rgb(var(--warning));
+  background-color: rgb(var(--cloudy-mist));
+  color: rgb(var(--grass-green));
 }
 
 .modalTitle {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: rgb(var(--corporate-blue));
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: rgb(var(--grass-green));
+  letter-spacing: 0.03em;
 }
 
 .modalDescription {
   margin-bottom: 1.5rem;
+  color: rgb(var(--night-grey));
+  font-size: 0.9rem;
+  line-height: 1.55;
 }
 
 .emailInput {
   width: 100%;
-  padding: 0.5rem 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.375rem;
-  margin-bottom: 1rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgb(var(--cool-blue-grey));
+  background-color: rgb(var(--light-foreground));
+  border-radius: 2px;
+  margin-bottom: 1.25rem;
   font-size: 16px;
+  color: rgb(var(--night-grey));
+  transition: border-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+
+.emailInput:focus {
+  outline: none;
+  border-color: rgb(var(--grass-green));
+  box-shadow: 0 0 0 3px rgba(16, 80, 79, 0.15);
 }
 
 .buttonContainer {
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .unsubscribeButton {
-  padding: 0.5rem 1rem;
-  background-color: rgb(var(--neutral-earth));
-  color: white;
-  border-radius: 0px;
-  border: none;
+  flex: 1;
+  padding: 0.7rem 1rem;
+  background-color: transparent;
+  color: rgb(var(--cool-blue-grey));
+  border: 1px solid rgb(var(--cool-blue-grey));
+  border-radius: 0;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  transition: background-color var(--duration-base) var(--ease-out),
+    color var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
 }
 
 .unsubscribeButton:hover {
-  background-color: #dc2626;
+  background-color: rgb(var(--cloudy-mist));
+  color: rgb(var(--terracota-earth));
+  border-color: rgb(var(--terracota-earth));
 }
 
 .submitButton {
-  padding: 0.5rem 1rem;
+  flex: 1;
+  padding: 0.7rem 1rem;
   background-color: rgb(var(--grass-green));
-  color: white;
-  border-radius: 0px;
-  border: none;
+  color: rgb(var(--light-foreground));
+  border-radius: 0;
+  border: 1px solid rgb(var(--grass-green));
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  transition: background-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
 }
 
 .submitButton:hover {
   background-color: rgb(var(--corporate-blue));
+  color: rgb(var(--light-foreground));
+  border-color: rgb(var(--corporate-blue));
+  box-shadow: var(--shadow-md);
 }

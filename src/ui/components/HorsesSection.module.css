@@ -23,12 +23,13 @@
   background-position: center;
   overflow: hidden;
   width: 80%;
-  border-top-left-radius: 9999px;
-  border-top-right-radius: 9999px;
+  border-top-left-radius: var(--arch-radius);
+  border-top-right-radius: var(--arch-radius);
   height: calc(100dvh - 10rem);
   padding-left: calc(15dvh - 3rem);
   padding-right: calc(15dvh - 3rem);
   max-width: calc(200dvh - 32rem);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Scrollbar container style */
@@ -51,24 +52,34 @@
   width: calc(100% - 20px);
   min-height: 3rem;
   background-color: rgb(var(--cloudy-mist));
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   margin-bottom: 1rem;
   transform: translateY(-1rem);
-  transition: all 0.3s ease-in-out;
+  transition: transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out);
   justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
+  border-left: 3px solid transparent;
 }
 
 .horseCard:hover {
-  transform: translateY(calc(-1rem - 5px));
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
-  outline: 2px solid rgb(var(--grass-green));
+  transform: translateY(calc(-1rem - 3px));
+  box-shadow: var(--shadow-md);
+  background-color: rgb(255, 252, 246);
+  border-left-color: rgb(var(--terracota-earth));
+}
+
+.horseCard:active {
+  transform: translateY(-1rem);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Horse name typography */
 .horseName {
   color: rgb(var(--grass-green));
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -76,6 +87,6 @@
 
 @media (max-width: 1100px) {
   .horseName {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 }
