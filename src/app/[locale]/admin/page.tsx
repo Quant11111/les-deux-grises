@@ -1,185 +1,128 @@
 "use client";
-"use client";
 
-import { useState, useEffect } from "react";
-import { useTranslations } from "next-intl";
-import { toast, Toaster } from "sonner";
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
+import AdminHorses from "./AdminHorses";
+import AdminEmails from "./AdminEmails";
+import styles from "./admin.module.css";
 
 export default function AdminPage() {
+  const [authenticated, setAuthenticated] = useState(false);
+  const [checking, setChecking] = useState(true);
   const [password, setPassword] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [emails, setEmails] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [loggingIn, setLoggingIn] = useState(false);
+  const [tab, setTab] = useState<"horses" | "emails">("horses");
+
+  // Restore the session on load (the cookie is httpOnly, so we ask the server).
+  useEffect(() => {
+    fetch("/api/admin/session")
+      .then((r) => r.json())
+      .then((d) => setAuthenticated(Boolean(d?.authenticated)))
+      .catch(() => {})
+      .finally(() => setChecking(false));
+  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-
+    setLoggingIn(true);
     try {
-      const response = await fetch("/api/admin/verify", {
+      const res = await fetch("/api/admin/login", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password }),
       });
-
-      if (response.ok) {
-        setIsAuthenticated(true);
-        fetchEmails();
+      if (res.ok) {
+        setAuthenticated(true);
+        setPassword("");
       } else {
         toast.error("Mot de passe incorrect");
       }
-    } catch (error) {
-      toast.error("Erreur lors de la vérification du mot de passe");
+    } catch {
+      toast.error("Erreur lors de la connexion");
     } finally {
-      setIsLoading(false);
+      setLoggingIn(false);
     }
   };
 
-  const fetchEmails = async () => {
-    setIsLoading(true);
-    try {
-      const response = await fetch("/api/emails");
-      if (response.ok) {
-        const data = await response.json();
-        setEmails(data);
-      } else {
-        toast.error("Erreur lors de la récupération des emails");
-      }
-    } catch (error) {
-      toast.error("Erreur lors de la récupération des emails");
-    } finally {
-      setIsLoading(false);
-    }
+  const handleLogout = async () => {
+    await fetch("/api/admin/logout", { method: "POST" }).catch(() => {});
+    setAuthenticated(false);
   };
 
-  const copyAllEmails = () => {
-    const emailsText = emails.join("\n");
-    navigator.clipboard
-      .writeText(emailsText)
-      .then(() =>
-        toast.success("Tous les emails ont été copiés dans le presse-papier")
-      )
-      .catch(() => toast.error("Erreur lors de la copie des emails"));
-  };
+  if (checking) {
+    return (
+      <div className={styles.page}>
+        <div className={styles.container}>
+          <p className={styles.muted}>Chargement…</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!authenticated) {
+    return (
+      <div className={styles.page}>
+        <div className={styles.loginWrap}>
+          <form onSubmit={handleLogin} className={styles.loginCard}>
+            <h1>Administration</h1>
+            <div className={styles.field}>
+              <label className={styles.label}>Mot de passe</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className={styles.input}
+                placeholder="Mot de passe administrateur"
+                autoFocus
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className={`${styles.btn} ${styles.btnPrimary}`}
+              disabled={loggingIn}
+            >
+              {loggingIn ? "Vérification…" : "Se connecter"}
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="admin-container">
-      <h1>Administration</h1>
-
-      {!isAuthenticated ? (
-        <form onSubmit={handleLogin} className="login-form">
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Mot de passe administrateur"
-            className="password-input"
-            required
-          />
-          <button type="submit" className="login-button" disabled={isLoading}>
-            {isLoading ? "Vérification..." : "Se connecter"}
+    <div className={styles.page}>
+      <div className={styles.container}>
+        <div className={styles.topbar}>
+          <h1 className={styles.title}>Administration</h1>
+          <button
+            type="button"
+            className={`${styles.btn} ${styles.btnGhost} ${styles.btnSmall}`}
+            onClick={handleLogout}
+          >
+            Se déconnecter
           </button>
-        </form>
-      ) : (
-        <div className="emails-container">
-          <div className="emails-header">
-            <h2>Liste des emails ({emails.length})</h2>
-            <button onClick={copyAllEmails} className="copy-button">
-              Copier tous les emails
-            </button>
-          </div>
-
-          {isLoading ? (
-            <p>Chargement des emails...</p>
-          ) : (
-            <ul className="emails-list">
-              {emails.map((email, index) => (
-                <li key={index} className="email-item">
-                  {email}
-                </li>
-              ))}
-            </ul>
-          )}
         </div>
-      )}
 
-      <Toaster />
+        <div className={styles.tabs}>
+          <button
+            type="button"
+            className={`${styles.tab} ${tab === "horses" ? styles.tabActive : ""}`}
+            onClick={() => setTab("horses")}
+          >
+            Chevaux
+          </button>
+          <button
+            type="button"
+            className={`${styles.tab} ${tab === "emails" ? styles.tabActive : ""}`}
+            onClick={() => setTab("emails")}
+          >
+            Emails
+          </button>
+        </div>
 
-      <style jsx>{`
-        .admin-container {
-          max-width: 800px;
-          margin: 0 auto;
-          padding: 2rem;
-        }
-
-        .login-form {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          margin-top: 2rem;
-          max-width: 400px;
-        }
-
-        .password-input {
-          padding: 0.5rem;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-        }
-
-        .login-button {
-          padding: 0.5rem;
-          background-color: #333;
-          color: white;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-        }
-
-        .login-button:disabled {
-          opacity: 0.7;
-          cursor: not-allowed;
-        }
-
-        .emails-container {
-          margin-top: 2rem;
-        }
-
-        .emails-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 1rem;
-        }
-
-        .copy-button {
-          padding: 0.5rem 1rem;
-          background-color: #4caf50;
-          color: white;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-        }
-
-        .emails-list {
-          list-style: none;
-          padding: 0;
-          border: 1px solid #ddd;
-          border-radius: 4px;
-          max-height: 400px;
-          overflow-y: auto;
-        }
-
-        .email-item {
-          padding: 0.5rem 1rem;
-          border-bottom: 1px solid #eee;
-        }
-
-        .email-item:last-child {
-          border-bottom: none;
-        }
-      `}</style>
+        {tab === "horses" ? <AdminHorses /> : <AdminEmails />}
+      </div>
     </div>
   );
 }

@@ -19,3 +19,19 @@ model Email {
   email     String   @unique
 }
 
+/// A horse displayed on the public site. The full nested shape (pedigree,
+/// gallery, etc.) lives in `data` so the front-end keeps consuming the exact
+/// object it always has; the scalar columns mirror a few fields from `data`
+/// for querying, ordering and uniqueness.
+model Horse {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  category  String   @default("")
+  position  Int      @default(0)
+  data      Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([position])
+}
+

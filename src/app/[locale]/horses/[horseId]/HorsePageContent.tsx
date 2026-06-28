@@ -1,34 +1,22 @@
 "use client";
 
-import horsesData from "@/horses/horses.json";
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import InfoBlock from "./InfoBlock";
+import HorseCarousel from "./HorseCarousel";
 import { rawengulkBold } from "@/app/fonts/fonts";
 import { useTranslations } from "next-intl";
 import { Divider } from "@mui/material";
+import type { Horse } from "@/horses/types";
 import styles from "./HorsePageContent.module.css";
 
-export default function HorsePageContent({
-  locale,
-  id,
-}: {
-  locale: string;
-  id: string;
-}) {
+export default function HorsePageContent({ horse }: { horse: Horse | null }) {
   const t = useTranslations("HorsePage");
   const dataGridRef = useRef<HTMLDivElement>(null);
   const [dataGridHeight, setDataGridHeight] = useState<number | null>(null);
 
-  // Décodage de l'ID pour gérer les caractères spéciaux
-  const decodedId = decodeURIComponent(id);
-
-  // Recherche du cheval en utilisant une comparaison plus robuste
-  const horse = horsesData.find(
-    (horse) => horse.name.toLowerCase() === decodedId
-  );
-
   const [imageSrc, setImageSrc] = useState<string>("");
+  const galleryImages = horse?.imgs ?? [];
 
   useEffect(() => {
     if (horse?.img) {
@@ -69,7 +57,7 @@ export default function HorsePageContent({
       >
         <div className={styles.genderContainer}>
           <h2 className={styles.gender}>
-            {horse?.category.toUpperCase()}
+            {horse?.category?.toUpperCase()}
           </h2>
         </div>
 
@@ -128,6 +116,10 @@ export default function HorsePageContent({
           </a>
         )}
       </div>
+
+      {galleryImages.length > 0 && (
+        <HorseCarousel images={galleryImages} name={horse?.name} />
+      )}
     </div>
   );
 }

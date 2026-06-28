@@ -1,17 +1,34 @@
 import Navbar from "@/ui/Navbar";
-import { useLocale, useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 import HorsePageContent from "./HorsePageContent";
 import OnlySmall from "@/ui/components/OnlySmall";
 import { LogoSvg } from "@/ui/svg/LogoSvg";
 import OnlyLarge from "@/ui/components/OnlyLarge";
 import Image from "next/image";
 import FooterMinimal from "@/ui/components/FooterMinimal";
+import { getHorseByName } from "@/horses/horsesRepository";
 import styles from "./page.module.css";
 
-export default function HorsePage({ params }: { params: { horseId: string } }) {
-  const locale = useLocale();
-  const t = useTranslations("HorsePage");
-  const nt = useTranslations("Navbar");
+// Les chevaux viennent de la base de données : on rend la page à la demande
+// pour que les modifications de l'admin soient visibles immédiatement.
+export const dynamic = "force-dynamic";
+
+export default async function HorsePage({
+  params,
+}: {
+  params: { horseId: string };
+}) {
+  const locale = await getLocale();
+  const nt = await getTranslations("Navbar");
+
+  const decodedId = decodeURIComponent(params.horseId);
+  const horse = await getHorseByName(decodedId);
+
+  if (!horse) {
+    notFound();
+  }
+
   return (
     <main className={styles.main}>
       <Image
@@ -44,7 +61,7 @@ export default function HorsePage({ params }: { params: { horseId: string } }) {
         contact={nt("contact")}
       />
       <div className={styles.contentWrapper}>
-        <HorsePageContent locale={locale} id={params.horseId} />
+        <HorsePageContent horse={horse} />
       </div>
       <FooterMinimal locale={locale} />
     </main>

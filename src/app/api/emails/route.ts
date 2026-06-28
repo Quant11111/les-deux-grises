@@ -1,5 +1,6 @@
 import prisma from "@/app/db";
 import { NextResponse } from "next/server";
+import { guardAdmin } from "@/server/adminAuth";
 
 // POST: Create a new horse
 export async function POST(request: Request) {
@@ -16,8 +17,11 @@ export async function POST(request: Request) {
   }
 }
 
-// GET: Get details of a horse by name
+// GET: list every subscriber email (admin only — this is sensitive data)
 export async function GET(request: Request) {
+  const denied = guardAdmin();
+  if (denied) return denied;
+
   const emails = await prisma.email.findMany();
   //transforme le résultat en liste
   const emailsList = emails.map((email: { email: string }) => email.email);

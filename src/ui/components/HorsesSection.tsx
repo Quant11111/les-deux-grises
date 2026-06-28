@@ -1,13 +1,19 @@
 "use client";
 
-import horsesData from "@/horses/horses.json";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import type { Horse } from "@/horses/types";
 import CustomScrollbar from "./CustomScrollbar";
 import HorsesRadios from "./HorsesRadios";
 import styles from "./HorsesSection.module.css";
 
-export default function HorsesSection({ locale }: { locale: string }) {
+export default function HorsesSection({
+  locale,
+  horses,
+}: {
+  locale: string;
+  horses: Horse[];
+}) {
   const [selectedType, setSelectedType] = useState("all");
   const router = useRouter();
 
@@ -20,7 +26,7 @@ export default function HorsesSection({ locale }: { locale: string }) {
     "future foal",
   ];
 
-  const filteredHorses = horsesData.filter((horse) => {
+  const filteredHorses = horses.filter((horse) => {
     const horseType = horse.category;
     const matchesType = selectedType === "all" || horseType === selectedType;
     return matchesType;
@@ -64,7 +70,7 @@ export default function HorsesSection({ locale }: { locale: string }) {
             >
               {horse.category === "foal" || horse.category === "future foal" ? (
                 <h2 className={styles.horseName}>
-                  {horse.name + " X " + horse.dad.name + " X " + horse.mom.name}
+                  {horse.name + " X " + horse.dad?.name + " X " + horse.mom?.name}
                 </h2>
               ) : (
                 <h2 className={styles.horseName}>{horse.name}</h2>
