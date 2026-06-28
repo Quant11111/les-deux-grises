@@ -39,6 +39,22 @@
   border-top-right-radius: var(--arch-radius);
 }
 
+/* Bottom readability gradient — only shown on small layouts where the
+   title/description are brought inside the image (<= 1100px). */
+.imageContainer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: none;
+  background: linear-gradient(
+    to top,
+    rgba(20, 20, 20, 0.6) 0%,
+    rgba(20, 20, 20, 0.35) 22%,
+    rgba(20, 20, 20, 0) 48%
+  );
+}
+
 .heroTitle {
   position: absolute;
   font-weight: lighter;
