@@ -6,6 +6,7 @@ import type { Horse } from "@/horses/types";
 import { pruneHorse } from "@/horses/normalize";
 import { cdnUrl } from "@/utils/cdn";
 import AncestorForm from "./AncestorForm";
+import CommaListInput from "./CommaListInput";
 import ImageCropper from "./ImageCropper";
 import styles from "./admin.module.css";
 
@@ -17,11 +18,6 @@ const CATEGORY_OPTIONS: { value: string; label: string }[] = [
   { value: "foal", label: "Poulain" },
   { value: "future foal", label: "À venir" },
 ];
-
-const toList = (s: string): string[] | undefined => {
-  const arr = s.split(",").map((x) => x.trim()).filter(Boolean);
-  return arr.length ? arr : undefined;
-};
 
 async function uploadImage(
   fileOrBlob: Blob,
@@ -231,10 +227,9 @@ export default function HorseEditor({
           <div className={styles.grid2}>
             <div className={styles.field}>
               <label className={styles.label}>Distinctions (séparées par ,)</label>
-              <input
-                className={styles.input}
-                value={(horse.distinctions ?? []).join(", ")}
-                onChange={(e) => set({ distinctions: toList(e.target.value) })}
+              <CommaListInput
+                value={horse.distinctions}
+                onChange={(v) => set({ distinctions: v })}
               />
             </div>
             <div className={styles.field}>

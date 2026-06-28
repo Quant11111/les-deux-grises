@@ -148,11 +148,11 @@
 .textarea {
   width: 100%;
   padding: 0.6rem 0.7rem;
-  border: 1.5px solid rgba(var(--dark-foreground), 0.35);
+  border: 1.5px solid rgba(var(--dark-foreground), 0.55);
   border-radius: 8px;
   font-size: 0.92rem;
   font-family: inherit;
-  background: rgba(var(--cloudy-mist), 0.45);
+  background: rgb(var(--cloudy-mist));
   color: rgb(var(--dark-foreground));
   box-shadow: inset 0 1px 2px rgba(var(--dark-foreground), 0.06);
   transition: border-color var(--duration-fast) var(--ease-out),
@@ -168,7 +168,7 @@
 .input:hover,
 .select:hover,
 .textarea:hover {
-  border-color: rgba(var(--dark-foreground), 0.5);
+  border-color: rgba(var(--dark-foreground), 0.7);
 }
 
 .input:focus,

@@ -2,17 +2,8 @@
 
 import { useState } from "react";
 import type { Ancestor } from "@/horses/types";
+import CommaListInput from "./CommaListInput";
 import styles from "./admin.module.css";
-
-const toList = (s: string): string[] | undefined => {
-  const arr = s
-    .split(",")
-    .map((x) => x.trim())
-    .filter(Boolean);
-  return arr.length ? arr : undefined;
-};
-
-const fromList = (a: string[] | undefined): string => (a ?? []).join(", ");
 
 const toYear = (s: string): number | undefined => {
   const n = parseInt(s, 10);
@@ -123,20 +114,18 @@ export default function AncestorForm({
           <div className={styles.grid2}>
             <div className={styles.field}>
               <label className={styles.label}>Licences (séparées par ,)</label>
-              <input
-                className={styles.input}
-                value={fromList(value.licenses)}
-                onChange={(e) => set({ licenses: toList(e.target.value) })}
+              <CommaListInput
+                value={value.licenses}
+                onChange={(v) => set({ licenses: v })}
               />
             </div>
             <div className={styles.field}>
               <label className={styles.label}>
                 Distinctions (séparées par ,)
               </label>
-              <input
-                className={styles.input}
-                value={fromList(value.distinctions)}
-                onChange={(e) => set({ distinctions: toList(e.target.value) })}
+              <CommaListInput
+                value={value.distinctions}
+                onChange={(v) => set({ distinctions: v })}
               />
             </div>
           </div>
